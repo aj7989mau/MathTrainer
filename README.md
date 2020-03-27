@@ -1,7 +1,6 @@
 # MathTrainer
  MathTrainer is an application that helps young studens learn math in a fun and interactive way!
 
-Syfte
 Syftet med projektet MathTrainer är att få grundläggande förståelse hur det är att arbeta med sina teoretiska kunskaper i praktiken. MathTrainer har som mål att hjälpa elever att bli bättre på matematik med hjälp av ett onlinebaserat matematikspel. 
 
 Projektets effekt är att fördjupa oss i projektprocessen. Samtliga gruppmedlemmar har olika syn på om den slutliga produkten ska färdigställas, några vill ha en färdig produkt medans andra är flexibla. Men en gemensam nämnare som samtliga gruppmedlemmar har är ambitionen att lära oss. Men huvudsyftet är att under en begränsad tid utveckla en produkt, hitta lösningar eller en tjänst för produkten Mathtrainer. 
