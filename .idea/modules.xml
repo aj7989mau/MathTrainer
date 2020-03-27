@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Java/Java.iml" filepath="$PROJECT_DIR$/Java/Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/MathTainerServer.iml" filepath="$PROJECT_DIR$/Java/MathTainerServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/MathTrainer.iml" filepath="$PROJECT_DIR$/.idea/MathTrainer.iml" />
     </modules>
   </component>
