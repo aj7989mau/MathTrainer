@@ -1,17 +1,15 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * 8th class of MathTraining project
  * @author abdulsamisahil
  */
-public class Eighth extends Course {
+public class Ninth extends Course {
     private Questions[] questions;
     private List<User> usersList;
 
-    public Eighth(){
+    public Ninth(){
         usersList = new ArrayList<>();
         String n = "\n";
         String q1 = "What is 12 multiply by 12?" + n + "(a) 144" + n + "(b) 148" + n + "(c) 240" + n;

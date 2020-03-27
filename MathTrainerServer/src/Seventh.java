@@ -1,8 +1,5 @@
-import java.io.DataInputStream;
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Seventh extends Course{
     private Questions[] questions;
