@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
@@ -55,7 +57,7 @@ public class Test {
         int userAge = userInput.nextInt();
         System.out.println("Please enter your id");
         String id = userInput.nextLine();
-        userInput.nextLine();
+       // userInput.nextLine();
         userInput.nextLine();
 
         User user = new User(username, userAge, id);
