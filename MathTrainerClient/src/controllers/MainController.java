@@ -5,9 +5,12 @@ import entity.ScenesEnum;
 import entity.ScenesHashMap;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * Class MainController is created by the Main class. It is the controller of the other controllers. All scene
@@ -27,6 +30,10 @@ public class MainController {
     public MainController(Stage window) {
         this.window = window;
         window.setTitle("MathTrainer");
+        window.setOnCloseRequest(e -> { //Detta stoppar close eventen (consume) och skickar istället programmet till
+            e.consume();                //metoden closeProgram() som finns längre ner. Den skapar en confirmation ruta.
+            closeProgram();
+        });
         //new NetworkController(incomingBuffer, outgoingBuffer);
 
         try {
@@ -59,8 +66,8 @@ public class MainController {
         sceneSetter.setScene(ScenesEnum.LogIn);
     }
 
-    // Inte helt nöjd med denna lösning, men hittar inget smidigt sätt att annars lista ut vilken scen man ska till
-    // när man t ex backar i menyn, så man får helt enkelt skicka med namnet på den scen den ska till.
+    // Inte helt nöjd med denna lösning, vi får nog göra om sen så varje action som görs (eller knapp som klickas på)
+    // kallar på någon metod i maincontrollern, och i varje metod sätts scenen baserat på utfall.
     public void changeScene(ScenesEnum sceneToShow){
         sceneSetter.setScene(sceneToShow);
     }
@@ -68,6 +75,28 @@ public class MainController {
     public void newUser(String userInformation){
         //Massa kod för att skapa ny användare här
         sceneSetter.setScene(ScenesEnum.MainMenu);
+    }
+
+    // Har ersatt egen alertbox med detta. Mycket smidigare. Använd bara Alerttype Confirm och Error för enkelhetens skull.
+    // Om Error används behöver ni troligtvis inte göra något av denna return boolean sen.
+    public boolean popUpWindow (Alert.AlertType alertType, String title, String message){
+        boolean choice = false;
+
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        if (alert.showAndWait().get().equals(ButtonType.OK)){
+            choice = true;
+        }
+        return choice;
+    }
+
+    public void closeProgram(){
+        boolean answer = popUpWindow(Alert.AlertType.CONFIRMATION, "Avsluta?", "Är du säker på att du vill avsluta MathTrainer?");
+        if (answer){
+            window.close();
+        }
     }
 
     /**
