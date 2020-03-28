@@ -2,9 +2,7 @@ package controllers;
 
 import entity.ScenesEnum;
 import javafx.event.ActionEvent;
-import entity.AlertBox;
-
-import java.io.IOException;
+import javafx.scene.control.Alert;
 
 /**
  * Controller for the scene LogIn.fxml
@@ -13,8 +11,8 @@ import java.io.IOException;
 public class LogInController extends ControllerParent {
 
     public void skipLogInClicked(ActionEvent actionEvent) {
-        boolean answer = AlertBox.yesNoOption("Logga in?", "Om du inte loggar in eller skapar en användare kommer ingenting att sparas. " +
-                "Är du säker på att du vill fortsätta utan att logga in?", "Ja", "Nej");
+        boolean answer = mainController.popUpWindow(Alert.AlertType.CONFIRMATION, "Fortsätt utan att logga in?", "Om du inte loggar in eller skapar en användare kommer ingenting att sparas. " +
+                "Är du säker på att du vill fortsätta utan att logga in?");
         if (answer){
             mainController.logIn("Guest","");
         }
@@ -26,5 +24,9 @@ public class LogInController extends ControllerParent {
 
     public void newUserClicked(ActionEvent actionEvent) {
         mainController.changeScene(ScenesEnum.NewUser);
+    }
+
+    public void exitClicked(ActionEvent actionEvent) {
+        mainController.closeProgram();
     }
 }
