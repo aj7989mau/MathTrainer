@@ -1,5 +1,5 @@
 /**
- * The user class
+ * The user class that is responsible for each new user
  * @author abdulsamisahil
  * @version 1.0
  * @since  2020-03-23

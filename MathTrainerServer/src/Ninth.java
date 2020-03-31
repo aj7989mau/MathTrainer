@@ -2,8 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 8th class of MathTraining project
+ * This class is a subclass to the parent Course, this class makes an
+ * array of the Question class and returns it back whenever the user
+ * selects to be apart of the class.
  * @author abdulsamisahil
+ * @version 1.0
+ * @since 2020-03-31
  */
 public class Ninth extends Course {
     private Questions[] questions;
