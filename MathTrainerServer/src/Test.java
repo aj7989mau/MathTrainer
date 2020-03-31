@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class is made for purpose small tests of the project
+ * after every development iteration.
+ * @author abdulsamisahil
+ */
 public class Test {
     public static void main(String[] args) {
         Course seventh = new Seventh();
@@ -74,5 +79,6 @@ public class Test {
         }
         String str = "Dear Mr " + user.getName() + ", you got " + score + "/" + questions.length;
         System.out.println(str);
+        System.out.println();
     }
 }

@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MathTainer Server class
+ * MathTainer Server class, controls logic/communications with the MathTrainer Clients.
  * @author abdulsamisahil
- * @version 1.4
- * @since 2020-03-26
+ * @version 1.5
+ * @since 2020-03-31
  *
  */
 public class MServer extends Thread {
@@ -19,8 +19,14 @@ public class MServer extends Thread {
     private DataOutputStream out;
     private DataInputStream in;
     private Socket server;
+    private int port;
+    /**
+     * MTServer Constructor
+     * @param port server listening to this port
+     */
+    public MServer(int port) {
+        this.port = port;
 
-    public MServer() {
         try {
             startServer();
 
@@ -28,10 +34,12 @@ public class MServer extends Thread {
             e.printStackTrace();
         }
     }
-
+    /**
+     * This method is connecting the MTServer
+     */
     private void startServer() throws IOException {
 
-        int port = 220;
+       // int port = 220;
         serverSocket = new ServerSocket(port);
 
         while (true) {
@@ -48,13 +56,19 @@ public class MServer extends Thread {
             }
         }
     }
-
+    /**
+     * This method runs once MTServer gets active and awaits for any user to turn up!
+     * Once any user is trying to connect the MTServer accepts it.
+     *
+     */
     private void waitForClient() throws Exception {
         server = serverSocket.accept();
         System.out.println("Just connected to " + server.getInetAddress().getHostName());
         setupStreams();
     }
-
+    /**
+     * This method initializes and setups the streams that holds/read/writes the data input from the user
+     */
     private void setupStreams() throws IOException {
         in = new DataInputStream(server.getInputStream());
         System.out.println(in.readUTF());
@@ -64,9 +78,18 @@ public class MServer extends Thread {
     }
 
     public static void main(String[] args) throws IOException {
-        new MServer();
+        new MServer(220);
     }
 
+    /**
+     * The inner class the handles the users, we have not decided to build the product
+     * server to handle different of users connected on different network (Multithreading),
+     * but I will try to code,  in case we change our mind.
+     * @author abdulsamisahil
+     * @version 1.0
+     * @since 2020.03.31
+     *
+     */
     class ClientHandler extends Thread {
 
         private Socket connection;
@@ -74,12 +97,21 @@ public class MServer extends Thread {
         private DataOutputStream out;
         private List<User> userList;
 
+        /**
+         * Constructor
+         * @param connection connects the client to server
+         * @param in in streams
+         * @param out out streams
+         */
         public ClientHandler(Socket connection, DataInputStream in, DataOutputStream out) {
             this.connection = connection;
             this.in = in;
             this.out = out;
         }
-
+        /**
+         * This run method starts the thread that connects the server and users
+         * The server listens to users as long as the ServerSocket is opened.
+         */
         public void run() {
             try {
                 while (connection.isConnected()) {
@@ -139,6 +171,10 @@ public class MServer extends Thread {
             }
         }
 
+        /**
+         * This method adds the user to a collection
+         * @throws IOException catches exceptions
+         */
         private void addUser() throws IOException {
             out.writeUTF("Please enter your username");
             String username = in.readUTF();
@@ -156,6 +192,11 @@ public class MServer extends Thread {
             out.writeUTF("\nEnjoy your test!\n");
         }
 
+        /**
+         * As soon as the user starts, this method starts the test
+         * @param questions takes an array of Question class,
+         * @throws IOException catches the errors
+         */
         private void takeTest(Questions[] questions) throws IOException {
             int score = 0;
 
