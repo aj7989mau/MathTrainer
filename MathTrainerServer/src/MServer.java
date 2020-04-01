@@ -194,7 +194,7 @@ public class MServer extends Thread {
 
         /**
          * As soon as the user starts, this method starts the test
-         * @param questions takes an array of Question class
+         * @param questions takes an array of Question class,
          * @throws IOException catches the errors
          */
         private void takeTest(Questions[] questions) throws IOException {
