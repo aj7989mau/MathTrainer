@@ -16,8 +16,10 @@ public class Eighth extends Course {
     public Eighth(){
         usersList = new ArrayList<>();
         String n = "\n";
+
         String q1 = "What is 12 multiply by 12?" + n + "(a) 144" + n + "(b) 148" + n + "(c) 240" + n;
         String q2 = "What is the square value of 169?" + n + "(a) 12" + n + "(b) 34" + n + "(c) 13" + n;
+
         questions = new Questions[]{new Questions(q1, "a"), new Questions(q2, "c")};
         //takeTest(questions);
     }
