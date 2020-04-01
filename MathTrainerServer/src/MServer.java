@@ -11,7 +11,6 @@ import java.util.List;
  * @author abdulsamisahil
  * @version 1.5
  * @since 2020-03-31
- *
  */
 public class MServer extends Thread {
 
