@@ -202,7 +202,7 @@ public class MServer extends Thread {
          //   setupStreams();
         }
         /**
-         * This method initializes and setups the streams that holds/read/writes the data input from the user
+         * This method initializes and setups the streams that holds/read/writes the data input from the users
          */
         private void setupStreams() throws IOException {
             in = new DataInputStream(server.getInputStream());
