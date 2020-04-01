@@ -73,9 +73,9 @@ public class MServer extends Thread {
     class ClientHandler extends Thread {
 
         private Socket server;
-        private DataInputStream in;
-        private DataOutputStream out;
-        private List<User> userList;
+        private DataInputStream inputStream;
+        private DataOutputStream outputStream;
+        private List<User> userList = new ArrayList<>();
 
         /**
          * Constructor
@@ -97,10 +97,10 @@ public class MServer extends Thread {
             try {
                 while (server.isConnected()) {
                     try {
-                        Course course = null;
+                        Course course;
                         // System.out.println("Which level do you want to start with?\n(a) Seventh\n(b) Eigth\n(c) Ninth\n");
-                        out.writeUTF("Which level do you want to start with?\n(a) Seventh\n(b) Eigth\n(c) Ninth\n(d) leave now\n(e) Close Server\n");
-                        String level = in.readUTF();
+                        outputStream.writeUTF("Which level do you want to start with?\n(a) Seventh\n(b) Eigth\n(c) Ninth\n(d) leave now\n(e) Close Server\n");
+                        String level = inputStream.readUTF();
                         if (level.equals("a")) {
                             course = new Seventh();
                             addUser();
@@ -122,8 +122,8 @@ public class MServer extends Thread {
                             try {
                                 System.out.println("Connection to " + this.server + " closed.");
                                 this.server.close();
-                                this.in.close();
-                                this.out.close();
+                                this.inputStream.close();
+                                this.outputStream.close();
                                 break;
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -134,14 +134,14 @@ public class MServer extends Thread {
                             try {
                                 System.out.println("Closing server...");
                                 this.server.close();
-                                this.in.close();
-                                this.out.close();
+                                this.inputStream.close();
+                                this.outputStream.close();
                                 System.exit(0);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         } else {
-                            out.writeUTF("Invalid Option");
+                            outputStream.writeUTF("Invalid Option");
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -157,20 +157,19 @@ public class MServer extends Thread {
          * @throws IOException catches exceptions
          */
         private void addUser() throws IOException {
-            out.writeUTF("Please enter your username");
-            String username = in.readUTF();
-            out.writeUTF("Please enter your age");
-            int userAge = in.readInt();
-            out.writeUTF("Please enter your id");
-            String id = in.readUTF();
+            outputStream.writeUTF("Please enter your username");
+            String username = inputStream.readUTF();
+            outputStream.writeUTF("Please enter your age");
+            int userAge = inputStream.readInt(); //
+            outputStream.writeUTF("Please enter your id");
+            String id = inputStream.readUTF();
 
 
             User user = new User(username, userAge, id);
-            userList = new ArrayList<>();
             userList.add(user);
 
-            out.writeUTF("Mr " + username + ", you are admitted to the course");
-            out.writeUTF("\nEnjoy your test!\n");
+            outputStream.writeUTF("Mr " + username + ", you are admitted to the course");
+            outputStream.writeUTF("\nEnjoy your test!\n");
         }
 
         /**
@@ -183,13 +182,13 @@ public class MServer extends Thread {
 
             for (int i = 0; i < questions.length; i++) {
                 System.out.println(questions[i]);
-                String answer = in.readUTF();
+                String answer = inputStream.readUTF();
                 if (answer.equals(questions[i].getAnswer())) {
                     score++;
                 }
             }
             String str = "Dear Mr ";
-            out.writeUTF(str + ", you got" + score + "/" + questions.length);
+            outputStream.writeUTF(str + ", you got" + score + "/" + questions.length);
         }
         /**
          * This method runs once MTServer gets active and awaits for any user to turn up!
@@ -205,11 +204,11 @@ public class MServer extends Thread {
          * This method initializes and setups the streams that holds/read/writes the data input from the users
          */
         private void setupStreams() throws IOException {
-            in = new DataInputStream(server.getInputStream());
-            System.out.println(in.readUTF());
-            out = new DataOutputStream(server.getOutputStream());
-            out.writeUTF("Thank you for connecting to " + server.getInetAddress().getHostName());
-            out.flush();
+            inputStream = new DataInputStream(server.getInputStream());
+            System.out.println(inputStream.readUTF());
+            outputStream = new DataOutputStream(server.getOutputStream());
+            outputStream.writeUTF("Thank you for connecting to " + server.getInetAddress().getHostName());
+            outputStream.flush();
         }
     }
 }
