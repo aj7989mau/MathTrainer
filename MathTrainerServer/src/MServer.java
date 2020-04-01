@@ -15,9 +15,9 @@ import java.util.List;
 public class MServer extends Thread {
 
     private ServerSocket serverSocket;
-    private DataOutputStream out;
-    private DataInputStream in;
-    private Socket server;
+ //   private DataOutputStream out;
+ //   private DataInputStream in;
+ //   private Socket server;
     private int port;
     /**
      * MTServer Constructor
@@ -42,40 +42,20 @@ public class MServer extends Thread {
         serverSocket = new ServerSocket(port);
 
         while (true) {
-            server = null;
+
             try {
+                Socket connect = serverSocket.accept();
                 System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
-                waitForClient();
-                Thread t = new ClientHandler(server, in, out);
+               // waitForClient();
+                ClientHandler t = new ClientHandler(connect);
                 t.start();
                 //  setupStreams();
             } catch (Exception e) {
-                server.close();
+                serverSocket.close();
                 e.printStackTrace();
             }
         }
     }
-    /**
-     * This method runs once MTServer gets active and awaits for any user to turn up!
-     * Once any user is trying to connect the MTServer accepts it.
-     *
-     */
-    private void waitForClient() throws Exception {
-        server = serverSocket.accept();
-        System.out.println("Just connected to " + server.getInetAddress().getHostName());
-        setupStreams();
-    }
-    /**
-     * This method initializes and setups the streams that holds/read/writes the data input from the user
-     */
-    private void setupStreams() throws IOException {
-        in = new DataInputStream(server.getInputStream());
-        System.out.println(in.readUTF());
-        out = new DataOutputStream(server.getOutputStream());
-        out.writeUTF("Thank you for connecting to " + server.getInetAddress().getHostName());
-        out.flush();
-    }
-
     public static void main(String[] args) throws IOException {
         new MServer(220);
     }
@@ -91,21 +71,22 @@ public class MServer extends Thread {
      */
     class ClientHandler extends Thread {
 
-        private Socket connection;
+        private Socket server;
         private DataInputStream in;
         private DataOutputStream out;
         private List<User> userList;
 
         /**
          * Constructor
-         * @param connection connects the client to server
-         * @param in in streams
-         * @param out out streams
+         * @param server connects the client to server
          */
-        public ClientHandler(Socket connection, DataInputStream in, DataOutputStream out) {
-            this.connection = connection;
-            this.in = in;
-            this.out = out;
+        public ClientHandler(Socket server) {
+            this.server = server;
+            try {
+                setupStreams();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         /**
          * This run method starts the thread that connects the server and users
@@ -113,7 +94,7 @@ public class MServer extends Thread {
          */
         public void run() {
             try {
-                while (connection.isConnected()) {
+                while (server.isConnected()) {
                     try {
                         Course course = null;
                         // System.out.println("Which level do you want to start with?\n(a) Seventh\n(b) Eigth\n(c) Ninth\n");
@@ -138,8 +119,8 @@ public class MServer extends Thread {
                         //QUIT CLIENT
                         else if (level.equals("d")) {
                             try {
-                                System.out.println("Connection to " + this.connection + " closed.");
-                                this.connection.close();
+                                System.out.println("Connection to " + this.server + " closed.");
+                                this.server.close();
                                 this.in.close();
                                 this.out.close();
                                 break;
@@ -151,7 +132,7 @@ public class MServer extends Thread {
                         else if (level.equals("e")) {
                             try {
                                 System.out.println("Closing server...");
-                                this.connection.close();
+                                this.server.close();
                                 this.in.close();
                                 this.out.close();
                                 System.exit(0);
@@ -208,6 +189,26 @@ public class MServer extends Thread {
             }
             String str = "Dear Mr ";
             out.writeUTF(str + ", you got" + score + "/" + questions.length);
+        }
+        /**
+         * This method runs once MTServer gets active and awaits for any user to turn up!
+         * Once any user is trying to connect the MTServer accepts it.
+         *
+         */
+        private void waitForClient() throws Exception {
+            server = serverSocket.accept();
+            System.out.println("Just connected to " + server.getInetAddress().getHostName());
+         //   setupStreams();
+        }
+        /**
+         * This method initializes and setups the streams that holds/read/writes the data input from the users
+         */
+        private void setupStreams() throws IOException {
+            in = new DataInputStream(server.getInputStream());
+            System.out.println(in.readUTF());
+            out = new DataOutputStream(server.getOutputStream());
+            out.writeUTF("Thank you for connecting to " + server.getInetAddress().getHostName());
+            out.flush();
         }
     }
 }
