@@ -12,8 +12,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Class MainController is created by the Main class. It is the controller of the other controllers. All scene
- * controllers has a reference to this controller to communicate with it. NetworkController communicates through the buffers.
+ * Class MainController is controller of the other controllers. All scene controllers has a reference to this controller
+ * to communicate with it. NetworkController communicates with it through the buffers. In this class, only the general
+ * and recurring logic is handled, such as setting scenes (inner class), pop-up windows and closing the program.
  * @author Niklas Hultin
  * @version 1.0
  */
@@ -31,11 +32,7 @@ public class MainController {
      */
     public MainController(Stage mainWindow) {
         this.mainWindow = mainWindow;
-        mainWindow.setTitle("MathTrainer");
-        mainWindow.setOnCloseRequest(e -> { //Detta stoppar close eventen (consume) och skickar istället programmet till
-            e.consume();                //metoden closeProgram() som finns längre ner. Den skapar en confirmation ruta.
-            closeProgram();
-        });
+
         //new NetworkController(incomingBuffer, outgoingBuffer);
 
         try {
@@ -45,42 +42,42 @@ public class MainController {
             e.printStackTrace();
         }
 
+
+        mainWindow.setOnCloseRequest(e -> {//Denna metod bestämmer vad som händer när man trycker på krysset i fönstret.
+            e.consume();                //Detta stoppar close-eventen (consume) och skickar istället programmet till
+            closeProgram();             //metoden closeProgram() som finns längre ner. Den skapar en confirmation ruta.
+        });
+        this.mainWindow.setTitle("MathTrainer");
         sceneSetter.setScene(ScenesEnum.LogIn);
-        mainWindow.show();
+        this.mainWindow.show();
     }
 
+    /**
+     * Uses the interface SceneControllerParent (used by all Scene-controllers) to send itself to the scene-controller for
+     * the FXML-file loaded in to the FXMLLoader. This gives the Scene-controllers a reference to this MainController.
+     * @param loader The loader for a specific FXML-file. This gives access to that files specified controller.
+     */
     public void sendSelfToControllers(FXMLLoader loader) {
-        ((ControllerParent) loader.getController()).setMainController(this);
+        ((SceneControllerParent) loader.getController()).setMainController(this);
     }
 
-    public void logIn(String username, String password) {
-        if (username.equals("Guest")){
-            //Kod för att spela som gäst
-        }
-        else {
-            //Kod för att logga in
-        }
-        sceneSetter.setScene(ScenesEnum.MainMenu);
-    }
-
-    public void logOut(){
-        //Kod för utloggning
-        sceneSetter.setScene(ScenesEnum.LogIn);
-    }
-
-    // Inte helt nöjd med denna lösning, vi får nog göra om sen så varje action som görs (eller knapp som klickas på)
-    // kallar på någon metod i maincontrollern, och i varje metod sätts scenen baserat på utfall.
-    public void changeScene(ScenesEnum sceneToShow){
+    /**
+     * Changes the current scene that is being displayed on the Stage.
+     * @param sceneToShow The ScenesEnum-name of the Scene that should be displayed.
+     */
+    public void setScene(ScenesEnum sceneToShow){
         sceneSetter.setScene(sceneToShow);
     }
 
-    public void newUser(String userInformation){
-        //Massa kod för att skapa ny användare här
-        sceneSetter.setScene(ScenesEnum.MainMenu);
-    }
-
-    // Har ersatt egen alertbox med detta. Mycket smidigare. Använd bara Alerttype Confirm och Error för enkelhetens skull.
-    // Om Error används behöver ni troligtvis inte göra något av denna return boolean sen.
+    /**
+     * Uses a static class Alarm to create Pop-Up boxes. The box will be the only interactive object until it has been
+     * handled by the user. The code is only made for using the AlertTypes Confirm (Yes/no-option) and Error (Only OK).
+     * @param alertType The type of box. Confirm gives a box with OK and Cancel buttons. Error only gives an OK button.
+     * @param title The title of the pop-up window
+     * @param message The message shown in the pop-up window.
+     * @return Returns true if the user pressed the OK button, otherwise returns false. The return value is not always
+     * useful (the Error Pop-Up only has one option, for example) and it is up to the developer to handle it correctly.
+     */
     public boolean popUpWindow (Alert.AlertType alertType, String title, String message){
         boolean choice = false;
 
@@ -94,6 +91,10 @@ public class MainController {
         return choice;
     }
 
+    /**
+     * This method is used both when the user hits the button to close to program, and if the user tries to shut down
+     * the program using the standard close option in the OS (for example: X in the top right corner of the window).
+     */
     public void closeProgram(){
         boolean answer = popUpWindow(Alert.AlertType.CONFIRMATION, "Avsluta?", "Är du säker på att du vill avsluta MathTrainer?");
         if (answer){
@@ -117,17 +118,32 @@ public class MainController {
             Scene logInScene = new Scene(logInLoader.load());
             sendSelfToControllers(logInLoader);
 
-            FXMLLoader mainMenuLoader = new FXMLLoader(getClass().getResource("../scenes/MainMenu.fxml"));
-            Scene mainMenuScene = new Scene(mainMenuLoader.load());
-            sendSelfToControllers(mainMenuLoader);
-
             FXMLLoader newUserLoader = new FXMLLoader(getClass().getResource("../scenes/NewUser.fxml"));
             Scene newUserScene = new Scene(newUserLoader.load());
             sendSelfToControllers(newUserLoader);
 
+            FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Home.fxml"));
+            Scene homeScene = new Scene(homeLoader.load());
+            sendSelfToControllers(homeLoader);
+
+            FXMLLoader exercisesLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Exercises.fxml"));
+            Scene exercisesScene = new Scene(exercisesLoader.load());
+            sendSelfToControllers(exercisesLoader);
+
+            FXMLLoader nationalTestLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/NationalTest.fxml"));
+            Scene nationalTestScene = new Scene(nationalTestLoader.load());
+            sendSelfToControllers(nationalTestLoader);
+
+            FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Settings.fxml"));
+            Scene settingsScene = new Scene(settingsLoader.load());
+            sendSelfToControllers(settingsLoader);
+
             scenes.put(ScenesEnum.LogIn, logInScene);
-            scenes.put(ScenesEnum.MainMenu, mainMenuScene);
             scenes.put(ScenesEnum.NewUser, newUserScene);
+            scenes.put(ScenesEnum.Home, homeScene);
+            scenes.put(ScenesEnum.Exercises, exercisesScene);
+            scenes.put(ScenesEnum.NationalTest, nationalTestScene);
+            scenes.put(ScenesEnum.Settings, settingsScene);
         }
 
         /**
@@ -135,6 +151,7 @@ public class MainController {
          * @param sceneName The ScenesEnum name of the scene you want displayed.
          */
         public void setScene(ScenesEnum sceneName) {
+            if (scenes.get(sceneName) != mainWindow.getScene())
             mainWindow.setScene(scenes.get(sceneName));
         }
     }

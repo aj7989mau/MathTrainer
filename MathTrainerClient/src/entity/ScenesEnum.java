@@ -8,6 +8,9 @@ package entity;
 
 public enum ScenesEnum {
     LogIn,
-    MainMenu,
+    Home,
     NewUser,
+    Exercises,
+    NationalTest,
+    Settings
 }

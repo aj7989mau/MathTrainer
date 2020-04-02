@@ -57,8 +57,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="XSLT Stylesheet" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -95,6 +95,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Git Repository\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
       <recent name="D:\Program Files\Projects\MathTrainerClient\src\scenes" />
       <recent name="D:\Program Files\Projects\MathTrainerClient\src\controllers" />
     </key>

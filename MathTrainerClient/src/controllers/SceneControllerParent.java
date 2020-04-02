@@ -6,7 +6,7 @@ package controllers;
  * @version 1.0
  */
 
-public abstract class ControllerParent {
+public abstract class SceneControllerParent {
     protected MainController mainController;
 
     public void setMainController(MainController mainController){
