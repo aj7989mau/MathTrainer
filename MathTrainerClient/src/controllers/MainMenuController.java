@@ -1,7 +1,9 @@
 package controllers;
 
 /**
- * Controller for the scene MainMenu.fxml
+ * Controller for handling button-presses in the scene MainMenu.fxml. Each method represent a possible user action.
+ * @author Niklas Hultin
+ * @version 1.0
  */
 
 import javafx.event.ActionEvent;

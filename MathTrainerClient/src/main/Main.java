@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * Main is only responsible for starting the application, and instantly hands over control to MainController.
+ * Main is responsible for starting the application, and instantly hands over control of the Stage to MainController.
  */
 
 public class Main extends Application {

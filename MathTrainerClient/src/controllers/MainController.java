@@ -10,27 +10,29 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
 
 /**
  * Class MainController is created by the Main class. It is the controller of the other controllers. All scene
- * controllers has a reference to this controller to communicate it. NetworkController communicates through the buffers.
+ * controllers has a reference to this controller to communicate with it. NetworkController communicates through the buffers.
+ * @author Niklas Hultin
+ * @version 1.0
  */
 
 public class MainController {
-    private Stage window;
+    private Stage mainWindow;
     private SceneSetter sceneSetter = new SceneSetter();
     private Buffer<String> incomingBuffer = new Buffer<>(); //Tanken är att denna klass bara ska hämta objekt från denna buffer
     private Buffer<String> outgoingBuffer = new Buffer<>(); //Tanken är att denna klass bara ska lägga in objekt i denna buffer
 
     /**
      * Starts the network that connects to the server and creates and populates the ScenesHashMap.
-     * @param window The main window where the scenes are displayed (received from Main)
+     * It also sets up the window with the correct information for the start screen.
+     * @param mainWindow The main window where the scenes are displayed (received from Main)
      */
-    public MainController(Stage window) {
-        this.window = window;
-        window.setTitle("MathTrainer");
-        window.setOnCloseRequest(e -> { //Detta stoppar close eventen (consume) och skickar istället programmet till
+    public MainController(Stage mainWindow) {
+        this.mainWindow = mainWindow;
+        mainWindow.setTitle("MathTrainer");
+        mainWindow.setOnCloseRequest(e -> { //Detta stoppar close eventen (consume) och skickar istället programmet till
             e.consume();                //metoden closeProgram() som finns längre ner. Den skapar en confirmation ruta.
             closeProgram();
         });
@@ -44,7 +46,7 @@ public class MainController {
         }
 
         sceneSetter.setScene(ScenesEnum.LogIn);
-        window.show();
+        mainWindow.show();
     }
 
     public void sendSelfToControllers(FXMLLoader loader) {
@@ -95,7 +97,7 @@ public class MainController {
     public void closeProgram(){
         boolean answer = popUpWindow(Alert.AlertType.CONFIRMATION, "Avsluta?", "Är du säker på att du vill avsluta MathTrainer?");
         if (answer){
-            window.close();
+            mainWindow.close();
         }
     }
 
@@ -106,6 +108,10 @@ public class MainController {
     private class SceneSetter {
         private ScenesHashMap scenes = new ScenesHashMap();
 
+        /**
+         * Loads the scenes and adds every fxml-scene to the HashMap with the corresponding ScenesEnum-name.
+         * @throws IOException
+         */
         private void addScenesToHashMap() throws IOException {
             FXMLLoader logInLoader = new FXMLLoader(getClass().getResource("../scenes/LogIn.fxml"));
             Scene logInScene = new Scene(logInLoader.load());
@@ -124,8 +130,12 @@ public class MainController {
             scenes.put(ScenesEnum.NewUser, newUserScene);
         }
 
+        /**
+         * Sets the current scene in the main window.
+         * @param sceneName The ScenesEnum name of the scene you want displayed.
+         */
         public void setScene(ScenesEnum sceneName) {
-            window.setScene(scenes.get(sceneName));
+            mainWindow.setScene(scenes.get(sceneName));
         }
     }
 }

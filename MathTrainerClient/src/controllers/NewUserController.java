@@ -5,7 +5,9 @@ import entity.ScenesEnum;
 import javafx.event.ActionEvent;
 
 /**
- * Controller for the scene NewUser.fxml
+ * Controller for handling button-presses in the scene NewUser.fxml. Each method represent a possible user action.
+ * @author Niklas Hultin
+ * @version 1.0
  */
 
 public class NewUserController extends ControllerParent {
