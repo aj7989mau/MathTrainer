@@ -10,15 +10,15 @@ import javafx.event.ActionEvent;
  * @version 1.0
  */
 
-public class NewUserController extends ControllerParent {
+public class NewUserController extends SceneControllerParent {
 
     public void backClicked(ActionEvent actionEvent){
-        mainController.changeScene(ScenesEnum.LogIn);
+        mainController.setScene(ScenesEnum.LogIn);
     }
 
     public void continueClicked(ActionEvent actionEvent){
-        //Behövs massa kod här för att skapa användaren. Kanske ej bör kalla nästa scen härifrån men gör det nu som test.
-        mainController.newUser("All information från fälten ska in här");
+        //ToDo: Kod här för att skapa användaren.
+        mainController.setScene(ScenesEnum.Home);
     }
 
 

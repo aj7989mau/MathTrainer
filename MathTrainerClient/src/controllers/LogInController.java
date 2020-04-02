@@ -10,23 +10,26 @@ import javafx.scene.control.Alert;
  * @version 1.0
  */
 
-public class LogInController extends ControllerParent {
+public class LogInController extends SceneControllerParent {
 
 
     public void skipLogInClicked(ActionEvent actionEvent) {
         boolean answer = mainController.popUpWindow(Alert.AlertType.CONFIRMATION, "Fortsätt utan att logga in?", "Om du inte loggar in eller skapar en användare kommer ingenting att sparas. " +
                 "Är du säker på att du vill fortsätta utan att logga in?");
         if (answer){
-            mainController.logIn("Guest","");
+            //ToDo: Kod för att spela som gäst
+            mainController.setScene(ScenesEnum.Home);
         }
     }
 
     public void logInClicked(ActionEvent actionEvent) {
-        mainController.logIn("test", "test");
+            //ToDo: Kod för att logga in med befintlig användare
+        mainController.setScene(ScenesEnum.Home);
     }
 
     public void newUserClicked(ActionEvent actionEvent) {
-        mainController.changeScene(ScenesEnum.NewUser);
+        //ToDO: Kod för att skapa ny användare
+        mainController.setScene(ScenesEnum.NewUser);
     }
 
     public void exitClicked(ActionEvent actionEvent) {
