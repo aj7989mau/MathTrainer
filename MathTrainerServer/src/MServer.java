@@ -173,7 +173,7 @@ public class MServer extends Thread {
             String id = inputStream.readUTF();
             outputStream.writeUTF("Mr " + username + ", you are admitted to the course");
             outputStream.writeUTF("\nEnjoy your test!\n");
-          //  outputStream.flush();
+            //  outputStream.flush();
 
             User user = new User(username, userAge, id);
             userList.add(user);
