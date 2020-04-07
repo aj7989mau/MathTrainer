@@ -15,6 +15,7 @@ import java.util.List;
 public class MServer extends Thread {
 
     private ServerSocket serverSocket;
+    private boolean keepRunning;
  //   private DataOutputStream out;
  //   private DataInputStream in;
  //   private Socket server;
@@ -25,6 +26,7 @@ public class MServer extends Thread {
      */
     public MServer(int port) {
         this.port = port;
+        keepRunning = true;
 
         try {
             startServer();
@@ -41,13 +43,13 @@ public class MServer extends Thread {
        // int port = 220;
         serverSocket = new ServerSocket(port);
 
-        while (true) {
+        while (keepRunning) {
 
             try {
                 Socket connect = serverSocket.accept();
                 System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
                // waitForClient();
-                ClientHandler t = new ClientHandler(connect);
+                Thread t = new ClientHandler(connect);
                 t.start();
                 //  setupStreams();
             } catch (Exception e) {
@@ -57,7 +59,7 @@ public class MServer extends Thread {
         }
     }
     public static void main(String[] args) throws IOException {
-        new MServer(220);
+        new MServer(22);
     }
 
     /**
@@ -93,6 +95,7 @@ public class MServer extends Thread {
          * The server listens to users as long as the ServerSocket is opened.
          */
         public void run() {
+            System.out.println("Inner class clienthandler run method ");
             try {
                 while (server.isConnected()) {
                     try {
@@ -101,9 +104,15 @@ public class MServer extends Thread {
                         outputStream.writeUTF("Which level do you want to start with?\n(a) Seventh\n(b) Eigth\n(c) Ninth\n(d) leave now\n(e) Close Server\n");
                         String level = inputStream.readUTF();
                         if (level.equals("a")) {
+                            System.out.println("a runs ");
+
                             course = new Seventh();
                             addUser();
+                            //test
+                            System.out.println("addUser finish");
                             Questions[] questions = course.getQuestions();
+                            //för test
+                            System.out.println("it runs after creating questions array");
                             takeTest(questions);
                         } else if (level.equals("b")) {
                             course = new Eighth();
@@ -162,13 +171,12 @@ public class MServer extends Thread {
             int userAge = inputStream.readInt(); //
             outputStream.writeUTF("Please enter your id");
             String id = inputStream.readUTF();
-
+            outputStream.writeUTF("Mr " + username + ", you are admitted to the course");
+            outputStream.writeUTF("\nEnjoy your test!\n");
+          //  outputStream.flush();
 
             User user = new User(username, userAge, id);
             userList.add(user);
-
-            outputStream.writeUTF("Mr " + username + ", you are admitted to the course");
-            outputStream.writeUTF("\nEnjoy your test!\n");
         }
 
         /**
@@ -180,7 +188,8 @@ public class MServer extends Thread {
             int score = 0;
 
             for (int i = 0; i < questions.length; i++) {
-                System.out.println(questions[i]);
+                outputStream.writeUTF(questions[i].getQuestion());
+               // System.out.println(questions[i]);
                 String answer = inputStream.readUTF();
                 if (answer.equals(questions[i].getAnswer())) {
                     score++;

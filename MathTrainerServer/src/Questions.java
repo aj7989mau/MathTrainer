@@ -20,7 +20,7 @@ public class Questions {
     }
 
     public String getQuestion() {
-        return question;
+        return question ;
     }
 
     public void setQuestion(String question) {
