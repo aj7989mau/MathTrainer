@@ -41,25 +41,24 @@ public class MServer extends Thread {
      */
     private void startServer() throws IOException {
 
-       // int port = 220;
+       // Starting server
         serverSocket = new ServerSocket(port);
-
+        System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
         while (keepRunning) {
 
             try {
+
                 Socket connect = serverSocket.accept();
-                System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
-               // waitForClient();
+                System.out.println("Connection successful");
                 Thread t = new ClientHandler(connect);
                 t.start();
-                //  setupStreams();
             } catch (Exception e) {
                 serverSocket.close();
                 e.printStackTrace();
             }
         }
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         new MServer(22);
     }
 
@@ -96,24 +95,16 @@ public class MServer extends Thread {
          * The server listens to users as long as the ServerSocket is opened.
          */
         public void run() {
-            System.out.println("Inner class clienthandler run method ");
             try {
                 while (server.isConnected()) {
                     try {
                         Course course;
-                        // System.out.println("Which level do you want to start with?\n(a) Seventh\n(b) Eigth\n(c) Ninth\n");
                         outputStream.writeUTF("Which level do you want to start with?\n(a) Seventh\n(b) Eigth\n(c) Ninth\n(d) leave now\n(e) Close Server\n");
                         String level = inputStream.readUTF();
                         if (level.equals("a")) {
-                            System.out.println("a runs ");
-
                             course = new Seventh();
                             addUser();
-                            //test
-                            System.out.println("addUser finish");
                             Questions[] questions = course.getQuestions();
-                            //för test
-                            System.out.println("it runs after creating questions array");
                             takeTest(questions);
                         } else if (level.equals("b")) {
                             course = new Eighth();
@@ -166,18 +157,19 @@ public class MServer extends Thread {
          * @throws IOException catches exceptions
          */
         private void addUser() throws IOException {
-            outputStream.writeUTF("Please enter your username");
+            outputStream.writeUTF("Please register yourself to the course!\n\n* Enter your username");
             String username = inputStream.readUTF();
-            outputStream.writeUTF("Please enter your age");
+            outputStream.writeUTF("Enter your age");
             int userAge = inputStream.readInt(); //
-            outputStream.writeUTF("Please enter your id");
+            outputStream.writeUTF("Enter your id and happy test, good luck");
             String id = inputStream.readUTF();
-            outputStream.writeUTF("Mr " + username + ", you are admitted to the course, press enter!");
-            outputStream.writeUTF("\nPress enter and enjoy your test!\n");
+          //  outputStream.writeUTF("Mr " + username + ", you are admitted to the course, press enter!");
+          //  outputStream.writeUTF("\nPress enter and enjoy your test!\n");
             //  outputStream.flush();
 
             User user = new User(username, userAge, id);
             userList.add(user);
+            System.out.println("User Mr " + username + " is added to the course");
         }
 
         /**
@@ -187,27 +179,15 @@ public class MServer extends Thread {
          */
         private void takeTest(Questions[] questions) throws IOException {
             int score = 0;
-
             for (int i = 0; i < questions.length; i++) {
                 outputStream.writeUTF(questions[i].getQuestion());
-               // System.out.println(questions[i]);
                 String answer = inputStream.readUTF();
                 if (answer.equals(questions[i].getAnswer())) {
                     score++;
                 }
             }
-            String str = "Dear Mr ";
-            outputStream.writeUTF(str + ", you got" + score + "/" + questions.length);
-        }
-        /**
-         * This method runs once MTServer gets active and awaits for any user to turn up!
-         * Once any user is trying to connect the MTServer accepts it.
-         *
-         */
-        private void waitForClient() throws Exception {
-            server = serverSocket.accept();
-            System.out.println("Just connected to " + server.getInetAddress().getHostName());
-         //   setupStreams();
+            String str = "Dear ";
+            outputStream.writeUTF(str + ", you got " + score + "/" + questions.length);
         }
         /**
          * This method initializes and setups the streams that holds/read/writes the data input from the users

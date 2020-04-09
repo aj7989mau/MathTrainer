@@ -7,7 +7,7 @@
 public class Questions {
     private String question;
     private String answer;
-
+    private Course course;
     //Constructor
     //addQuestions method
     //removeQuestions method
@@ -18,9 +18,15 @@ public class Questions {
         this.question = question;
         this.answer = answer;
     }
+    public Questions(){}
 
     public String getQuestion() {
         return question ;
+    }
+    public Questions [] getSeventhQ(){
+        course = new Seventh();
+
+        return course.getQuestions();
     }
 
     public void setQuestion(String question) {
