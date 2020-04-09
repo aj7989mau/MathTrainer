@@ -1,54 +1,53 @@
 import java.net.*;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Client class was needed to test the Server side
- * @author abdulsamisahil
- * @since 2020-04-06
- */
+
 public class MClient {
-    public static void main(String[] args) throws IOException {
-        // String serverName = args[0];
-        InetAddress serverName = InetAddress.getLocalHost();
-        //int port = Integer.parseInt(args[1]);
-        int port = 22;
-        Scanner userInput = new Scanner(System.in);
-        String userChoice = "";
+    private DataInputStream inputStream;
+    private DataOutputStream outputStream;
+    private Socket connection;
+    private InetAddress serverIp;
+    private int port;
+    private boolean keepRunning;
+    public MClient(InetAddress s, int port){
+        this.serverIp = s;
+        this.port = port;
+        keepRunning = true;
 
         try {
-            System.out.println("Connecting to " + serverName + " on port " + port);
-            Socket client = new Socket(serverName, port);
+            //Connecting to server
+            System.out.println("Connecting to " + serverIp + " on port " + port);
+            connection = new Socket(serverIp, port);
+            System.out.println("Just connected to the server");
 
-            System.out.println("Just connected to " + client.getRemoteSocketAddress());
-            OutputStream outToServer = client.getOutputStream();
-            DataOutputStream outputStream = new DataOutputStream(outToServer);
-
-            outputStream.writeUTF("Hello from " + client.getLocalSocketAddress());
+            //Setup streams
+            inputStream = new DataInputStream(connection.getInputStream());
+            outputStream = new DataOutputStream(connection.getOutputStream());
+            //Send a msg to server to confirm connection
+            outputStream.writeUTF("Hello from " + connection.getLocalAddress().getHostName());
             outputStream.flush();
+            //Receive a thank for connection from server and print it to the screen
+            System.out.println("Server says " + inputStream.readUTF() + "\n");
+            whileConnected();
 
-            InputStream inFromServer = client.getInputStream();
-            DataInputStream inputStream = new DataInputStream(inFromServer);
+        }catch (Exception e){
 
-            System.out.println("Server says " + inputStream.readUTF());
-
-
-            while(true) {
-                DataInputStream inputStream1 = new DataInputStream(client.getInputStream());
-                System.out.print(">");
-                //       userChoice = userInput.nextLine();
-                System.out.println(inputStream.readUTF());
-                userChoice = userInput.nextLine();
-                outputStream.writeUTF(userChoice);
-                //  System.out.println(inputStream.readUTF());
-                //  userChoice = userInput.nextLine();
-                //  outputStream.writeUTF(userChoice);
-                //  System.out.println(inputStream.readUTF());
-            }
         }
-        catch (IOException e) {
-            e.printStackTrace();
+    }
+    private void whileConnected() throws Exception{
+        Scanner userInput = new Scanner(System.in);
+        String userChoice;
+        while (keepRunning){
+            System.out.print("* ");
+            System.out.println(inputStream.readUTF());
+            userChoice = userInput.nextLine();
+            outputStream.writeUTF(userChoice);
         }
+    }
+    public static void main(String[] args) throws IOException {
+        InetAddress serverName = InetAddress.getLocalHost();
+        int port = 22;
+        new MClient(serverName, port);
     }
 }
