@@ -17,10 +17,15 @@ public class Eighth extends Course {
         usersList = new ArrayList<>();
         String n = "\n";
 
-        String q1 = "What is 12 multiply by 12?" + n + "(a) 144" + n + "(b) 148" + n + "(c) 240" + n;
-        String q2 = "What is the square value of 169?" + n + "(a) 12" + n + "(b) 34" + n + "(c) 13" + n;
+        String q1 = "Three workers are building a room, each worker should work 16 hours a day to make the room ready in two days."
+                +n+ "If four workers are given the same task, how many hours should each worker work to complete the task in two days?"
+                + n + "(a) 11 hours" + n + "(b) 9 hours" + n + "(c) 12 hours" + n;
 
-        questions = new Questions[]{new Questions(q1, "a"), new Questions(q2, "c")};
+
+        String q2 = "What is the correct value of x in the following equation \n" +
+                "2x + 4 = 12?" + n + "(a) x = 8" + n + "(b) x = 4" + n + "(c) x = 2" + n;
+
+        questions = new Questions[]{new Questions(q1, "c"), new Questions(q2, "b")};
         //takeTest(questions);
     }
     /*public void takeTest(Questions [] questions){

@@ -39,7 +39,7 @@ public class MClient {
         Scanner userInput = new Scanner(System.in);
         String userChoice;
         while (keepRunning){
-            System.out.print("* ");
+          //  System.out.print("*");
             System.out.println(inputStream.readUTF());
             userChoice = userInput.nextLine();
             outputStream.writeUTF(userChoice);

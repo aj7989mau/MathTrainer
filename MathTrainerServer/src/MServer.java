@@ -156,7 +156,7 @@ public class MServer extends Thread {
          * @throws IOException catches exceptions
          */
         private void addUser() throws IOException {
-            outputStream.writeUTF("Please register yourself to the course!\n\n* Enter your username");
+            outputStream.writeUTF("Please register yourself to the course!\nEnter your username");
             String username = inputStream.readUTF();
             outputStream.writeUTF("Enter your age");
             int userAge = inputStream.readInt(); //
