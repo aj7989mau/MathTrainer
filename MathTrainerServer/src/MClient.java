@@ -37,12 +37,11 @@ public class MClient {
     }
     private void whileConnected() throws Exception{
         Scanner userInput = new Scanner(System.in);
-        String userChoice;
         while (keepRunning){
-          //  System.out.print("*");
-            System.out.println(inputStream.readUTF());
-            userChoice = userInput.nextLine();
-            outputStream.writeUTF(userChoice);
+            String serverSays = inputStream.readUTF();
+            System.out.println(serverSays);
+            String userType = userInput.nextLine();
+            outputStream.writeUTF(userType);
         }
     }
     public static void main(String[] args) throws IOException {

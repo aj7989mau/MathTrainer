@@ -17,9 +17,6 @@ public class MServer extends Thread {
 
     private ServerSocket serverSocket;
     private boolean keepRunning;
- //   private DataOutputStream out;
- //   private DataInputStream in;
- //   private Socket server;
     private int port;
     /**
      * MTServer Constructor
@@ -98,51 +95,36 @@ public class MServer extends Thread {
             try {
                 while (server.isConnected()) {
                     try {
-                        Course course;
-                        outputStream.writeUTF("Which level do you want to start with?\n(a) Seventh\n(b) Eigth\n(c) Ninth\n(d) leave now\n(e) Close Server\n");
-                        String level = inputStream.readUTF();
-                        if (level.equals("a")) {
-                            course = new Seventh();
+
+                        String toUser = "Välkommen till MATH-TRAINER\n(a) Skapa konto\n(b) Logga in\n(c) Logga in som gäst\n";
+                        outputStream.writeUTF(toUser);
+                        String userChoice = inputStream.readUTF();
+                        if (userChoice.equals("a"))
+                        {
                             addUser();
-                            Questions[] questions = course.getQuestions();
-                            takeTest(questions);
-                        } else if (level.equals("b")) {
-                            course = new Eighth();
-                            addUser();
-                            Questions[] questions = course.getQuestions();
-                            takeTest(questions);
-                        } else if (level.equals("c")) {
-                            course = new Ninth();
-                            addUser();
-                            Questions[] questions = course.getQuestions();
-                            takeTest(questions);
-                        }
-                        //QUIT CLIENT
-                        else if (level.equals("d")) {
-                            try {
-                                System.out.println("Connection to " + this.server + " closed.");
-                                this.server.close();
-                                this.inputStream.close();
-                                this.outputStream.close();
-                                break;
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            outputStream.writeUTF("Registration successful\nDo you want to start the quiz?\nYes/No");
+                            if (inputStream.readUTF().equals("Yes"))
+                            {
+                                startQuiz();
+                            }
+                            else
+                            {
+                                closeClient();
                             }
                         }
-                        //KILL SERVER
-                        else if (level.equals("e")) {
-                            try {
-                                System.out.println("Closing server...");
-                                this.server.close();
-                                this.inputStream.close();
-                                this.outputStream.close();
-                                System.exit(0);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        } else {
+                        else if (userChoice.equals("b"))
+                        {
+                            userLogIn();
+                        }
+                        else if (userChoice.equals("c"))
+                        {
+                           startQuiz();
+                        }
+                        else
+                        {
                             outputStream.writeUTF("Invalid Option");
                         }
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -157,17 +139,28 @@ public class MServer extends Thread {
          * @throws IOException catches exceptions
          */
         private void addUser() throws IOException {
-            outputStream.writeUTF("Please register yourself to the course!\nEnter your username");
+            outputStream.writeUTF("Enter your username");
             String username = inputStream.readUTF();
             outputStream.writeUTF("Enter your age");
             int userAge = inputStream.readInt(); //
-            outputStream.writeUTF("Enter your id and happy test, good luck");
+            outputStream.writeUTF("Enter your id");
             String id = inputStream.readUTF();
+            outputStream.writeUTF("Enter your email address");
+            String userEmail = inputStream.readUTF();
+            outputStream.writeUTF("Choose a password");
+            String userPassword = inputStream.readUTF();
+            outputStream.writeUTF("Enter your school name");
+            String userSchool = inputStream.readUTF();
+            outputStream.writeUTF("Enter your city");
+            String userCity = inputStream.readUTF();
+            //outputStream.writeUTF("Registration successful");
+
+          //  outputStream.writeUTF("");
           //  outputStream.writeUTF("Mr " + username + ", you are admitted to the course, press enter!");
           //  outputStream.writeUTF("\nPress enter and enjoy your test!\n");
             //  outputStream.flush();
 
-            User user = new User(username, userAge, id);
+            User user = new User(username, userAge, userEmail, userPassword, userSchool, userCity, id);
             userList.add(user);
             System.out.println("User Mr " + username + " is added to the course");
         }
@@ -198,6 +191,77 @@ public class MServer extends Thread {
             outputStream = new DataOutputStream(server.getOutputStream());
             outputStream.writeUTF("Thank you for connecting to " + server.getInetAddress().getHostName());
             outputStream.flush();
+        }
+        /**
+         * If the user is already registered and wants to login to the system
+         */
+        private void userLogIn()
+        {
+
+        }
+
+        /**
+         * Start quiz
+         */
+        private void startQuiz()
+        {
+            Course course;
+            try {
+                outputStream.writeUTF("Which level do you want to start with?\n(d) Seventh\n(e) Eigth\n(f) Ninth\n(g) leave now\n(h) Close Server\n");
+                String level = inputStream.readUTF();
+                if (level.equals("d")) {
+                    course = new Seventh();
+                    //   addUser();
+                    Questions[] questions = course.getQuestions();
+                    takeTest(questions);
+                } else if (level.equals("e")) {
+                    course = new Eighth();
+                    //    addUser();
+                    Questions[] questions = course.getQuestions();
+                    takeTest(questions);
+                } else if (level.equals("f")) {
+                    course = new Ninth();
+                    //    addUser();
+                    Questions[] questions = course.getQuestions();
+                    takeTest(questions);
+                }
+                //QUIT CLIENT
+                else if (level.equals("g"))
+                {
+                    closeClient();
+                }
+                //KILL SERVER
+                else if (level.equals("h")) {
+                    try {
+                        System.out.println("Closing server...");
+                        this.server.close();
+                        this.inputStream.close();
+                        this.outputStream.close();
+                        System.exit(0);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    outputStream.writeUTF("Invalid Option");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        /**
+         * Quit User
+         */
+        private void closeClient()
+        {
+            try {
+                System.out.println("Connection to " + this.server + " closed.");
+                this.server.close();
+                this.inputStream.close();
+                this.outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
