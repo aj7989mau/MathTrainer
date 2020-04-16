@@ -22,6 +22,7 @@ public class LogInController extends SceneControllerParent {
         }
     }
 
+
     public void logInClicked(ActionEvent actionEvent) {
             //ToDo: Kod för att logga in med befintlig användare
         mainController.setScene(ScenesEnum.Home);
