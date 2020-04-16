@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../entity/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LogInController">
+   <children>
+      <Pane layoutX="400.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="182.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../entity/smalllUntitled-2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="34.0" layoutY="134.0" prefHeight="23.0" prefWidth="201.0" text="Välkommen tillbaka">
+               <font>
+                  <Font name="Ebrima Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="155.0" prefHeight="27.0" prefWidth="255.0" text="Logga in för att fortsätta" textFill="#868686">
+               <font>
+                  <Font name="Ebrima Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField focusColor="#51a9d3" labelFloat="true" layoutX="35.0" layoutY="263.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Användarnamn" unFocusColor="#a3a3a3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField focusColor="#51a9d3" labelFloat="true" layoutX="35.0" layoutY="327.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Lösenord" unFocusColor="#a3a3a3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <Label layoutX="234.0" layoutY="383.0" prefHeight="27.0" prefWidth="110.0" styleClass="forgetBtm" stylesheets="@../entity/style.css" text="Glömt lösenord?" textFill="#868686">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="35.0" layoutY="424.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#logInClicked" prefHeight="50.0" prefWidth="300.0" ripplerFill="#5178d3" styleClass="loginBtn" text="Logga in">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></JFXButton>
+            <Label layoutX="83.0" layoutY="498.0" prefHeight="27.0" prefWidth="110.0" stylesheets="@../entity/style.css" text="Ny användare?" textFill="#868686">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="178.0" layoutY="498.0" prefHeight="27.0" prefWidth="110.0" styleClass="forgetBtm" stylesheets="@../entity/style.css"  text="Skapa konto" textFill="#868686">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <VBox fx:id="VBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" stylesheets="@../entity/style.css">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../entity/newUntitled-1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
