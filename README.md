@@ -30,4 +30,4 @@ Intressenter
 De aktuella intressenter i projektet för MathTrainer kommer i huvudsak att vara utvecklare, malmö universitet(lärare, examinator, handledare), användare. En presumtiv kund kan vara skolmyndigheten och eventuellt föräldrar eller läxstödsverksamheter. Utvecklare påverkar och ser till  att projektet blir genomfört och ansvarar för den dagliga kommunikationen med övriga intressenter. Malmö universitet är de som ställer de grundläggande riktlinjerna/kraven för processen och användaren är den som avser att använda produkten. Projektet kommer att anpassas efter de kunskaper som slutanvändarna behöver besitta, och behöver därför följa skolmyndighetens kunskapsmål och läroplan för eleverna i målgruppen.
 
 Målgrupp
-Målgruppen är de som använder produkten i form av matematiklärare samt elever i årskurserna 7-9. Skolorna kommer vara målgrupp i form av tillhandahållare/köpare av produkten.
+Målgruppen är de som använder produkten i form av matematiklärare samt elever i årskursen 6. Skolorna kommer vara målgrupp i form av tillhandahållare/köpare av produkten.
