@@ -11,7 +11,7 @@ googla bara på typ CSS colors så får man fram färgkoder. T ex #000000 är sv
     -fx-text-fill: #000000; /*Sätter färgen på texten i alla labels*/
 }
 .button{
-    -fx-background-color: #3778C2; /*Bakgrundsfärg på alla knappar*/
+    -fx-background-color: #3f3b6b; /*Bakgrundsfärg på alla knappar*/
     -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
     -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
 }

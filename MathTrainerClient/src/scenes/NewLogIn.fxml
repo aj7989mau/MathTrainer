@@ -54,7 +54,7 @@
                   <Font name="Ebrima" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="498.0" prefHeight="27.0" prefWidth="110.0" styleClass="forgetBtm" stylesheets="@../entity/style.css"  text="Skapa konto" textFill="#868686">
+            <Label layoutX="178.0" layoutY="498.0" prefHeight="27.0" prefWidth="110.0" styleClass="forgetBtm" stylesheets="@../entity/style.css" text="Skapa konto" textFill="#868686">
                <font>
                   <Font name="Ebrima" size="14.0" />
                </font>
