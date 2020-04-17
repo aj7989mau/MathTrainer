@@ -7,7 +7,7 @@ import java.util.Scanner;
  * after every development iteration.
  * @author abdulsamisahil
  */
-/*public class experiments {
+/*public class Test {
     public static void main(String[] args) {
         Course seventh = new Seventh();
 
