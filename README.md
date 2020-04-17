@@ -2,16 +2,20 @@
  MathTrainer is an application that helps young studens learn math in a fun and interactive way!
 
 Komma igång:
-Än så länge finns det ingen koppling mellan server och klient, då klienten enbart är GUI utan funktionalitet just nu. Därför behöver enbart klienten laddas ner för att testköra programmet, men servern kan vara relevant att ladda ner om man vill granska koden.
+Än så länge finns det ingen koppling mellan server och klient, då klienten enbart är GUI utan funktionalitet just nu och servern testas med en egen testmetod. Därför behöver enbart klienten laddas ner för att testköra programmet som det kommer att se ut för slutanvändaren, men servern kan vara relevant att ladda ner om man vill granska koden eller köra servertester.
 
-För att köra klienten så laddar ni ner MathTrainerClient-mappen och Java-mappen (behåll strukturen) och kör filen Main.java i main-paketet med intelliJ eller annan IDE. Denna applikation är skapad med JavaFX, och detta finns med i Java-mappen och projektet bör peka dit. Fungerar det inte direkt så kan ni behöva ladda hem JavaFX separat, installera det och lägga till det i erat Library. Ladda hem det gör ni enklast här: https://openjfx.io/
+För att köra klienten så laddar ni först ner MathTrainer. När ni öppnar applikationen i IntelliJ så öppna bara MathTrainerClient, inte hela MathTrainerMappen (som även innehåller servern). Klienten körs med Main.java i main-paketet, men det är inte säkert att allt fungerar direkt.
 
-Använder ni IntelliJ så lägger ni till /lib-mappen i JavaFX (som ni just installerat) under File --> Project Structure --> Libraries. Det finns ett + uppe till vänster i vyn.
-Om ni har problem med ogiltig SDK så kan ni även lägga till Java 12 eller senare under Project-fliken här.
+Denna applikation är skapad med JavaFX, och detta finns med i Java-mappen och projektet. Det ni lär behöva göra är dels att lägga till Java FX. Detta gör ni under File --> Project Structure --> Libraries. Det finns ett + uppe till vänster i vyn som ni kan klicka på. Där navigerar ni in i MathTrainer (mappen för detta projekt) --> Java --> JavaFX och markerar "lib"-mappen. Lägg till denna. Om ni har problem med ogiltig SDK så kan ni även lägga till Java 12 eller senare under Project-fliken här.
 
-Behöver ni ytterligare hjälp med att installera JavaFX så rekommenderar jag detta YouTube-klipp: https://www.youtube.com/watch?v=BHj6zbH3inI
+Efter detta så finns det en sak till som sannolikt behöver fixas. Längst uppe till höger (bredvid "play"-knappen för att köra applikationen) så kan ni trycka på den lilla pilen bredvid Main och välja "Edit configuration...".
+Här inne under "VM options" skriver ni detta:
 
-När detta är klart är det bara att köra Main-filen i IntelliJ eller annan valfri IDE.
+--module-path "D:\Program Files\Java\javafx-sdk-14\lib" --add-modules javafx.controls,javafx.fxml
+
+OBS!!! Allt inom "citationstecknen" behöver bytas till eran egen path. Den ska alltså peka på den tidigare nämnda "lib"-mappen som tillhör JavaFX och ligger i MathTrainer-mappen ni laddad hem från github. 
+
+När detta är klart bör det bara vara att köra Main-filen.
 
 
 Om MathTrainer:
