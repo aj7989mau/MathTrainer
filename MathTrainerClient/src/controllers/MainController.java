@@ -114,7 +114,7 @@ public class MainController {
          * @throws IOException
          */
         private void addScenesToHashMap() throws IOException {
-            FXMLLoader logInLoader = new FXMLLoader(getClass().getResource("../scenes/NewLogIn.fxml"));
+            FXMLLoader logInLoader = new FXMLLoader(getClass().getResource("../scenes/LogIn.fxml"));
             Scene logInScene = new Scene(logInLoader.load());
             sendSelfToControllers(logInLoader);
 
