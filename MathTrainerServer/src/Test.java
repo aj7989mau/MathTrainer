@@ -7,7 +7,7 @@ import java.util.Scanner;
  * after every development iteration.
  * @author abdulsamisahil
  */
-public class Test {
+/*public class Test {
     public static void main(String[] args) {
         Course seventh = new Seventh();
 
@@ -45,7 +45,7 @@ public class Test {
 
 
         seventh.addUser(u1);
-        seventh.addUser(u2);*/
+        seventh.addUser(u2);
 
 
         //Sizes
@@ -81,4 +81,4 @@ public class Test {
         System.out.println(str);
         System.out.println();
     }
-}
+}*/
