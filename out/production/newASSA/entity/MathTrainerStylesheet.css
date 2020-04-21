@@ -1,0 +1,20 @@
+/*
+Stylesheet för hela applikationen. Denna läggs till i alla scener i Scenebuilder. För att se olika färger osv så
+googla bara på typ CSS colors så får man fram färgkoder. T ex #000000 är svart, #FFFFFF är vid.
+@author Niklas Hultin
+@version 1.0
+*/
+.root{
+    -fx-base: #b7d7e8; /*root är själva huvudfönstret. Denna del sätter grundfärgen, alltså bagrundsfärg i alla scener*/
+}
+.label{
+    -fx-text-fill: #000000; /*Sätter färgen på texten i alla labels*/
+}
+.button{
+    -fx-background-color: #3778C2; /*Bakgrundsfärg på alla knappar*/
+    -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+}
+.text-field{
+    -fx-background-color: #FFFFFF; /*Bakgrundsfärg på alla textfields*/
+}
