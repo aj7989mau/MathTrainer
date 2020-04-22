@@ -1,3 +1,5 @@
+package Server;
+
 /**
  * The Questions class will store all the questions
  * @author abdulsamisahil

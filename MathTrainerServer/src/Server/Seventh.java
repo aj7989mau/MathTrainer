@@ -1,3 +1,5 @@
+package Server;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +11,10 @@ import java.util.List;
  * @version 1.0
  * @since 2020-03-31
  */
-public class Ninth extends Course {
+public class Seventh extends Course{
     private Questions[] questions;
     private List<User> usersList;
-
-    public Ninth(){
+    public Seventh(){
         usersList = new ArrayList<>();
         String n = "\n";
         String q1 = "What is 12 multiply by 12?" + n + "(a) 144" + n + "(b) 148" + n + "(c) 240" + n;

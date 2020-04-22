@@ -1,3 +1,5 @@
+package Server;
+
 /**
  * The user class that is responsible for each new user
  * @author abdulsamisahil

@@ -1,3 +1,5 @@
+package Server;
+
 /**
  * This Course class is going to act as a parent to three different courses of a primary school, 7, 8 and 9.
  * Each course is going to have a bunch of questions in a list and its correct answers
