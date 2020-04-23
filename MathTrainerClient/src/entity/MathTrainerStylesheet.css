@@ -5,16 +5,57 @@ googla bara på typ CSS colors så får man fram färgkoder. T ex #000000 är sv
 @version 1.0
 */
 .root{
-    -fx-base: #b7d7e8; /*root är själva huvudfönstret. Denna del sätter grundfärgen, alltså bagrundsfärg i alla scener*/
+    -fx-base: #FFFFFF; /*root är själva huvudfönstret. Denna del sätter grundfärgen, alltså bagrundsfärg i alla scener*/
+    -fx-background-color: #F7F8FD;
+
 }
 .label{
     -fx-text-fill: #000000; /*Sätter färgen på texten i alla labels*/
 }
 .button{
-    -fx-background-color: #3778C2; /*Bakgrundsfärg på alla knappar*/
+-fx-background-color: linear-gradient(from 0% 2% to 125% 115%, #515ada  0%, #efd5ff 100%);
     -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
     -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+
+
 }
 .text-field{
     -fx-background-color: #FFFFFF; /*Bakgrundsfärg på alla textfields*/
+}
+
+.Anchor{
+-fx-background-color: linear-gradient(from 0% 2% to 125% 115%, #515ada  0%, #efd5ff 100%);
+}
+
+.Label{
+
+    -fx-font-size: 35px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+    -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
+
+}
+
+.MenuButton{
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+}
+
+.Anchi{
+    -fx-background-color: #F4F4F4;
+}
+
+.LeftAnchi{
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+}
+
+.ButtonUserConnection{
+   -fx-background-color: #E4F7D0;
+     -fx-text-fill: #31AD01;
+     -fx-effect: dropshadow( gaussian ,rgba(0,0,0,.25), 10px, 0.1 ,0, 3 );
 }

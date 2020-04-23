@@ -6,27 +6,48 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../entity/MathTrainerStylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="927.0" stylesheets="@../../entity/MathTrainerStylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" prefHeight="423.0" prefWidth="600.0">
+      <SplitPane fx:id="SplitPane" dividerPositions="0.2637837837837838" prefHeight="577.0" prefWidth="927.0" styleClass="Splitpane" stylesheets="@../../entity/style.css">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="175.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="273.0" styleClass="LeftAnchi" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <Button layoutX="56.0" layoutY="359.0" mnemonicParsing="false" onAction="#logOutClicked" text="Logga ut" />
-                  <Button layoutX="20.0" layoutY="93.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button disable="true" layoutX="20.0" layoutY="46.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="70.0" layoutY="486.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
+                  <Button layoutX="21.0" layoutY="227.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+                  <Button layoutX="21.0" layoutY="305.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+                  <Button layoutX="21.0" layoutY="384.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+                  <Button disable="true" layoutX="22.0" layoutY="147.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
+                  <Label layoutX="26.0" layoutY="525.0" prefHeight="29.0" prefWidth="56.0" text="Status:" />
+                  <Label fx:id="Connected" layoutX="78.0" layoutY="511.0" prefHeight="57.0" prefWidth="134.0" text="Connected" />
+                  <ImageView id="thisisUntitled-1-Recovered" fitHeight="207.0" fitWidth="199.0" layoutX="14.0" layoutY="-115.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../images/thisisUntitled-1-Recovered.png"/>
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="413.0" stylesheets="@../../entity/MathTrainerStylesheet.css">
+            <AnchorPane fx:id="AnchorPane123" minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="524.0" styleClass="Anchi" stylesheets="@../../entity/style.css">
                <children>
-                  <Button layoutX="181.0" layoutY="359.0" mnemonicParsing="false" onAction="#updateButtonPressed" text="Update" />
-                  <BarChart layoutX="55.0" layoutY="57.0" prefHeight="295.0" prefWidth="270.0" rotate="90.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="678.0" styleClass="Anchor" stylesheets="@../../entity/MathTrainerStylesheet.css">
+                     <children>
+                        <Button layoutX="28.0" layoutY="14.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" opacity="0.2" prefHeight="145.0" prefWidth="622.0" />
+                        <Button layoutX="32.0" layoutY="58.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" opacity="0.2" prefHeight="57.0" prefWidth="614.0" />
+                        <Label layoutX="48.0" layoutY="58.0" prefHeight="46.0" prefWidth="598.0" styleClass="Label" stylesheets="@../../entity/MathTrainerStylesheet.css" text="Välkommen tillbaka         Username" textFill="WHITE">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="ButtonMenu" layoutX="63.0" layoutY="143.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" prefHeight="379.0" prefWidth="553.0" styleClass="MenuButton" text="Övningar" />
+                  <Button layoutX="291.0" layoutY="455.0" mnemonicParsing="false" onAction="#updateButtonPressed" text="Update" />
+                  <BarChart layoutX="185.0" layoutY="133.0" prefHeight="295.0" prefWidth="270.0" rotate="90.0">
                      <xAxis>
                         <CategoryAxis side="BOTTOM" />
                      </xAxis>
@@ -34,11 +55,6 @@
                         <NumberAxis side="LEFT" />
                      </yAxis>
                   </BarChart>
-                  <Label layoutX="160.0" layoutY="26.0" text="Resultat">
-                     <font>
-                        <Font size="31.0" />
-                     </font>
-                  </Label>
                </children>
             </AnchorPane>
         </items>
