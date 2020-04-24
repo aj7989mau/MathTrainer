@@ -208,23 +208,35 @@ public class MServer extends Thread {
         {
             Course course;
             try {
-                outputStream.writeUTF("Which level do you want to start with?\n(d) Seventh\n(e) Eigth\n(f) Ninth\n(g) leave now\n(h) Close Server\n");
+                outputStream.writeUTF("Which level do you want to start with?\n(d) Sixth\n(e) Eigth\n(f) Ninth\n(g) leave now\n(h) Close Server\n");
                 String level = inputStream.readUTF();
                 if (level.equals("d")) {
                     course = new Seventh();
                     //   addUser();
-                    Questions[] questions = course.getQuestions();
+                    Questions[] questions = course.getStastisticQuestion();
                     takeTest(questions);
                 } else if (level.equals("e")) {
                     course = new Eighth();
                     //    addUser();
-                    Questions[] questions = course.getQuestions();
+                    Questions[] questions = course.getStastisticQuestion();
                     takeTest(questions);
                 } else if (level.equals("f")) {
                     course = new Ninth();
                     //    addUser();
-                    Questions[] questions = course.getQuestions();
+                    Questions[] questions = course.getStastisticQuestion();
                     takeTest(questions);
+                } else if (level.equals("g")){
+                    course = new Sixth();
+                    //addUser();
+
+                    //lade till detta för frågorna  - Johanna
+                    Questions[] questions = course.getStastisticQuestion();
+                    Questions[] questions1 = course.getfourCountQuestions();
+                    Questions[] questions2 = course.getfourCountQuestions();
+
+                    takeTest(questions);
+                    takeTest(questions1);
+                    takeTest(questions2);
                 }
                 //QUIT CLIENT
                 else if (level.equals("g"))
