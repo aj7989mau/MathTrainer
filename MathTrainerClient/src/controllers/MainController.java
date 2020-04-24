@@ -130,6 +130,10 @@ public class MainController {
             Scene exercisesScene = new Scene(exercisesLoader.load());
             sendSelfToControllers(exercisesLoader);
 
+            FXMLLoader exerciseAdditionLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/ExercisesWindow.fxml"));
+            Scene exerciseAdditionScene = new Scene(exerciseAdditionLoader.load());
+            sendSelfToControllers(exerciseAdditionLoader);
+
             FXMLLoader nationalTestLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/NationalTest.fxml"));
             Scene nationalTestScene = new Scene(nationalTestLoader.load());
             sendSelfToControllers(nationalTestLoader);
@@ -138,10 +142,13 @@ public class MainController {
             Scene settingsScene = new Scene(settingsLoader.load());
             sendSelfToControllers(settingsLoader);
 
+
+
             scenes.put(ScenesEnum.LogIn, logInScene);
             scenes.put(ScenesEnum.NewUser, newUserScene);
             scenes.put(ScenesEnum.Home, homeScene);
             scenes.put(ScenesEnum.Exercises, exercisesScene);
+            scenes.put(ScenesEnum.ExerciseAddition, exerciseAdditionScene);
             scenes.put(ScenesEnum.NationalTest, nationalTestScene);
             scenes.put(ScenesEnum.Settings, settingsScene);
         }

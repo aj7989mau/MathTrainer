@@ -11,5 +11,6 @@ public abstract class SceneControllerParent {
 
     public void setMainController(MainController mainController){
            this.mainController = mainController;
+
     }
 }

@@ -11,6 +11,7 @@ public enum ScenesEnum {
     Home,
     NewUser,
     Exercises,
+    ExerciseAddition,
     NationalTest,
     Settings
 }

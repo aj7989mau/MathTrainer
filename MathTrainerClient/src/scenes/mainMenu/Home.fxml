@@ -18,16 +18,16 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="273.0" styleClass="LeftAnchi" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <Button layoutX="70.0" layoutY="486.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
+                  <Button layoutX="80.0" layoutY="463.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
                   <Button layoutX="21.0" layoutY="227.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
                   <Button layoutX="21.0" layoutY="305.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
                   <Button layoutX="21.0" layoutY="384.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
                   <Button disable="true" layoutX="22.0" layoutY="147.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
-                  <Label layoutX="26.0" layoutY="525.0" prefHeight="29.0" prefWidth="56.0" text="Status:" />
-                  <Label fx:id="Connected" layoutX="78.0" layoutY="511.0" prefHeight="57.0" prefWidth="134.0" text="Connected" />
+                  <Label layoutX="65.0" layoutY="525.0" prefHeight="29.0" prefWidth="56.0" text="Status:" />
+                  <Label fx:id="Connected" layoutX="107.0" layoutY="511.0" prefHeight="57.0" prefWidth="134.0" text="Connected" />
                   <ImageView id="thisisUntitled-1-Recovered" fitHeight="207.0" fitWidth="199.0" layoutX="14.0" layoutY="-115.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../../images/thisisUntitled-1-Recovered.png"/>
+                        <Image url="@../../images/thisisUntitled-1-Recovered.png" />
                      </image>
                   </ImageView>
                </children>
@@ -45,7 +45,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="ButtonMenu" layoutX="63.0" layoutY="143.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" prefHeight="379.0" prefWidth="553.0" styleClass="MenuButton" text="Övningar" />
+                  <Button layoutX="63.0" layoutY="143.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" prefHeight="379.0" prefWidth="553.0" styleClass="MenuButton" text="Övningar" />
                   <Button layoutX="291.0" layoutY="455.0" mnemonicParsing="false" onAction="#updateButtonPressed" text="Update" />
                   <BarChart layoutX="185.0" layoutY="133.0" prefHeight="295.0" prefWidth="270.0" rotate="90.0">
                      <xAxis>
