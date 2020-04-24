@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/entity/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/NEWMATHTRAINERUntitled-1-Recovered.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/thisisUntitled-1-Recovered.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/mainMenu/ExercisesWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/ExercisesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ExercisesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/SceneControllerParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SceneControllerParent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/MathTrainerStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/MathTrainerStylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/ScenesEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/ScenesEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/mainMenu/Exercises.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/mainMenu/Exercises.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/mainMenu/ExercisesWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/mainMenu/ExercisesWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/mainMenu/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/mainMenu/Home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,15 +108,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\images" />
-      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\images" />
       <recent name="D:\Git Repository\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
       <recent name="D:\Program Files\Projects\MathTrainerClient\src\scenes" />
       <recent name="D:\Program Files\Projects\MathTrainerClient\src\controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\images" />
+      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
     </key>
   </component>
   <component name="RunManager">
@@ -232,22 +231,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587547280902" />
-    <state width="1877" height="262" key="GridCell.Tab.0.bottom" timestamp="1587604442899">
+    <state x="756" y="405" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587686462942">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587604442899" />
-    <state width="1877" height="262" key="GridCell.Tab.0.center" timestamp="1587604442899">
+    <state x="756" y="405" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1587686462942" />
+    <state width="1877" height="262" key="GridCell.Tab.0.bottom" timestamp="1587687992732">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587604442899" />
-    <state width="1877" height="262" key="GridCell.Tab.0.left" timestamp="1587604442898">
+    <state width="1877" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587687992732" />
+    <state width="1877" height="262" key="GridCell.Tab.0.center" timestamp="1587687992732">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587604442898" />
-    <state width="1877" height="262" key="GridCell.Tab.0.right" timestamp="1587604442899">
+    <state width="1877" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587687992732" />
+    <state width="1877" height="262" key="GridCell.Tab.0.left" timestamp="1587687992732">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587604442899" />
+    <state width="1877" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587687992732" />
+    <state width="1877" height="262" key="GridCell.Tab.0.right" timestamp="1587687992732">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587687992732" />
     <state width="1440" height="308" key="GridCell.Tab.1.bottom" timestamp="1587604077529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -268,9 +271,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587547186743" />
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1587604140143">
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1587670426883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587604140143" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587670426883" />
   </component>
 </project>

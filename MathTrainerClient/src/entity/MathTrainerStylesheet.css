@@ -40,10 +40,24 @@ googla bara på typ CSS colors så får man fram färgkoder. T ex #000000 är sv
 
 }
 
+.labelExercise{-fx-font-size: 20px;
+                   -fx-font-family: "Roboto";
+                   -fx-font-weight: bolder;
+                   -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */}
+
+
+
 .MenuButton{
     -fx-background-color: #FFFFFF;
     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
 }
+
+.labelBlack{
+
+-fx-font-family: "Roboto";
+          -fx-font-weight: bold;
+}
+
 
 .Anchi{
     -fx-background-color: #F4F4F4;
@@ -58,4 +72,12 @@ googla bara på typ CSS colors så får man fram färgkoder. T ex #000000 är sv
    -fx-background-color: #E4F7D0;
      -fx-text-fill: #31AD01;
      -fx-effect: dropshadow( gaussian ,rgba(0,0,0,.25), 10px, 0.1 ,0, 3 );
+}
+
+}
+
+.ConfirmButton{
+    -fx-background-color: linear-gradient(from 0% 2% to 125% 115%, #00ff17  0%, #FFFFFF 100%);
+    -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+
 }

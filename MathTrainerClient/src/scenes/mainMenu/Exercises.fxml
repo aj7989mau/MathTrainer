@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../entity/MathTrainerStylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ExercisesController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="927.0" stylesheets="@../../entity/MathTrainerStylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ExercisesController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" prefHeight="423.0" prefWidth="600.0">
+      <SplitPane dividerPositions="0.26054054054054054" prefHeight="577.0" prefWidth="927.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="175.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="255.0">
                <children>
-                  <Button layoutX="56.0" layoutY="359.0" mnemonicParsing="false" onAction="#logOutClicked" text="Logga ut" />
-                  <Button disable="true" layoutX="20.0" layoutY="93.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="46.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="82.0" layoutY="466.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
+                  <Button disable="true" layoutX="20.0" layoutY="220.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="309.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="392.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="139.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <ImageView fitHeight="196.0" fitWidth="198.0" layoutX="17.0" layoutY="-115.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/thisisUntitled-1-Recovered.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="72.0" layoutY="535.0" text="Status: " />
+                  <Label layoutX="118.0" layoutY="535.0" style="-fx-text-fill: #00B87E;" text="Connected" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="413.0" stylesheets="@../../entity/MathTrainerStylesheet.css">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="619.0" prefWidth="751.0" styleClass="button" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <Button layoutX="14.0" layoutY="27.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="175.0" text="Statistik" />
-                  <ImageView fitHeight="91.0" fitWidth="152.0" layoutX="35.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="228.0" layoutY="27.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="175.0" text="Geometri" />
-                  <Button layoutX="14.0" layoutY="199.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="175.0" text="Addition" />
-                  <Button layoutX="228.0" layoutY="199.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="175.0" text="Nåt annat sköj" />
+                  <AnchorPane layoutX="-3.0" layoutY="265.0" minHeight="0.0" minWidth="0.0" prefHeight="297.0" prefWidth="697.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
+                  <Button layoutX="29.0" layoutY="26.0" mnemonicParsing="false" prefHeight="510.0" prefWidth="630.0" styleClass="MenuButton" />
+                  <Button layoutX="70.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" text="Statistik" />
+                  <Button layoutX="378.0" layoutY="289.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" text="Geometri" />
+                  <Button fx:id="AdditionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#AdditionClicked" prefHeight="173.0" prefWidth="226.0" text="Addition" />
+                  <Button layoutX="378.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" text="Nåt annat sköj" />
                </children></AnchorPane>
          </items>
       </SplitPane>
