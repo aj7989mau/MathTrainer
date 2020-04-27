@@ -18,11 +18,11 @@ public class Sixth extends Course {
     private Questions[] geometryQuestions;
     private Questions[] fourCountQuestions;
 
-    private List<User> statisticList;
+    private List<User> QuestionList;
 
 
     public Sixth() {
-        statisticList = new ArrayList<>();
+        QuestionList = new ArrayList<>();
         String n = "\n";
         String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet." + n + "(a) 3" + n +
                 "(b) 1" + n + "(c) 15" + n;
@@ -105,7 +105,7 @@ public class Sixth extends Course {
     }
 
     public void printUsersList() {
-        for (User u : statisticList) {
+        for (User u : QuestionList) {
             System.out.println(u);
         }
     }
