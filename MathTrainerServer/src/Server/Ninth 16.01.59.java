@@ -11,10 +11,11 @@ import java.util.List;
  * @version 1.0
  * @since 2020-03-31
  */
-public class Seventh extends Course{
+public class Ninth extends Course {
     private Questions[] questions;
     private List<User> usersList;
-    public Seventh(){
+
+    public Ninth(){
         usersList = new ArrayList<>();
         String n = "\n";
         String q1 = "What is 12 multiply by 12?" + n + "(a) 144" + n + "(b) 148" + n + "(c) 240" + n;
@@ -48,8 +49,18 @@ public class Seventh extends Course{
         }
         }*/
     @Override
-    public Questions[] getQuestions() {
+    public Questions[] getStastisticQuestion() {
         return questions;
+    }
+
+    @Override
+    public Questions[] getgeometryQuestions() {
+        return new Questions[0];
+    }
+
+    @Override
+    public Questions[] getfourCountQuestions() {
+        return new Questions[0];
     }
 
     public void printQuestions(){

@@ -16,6 +16,8 @@ package Server;
  */
 public abstract class Course {
 
-    public abstract Questions[] getQuestions();
+    public abstract Questions[] getStastisticQuestion();
+    public abstract  Questions[] getgeometryQuestions();
+    public abstract  Questions[] getfourCountQuestions();
 
 }

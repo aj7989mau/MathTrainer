@@ -28,7 +28,7 @@ public class Questions {
     public Questions [] getSeventhQ(){
         course = new Seventh();
 
-        return course.getQuestions();
+        return course.getStastisticQuestion();
     }
 
     public void setQuestion(String question) {
