@@ -18,4 +18,5 @@ public abstract class Course {
 
     public abstract Questions[] getQuestions();
 
+    public abstract Questions[] getQuestions();
 }

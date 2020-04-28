@@ -70,5 +70,12 @@ public class Client extends Thread {
         return "Client{" + "socket=" + socket + '}';
     }
 
+    public InputStream getInputStream() {
+        return null;
+    }
+
+    public OutputStream getOutputStream() {
+        return null;
+    }
 }
 

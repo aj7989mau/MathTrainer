@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b213deb7-f5d8-4172-b989-29dab99ca870" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Eighth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Eighth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Ninth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Ninth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Seventh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Seventh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Sixth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Sixth.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bAEW2WIhFoHBvgB0GJhDDpbxyB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager" selected="Application.MClient">
+    <configuration name="MClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.MClient" />
+      <module name="MathTrainerServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.MServer" />
+      <module name="MathTrainerServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MClient" />
+        <item itemvalue="Application.MServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b213deb7-f5d8-4172-b989-29dab99ca870" name="Default Changelist" comment="" />
+      <created>1588066525714</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588066525714</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="94" key="#Project_Structure" timestamp="1588066802786">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="320" y="94" key="#Project_Structure/0.23.1440.812/-1600.-123.1600.877@0.23.1440.812" timestamp="1588066802786" />
+    <state x="533" y="145" key="#com.intellij.ide.util.MemberChooser" timestamp="1588068024109">
+      <screen x="0" y="23" width="1440" height="811" />
+    </state>
+    <state x="533" y="145" key="#com.intellij.ide.util.MemberChooser/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588068024109" />
+    <state width="1558" height="208" key="GridCell.Tab.0.bottom" timestamp="1588078273460">
+      <screen x="-1600" y="-123" width="1600" height="877" />
+    </state>
+    <state width="1558" height="208" key="GridCell.Tab.0.bottom/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588078273460" />
+    <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588068060187" />
+    <state width="1558" height="208" key="GridCell.Tab.0.center" timestamp="1588078273458">
+      <screen x="-1600" y="-123" width="1600" height="877" />
+    </state>
+    <state width="1558" height="208" key="GridCell.Tab.0.center/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588078273458" />
+    <state width="1398" height="208" key="GridCell.Tab.0.center/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588068060185" />
+    <state width="1558" height="208" key="GridCell.Tab.0.left" timestamp="1588078273457">
+      <screen x="-1600" y="-123" width="1600" height="877" />
+    </state>
+    <state width="1558" height="208" key="GridCell.Tab.0.left/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588078273457" />
+    <state width="1398" height="208" key="GridCell.Tab.0.left/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588068060185" />
+    <state width="1558" height="208" key="GridCell.Tab.0.right" timestamp="1588078273459">
+      <screen x="-1600" y="-123" width="1600" height="877" />
+    </state>
+    <state width="1558" height="208" key="GridCell.Tab.0.right/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588078273459" />
+    <state width="1398" height="208" key="GridCell.Tab.0.right/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588068060186" />
+    <state x="208" y="23" key="SettingsEditor" timestamp="1588066930919">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="208" y="23" key="SettingsEditor/0.23.1440.812/-1600.-123.1600.877@0.23.1440.812" timestamp="1588066930919" />
+    <state x="-1135" y="67" width="670" height="676" key="search.everywhere.popup" timestamp="1588075502000">
+      <screen x="-1600" y="-123" width="1600" height="877" />
+    </state>
+    <state x="-1135" y="67" width="670" height="676" key="search.everywhere.popup/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588075502000" />
+  </component>
+</project>

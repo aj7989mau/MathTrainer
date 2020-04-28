@@ -60,6 +60,24 @@ public class Eighth extends Course {
         return questions;
     }
 
+<<<<<<< Updated upstream
+=======
+    @Override
+    public Questions[] getgeometryQuestions() {
+        return new Questions[0];
+    }
+
+    @Override
+    public Questions[] getfourCountQuestions() {
+        return new Questions[0];
+    }
+
+    @Override
+    public Questions[] getQuestions() {
+        return new Questions[0];
+    }
+
+>>>>>>> Stashed changes
     public void printQuestions(){
         for (Questions q: questions){
             System.out.println(q);

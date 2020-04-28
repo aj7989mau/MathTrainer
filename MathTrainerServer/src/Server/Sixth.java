@@ -97,6 +97,11 @@ public class Sixth extends Course {
         return new Questions[0];
     }
 
+    @Override
+    public Questions[] getQuestions() {
+        return new Questions[0];
+    }
+
 
     public void printQuestions() {
         for (Questions q : stastisticQuestion) {
