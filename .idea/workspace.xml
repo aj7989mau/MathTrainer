@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5b6161-e4c8-4741-ae3a-80ccd9ce7ace" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/MathTrainerServer/src/Server/MServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerServer/src/Server/MServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MathTrainerServer/src/Questions/Eighth.java" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerServer/src/Questions/Eighth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MathTrainerServer/src/Questions/Ninth.java" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerServer/src/Questions/Ninth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MathTrainerServer/src/Questions/Seventh.java" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerServer/src/Questions/Seventh.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +38,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-987" y="32" key="#com.intellij.ide.util.MemberChooser" timestamp="1588166504655">
+      <screen x="-1600" y="-123" width="1600" height="877" />
+    </state>
+    <state x="-987" y="32" key="#com.intellij.ide.util.MemberChooser/0.23.1440.812/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588166504655" />
     <state x="682" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1587500259086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

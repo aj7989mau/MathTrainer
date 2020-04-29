@@ -14,7 +14,7 @@ import java.util.List;
  * @version 1.0
  * @since 2020-03-31
  */
-public class Seventh extends Course {
+public class Seventh {
     private Questions[] questions;
     private List<User> usersList;
 
@@ -51,25 +51,6 @@ public class Seventh extends Course {
             }
         }
         }*/
-    @Override
-    public Questions[] getStatisticQuestion() {
-        return questions;
-    }
-
-    @Override
-    public Questions[] getgeometryQuestions() {
-        return new Questions[0];
-    }
-
-    @Override
-    public Questions[] getFourCountQuestions() {
-        return new Questions[0];
-    }
-
-    @Override
-    public Questions[] getQuestions() {
-        return new Questions[0];
-    }
 
     public void printQuestions(){
         for (Questions q: questions){
