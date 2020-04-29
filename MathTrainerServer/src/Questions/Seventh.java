@@ -1,4 +1,7 @@
-package Server;
+package Questions;
+
+import Server.Course;
+import Server.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +14,10 @@ import java.util.List;
  * @version 1.0
  * @since 2020-03-31
  */
-public class Seventh extends Course{
+public class Seventh extends Course {
     private Questions[] questions;
     private List<User> usersList;
+
     public Seventh(){
         usersList = new ArrayList<>();
         String n = "\n";
@@ -48,12 +52,10 @@ public class Seventh extends Course{
         }
         }*/
     @Override
-    public Questions[] getQuestions() {
+    public Questions[] getStastisticQuestion() {
         return questions;
     }
 
-<<<<<<< Updated upstream
-=======
     @Override
     public Questions[] getgeometryQuestions() {
         return new Questions[0];
@@ -69,7 +71,6 @@ public class Seventh extends Course{
         return new Questions[0];
     }
 
->>>>>>> Stashed changes
     public void printQuestions(){
         for (Questions q: questions){
             System.out.println(q);

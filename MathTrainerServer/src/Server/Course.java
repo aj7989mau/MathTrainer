@@ -1,5 +1,7 @@
 package Server;
 
+import Questions.Questions;
+
 /**
  * This Course class is going to act as a parent to three different courses of a primary school, 7, 8 and 9.
  * Each course is going to have a bunch of questions in a list and its correct answers
@@ -16,7 +18,9 @@ package Server;
  */
 public abstract class Course {
 
-    public abstract Questions[] getQuestions();
+    public abstract Questions[] getStastisticQuestion();
+    public abstract  Questions[] getgeometryQuestions();
+    public abstract  Questions[] getfourCountQuestions();
 
     public abstract Questions[] getQuestions();
 }

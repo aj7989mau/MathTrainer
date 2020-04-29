@@ -1,4 +1,7 @@
-package Server;
+package Questions;
+
+import Server.Course;
+import Server.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +18,12 @@ public class Eighth extends Course {
     private Questions[] questions;
     private List<User> usersList;
 
-    public Eighth(){
+    public Eighth() {
         usersList = new ArrayList<>();
         String n = "\n";
 
         String q1 = "Three workers are building a room, each worker should work 16 hours a day to make the room ready in two days."
-                +n+ "If four workers are given the same task, how many hours should each worker work to complete the task in two days?"
+                + n + "If four workers are given the same task, how many hours should each worker work to complete the task in two days?"
                 + n + "(a) 11 hours" + n + "(b) 9 hours" + n + "(c) 12 hours" + n;
 
 
@@ -30,6 +33,7 @@ public class Eighth extends Course {
         questions = new Questions[]{new Questions(q1, "c"), new Questions(q2, "b")};
         //takeTest(questions);
     }
+
     /*public void takeTest(Questions [] questions){
         int score = 0;
         Scanner userInput = new Scanner(System.in);
@@ -56,12 +60,10 @@ public class Eighth extends Course {
         }
         }*/
     @Override
-    public Questions[] getQuestions() {
+    public Questions[] getStastisticQuestion() {
         return questions;
     }
 
-<<<<<<< Updated upstream
-=======
     @Override
     public Questions[] getgeometryQuestions() {
         return new Questions[0];
@@ -73,11 +75,11 @@ public class Eighth extends Course {
     }
 
     @Override
-    public Questions[] getQuestions() {
-        return new Questions[0];
+    public Questions[] getQuestions() { return new Questions[0];
     }
 
->>>>>>> Stashed changes
+
+
     public void printQuestions(){
         for (Questions q: questions){
             System.out.println(q);

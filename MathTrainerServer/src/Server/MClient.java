@@ -17,7 +17,7 @@ public class MClient {
         this.port = port;
         keepRunning = true;
 
-        try {¥
+        try {
             //Connecting to server
             System.out.println("Connecting to " + serverIp + " on port " + port);
             connection = new Socket(serverIp, port);

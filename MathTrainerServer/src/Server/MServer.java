@@ -1,7 +1,11 @@
 package Server;
 
+import Questions.Questions;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -77,7 +81,6 @@ public class MServer extends Thread {
         private ObjectInputStream ois;
         private Client client;
 
-
         /**
          * Constructor
          * @param server connects the client to server
@@ -98,12 +101,12 @@ public class MServer extends Thread {
             try {
                 while (server.isConnected()) {
                     try {
-
                         //addUser();
                         userLogIn();
                         ois.readUTF();
                         String input = ois.readUTF();
                         if (input.equals("Login")) {
+
 
 
                         }else if(input.equals("Questions")){
@@ -118,6 +121,7 @@ public class MServer extends Thread {
                 System.out.println("Check me exception in server");
             }
         }
+
 
         /**
          * This method adds the user to a collection
@@ -180,26 +184,9 @@ public class MServer extends Thread {
         /**
          * If the user is already registered and wants to login to the system
          */
-        private void userLogIn() throws IOException {
+        private void userLogIn()
+        {
 
-            BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
-
-            String username = input.readLine();
-            System.out.println("username" + username);
-            String password = input.readLine();
-            System.out.println("password" + password);
-
-            //open printwriter for writing data to client
-            PrintWriter output = new PrintWriter(new OutputStreamWriter(client.getOutputStream()));
-
-
-            if(username.equals("User") &&password.equals("Password")){
-                output.println("Welcome, " + username);
-            }else{
-                output.println("Login Failed");
-            }
-            output.flush();
-            output.close();
 
         }
 
@@ -210,35 +197,23 @@ public class MServer extends Thread {
         {
             Course course;
             try {
-                outputStream.writeUTF("Which level do you want to start with?\n(d) Sixth\n(e) Eigth\n(f) Ninth\n(g) leave now\n(h) Close Server\n");
+                outputStream.writeUTF("Which level do you want to start with?\n(d) Seventh\n(e) Eigth\n(f) Ninth\n(g) leave now\n(h) Close Server\n");
                 String level = inputStream.readUTF();
                 if (level.equals("d")) {
                     course = new Seventh();
                     //   addUser();
-                    Questions[] questions = course.getStastisticQuestion();
+                    Questions[] questions = course.getQuestions();
                     takeTest(questions);
                 } else if (level.equals("e")) {
                     course = new Eighth();
                     //    addUser();
-                    Questions[] questions = course.getStastisticQuestion();
+                    Questions[] questions = course.getQuestions();
                     takeTest(questions);
                 } else if (level.equals("f")) {
                     course = new Ninth();
                     //    addUser();
-                    Questions[] questions = course.getStastisticQuestion();
+                    Questions[] questions = course.getQuestions();
                     takeTest(questions);
-                } else if (level.equals("g")){
-                    course = new Sixth();
-                    //addUser();
-
-                    //lade till detta för frågorna  - Johanna
-                    Questions[] questions = course.getStastisticQuestion();
-                    Questions[] questions1 = course.getfourCountQuestions();
-                    Questions[] questions2 = course.getfourCountQuestions();
-
-                    takeTest(questions);
-                    takeTest(questions1);
-                    takeTest(questions2);
                 }
                 //QUIT CLIENT
                 else if (level.equals("g"))

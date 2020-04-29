@@ -1,4 +1,7 @@
-package Server;
+package Questions;
+
+import Server.Course;
+import Server.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +9,7 @@ import java.util.List;
 /**
  * This class is a subclass to the parent Course, this class makes an
  * array of the Question class and returns it back whenever the user
- * selects to be apart of the class. Added new questions and
+ * selects to be apart of the class. Added new questions
  * @author JohannaDahlborn
  * @version 1.0
  * @since 2020-04-22
@@ -18,11 +21,11 @@ public class Sixth extends Course {
     private Questions[] geometryQuestions;
     private Questions[] fourCountQuestions;
 
-    private List<User> statisticList;
+    private List<User> QuestionList;
 
 
     public Sixth() {
-        statisticList = new ArrayList<>();
+        QuestionList = new ArrayList<>();
         String n = "\n";
         String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet." + n + "(a) 3" + n +
                 "(b) 1" + n + "(c) 15" + n;
@@ -110,7 +113,7 @@ public class Sixth extends Course {
     }
 
     public void printUsersList() {
-        for (User u : statisticList) {
+        for (User u : QuestionList) {
             System.out.println(u);
         }
     }

@@ -1,5 +1,7 @@
 package Server;
 
+import java.io.Serializable;
+
 /**
  * The user class that is responsible for each new user
  * @author abdulsamisahil
@@ -7,7 +9,7 @@ package Server;
  * @since  2020-03-23
  *
  */
-public class User {
+public class User  implements Serializable {
     private String name;
     private int age;
     private String email;
