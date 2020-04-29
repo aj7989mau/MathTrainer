@@ -15,15 +15,15 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="927.0" stylesheets="@../../entity/MathTrainerStylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ExercisesController">
    <children>
-      <SplitPane dividerPositions="0.26054054054054054" prefHeight="577.0" prefWidth="927.0">
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="577.0" prefWidth="927.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="263.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="273.0">
                <children>
-                  <Button layoutX="87.0" layoutY="481.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
-                  <Button disable="true" layoutX="20.0" layoutY="256.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="338.0" mnemonicParsing="false" styleClass="buttonReal" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="421.0" mnemonicParsing="false" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="178.0" mnemonicParsing="false" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="87.0" layoutY="457.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
+                  <Button disable="true" layoutX="20.0" layoutY="256.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="338.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="392.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="178.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                   <ImageView fitHeight="207.0" fitWidth="199.0" layoutX="14.0" layoutY="-115.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/thisisUntitled-1-Recovered.png" />
@@ -33,25 +33,24 @@
                   <Label layoutX="114.0" layoutY="530.0" style="-fx-text-fill: #00B87E;" stylesheets="@../../entity/style.css" text="Connected" textFill="#00b87e" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="473.0" prefWidth="646.0" styleClass="Anchor" stylesheets="@../../entity/MathTrainerStylesheet.css">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="772.0" styleClass="Anchor" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <AnchorPane layoutY="201.0" prefHeight="360.0" prefWidth="681.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
-                  <Button layoutX="61.0" layoutY="23.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="568.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
-                  <Button layoutX="62.0" layoutY="121.0" mnemonicParsing="false" prefHeight="412.0" prefWidth="568.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
-                  <Button layoutX="539.0" layoutY="29.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="77.0" stylesheets="@../../entity/MathTrainerStylesheet.css" text="1/7">
+                  <Button layoutX="33.0" layoutY="13.0" mnemonicParsing="false" onAction="#logOutClicked" prefHeight="82.0" prefWidth="568.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
+                  <Button layoutX="39.0" layoutY="111.0" mnemonicParsing="false" onAction="#logOutClicked" prefHeight="412.0" prefWidth="568.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
+                  <Button layoutX="491.0" layoutY="19.0" mnemonicParsing="false" onAction="#logOutClicked" prefHeight="70.0" prefWidth="77.0" stylesheets="@../../entity/MathTrainerStylesheet.css" text="1/7">
                      <styleClass>
-                        <String fx:value="buttonNoButton" />
+                        <String fx:value="Anchor" />
                         <String fx:value="labelExercise" />
                      </styleClass></Button>
-                  <RadioButton layoutX="552.0" layoutY="283.0" mnemonicParsing="false" styleClass="labelBlack" text="86.35">
+                  <RadioButton layoutX="529.0" layoutY="273.0" mnemonicParsing="false" styleClass="labelBlack" text="86.35">
                      <toggleGroup>
                         <ToggleGroup fx:id="Group1" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton layoutX="552.0" layoutY="245.0" mnemonicParsing="false" styleClass="labelBlack" text="43,43" toggleGroup="$Group1" />
-                  <RadioButton layoutX="552.0" layoutY="211.0" mnemonicParsing="false" styleClass="labelBlack" text="93,45" toggleGroup="$Group1" />
-                  <RadioButton layoutX="552.0" layoutY="321.0" mnemonicParsing="false" styleClass="labelBlack" text="102,56" toggleGroup="$Group1" />
-                  <Label layoutX="79.0" layoutY="42.0" styleClass="labelBlack" text="Addition">
+                  <RadioButton layoutX="529.0" layoutY="235.0" mnemonicParsing="false" styleClass="labelBlack" text="43,43" toggleGroup="$Group1" />
+                  <RadioButton layoutX="529.0" layoutY="201.0" mnemonicParsing="false" styleClass="labelBlack" text="93,45" toggleGroup="$Group1" />
+                  <RadioButton layoutX="529.0" layoutY="311.0" mnemonicParsing="false" styleClass="labelBlack" text="102,56" toggleGroup="$Group1" />
+                  <Label layoutX="51.0" layoutY="32.0" styleClass="labelBlack" text="Addition">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -60,20 +59,20 @@
                      <font>
                         <Font size="10.0" />
                      </font></Label>
-                  <Button layoutX="470.0" layoutY="486.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" styleClass="buttonReal" text="Nästa fråga" />
-                  <Label layoutX="81.0" layoutY="155.0" prefHeight="17.0" prefWidth="225.0" styleClass="labelBlack" text="Fråga: Vad är 64,93 + 21,42">
+                  <Button layoutX="447.0" layoutY="476.0" mnemonicParsing="false" onAction="#logOutClicked" prefHeight="25.0" prefWidth="137.0" text="Nästa fråga" />
+                  <Label layoutX="58.0" layoutY="145.0" prefHeight="17.0" prefWidth="225.0" styleClass="labelBlack" text="Fråga: Vad är 64,93 + 21,42">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
                   <Region layoutY="97.0" prefHeight="253.0" prefWidth="77.0" />
-                  <Button layoutX="319.0" layoutY="486.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" styleClass="ConfirmButton" stylesheets="@../../entity/MathTrainerStylesheet.css" text="Bekräfta svar" />
-                  <Label layoutX="566.0" layoutY="155.0" prefHeight="19.0" prefWidth="40.0" styleClass="labelBlack" text="Svar">
+                  <Button layoutX="296.0" layoutY="476.0" mnemonicParsing="false" onAction="#logOutClicked" prefHeight="25.0" prefWidth="137.0" styleClass="ConfirmButton" stylesheets="@../../entity/MathTrainerStylesheet.css" text="Bekräfta svar" />
+                  <Label layoutX="543.0" layoutY="145.0" prefHeight="19.0" prefWidth="40.0" styleClass="labelBlack" text="Svar">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="72.0" layoutY="350.0" prefHeight="17.0" prefWidth="225.0" styleClass="labelBlack" text="Ledtråd: Använd uppställning">
+                  <Label layoutX="49.0" layoutY="340.0" prefHeight="17.0" prefWidth="225.0" styleClass="labelBlack" text="Ledtråd: Använd uppställning">
                      <font>
                         <Font size="15.0" />
                      </font>

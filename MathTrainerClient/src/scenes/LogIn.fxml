@@ -15,13 +15,13 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="660.0" stylesheets="@../entity/MathTrainerStylesheet.css" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="usernameField" layoutX="523.0" layoutY="149.0" prefHeight="25.0" prefWidth="164.0" promptText="Användarnamn" styleClass="textinput" stylesheets="@../entity/style.css" />
-            <PasswordField fx:id="passwordField" layoutX="523.0" layoutY="197.0" prefHeight="25.0" prefWidth="164.0" promptText="Lösenord" styleClass="textinput" stylesheets="@../entity/style.css" />
+            <TextField layoutX="523.0" layoutY="149.0" prefHeight="25.0" prefWidth="164.0" promptText="Användarnamn" styleClass="textinput" stylesheets="@../entity/style.css" />
+            <PasswordField layoutX="523.0" layoutY="197.0" prefHeight="25.0" prefWidth="164.0" promptText="Lösenord" styleClass="textinput" stylesheets="@../entity/style.css" />
             <Label layoutX="438.0" layoutY="153.0" text="Användarnamn" />
             <Label layoutX="454.0" layoutY="201.0" text="Lösenord" />
-            <Button fx:id="LoggaIn" layoutX="515.0" layoutY="253.0" mnemonicParsing="false" onAction="#logInClicked" styleClass="buttonReal" stylesheets="@../entity/MathTrainerStylesheet.css" text="Logga in" />
-            <Button layoutX="598.0" layoutY="253.0" mnemonicParsing="false" onAction="#newUserClicked" styleClass="buttonReal" text="Ny användare" />
-            <Button layoutX="574.0" layoutY="355.0" mnemonicParsing="false" onAction="#skipLogInClicked" styleClass="buttonReal" stylesheets="@../entity/MathTrainerStylesheet.css" text="Fortsätt utan att logga in" />
+            <Button layoutX="515.0" layoutY="253.0" mnemonicParsing="false" onAction="#logInClicked" text="Logga in" />
+            <Button layoutX="598.0" layoutY="253.0" mnemonicParsing="false" onAction="#newUserClicked" text="Ny användare" />
+            <Button layoutX="574.0" layoutY="355.0" mnemonicParsing="false" onAction="#skipLogInClicked" stylesheets="@../entity/MathTrainerStylesheet.css" text="Fortsätt utan att logga in" />
             <Button fx:id="Avsluta" layoutX="417.0" layoutY="355.0" mnemonicParsing="false" onAction="#exitClicked" prefHeight="25.0" prefWidth="73.0" styleClass="Avsluta" stylesheets="@../entity/style.css" text="Avsluta" />
             <ImageView fitHeight="400.0" fitWidth="404.0" pickOnBounds="true" preserveRatio="true">
                <image>

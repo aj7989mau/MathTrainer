@@ -3,19 +3,13 @@ package controllers;
 import entity.Buffer;
 import entity.ScenesEnum;
 import entity.ScenesHashMap;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Class MainController is controller of the other controllers. All scene controllers has a reference to this controller
@@ -27,7 +21,6 @@ import java.util.ResourceBundle;
 
 public class MainController {
     private Stage mainWindow;
-
     private SceneSetter sceneSetter = new SceneSetter();
     private Buffer<String> incomingBuffer = new Buffer<>(); //Tanken är att denna klass bara ska hämta objekt från denna buffer
     private Buffer<String> outgoingBuffer = new Buffer<>(); //Tanken är att denna klass bara ska lägga in objekt i denna buffer
@@ -109,23 +102,6 @@ public class MainController {
         }
     }
 
-
-public void LogIn(String firstName, String Password){
-
-//TODO Skicka till nätverket buffer
-// och vänta svar från mainmenuscene
-
-}
-
-public void InitiateQuiz(String Quiz){
-
-
-
-}
-
-
-
-
     /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
      * for communication, and handles communication with the ScenesHashmap. It also sets up the current scene.
@@ -165,6 +141,7 @@ public void InitiateQuiz(String Quiz){
             FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Settings.fxml"));
             Scene settingsScene = new Scene(settingsLoader.load());
             sendSelfToControllers(settingsLoader);
+
 
 
             scenes.put(ScenesEnum.LogIn, logInScene);

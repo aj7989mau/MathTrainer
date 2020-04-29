@@ -1,4 +1,4 @@
-.Knapp{
+#Knapp{
 
 
     -fx-text-fill: white;
@@ -8,9 +8,9 @@
     -fx-effect: dropshadow( gaussian ,rgba(0,50,25,.25), 10px, 0.1 ,0, 3 );
 }
 
-
-
-
+.Avsluta{
+    -fx-background-color: linear-gradient( to right bottom, #fd1d1d, #e95a40);
+}
 
 #Anchor{
 

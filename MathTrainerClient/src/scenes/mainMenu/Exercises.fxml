@@ -15,10 +15,10 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="255.0">
                <children>
                   <Button layoutX="82.0" layoutY="466.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
-                  <Button disable="true" layoutX="20.0" layoutY="220.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="309.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" styleClass="buttonReal" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="392.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="139.0" mnemonicParsing="false" onAction="#homeButtonClicked" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button disable="true" layoutX="20.0" layoutY="220.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="309.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="392.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="139.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                   <ImageView fitHeight="196.0" fitWidth="198.0" layoutX="17.0" layoutY="-115.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/thisisUntitled-1-Recovered.png" />
@@ -28,14 +28,14 @@
                   <Label layoutX="118.0" layoutY="535.0" style="-fx-text-fill: #00B87E;" text="Connected" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="619.0" prefWidth="751.0" styleClass="buttonNoButton" stylesheets="@../../entity/MathTrainerStylesheet.css">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="619.0" prefWidth="751.0" styleClass="button" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <AnchorPane layoutX="-6.0" layoutY="195.0" minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="700.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
+                  <AnchorPane layoutX="-3.0" layoutY="265.0" minHeight="0.0" minWidth="0.0" prefHeight="297.0" prefWidth="697.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
                   <Button layoutX="29.0" layoutY="26.0" mnemonicParsing="false" prefHeight="510.0" prefWidth="630.0" styleClass="MenuButton" />
-                  <Button layoutX="70.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Statistik" />
-                  <Button layoutX="378.0" layoutY="289.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Geometri" />
-                  <Button fx:id="AdditionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#AdditionClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Addition" />
-                  <Button layoutX="378.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Nåt annat sköj" />
+                  <Button layoutX="70.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" text="Statistik" />
+                  <Button layoutX="378.0" layoutY="289.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" text="Geometri" />
+                  <Button fx:id="AdditionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#AdditionClicked" prefHeight="173.0" prefWidth="226.0" text="Addition" />
+                  <Button layoutX="378.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" text="Nåt annat sköj" />
                </children></AnchorPane>
          </items>
       </SplitPane>

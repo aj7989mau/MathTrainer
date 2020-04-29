@@ -2,10 +2,7 @@ package controllers;
 
 import entity.ScenesEnum;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
 /**
  * Controller for handling button-presses in the scene LogIn.fxml. Each method represent a possible user action.
@@ -14,14 +11,6 @@ import javafx.scene.control.TextField;
  */
 
 public class LogInController extends SceneControllerParent {
-
-
-
-    @FXML
-    private TextField usernameField;
-
-    @FXML
-    private TextField passwordField;
 
 
     public void skipLogInClicked(ActionEvent actionEvent) {
@@ -33,24 +22,10 @@ public class LogInController extends SceneControllerParent {
         }
     }
 
-    private void UserNameInfo(){
-        String firstName = usernameField.getText();
-        String password = passwordField.getText();
-        mainController.setScene(ScenesEnum.Home);
-    }
-
     public void logInClicked(ActionEvent actionEvent) {
-        mainController.setScene(ScenesEnum.Home);
             //ToDo: Kod för att logga in med befintlig användare
-
-
-
-// String användarman = textfield.gettext
-// användarnamn i metod i maincontroller som tar emot parameter och lösenord , och skicka till buffern
-
+        mainController.setScene(ScenesEnum.Home);
     }
-
-
 
     public void newUserClicked(ActionEvent actionEvent) {
         //ToDO: Kod för att skapa ny användare
