@@ -112,12 +112,8 @@ public class MServer extends Thread {
                         ois.readUTF();
                         String input = ois.readUTF();
                         if (input.equals("Login")) {
-<<<<<<< Updated upstream
 
-                            
-=======
                             userLogIn();
->>>>>>> Stashed changes
 
 
                         }else if(input.equals("Questions")){
