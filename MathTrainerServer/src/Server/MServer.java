@@ -107,12 +107,11 @@ public class MServer extends Thread {
                 while (server.isConnected()) {
                     try {
                         //addUser();
-                        userLogIn();
                         ois.readUTF();
                         String input = ois.readUTF();
                         if (input.equals("Login")) {
-
-
+                            userLogIn();
+                            
 
                         }else if(input.equals("Questions")){
                             //kod
