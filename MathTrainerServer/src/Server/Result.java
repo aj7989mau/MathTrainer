@@ -1,4 +1,6 @@
 package Server;
 
-public class Result {
+import java.io.Serializable;
+
+public interface Result extends Serializable {
 }

@@ -1,12 +1,20 @@
 package Server;
 
+import Questions.Questions;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import Questions.Sixth;
+import Questions.Seventh;
+import Questions.Ninth;
+import Questions.Eighth;
+
 
 /**
  * MathTainer Server class, controls logic/communications with the MathTrainer Clients.
@@ -75,6 +83,8 @@ public class MServer extends Thread {
         private DataInputStream inputStream;
         private DataOutputStream outputStream;
         private List<User> userList = new ArrayList<>();
+        private ObjectInputStream ois;
+        private Client client;
 
         /**
          * Constructor
@@ -96,34 +106,16 @@ public class MServer extends Thread {
             try {
                 while (server.isConnected()) {
                     try {
+                        //addUser();
+                        userLogIn();
+                        ois.readUTF();
+                        String input = ois.readUTF();
+                        if (input.equals("Login")) {
 
-                        String toUser = "Välkommen till MATH-TRAINER\n(a) Skapa konto\n(b) Logga in\n(c) Logga in som gäst\n";
-                        outputStream.writeUTF(toUser);
-                        String userChoice = inputStream.readUTF();
-                        if (userChoice.equals("a"))
-                        {
-                            addUser();
-                            outputStream.writeUTF("Registration successful\nDo you want to start the quiz?\nYes/No");
-                            if (inputStream.readUTF().equals("Yes"))
-                            {
-                                startQuiz();
-                            }
-                            else
-                            {
-                                closeClient();
-                            }
-                        }
-                        else if (userChoice.equals("b"))
-                        {
-                            userLogIn();
-                        }
-                        else if (userChoice.equals("c"))
-                        {
-                           startQuiz();
-                        }
-                        else
-                        {
-                            outputStream.writeUTF("Invalid Option");
+
+
+                        }else if(input.equals("Questions")){
+                            //kod
                         }
 
                     } catch (IOException e) {
@@ -134,6 +126,7 @@ public class MServer extends Thread {
                 System.out.println("Check me exception in server");
             }
         }
+
 
         /**
          * This method adds the user to a collection
@@ -198,6 +191,7 @@ public class MServer extends Thread {
          */
         private void userLogIn()
         {
+
 
         }
 
