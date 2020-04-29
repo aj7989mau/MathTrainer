@@ -18,9 +18,9 @@ import Questions.Questions;
  */
 public abstract class Course {
 
-    public abstract Questions[] getStastisticQuestion();
-    public abstract  Questions[] getgeometryQuestions();
-    public abstract  Questions[] getfourCountQuestions();
+    public abstract Questions[] getStatisticQuestion();
+    public abstract  Questions[] getGeometryQuestions();
+    public abstract  Questions[] getFourCountQuestions();
 
     public abstract Questions[] getQuestions();
 }

@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Sixth extends Course {
     //add
-    private Questions[] stastisticQuestion;
+    private Questions[] statisticQuestion;
     private Questions[] geometryQuestions;
     private Questions[] fourCountQuestions;
 
@@ -35,7 +35,7 @@ public class Sixth extends Course {
         String q3 = "Medelvärdet av tre tal är 5. Två av talen är 4 och 5. Vilket är det tredje talet?" + n + "(a) 3" + n +
                 "(b) 6" + n + "(c) 10" + n;
         String q4 = "Skriv vad 1/4 är i procent." + n + "(a) 25 " + n + "(b) 30" + n + "(c) 10" + n;
-        stastisticQuestion = new Questions[]{new Questions(q1, "a"), new Questions(q2, "c"), new Questions(q3, "b"),
+        statisticQuestion = new Questions[]{new Questions(q1, "a"), new Questions(q2, "c"), new Questions(q3, "b"),
         new Questions(q4, "b")};
         //takeTest(questions);
 
@@ -86,18 +86,17 @@ public class Sixth extends Course {
         }
         }*/
     @Override
-    public Questions[] getStastisticQuestion() {
-        return new Questions[0];
+    public Questions[] getStatisticQuestion() {
+        return statisticQuestion;
     }
 
     @Override
-    public Questions[] getgeometryQuestions() {
-        return new Questions[0];
+    public Questions[] getGeometryQuestions() { return geometryQuestions;
     }
 
     @Override
-    public Questions[] getfourCountQuestions() {
-        return new Questions[0];
+    public Questions[] getFourCountQuestions() {
+        return fourCountQuestions;
     }
 
     @Override
@@ -107,7 +106,7 @@ public class Sixth extends Course {
 
 
     public void printQuestions() {
-        for (Questions q : stastisticQuestion) {
+        for (Questions q : statisticQuestion) {
             System.out.println(q);
         }
     }

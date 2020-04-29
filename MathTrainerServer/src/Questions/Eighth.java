@@ -60,7 +60,7 @@ public class Eighth extends Course {
         }
         }*/
     @Override
-    public Questions[] getStastisticQuestion() {
+    public Questions[] getStatisticQuestion() {
         return questions;
     }
 
@@ -70,7 +70,7 @@ public class Eighth extends Course {
     }
 
     @Override
-    public Questions[] getfourCountQuestions() {
+    public Questions[] getFourCountQuestions() {
         return new Questions[0];
     }
 

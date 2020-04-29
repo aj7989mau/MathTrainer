@@ -2,10 +2,7 @@ package Server;
 
 import Questions.Questions;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -84,14 +81,16 @@ public class MServer extends Thread {
         private DataOutputStream outputStream;
         private List<User> userList = new ArrayList<>();
         private ObjectInputStream ois;
+        private ObjectOutputStream oos;
         private Client client;
 
         /**
          * Constructor
          * @param server connects the client to server
          */
-        public ClientHandler(Socket server) {
+        public ClientHandler(Socket server) throws IOException {
             this.server = server;
+
             try {
                 setupStreams();
             } catch (IOException e) {
@@ -105,18 +104,42 @@ public class MServer extends Thread {
         public void run() {
             try {
                 while (server.isConnected()) {
+                    Course course = null;
+                    Questions [] questions = null;
                     try {
                         //addUser();
                         userLogIn();
                         ois.readUTF();
                         String input = ois.readUTF();
                         if (input.equals("Login")) {
+<<<<<<< Updated upstream
 
                             
+=======
+                            userLogIn();
+>>>>>>> Stashed changes
 
 
                         }else if(input.equals("Questions")){
-                            //kod
+                            oos.writeUTF("Välj årskurs");
+                            String answer = ois.readUTF();
+                            if(answer.equals("årskurs 6")){
+                                course = new Sixth();
+                                oos.writeUTF("Välj typ av fråga");
+                                String answerTypeOfQuestion = ois.readUTF();
+                                if(answerTypeOfQuestion.equals("Geometry")){
+                                    questions = course.getGeometryQuestions();
+                                    takeTest(questions);
+                                }else if(answerTypeOfQuestion.equals("Four counting ways")){
+                                    questions = course.getFourCountQuestions();
+                                    takeTest(questions);
+                                }else if(answerTypeOfQuestion.equals("Statisk")){
+                                    questions = course.getStatisticQuestion();
+                                    takeTest(questions);
+                                }
+                            }else if(answer.equals("Årskurs 7")){
+                                course = new Seventh(); 
+                            }
                         }
 
                     } catch (IOException e) {
@@ -168,24 +191,30 @@ public class MServer extends Thread {
         private void takeTest(Questions[] questions) throws IOException {
             int score = 0;
             for (int i = 0; i < questions.length; i++) {
-                outputStream.writeUTF(questions[i].getQuestion());
-                String answer = inputStream.readUTF();
+                oos.writeUTF(questions[i].getQuestion());
+                String answer = ois.readUTF();
                 if (answer.equals(questions[i].getAnswer())) {
                     score++;
                 }
             }
-            String str = "Dear ";
-            outputStream.writeUTF(str + ", you got " + score + "/" + questions.length);
+            String str = "Resultat ";
+            oos.writeUTF(str + ", you got " + score + "/" + questions.length);
         }
         /**
          * This method initializes and setups the streams that holds/read/writes the data input from the users
          */
         private void setupStreams() throws IOException {
+            ois = new ObjectInputStream(server.getInputStream());
+            oos = new ObjectOutputStream(server.getOutputStream());
+
+            oos.flush(); // skickar allt som användaren vill få fram
+
+            /*
             inputStream = new DataInputStream(server.getInputStream());
             System.out.println(inputStream.readUTF());
             outputStream = new DataOutputStream(server.getOutputStream());
             outputStream.writeUTF("Thank you for connecting to " + server.getInetAddress().getHostName());
-            outputStream.flush();
+            outputStream.flush();*/
         }
         /**
          * If the user is already registered and wants to login to the system

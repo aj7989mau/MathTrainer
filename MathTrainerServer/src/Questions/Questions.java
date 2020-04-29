@@ -30,7 +30,7 @@ public class Questions {
     public Questions [] getSeventhQ(){
         course = new Seventh();
 
-        return course.getStastisticQuestion();
+        return course.getStatisticQuestion();
     }
 
     public void setQuestion(String question) {
