@@ -1,3 +1,8 @@
+package Questions;
+
+import Server.Course;
+import Server.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,23 +14,16 @@ import java.util.List;
  * @version 1.0
  * @since 2020-03-31
  */
-public class Eighth extends Course {
+public class Ninth extends Course {
     private Questions[] questions;
     private List<User> usersList;
 
-    public Eighth(){
+    public Ninth(){
         usersList = new ArrayList<>();
         String n = "\n";
-
-        String q1 = "Three workers are building a room, each worker should work 16 hours a day to make the room ready in two days."
-                +n+ "If four workers are given the same task, how many hours should each worker work to complete the task in two days?"
-                + n + "(a) 11 hours" + n + "(b) 9 hours" + n + "(c) 12 hours" + n;
-
-
-        String q2 = "What is the correct value of x in the following equation \n" +
-                "2x + 4 = 12?" + n + "(a) x = 8" + n + "(b) x = 4" + n + "(c) x = 2" + n;
-
-        questions = new Questions[]{new Questions(q1, "c"), new Questions(q2, "b")};
+        String q1 = "What is 12 multiply by 12?" + n + "(a) 144" + n + "(b) 148" + n + "(c) 240" + n;
+        String q2 = "What is the square value of 169?" + n + "(a) 12" + n + "(b) 34" + n + "(c) 13" + n;
+        questions = new Questions[]{new Questions(q1, "a"), new Questions(q2, "c")};
         //takeTest(questions);
     }
     /*public void takeTest(Questions [] questions){
@@ -54,8 +52,23 @@ public class Eighth extends Course {
         }
         }*/
     @Override
-    public Questions[] getQuestions() {
+    public Questions[] getStastisticQuestion() {
         return questions;
+    }
+
+    @Override
+    public Questions[] getgeometryQuestions() {
+        return new Questions[0];
+    }
+
+    @Override
+    public Questions[] getfourCountQuestions() {
+        return new Questions[0];
+    }
+
+    @Override
+    public Questions[] getQuestions() {
+        return new Questions[0];
     }
 
     public void printQuestions(){

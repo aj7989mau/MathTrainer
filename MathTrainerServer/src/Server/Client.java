@@ -1,12 +1,14 @@
 package Server;
-
-
 import java.io.*;
 import java.net.Socket;
 
 /**
  * Used to keep track of a client's socket and its corresponding input and output streams. //stream eller inte
+ * @author JohannaDahlborn
+ * @version
+ * @since 2020-04-21
  */
+
 public class Client extends Thread {
     private Socket socket;
     private ObjectInputStream input;
