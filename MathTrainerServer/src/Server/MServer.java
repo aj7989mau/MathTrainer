@@ -79,10 +79,10 @@ public class MServer extends Thread {
         private Socket server;
         private DataInputStream inputStream;
         private DataOutputStream outputStream;
-        private List<User> userList = new ArrayList<>();
+        private List<Server.User> userList = new ArrayList<>();
         private ObjectInputStream ois;
         private ObjectOutputStream oos;
-        private Client client;
+        private Server.Client client;
 
         /**
          * Constructor
@@ -104,7 +104,7 @@ public class MServer extends Thread {
         public void run() {
             try {
                 while (server.isConnected()) {
-                    Course course = null;
+                    Server.Course course = null;
                     Questions [] questions = null;
                     try {
                         //addUser();
@@ -134,7 +134,7 @@ public class MServer extends Thread {
                                     takeTest(questions);
                                 }
                             }else if(answer.equals("Årskurs 7")){
-                                course = new Seventh(); 
+                               // course = new Seventh();
                             }
                         }
 
@@ -224,7 +224,7 @@ public class MServer extends Thread {
         /**
          * Start quiz
          */
-        private void startQuiz()
+       /* private void startQuiz()
         {
             Course course;
             try {
@@ -236,12 +236,12 @@ public class MServer extends Thread {
                     Questions[] questions = course.getQuestions();
                     takeTest(questions);
                 } else if (level.equals("e")) {
-                    course = new Eighth();
+                    //course = new Eighth();
                     //    addUser();
                     Questions[] questions = course.getQuestions();
                     takeTest(questions);
                 } else if (level.equals("f")) {
-                    course = new Ninth();
+                    //course = new Ninth();
                     //    addUser();
                     Questions[] questions = course.getQuestions();
                     takeTest(questions);
@@ -272,7 +272,7 @@ public class MServer extends Thread {
         }
         /**
          * Quit User
-         */
+         */ 
         private void closeClient()
         {
             try {
