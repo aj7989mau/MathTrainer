@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b213deb7-f5d8-4172-b989-29dab99ca870" name="Default Changelist" comment="" />
+    <list default="true" id="b213deb7-f5d8-4172-b989-29dab99ca870" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/MathTrainer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/MathTrainer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/META-INF/MathTrainerClient.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/ExercisesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/ExercisesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/LogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/MainController$SceneSetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/MainController$SceneSetter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/MainMenuControllerParent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/MainMenuControllerParent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NationalTestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NationalTestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController$InputThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController$InputThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController$OutputThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController$OutputThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NewUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/NewUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/SceneControllerParent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/SceneControllerParent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/SettingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/controllers/SettingsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/entity/Buffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/entity/Buffer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/entity/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/entity/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/entity/ScenesEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/entity/ScenesEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/entity/ScenesHashMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/entity/ScenesHashMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerClient/out/production/MathTrainerClient/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MathTrainerServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MathTrainerServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MServer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
