@@ -15,10 +15,10 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="175.0">
                <children>
                   <Button layoutX="56.0" layoutY="359.0" mnemonicParsing="false" onAction="#logOutClicked" text="Logga ut" />
-                  <Button layoutX="20.0" layoutY="93.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button disable="true" layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="46.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="93.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button disable="true" layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" styleClass="buttonReal" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="46.0" mnemonicParsing="false" onAction="#homeButtonClicked" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="413.0" stylesheets="@../../entity/MathTrainerStylesheet.css">

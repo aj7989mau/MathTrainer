@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -16,11 +18,18 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="175.0">
                <children>
-                  <Button layoutX="56.0" layoutY="359.0" mnemonicParsing="false" onAction="#logOutClicked" text="Logga ut" />
-                  <Button layoutX="20.0" layoutY="93.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button disable="true" layoutX="20.0" layoutY="222.0" mnemonicParsing="false" onAction="#settingsButtonClicked" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                  <Button layoutX="20.0" layoutY="46.0" mnemonicParsing="false" onAction="#homeButtonClicked" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="54.0" layoutY="317.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
+                  <Button layoutX="22.0" layoutY="156.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="18.0" />
+                  <Button layoutX="20.0" layoutY="210.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" styleClass="buttonReal" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button disable="true" layoutX="20.0" layoutY="264.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button layoutX="20.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeButtonClicked" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <ImageView fitHeight="175.0" fitWidth="175.0" layoutX="2.0" layoutY="-125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/thisisUntitled-1-Recovered.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="22.0" layoutY="367.0" text="Status. " />
+                  <Label layoutX="68.0" layoutY="367.0" text="Connected" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="413.0" stylesheets="@../../entity/MathTrainerStylesheet.css">
@@ -40,9 +49,9 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ToggleButton layoutX="173.0" layoutY="47.0" mnemonicParsing="false" text="ToggleButton" />
-                  <ChoiceBox layoutX="173.0" layoutY="85.0" prefWidth="150.0" />
-                  <Slider layoutX="173.0" layoutY="127.0" />
+                  <ToggleButton layoutX="173.0" layoutY="47.0" mnemonicParsing="false" styleClass="buttonReal" text="ToggleButton" />
+                  <ChoiceBox layoutX="173.0" layoutY="85.0" prefWidth="150.0" styleClass="buttonReal" />
+                  <Slider layoutX="173.0" layoutY="127.0" styleClass="buttonReal" />
                </children></AnchorPane>
          </items>
       </SplitPane>
