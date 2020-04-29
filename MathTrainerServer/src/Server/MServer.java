@@ -10,6 +10,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import Questions.Eighth;
+import Questions.Ninth;
+import Questions.Seventh;
+import Questions.Sixth;
 
 /**
  * MathTainer Server class, controls logic/communications with the MathTrainer Clients.
@@ -106,8 +110,7 @@ public class MServer extends Thread {
                         ois.readUTF();
                         String input = ois.readUTF();
                         if (input.equals("Login")) {
-
-
+                            
 
                         }else if(input.equals("Questions")){
                             //kod
