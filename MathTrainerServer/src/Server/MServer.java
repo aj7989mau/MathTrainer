@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+
 import Questions.Eighth;
 import Questions.Ninth;
 import Questions.Seventh;
@@ -15,6 +16,7 @@ import Questions.Sixth;
 
 /**
  * MathTainer Server class, controls logic/communications with the MathTrainer Clients.
+ *
  * @author abdulsamisahil
  * @version 1.5
  * @since 2020-03-31
@@ -24,8 +26,10 @@ public class MServer extends Thread {
     private ServerSocket serverSocket;
     private boolean keepRunning;
     private int port;
+
     /**
      * MTServer Constructor
+     *
      * @param port server listening to this port
      */
     public MServer(int port) {
@@ -39,12 +43,13 @@ public class MServer extends Thread {
             e.printStackTrace();
         }
     }
+
     /**
      * This method is connecting the MTServer
      */
     private void startServer() throws IOException {
 
-       // Starting server
+        // Starting server
         serverSocket = new ServerSocket(port);
         System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
         while (keepRunning) {
@@ -61,7 +66,8 @@ public class MServer extends Thread {
             }
         }
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         new MServer(22);
     }
 
@@ -69,10 +75,10 @@ public class MServer extends Thread {
      * The inner class the handles the users, we have not decided to build the product
      * server to handle different of users connected on different network (Multithreading),
      * but I will try to code,  in case we change our mind.
+     *
      * @author abdulsamisahil
      * @version 1.0
      * @since 2020.03.31
-     *
      */
     class ClientHandler extends Thread {
 
@@ -83,13 +89,17 @@ public class MServer extends Thread {
         private ObjectInputStream ois;
         private ObjectOutputStream oos;
         private Server.Client client;
+        private ArrayList<User> loginUser;
+        private User user;
 
         /**
          * Constructor
+         *
          * @param server connects the client to server
          */
         public ClientHandler(Socket server) throws IOException {
             this.server = server;
+            loginUser = new ArrayList<>();
 
             try {
                 setupStreams();
@@ -97,6 +107,7 @@ public class MServer extends Thread {
                 e.printStackTrace();
             }
         }
+
         /**
          * This run method starts the thread that connects the server and users
          * The server listens to users as long as the ServerSocket is opened.
@@ -105,7 +116,7 @@ public class MServer extends Thread {
             try {
                 while (server.isConnected()) {
                     Server.Course course = null;
-                    Questions [] questions = null;
+                    Questions[] questions = null;
                     try {
                         //addUser();
                         userLogIn();
@@ -115,27 +126,28 @@ public class MServer extends Thread {
 
                             userLogIn();
 
-
-                        }else if(input.equals("Questions")){
+                        } else if (input.equals("Questions")) {
                             oos.writeUTF("Välj årskurs");
                             String answer = ois.readUTF();
-                            if(answer.equals("årskurs 6")){
+                            if (answer.equals("årskurs 6")) {
                                 course = new Sixth();
                                 oos.writeUTF("Välj typ av fråga");
                                 String answerTypeOfQuestion = ois.readUTF();
-                                if(answerTypeOfQuestion.equals("Geometry")){
+                                if (answerTypeOfQuestion.equals("Geometry")) {
                                     questions = course.getGeometryQuestions();
                                     takeTest(questions);
-                                }else if(answerTypeOfQuestion.equals("Four counting ways")){
+                                } else if (answerTypeOfQuestion.equals("Four counting ways")) {
                                     questions = course.getFourCountQuestions();
                                     takeTest(questions);
-                                }else if(answerTypeOfQuestion.equals("Statisk")){
+                                } else if (answerTypeOfQuestion.equals("Statisk")) {
                                     questions = course.getStatisticQuestion();
                                     takeTest(questions);
                                 }
-                            }else if(answer.equals("Årskurs 7")){
-                               // course = new Seventh();
+                            } else if (answer.equals("Årskurs 7")) {
+                                // course = new Seventh();
                             }
+                        } else if (input.equals("Ny användare")) {
+                            newUser();
                         }
 
                     } catch (IOException e) {
@@ -147,9 +159,29 @@ public class MServer extends Thread {
             }
         }
 
+         //skapar ny användare
+        private void newUser() {
+            try {
+                String userName = ois.readUTF();
+                String password = ois.readUTF();
+                for (int i = 0; i <= loginUser.size(); i++) {
+                    if (userName != loginUser.get(i).getUserName()) {
+                        user = new User(userName, password);
+                        loginUser.add(user);
+                        oos.writeObject(user);
+                    } else {
+                        oos.writeUTF("Användarnamn finns redan");
+                    }
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         /**
          * This method adds the user to a collection
+         *
          * @throws IOException catches exceptions
          */
         private void addUser() throws IOException {
@@ -169,9 +201,9 @@ public class MServer extends Thread {
             String userCity = inputStream.readUTF();
             //outputStream.writeUTF("Registration successful");
 
-          //  outputStream.writeUTF("");
-          //  outputStream.writeUTF("Mr " + username + ", you are admitted to the course, press enter!");
-          //  outputStream.writeUTF("\nPress enter and enjoy your test!\n");
+            //  outputStream.writeUTF("");
+            //  outputStream.writeUTF("Mr " + username + ", you are admitted to the course, press enter!");
+            //  outputStream.writeUTF("\nPress enter and enjoy your test!\n");
             //  outputStream.flush();
 
             User user = new User(username, userAge, userEmail, userPassword, userSchool, userCity, id);
@@ -181,6 +213,7 @@ public class MServer extends Thread {
 
         /**
          * As soon as the user starts, this method starts the test
+         *
          * @param questions takes an array of Question class,
          * @throws IOException catches the errors
          */
@@ -196,6 +229,7 @@ public class MServer extends Thread {
             String str = "Resultat ";
             oos.writeUTF(str + ", you got " + score + "/" + questions.length);
         }
+
         /**
          * This method initializes and setups the streams that holds/read/writes the data input from the users
          */
@@ -212,13 +246,25 @@ public class MServer extends Thread {
             outputStream.writeUTF("Thank you for connecting to " + server.getInetAddress().getHostName());
             outputStream.flush();*/
         }
+
         /**
          * If the user is already registered and wants to login to the system
          */
-        private void userLogIn()
-        {
-
-
+        private void userLogIn() throws IOException {
+            String userName = ois.readUTF();
+            String password = ois.readUTF();
+            user = new User();
+            for (int i = 0; i <= loginUser.size(); i++) {
+                if (userName.equals(loginUser.get(i).getUserName())) {
+                    if (password.equals(loginUser.get(i).getPassword())) {
+                        oos.writeObject(user);
+                    } else {
+                        oos.writeUTF("Inkorrekt lösenord");
+                    }
+                } else {
+                    oos.writeUTF("Inkorrekt användarnamn");
+                }
+            }
         }
 
         /**
@@ -272,9 +318,8 @@ public class MServer extends Thread {
         }
         /**
          * Quit User
-         */ 
-        private void closeClient()
-        {
+         */
+        private void closeClient() {
             try {
                 System.out.println("Connection to " + this.server + " closed.");
                 this.server.close();

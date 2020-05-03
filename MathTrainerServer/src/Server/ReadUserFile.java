@@ -3,10 +3,18 @@ package Server;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+
+/**
+ * ReadUserFile, handles all the users and stores in a arraylist.
+ * @author johannadahlborn
+ * @version 1.5
+ * @since 2020-05-03
+ */
 public class ReadUserFile {
     private FileHandler FHandler;
     private SimpleFormatter date;
@@ -14,8 +22,11 @@ public class ReadUserFile {
     private User user;
     private String alltext;
 
+    private ArrayList<User> recipients;
 
-    public ReadUserFile(String alltext) {
+
+    public ReadUserFile(User user, ArrayList<User> receivers, String alltext) {
+        this.recipients = recipients;
         this.alltext = alltext;
         try {
             //skapar en ny fil, med ett nytt filnamn
@@ -32,24 +43,38 @@ public class ReadUserFile {
         }
     }
 
-    public void result() {
-        logger.info(alltext);
+    public void result() { logger.info(alltext); }
 
-    }
-    public void removeUser(){
-        //hur vi tar bort en användare
+    public ArrayList<User> getRecipients() {
+        return recipients;
     }
 
-
-    //Sparar ett userobjekt och resulatat/svar
-    //ska läsa och skriva filer, skapa en ny fil av en användare
-    //läsa samma fil
-
-    public static void main(String[] args) {
-        ReadUserFile f;
-        for(int i= 0; i<10; i++){
-            f = new ReadUserFile("user" +i);
-        }
+    public void setUser(User user) {
+        this.user = user;
     }
+
+    public void setRecipients(ArrayList<User> recipients) {
+        this.recipients = recipients;
+    }
+
+    public void setText(String alltext) {
+        this.alltext = alltext;
+    }
+
+    public ReadUserFile storedUser(User receiver) {
+        ArrayList<User> receivers = new ArrayList<>();
+        receivers.add(receiver);
+        return new ReadUserFile(user, receivers, alltext);
+    }
+
+
+    public String toString() {
+        return "ReadUserFile{" +
+                "user=" + user +
+                ", recipients=" + recipients +
+                ", alltext='" + alltext + '\'' +
+                '}';
+    }
+
 }
 
