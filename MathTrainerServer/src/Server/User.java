@@ -10,23 +10,33 @@ import java.io.Serializable;
  *
  */
 public class User  implements Serializable {
-    private String name;
+    private String userName;
     private int age;
     private String email;
     private String password;
     private String school;
     private String town;
 
+
+    public User(){
+
+    }
+
+    //To create login for user
+    public User(String userName, String password){
+        this.userName = userName;
+        this.password = password;
+    }
     /**
      * Constructor
-     * @param name name of the user
+     * @param userName name of the user
      * @param age age of the user
      * @param id unique id of the user
      * //@param type is the user a student or a teacher
      */
-    public User(String name, int age, String email, String password, String school, String town, String id)
+    public User(String userName, int age, String email, String password, String school, String town, String id)
     {
-        this.name = name;
+        this.userName = userName;
         this.age = age;
         this.email = email;
         this.password = password;
@@ -37,9 +47,11 @@ public class User  implements Serializable {
 
 
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
+
+    public String getPassword() { return password; }
 
     private UserType userType;
     private String id;
@@ -47,8 +59,8 @@ public class User  implements Serializable {
     //Variables needed for a client to connect to the server will be added later on
 
 
-    public User(String name, int age, String id) {
-        this.name = name;
+    public User(String userName, int age, String id) {
+        this.userName = userName;
         this.age = age;
         //  this.userType = type;
         this.id = id;
@@ -65,7 +77,7 @@ public class User  implements Serializable {
 
     public String toString() {
         return "User{" +
-                "name = '" + name + '\'' +
+                "name = '" + userName + '\'' +
                 ", age = " + age +
                 ", userType = " + userType +
                 ", id = '" + id + '\'' +

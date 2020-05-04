@@ -19,7 +19,9 @@ public class ExercisesController extends MainMenuControllerParent {
     private String Questions = "Questions ";
 
 
+
     public void ButtonClicked(ActionEvent actionEvent){
+
         //ToDO: Fixa bugg där AdditionWindow skickar användaren tillbaka till log in screen efter en viss tid.
 
         if (actionEvent.getSource() == AdditionButton) {
@@ -34,7 +36,6 @@ public class ExercisesController extends MainMenuControllerParent {
         System.out.println(Questions);
         mainController.QuizTest(Questions);
     }
-
 
 //ArrayList list = new ArrayList
 

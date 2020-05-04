@@ -36,11 +36,11 @@ public class LogInController extends SceneControllerParent {
     private void UserNameInfo(){
         String firstName = usernameField.getText();
         String password = passwordField.getText();
-
     }
 
     public void logInClicked(ActionEvent actionEvent) {
         mainController.setScene(ScenesEnum.Home);
+
             //ToDo: Kod för att logga in med befintlig användare
 
 

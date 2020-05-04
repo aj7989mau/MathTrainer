@@ -14,9 +14,10 @@ import java.util.List;
  * @version 1.0
  * @since 2020-03-31
  */
-public class Eighth extends Course {
+public class Eighth {
     private Questions[] questions;
     private List<User> usersList;
+
 
     public Eighth() {
         usersList = new ArrayList<>();
@@ -59,26 +60,6 @@ public class Eighth extends Course {
             }
         }
         }*/
-    @Override
-    public Questions[] getStastisticQuestion() {
-        return questions;
-    }
-
-    @Override
-    public Questions[] getgeometryQuestions() {
-        return new Questions[0];
-    }
-
-    @Override
-    public Questions[] getfourCountQuestions() {
-        return new Questions[0];
-    }
-
-    @Override
-    public Questions[] getQuestions() { return new Questions[0];
-    }
-
-
 
     public void printQuestions(){
         for (Questions q: questions){

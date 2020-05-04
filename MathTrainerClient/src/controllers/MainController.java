@@ -2,13 +2,19 @@ package controllers;
 
 import entity.ScenesEnum;
 import entity.ScenesHashMap;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Class MainController is controller of the other controllers. All scene controllers has a reference to this controller
@@ -109,11 +115,13 @@ public void LogIn(String firstName, String Password){
 
 }
 
+
 public void QuizTest(String Quiz){
 
         Object object = networkController.SendRequest(Quiz);
         setScene(ScenesEnum.ExerciseWindow);
 }
+
 
 
     /**

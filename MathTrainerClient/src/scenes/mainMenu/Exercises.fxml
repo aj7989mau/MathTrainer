@@ -36,6 +36,7 @@
                   <Button fx:id="GeometryButton" layoutX="378.0" layoutY="289.0" mnemonicParsing="false" onAction="#ButtonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Geometri" />
                   <Button fx:id="AdditionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#ButtonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Addition" />
                   <Button  layoutX="378.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Nåt annat sköj" />
+
                </children></AnchorPane>
          </items>
       </SplitPane>
