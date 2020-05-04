@@ -1,4 +1,4 @@
-package Server;
+package sharedEntities;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @since  2020-03-23
  *
  */
-public class User  implements Serializable {
+public class User implements Serializable {
     private String userName;
     private int age;
     private String email;
@@ -53,9 +53,9 @@ public class User  implements Serializable {
 
     public String getPassword() { return password; }
 
-    private UserType userType;
+    //private UserType userType;
     private String id;
-    private CourseType course;
+    //private CourseType course;
     //Variables needed for a client to connect to the server will be added later on
 
 
@@ -71,7 +71,7 @@ public class User  implements Serializable {
      * Each user should know which
      * @param course course he/she follows
      */
-    public void useCourse(CourseType course){
+    /*public void useCourse(CourseType course){
         this.course = course;
     }
 
@@ -83,7 +83,7 @@ public class User  implements Serializable {
                 ", id = '" + id + '\'' +
                 ", course = "  + course +
                 '}';
-    }
+    }*/
 
     //Inner class for User GUI
 }

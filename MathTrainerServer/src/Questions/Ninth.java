@@ -1,7 +1,7 @@
 package Questions;
 
-import Server.Course;
-import Server.User;
+import sharedEntities.User;
+import sharedEntities.Questions;
 
 import java.util.ArrayList;
 import java.util.List;

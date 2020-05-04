@@ -1,6 +1,6 @@
 package Server;
 
-import Questions.Questions;
+import sharedEntities.Questions;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -8,10 +8,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import Questions.Eighth;
-import Questions.Ninth;
-import Questions.Seventh;
 import Questions.Sixth;
+import sharedEntities.User;
 
 
 /**
@@ -68,7 +66,7 @@ public class MServer extends Thread {
     }
 
     public static void main(String[] args) {
-        new MServer(22);
+        new MServer(45678);
     }
 
     /**
@@ -85,7 +83,7 @@ public class MServer extends Thread {
         private Socket server;
         private DataInputStream inputStream;
         private DataOutputStream outputStream;
-        private List<Server.User> userList = new ArrayList<>();
+        private List<User> userList = new ArrayList<>();
         private ObjectInputStream ois;
         private ObjectOutputStream oos;
         private Server.Client client;
@@ -114,52 +112,55 @@ public class MServer extends Thread {
          */
         public void run() {
             try {
-                while (server.isConnected()) {
-                    Server.Course course = null;
-                    Questions[] questions = null;
-                    try {
-                        //addUser();
+                Server.Course course = null;
+                Questions[] questions = null;
+                try {
+                    //addUser();
+                    //userLogIn();
+                    //ois.readUTF();
+                    String input = ois.readUTF();
+                    if (input.equals("Login")) {
+                        //TODO: Ni får ett User-objekt, kolla så det finns i er array och att lösenordet stämmer
+                        // skicka tillbaka det User-objekt som matchar. Om inget matchar, skicka error meddelande
                         userLogIn();
-                        ois.readUTF();
-                        String input = ois.readUTF();
-                        if (input.equals("Login")) {
+                    } else if (input.equals("NewUser")) {
+                        //TODO: Ni får ett User-Objekt, kolla om det finns i er array. Om inte, lägg till denna user
+                        // både i temporär array och i filen. Skicka tillbaka samma User, eller Errormeddelande om
+                        // namnet redan är upptaget
+                        newUser();
+                    } else if (input.equals("Questions")) {
+                        //oos.writeUTF("Välj årskurs");
+                        System.out.println("Checking questions");
+                        //String answer = (String)ois.readObject();
+                        //if (answer.equals("Grade 6")) {
+                        course = new Sixth();
 
-                            userLogIn();
-
-                        } else if (input.equals("Questions")) {
-                            oos.writeUTF("Välj årskurs");
-                            String answer = ois.readUTF();
-                            if (answer.equals("årskurs 6")) {
-                                course = new Sixth();
-                                oos.writeUTF("Välj typ av fråga");
-                                String answerTypeOfQuestion = ois.readUTF();
-                                if (answerTypeOfQuestion.equals("Geometry")) {
-                                    questions = course.getGeometryQuestions();
-                                    takeTest(questions);
-                                } else if (answerTypeOfQuestion.equals("Four counting ways")) {
-                                    questions = course.getFourCountQuestions();
-                                    takeTest(questions);
-                                } else if (answerTypeOfQuestion.equals("Statisk")) {
-                                    questions = course.getStatisticQuestion();
-                                    takeTest(questions);
-                                }
-                            } else if (answer.equals("Årskurs 7")) {
-                                // course = new Seventh();
-                            }
-                        } else if (input.equals("Ny användare")) {
-                            newUser();
+                        //oos.writeUTF("Välj typ av fråga");
+                        String answerTypeOfQuestion = (String) ois.readObject();
+                        System.out.println("Recieved: " + answerTypeOfQuestion);
+                        if (answerTypeOfQuestion.equals("Geometry")) {
+                            oos.writeObject(course.getGeometryQuestions());
+                        } else if (answerTypeOfQuestion.equals("Counting")) {
+                            oos.writeObject(course.getFourCountQuestions());
+                        } else if (answerTypeOfQuestion.equals("Statistics")) {
+                            oos.writeObject(course.getStatisticQuestion());
                         }
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    } else if (input.equals("Result")) {
+                        // course = new Seventh();
+                    } else if (input.equals("UserStats")){
+                        //TODO: Vi skickar ett user objekt
+                        // svara med en String med användarens statistik, ni får välja format själva :D
                     }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             } catch (Exception e) {
                 System.out.println("Check me exception in server");
             }
         }
 
-         //skapar ny användare
+        //skapar ny användare
         private void newUser() {
             try {
                 String userName = ois.readUTF();
