@@ -37,7 +37,7 @@ public class MServer extends Thread {
         keepRunning = true;
         loginUserArray = new ArrayList<>();
         this.fileLocation = fileLocation;
-      //  user = new User();
+        //  user = new User();
         readFile(fileLocation);
 
         try {
@@ -105,12 +105,10 @@ public class MServer extends Thread {
     class ClientHandler extends Thread {
 
         private Socket server;
-        //private List<User> userList = new ArrayList<>();
+
         private ObjectInputStream ois;
         private ObjectOutputStream oos;
-        private Server.Client client;
 
-        private User user;
 
         /**
          * Constructor
