@@ -37,7 +37,7 @@ public class MServer extends Thread {
         keepRunning = true;
         loginUserArray = new ArrayList<>();
         this.fileLocation = fileLocation;
-        user = new User();
+      //  user = new User();
         readFile(fileLocation);
 
         try {
@@ -90,7 +90,7 @@ public class MServer extends Thread {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        new MServer(45678, "C:\\Users\\mutaz\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\inlogningsUppgifter.txt");
+        new MServer(45678, "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt");
     }
 
     /**
