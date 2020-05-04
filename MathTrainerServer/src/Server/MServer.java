@@ -6,7 +6,6 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
 
 import Questions.Sixth;
 import sharedEntities.User;
@@ -24,15 +23,22 @@ public class MServer extends Thread {
     private ServerSocket serverSocket;
     private boolean keepRunning;
     private int port;
+    private String fileLocation;
+    private ArrayList<User> loginUserArray;
+    private User user;
 
     /**
      * MTServer Constructor
      *
      * @param port server listening to this port
      */
-    public MServer(int port) {
+    public MServer(int port, String fileLocation) throws FileNotFoundException {
         this.port = port;
         keepRunning = true;
+        loginUserArray = new ArrayList<>();
+        this.fileLocation = fileLocation;
+        user = new User();
+        readFile(fileLocation);
 
         try {
             startServer();
@@ -65,8 +71,26 @@ public class MServer extends Thread {
         }
     }
 
-    public static void main(String[] args) {
-        new MServer(45678);
+    private void readFile(String fileLocation) throws FileNotFoundException {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileLocation))) {
+            String fileRead = br.readLine();
+            while (fileRead != null) {
+                String username = user.getUserName();
+                String password = user.getPassword();
+                user = new User(username, password);
+                loginUserArray.add(user);
+                fileRead = br.readLine();
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        new MServer(45678, "C:\\Users\\mutaz\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\inlogningsUppgifter.txt");
     }
 
     /**
@@ -81,13 +105,11 @@ public class MServer extends Thread {
     class ClientHandler extends Thread {
 
         private Socket server;
-        private DataInputStream inputStream;
-        private DataOutputStream outputStream;
-        private List<User> userList = new ArrayList<>();
+        //private List<User> userList = new ArrayList<>();
         private ObjectInputStream ois;
         private ObjectOutputStream oos;
         private Server.Client client;
-        private ArrayList<User> loginUser;
+
         private User user;
 
         /**
@@ -97,7 +119,6 @@ public class MServer extends Thread {
          */
         public ClientHandler(Socket server) throws IOException {
             this.server = server;
-            loginUser = new ArrayList<>();
 
             try {
                 setupStreams();
@@ -115,19 +136,30 @@ public class MServer extends Thread {
                 Server.Course course = null;
                 Questions[] questions = null;
                 try {
-                    //addUser();
-                    //userLogIn();
-                    //ois.readUTF();
                     String input = ois.readUTF();
                     if (input.equals("Login")) {
                         //TODO: Ni får ett User-objekt, kolla så det finns i er array och att lösenordet stämmer
                         // skicka tillbaka det User-objekt som matchar. Om inget matchar, skicka error meddelande
-                        userLogIn();
+                        User user = (User) ois.readObject();
+                        boolean login = isLoginSucceeded(user);
+                        if (login) {
+                            oos.writeObject(user);
+                        } else {
+                            oos.writeUTF("Felaktigt användarnamn eller lösenord!");
+                        }
                     } else if (input.equals("NewUser")) {
                         //TODO: Ni får ett User-Objekt, kolla om det finns i er array. Om inte, lägg till denna user
                         // både i temporär array och i filen. Skicka tillbaka samma User, eller Errormeddelande om
                         // namnet redan är upptaget
-                        newUser();
+                        User user = (User) ois.readObject();
+                        boolean isUserNew = newUser(user);
+                        if (isUserNew) {
+                            loginUserArray.add(user);
+                            oos.writeObject(user);
+
+                        } else {
+                            oos.writeUTF("Användarnamnet är upptaget!");
+                        }
                     } else if (input.equals("Questions")) {
                         //oos.writeUTF("Välj årskurs");
                         System.out.println("Checking questions");
@@ -147,7 +179,7 @@ public class MServer extends Thread {
                         }
                     } else if (input.equals("Result")) {
                         // course = new Seventh();
-                    } else if (input.equals("UserStats")){
+                    } else if (input.equals("UserStats")) {
                         //TODO: Vi skickar ett user objekt
                         // svara med en String med användarens statistik, ni får välja format själva :D
                     }
@@ -160,24 +192,25 @@ public class MServer extends Thread {
             }
         }
 
-        //skapar ny användare
-        private void newUser() {
+        //Lägger till ny användare
+        private boolean newUser(User user) {
+            boolean isUserNew = false;
             try {
-                String userName = ois.readUTF();
-                String password = ois.readUTF();
-                for (int i = 0; i <= loginUser.size(); i++) {
-                    if (userName != loginUser.get(i).getUserName()) {
-                        user = new User(userName, password);
-                        loginUser.add(user);
-                        oos.writeObject(user);
+                BufferedWriter bw = new BufferedWriter(new FileWriter(fileLocation));
+
+                for (int i = 0; i < loginUserArray.size(); i++) {
+                    if (user.getUserName().equals(loginUserArray.get(i).getUserName())) {
+                        isUserNew = false;
+
                     } else {
-                        oos.writeUTF("Användarnamn finns redan");
+                        isUserNew = true;
+                        bw.write(user.toString());
                     }
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return isUserNew;
         }
 
         /**
@@ -185,7 +218,7 @@ public class MServer extends Thread {
          *
          * @throws IOException catches exceptions
          */
-        private void addUser() throws IOException {
+       /* private void addUser() throws IOException {
             outputStream.writeUTF("Enter your username");
             String username = inputStream.readUTF();
             outputStream.writeUTF("Enter your age");
@@ -210,7 +243,7 @@ public class MServer extends Thread {
             User user = new User(username, userAge, userEmail, userPassword, userSchool, userCity, id);
             userList.add(user);
             System.out.println("User Mr " + username + " is added to the course");
-        }
+        }*/
 
         /**
          * As soon as the user starts, this method starts the test
@@ -240,32 +273,28 @@ public class MServer extends Thread {
 
             oos.flush(); // skickar allt som användaren vill få fram
 
-            /*
-            inputStream = new DataInputStream(server.getInputStream());
-            System.out.println(inputStream.readUTF());
-            outputStream = new DataOutputStream(server.getOutputStream());
-            outputStream.writeUTF("Thank you for connecting to " + server.getInetAddress().getHostName());
-            outputStream.flush();*/
         }
 
         /**
          * If the user is already registered and wants to login to the system
          */
-        private void userLogIn() throws IOException {
-            String userName = ois.readUTF();
-            String password = ois.readUTF();
-            user = new User();
-            for (int i = 0; i <= loginUser.size(); i++) {
-                if (userName.equals(loginUser.get(i).getUserName())) {
-                    if (password.equals(loginUser.get(i).getPassword())) {
-                        oos.writeObject(user);
-                    } else {
-                        oos.writeUTF("Inkorrekt lösenord");
+        private boolean isLoginSucceeded(User receivedUser) throws IOException, ClassNotFoundException {
+            boolean login = false;
+            String username = receivedUser.getUserName();
+            String password = receivedUser.getPassword();
+
+            for (int i = 0; i < loginUserArray.size(); i++) {
+                if (username.equals(loginUserArray.get(i).getUserName())) {
+                    if (password.equals(loginUserArray.get(i).getPassword())) {
+                        login = true;
+
                     }
+
                 } else {
-                    oos.writeUTF("Inkorrekt användarnamn");
+                    login = false;
                 }
             }
+            return login;
         }
 
         /**
@@ -320,7 +349,7 @@ public class MServer extends Thread {
         /**
          * Quit User
          */
-        private void closeClient() {
+        /*private void closeClient() {
             try {
                 System.out.println("Connection to " + this.server + " closed.");
                 this.server.close();
@@ -330,5 +359,6 @@ public class MServer extends Thread {
                 e.printStackTrace();
             }
         }
+    }*/
     }
 }

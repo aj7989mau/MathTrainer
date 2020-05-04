@@ -42,7 +42,6 @@
       <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/UserResultat.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/UserResultat.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +54,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -65,18 +63,6 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.MServer">
     <configuration name="MClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -149,8 +135,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="589" y="383" width="486" height="473" key="#Notifications" timestamp="1588604965777">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="589" y="383" width="486" height="473" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1588604965777" />
     <state x="320" y="94" key="#Project_Structure" timestamp="1588066802786">
       <screen x="0" y="23" width="1440" height="812" />
     </state>
@@ -167,27 +158,31 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="246" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588514827530" />
-    <state width="1398" height="208" key="GridCell.Tab.0.bottom" timestamp="1588515202591">
-      <screen x="0" y="23" width="1440" height="811" />
+    <state width="1877" height="207" key="GridCell.Tab.0.bottom" timestamp="1588609256200">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="207" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588609256200" />
     <state width="1558" height="208" key="GridCell.Tab.0.bottom/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588078890858" />
     <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588515202591" />
     <state width="1558" height="208" key="GridCell.Tab.0.bottom/0.23.1440.812/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588502811822" />
-    <state width="1398" height="208" key="GridCell.Tab.0.center" timestamp="1588515202589">
-      <screen x="0" y="23" width="1440" height="811" />
+    <state width="1877" height="207" key="GridCell.Tab.0.center" timestamp="1588609256200">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="207" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588609256200" />
     <state width="1558" height="208" key="GridCell.Tab.0.center/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588078890856" />
     <state width="1398" height="208" key="GridCell.Tab.0.center/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588515202589" />
     <state width="1558" height="208" key="GridCell.Tab.0.center/0.23.1440.812/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588502811818" />
-    <state width="1398" height="208" key="GridCell.Tab.0.left" timestamp="1588515202589">
-      <screen x="0" y="23" width="1440" height="811" />
+    <state width="1877" height="207" key="GridCell.Tab.0.left" timestamp="1588609256200">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="207" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588609256200" />
     <state width="1558" height="208" key="GridCell.Tab.0.left/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588078890855" />
     <state width="1398" height="208" key="GridCell.Tab.0.left/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588515202589" />
     <state width="1558" height="208" key="GridCell.Tab.0.left/0.23.1440.812/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588502811816" />
-    <state width="1398" height="208" key="GridCell.Tab.0.right" timestamp="1588515202590">
-      <screen x="0" y="23" width="1440" height="811" />
+    <state width="1877" height="207" key="GridCell.Tab.0.right" timestamp="1588609256200">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="207" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588609256200" />
     <state width="1558" height="208" key="GridCell.Tab.0.right/0.23.1440.811/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588078890857" />
     <state width="1398" height="208" key="GridCell.Tab.0.right/0.23.1440.811/-1600.-123.1600.877@0.23.1440.811" timestamp="1588515202590" />
     <state width="1558" height="208" key="GridCell.Tab.0.right/0.23.1440.812/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1588502811820" />
