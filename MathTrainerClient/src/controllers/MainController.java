@@ -1,6 +1,5 @@
 package controllers;
 
-import entity.Buffer;
 import entity.ScenesEnum;
 import entity.ScenesHashMap;
 import javafx.fxml.FXMLLoader;
@@ -21,9 +20,9 @@ import java.io.IOException;
 
 public class MainController {
     private Stage mainWindow;
+
     private SceneSetter sceneSetter = new SceneSetter();
-    private Buffer<String> incomingBuffer = new Buffer<>(); //Tanken är att denna klass bara ska hämta objekt från denna buffer
-    private Buffer<String> outgoingBuffer = new Buffer<>(); //Tanken är att denna klass bara ska lägga in objekt i denna buffer
+   private NetworkController networkController;
 
     /**
      * Starts the network that connects to the server and creates and populates the ScenesHashMap.
@@ -33,7 +32,7 @@ public class MainController {
     public MainController(Stage mainWindow) {
         this.mainWindow = mainWindow;
 
-        //new NetworkController(incomingBuffer, outgoingBuffer);
+         networkController = new NetworkController();
 
         try {
             sceneSetter.addScenesToHashMap();
@@ -102,6 +101,21 @@ public class MainController {
         }
     }
 
+
+public void LogIn(String firstName, String Password){
+
+//TODO Skicka till nätverket buffer
+// och vänta svar från mainmenuscene
+
+}
+
+public void QuizTest(String Quiz){
+
+        Object object = networkController.SendRequest(Quiz);
+        setScene(ScenesEnum.ExerciseWindow);
+}
+
+
     /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
      * for communication, and handles communication with the ScenesHashmap. It also sets up the current scene.
@@ -143,12 +157,11 @@ public class MainController {
             sendSelfToControllers(settingsLoader);
 
 
-
             scenes.put(ScenesEnum.LogIn, logInScene);
             scenes.put(ScenesEnum.NewUser, newUserScene);
             scenes.put(ScenesEnum.Home, homeScene);
             scenes.put(ScenesEnum.Exercises, exercisesScene);
-            scenes.put(ScenesEnum.ExerciseAddition, exerciseAdditionScene);
+            scenes.put(ScenesEnum.ExerciseWindow, exerciseAdditionScene);
             scenes.put(ScenesEnum.NationalTest, nationalTestScene);
             scenes.put(ScenesEnum.Settings, settingsScene);
         }

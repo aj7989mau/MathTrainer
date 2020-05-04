@@ -4,7 +4,9 @@ import entity.Buffer;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 /** Class Network handles the outgoing and incoming information to and from the server. It connects with a socket,
  * sets up streams and has two inner classes handling the monitoring for new information to send or recieve.
@@ -14,71 +16,76 @@ import java.net.Socket;
 
 public class NetworkController {
     Socket socket;
-    private static final String IP = "";
+    private String IP;
     private static final int PORT = 0;
-
-    //Ej säkert att buffrarna under blir String, men det får vara så så länge. Buffrarna är samma som i MainController-klassen
-    private Buffer<String> incomingBuffer; //Tanken är att denna klass bara ska lägga in objekt i denna buffer
-    private Buffer<String> outgoingBuffer; //Tanken är att denna klass bara ska hämta objekt från denna buffer
 
     /**
      * Creates the socket that connects to the server, gets buffers (from MainController) and starts the threads for
      * communicating with the server.
-     * @param incoming Buffer shared with MainController. Network only adds incoming messages from the server to it.
-     * @param outgoing Buffer shared with MainController. Network only gets outgoing messages to the server from it.
      */
-    public NetworkController(Buffer<String> incoming, Buffer<String> outgoing){
+    public NetworkController(){
+
         try {
+            IP = InetAddress.getLocalHost().toString();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
+        /* try {
             socket = new Socket(IP, PORT);
         } catch (IOException e) {
             System.out.println("Error trying to connect");
             e.printStackTrace();
         }
-
-        this.incomingBuffer = incoming;
-        this.outgoingBuffer = outgoing;
-
-        new InputThread().start();
-        new OutputThread().start();
+*/
     }
-
+        public Object SendRequest(String Request){
+         NetworkHandler networkHandler = new NetworkHandler(Request);
+         return networkHandler.SendRequest();
+        }
 
     /**
      * Receives the incoming messages from the server and adds them to the incoming buffer.
      */
-    private class InputThread extends Thread{
+    private class NetworkHandler{
 
-        public void run(){
-            try {
-                ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
-                while (!Thread.interrupted()){
-                    incomingBuffer.put(objectInputStream.readUTF()); //Vi får komma överens om hur vi ska kommunicera, readUTF kanske ej blir rätt
-                }
-            } catch (IOException e) {
-                System.out.println("Error in input stream");
-                e.printStackTrace();
+        private String request;
+        private Object object;
+
+        public NetworkHandler(String request) {
+
+            if (request.indexOf(' ') != -1) {
+                this.request = request.substring(0, request.indexOf(' '));
+                object = request.substring(request.indexOf(' ') + 1);
+                System.out.println(this.request  +  "\n" + object );
+            } else {
+                this.request = request;
+                //TODO object behöver defineras
             }
+
+
+
         }
-    }
 
-    /**
-     * Adds the outgoing messages from the outgoing buffer to the output stream for the server to receive.
-     */
-    private class OutputThread extends Thread{
-
-        public void run(){
+        public Object SendRequest(){
+            ObjectOutputStream objectOutputStream;
+            ObjectInputStream objectInputStream;
+            Object returnValue = null;
             try {
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-                while (!Thread.interrupted()){
-                    objectOutputStream.writeUTF(outgoingBuffer.get()); //Vi får komma överens om hur vi ska kommunicera, readUTF kanske ej blir rätt
-                }
-            } catch (IOException e) {
-                System.out.println("Error in output stream");
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                System.out.println("Error in buffer");
+               objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+               objectInputStream = new ObjectInputStream(socket.getInputStream());
+                objectOutputStream.writeUTF(request);
+                objectOutputStream.writeObject(object);
+                returnValue = objectInputStream.readObject();
+
+
+
+            } catch (IOException | ClassNotFoundException e) {
+                System.out.println("Error in network communcation");
                 e.printStackTrace();
             }
+        return returnValue;
+
         }
     }
 }
