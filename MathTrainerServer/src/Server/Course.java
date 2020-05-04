@@ -1,6 +1,6 @@
 package Server;
 
-import Questions.Questions;
+import sharedEntities.Questions;
 
 /**
  * This Course class is going to act as a parent to three different courses of a primary school, 7, 8 and 9.

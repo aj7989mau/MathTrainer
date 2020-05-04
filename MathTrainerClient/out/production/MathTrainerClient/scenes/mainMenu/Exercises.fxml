@@ -32,10 +32,11 @@
                <children>
                   <AnchorPane layoutX="-6.0" layoutY="195.0" minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="700.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
                   <Button layoutX="29.0" layoutY="26.0" mnemonicParsing="false" prefHeight="510.0" prefWidth="630.0" styleClass="MenuButton" />
-                  <Button layoutX="70.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Statistik" />
-                  <Button layoutX="378.0" layoutY="289.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Geometri" />
-                  <Button fx:id="AdditionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#AdditionClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Addition" />
-                  <Button layoutX="378.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Nåt annat sköj" />
+                  <Button fx:id="StatisticsButton" layoutX="70.0" layoutY="79.0" mnemonicParsing="false" onAction="#ButtonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Statistik" />
+                  <Button fx:id="GeometryButton" layoutX="378.0" layoutY="289.0" mnemonicParsing="false" onAction="#ButtonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Geometri" />
+                  <Button fx:id="AdditionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#ButtonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Addition" />
+                  <Button  layoutX="378.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Nåt annat sköj" />
+
                </children></AnchorPane>
          </items>
       </SplitPane>

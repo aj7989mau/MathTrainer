@@ -1,7 +1,7 @@
 package Server;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import sharedEntities.User;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.FileHandler;

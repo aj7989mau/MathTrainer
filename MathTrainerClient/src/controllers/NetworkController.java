@@ -17,7 +17,7 @@ import java.net.UnknownHostException;
 public class NetworkController {
     Socket socket;
     private String IP;
-    private static final int PORT = 0;
+    private static final int PORT = 45678;
 
     /**
      * Creates the socket that connects to the server, gets buffers (from MainController) and starts the threads for
@@ -25,24 +25,28 @@ public class NetworkController {
      */
     public NetworkController(){
 
+
+
+    }
+
+    public Object SendRequest(String Request){
+
         try {
-            IP = InetAddress.getLocalHost().toString();
+            IP = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
 
-        /* try {
+        try {
             socket = new Socket(IP, PORT);
         } catch (IOException e) {
             System.out.println("Error trying to connect");
             e.printStackTrace();
         }
-*/
+
+        NetworkHandler networkHandler = new NetworkHandler(Request);
+        return networkHandler.SendRequest();
     }
-        public Object SendRequest(String Request){
-         NetworkHandler networkHandler = new NetworkHandler(Request);
-         return networkHandler.SendRequest();
-        }
 
     /**
      * Receives the incoming messages from the server and adds them to the incoming buffer.
@@ -57,26 +61,26 @@ public class NetworkController {
             if (request.indexOf(' ') != -1) {
                 this.request = request.substring(0, request.indexOf(' '));
                 object = request.substring(request.indexOf(' ') + 1);
-                System.out.println(this.request  +  "\n" + object );
             } else {
                 this.request = request;
                 //TODO object behöver defineras
             }
-
-
-
         }
 
         public Object SendRequest(){
             ObjectOutputStream objectOutputStream;
             ObjectInputStream objectInputStream;
+
             Object returnValue = null;
             try {
                objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
                objectInputStream = new ObjectInputStream(socket.getInputStream());
                 objectOutputStream.writeUTF(request);
+                System.out.println("Sent " + request);
                 objectOutputStream.writeObject(object);
+                System.out.println("Sent " + object);
                 returnValue = objectInputStream.readObject();
+                System.out.println(returnValue);
 
 
 

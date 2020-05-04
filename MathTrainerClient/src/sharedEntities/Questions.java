@@ -1,6 +1,6 @@
-package Questions;
+package sharedEntities;
 
-import Server.Course;
+import java.io.Serializable;
 
 /**
  * The Questions class will store all the questions
@@ -8,10 +8,10 @@ import Server.Course;
  * @version 1.0
  * @since 2020-03-25
  */
-public class Questions {
+public class Questions implements Serializable {
     private String question;
     private String answer;
-    private Course course;
+    //private Course course;
     //Constructor
     //addQuestions method
     //removeQuestions method

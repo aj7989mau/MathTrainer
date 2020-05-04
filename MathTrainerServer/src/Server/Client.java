@@ -1,4 +1,6 @@
 package Server;
+import sharedEntities.User;
+
 import java.io.*;
 import java.net.Socket;
 

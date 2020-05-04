@@ -26,14 +26,13 @@ public class ExercisesController extends MainMenuControllerParent {
 
         if (actionEvent.getSource() == AdditionButton) {
 
-            Questions += "Addition";
+            Questions += "Counting";
         } else if ( actionEvent.getSource() == GeometryButton){
             Questions += "Geometry";
         }
         else if ( actionEvent.getSource() ==  StatisticsButton){
             Questions += "Statistics";
         }
-        System.out.println(Questions);
         mainController.QuizTest(Questions);
     }
 
