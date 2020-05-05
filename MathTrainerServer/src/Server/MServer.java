@@ -35,11 +35,11 @@ public class MServer extends Thread {
      *
      * @param port server listening to this port
      */
-    public MServer(int port, String fileLocation) throws FileNotFoundException {
+    public MServer(int port) throws FileNotFoundException {
         this.port = port;
         keepRunning = true;
         usersList = new ArrayList<>();
-        this.fileLocation = fileLocation;
+        fileLocation = "C:\\Users\\mutaz\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\inlogningsUppgifter.txt";
         readFile(fileLocation);
 
         try {
@@ -78,17 +78,14 @@ public class MServer extends Thread {
         String line;
         String username = null;
         String password = null;
-        try
-        {
+        try {
             BufferedReader br = new BufferedReader(new FileReader(fileLocation));
 
-            while ((line = br.readLine())!= null)
-            {
+            while ((line = br.readLine()) != null) {
 
                 String[] tokenize = line.split("\n");
 
-                for (int i = 0; i < tokenize.length; i++)
-                {
+                for (int i = 0; i < tokenize.length; i++) {
                     username = tokenize[i]; //Saving first
                     password = br.readLine();//saving second line after username to password
                 }
@@ -99,22 +96,16 @@ public class MServer extends Thread {
             }
             br.close();
             System.out.println("Size of user array: " + usersList.size());
-        }
-
-        catch (FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("file not found");
-        }
-
-        catch (IOException ioe)
-        {
+        } catch (IOException ioe) {
             ioe.printStackTrace();
         }
 
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        new MServer(45678, "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt");
+        new MServer(45678);
     }
 
     /**
@@ -180,7 +171,7 @@ public class MServer extends Thread {
                             //Adding new user to the text file as well
                             BufferedWriter bw = new BufferedWriter(new FileWriter(fileLocation, true));
                             PrintWriter pw = new PrintWriter(bw);
-                            pw.write("\n"+user.toString());
+                            pw.write("\n" + user.toString());
                             pw.flush();
                             //Sending it back to the client
                             oos.writeObject(user);
@@ -300,8 +291,7 @@ public class MServer extends Thread {
                 //    System.out.println("Passwords: " + usersList.get(i).getPassword());
                 if ((username.equals(usersList.get(i).getUserName())) && (password.equals(usersList.get(i).getPassword()))) {
                     isLoginSucceeded = true;
-                }
-                else {
+                } else {
                     isLoginSucceeded = false;
                 }
             }
