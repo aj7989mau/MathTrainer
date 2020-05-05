@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 
 import Questions.Sixth;
 import sharedEntities.User;
@@ -24,8 +25,10 @@ public class MServer extends Thread {
     private boolean keepRunning;
     private int port;
     private String fileLocation;
-    private ArrayList<User> loginUserArray;
+    private ArrayList<User> usersList;
     private User user;
+    private boolean isUserNew = true;
+    private boolean isLoginSucceeded;
 
     /**
      * MTServer Constructor
@@ -35,9 +38,8 @@ public class MServer extends Thread {
     public MServer(int port, String fileLocation) throws FileNotFoundException {
         this.port = port;
         keepRunning = true;
-        loginUserArray = new ArrayList<>();
+        usersList = new ArrayList<>();
         this.fileLocation = fileLocation;
-        //  user = new User();
         readFile(fileLocation);
 
         try {
@@ -72,19 +74,41 @@ public class MServer extends Thread {
     }
 
     private void readFile(String fileLocation) throws FileNotFoundException {
-        try (BufferedReader br = new BufferedReader(new FileReader(fileLocation))) {
-            String fileRead = br.readLine();
-            while (fileRead != null) {
-                String username = user.getUserName();
-                String password = user.getPassword();
+
+        String line;
+        String username = null;
+        String password = null;
+        try
+        {
+            BufferedReader br = new BufferedReader(new FileReader(fileLocation));
+
+            while ((line = br.readLine())!= null)
+            {
+
+                String[] tokenize = line.split("\n");
+
+                for (int i = 0; i < tokenize.length; i++)
+                {
+                    username = tokenize[i]; //Saving first
+                    password = br.readLine();//saving second line after username to password
+                }
                 user = new User(username, password);
-                loginUserArray.add(user);
-                fileRead = br.readLine();
 
+                usersList.add(user);
+                System.out.println(user);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            br.close();
+            System.out.println("Size of user array: " + usersList.size());
+        }
 
+        catch (FileNotFoundException e)
+        {
+            System.out.println("file not found");
+        }
+
+        catch (IOException ioe)
+        {
+            ioe.printStackTrace();
         }
 
     }
@@ -99,7 +123,7 @@ public class MServer extends Thread {
      * but I will try to code,  in case we change our mind.
      *
      * @author abdulsamisahil
-     * @version 1.0
+     * @version 2.0
      * @since 2020.03.31
      */
     class ClientHandler extends Thread {
@@ -152,7 +176,13 @@ public class MServer extends Thread {
                         User user = (User) ois.readObject();
                         boolean isUserNew = newUser(user);
                         if (isUserNew) {
-                            loginUserArray.add(user);
+                            usersList.add(user);
+                            //Adding new user to the text file as well
+                            BufferedWriter bw = new BufferedWriter(new FileWriter(fileLocation, true));
+                            PrintWriter pw = new PrintWriter(bw);
+                            pw.write("\n"+user.toString());
+                            pw.flush();
+                            //Sending it back to the client
                             oos.writeObject(user);
 
                         } else {
@@ -192,30 +222,13 @@ public class MServer extends Thread {
 
         //Lägger till ny användare
         private boolean newUser(User user) {
-            boolean isUserNew = false;
-            try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter(fileLocation));
-
-                for (int i = 0; i < loginUserArray.size(); i++) {
-                    if (user.getUserName().equals(loginUserArray.get(i).getUserName())) {
-                        isUserNew = false;
-
-                    } else {
-                        isUserNew = true;
-                        bw.write(user.toString());
-                    }
+            for (int i = 0; i < usersList.size(); i++) {
+                if (user.getUserName().equals(usersList.get(i).getUserName())) {
+                    isUserNew = false;
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
             return isUserNew;
         }
-
-        /**
-         * This method adds the user to a collection
-         *
-         * @throws IOException catches exceptions
-         */
        /* private void addUser() throws IOException {
             outputStream.writeUTF("Enter your username");
             String username = inputStream.readUTF();
@@ -277,13 +290,29 @@ public class MServer extends Thread {
          * If the user is already registered and wants to login to the system
          */
         private boolean isLoginSucceeded(User receivedUser) throws IOException, ClassNotFoundException {
-            boolean login = false;
+            String username = receivedUser.getUserName();
+            String password = receivedUser.getPassword();
+            //  System.out.println(username + " " + password);
+
+            for (int i = 0; i < usersList.size(); i++) {
+                //  System.out.println("Testing array -  " + usersList.get(i));
+                //   System.out.println("Usernames: " + usersList.get(i).getUserName());
+                //    System.out.println("Passwords: " + usersList.get(i).getPassword());
+                if ((username.equals(usersList.get(i).getUserName())) && (password.equals(usersList.get(i).getPassword()))) {
+                    isLoginSucceeded = true;
+                }
+                else {
+                    isLoginSucceeded = false;
+                }
+            }
+            return isLoginSucceeded;
+            /*boolean login = false;
             String username = receivedUser.getUserName();
             String password = receivedUser.getPassword();
 
-            for (int i = 0; i < loginUserArray.size(); i++) {
-                if (username.equals(loginUserArray.get(i).getUserName())) {
-                    if (password.equals(loginUserArray.get(i).getPassword())) {
+            for (int i = 0; i < usersList.size(); i++) {
+                if (username.equals(usersList.get(i).getUserName())) {
+                    if (password.equals(usersList.get(i).getPassword())) {
                         login = true;
 
                     }
@@ -292,7 +321,7 @@ public class MServer extends Thread {
                     login = false;
                 }
             }
-            return login;
+            return login;*/
         }
 
         /**

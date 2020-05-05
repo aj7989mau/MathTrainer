@@ -1,3 +1,8 @@
+package Server;
+
+import sharedEntities.User;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,78 +12,133 @@ import java.util.Scanner;
  * after every development iteration.
  * @author abdulsamisahil
  */
-/*public class Test {
-    public static void main(String[] args) {
-        Course seventh = new Seventh();
-
-       /* Questions q1 = new Questions("What comes 12x12?");
-        Questions q2 = new Questions("What is the answer of 144 divided by 12? ");
-        Questions q3 = new Questions("How many days does it take to go a distance of 120km if I can go up to 20 kms a day?");
-
+public class Test {
+    private User user;
+    private ArrayList<User> usersList;
+    private String fileLocation;
+    private boolean isUserNew = true;
+    private boolean isLoginSucceeded;
 
 
+    public Test() throws IOException, ClassNotFoundException {
+        usersList = new ArrayList<User>();
+        this.fileLocation = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt";
+        readFile(fileLocation);
+        testEverything();
+    }
+    private void readFile(String fileLocation) throws FileNotFoundException {
 
+        String line;
+        String username = null;
+        String password = null;
+        try
+        {
+            BufferedReader br = new BufferedReader(new FileReader(fileLocation));
 
-        seventh.addQuestions(q1);
-        seventh.addQuestions(q2);
-        seventh.addQuestions(q3);
+            while ((line = br.readLine())!= null)
+            {
 
-        Questions q4 = new Questions("How old am I?");
+                String[] tokenize = line.split("\n");
 
-        Course eighth = new Eighth();
-        eighth.addQuestions(q4);
+                for (int i = 0; i < tokenize.length; i++)
+                {
+                    username = tokenize[i];
+                    password = br.readLine();
+                    //  password = br.readLine();//Problem is here!
+                    // System.out.println("testU:" +username);
+                    // System.out.println("testP:" +password);
+                }
+                        /*for (int i = 1; i < tokenize.length; i = i+2)
+                        {
+                            password = tokenize[i];
+                        }*/
+                user = new User(username, password);
 
-        User u1 = new User("Taha", 29, "08098", UserType.student, Courses.seventh);
-        User u2 = new User("Yasin", 45, "03234234", UserType.teacher, Courses.seventh);
-        User u3 = new User("Johan", 45, "3497987", UserType.teacher, Courses.ninth);
+                usersList.add(user);
+                System.out.println(user);
 
+                //   line = br.readLine();
 
+            }
+            br.close();
+            System.out.println("Size of user array: " + usersList.size());
+        }
 
-        Course ninth = new Ninth();
-        ninth.addUser(u1);
-        ninth.addUser(u2);
-        ninth.addUser(u3);
-        ninth.removeUser(u2);
-        ninth.removeUser(u1);
+        catch (FileNotFoundException e)
+        {
+            System.out.println("file not found");
+        }
 
-        ninth.printUsersList();
+        catch (IOException ioe)
+        {
+            ioe.printStackTrace();
+        }
+    }
+    //Lägger till ny användare
+    private boolean newUser(User user) {
 
-
-        seventh.addUser(u1);
-        seventh.addUser(u2);
-
-
-        //Sizes
-
-        int score = 0;
-        Scanner userInput = new Scanner(System.in);
-        List<User> usersList = new ArrayList<>();
-
-        Questions[] questions = seventh.getQuestions();
-
-        System.out.println("Please enter your username");
-        String username = userInput.nextLine();
-        System.out.println("Please enter your age");
-        int userAge = userInput.nextInt();
-        System.out.println("Please enter your id");
-        String id = userInput.nextLine();
-       // userInput.nextLine();
-        userInput.nextLine();
-
-        User user = new User(username, userAge, id);
-        usersList.add(user);
-        System.out.println("Mr " + username + ", you are admitted to the 7th course");
-
-
-        for (int i = 0; i < questions.length; i++) {
-            System.out.println(questions[i]);
-            String answer = userInput.nextLine();
-            if (answer.equals(questions[i].getAnswer())) {
-                score++;
+        for (int i = 0; i < usersList.size(); i++) {
+            if (user.getUserName().equals(usersList.get(i).getUserName())) {
+                isUserNew = false;
             }
         }
-        String str = "Dear Mr " + user.getName() + ", you got " + score + "/" + questions.length;
-        System.out.println(str);
-        System.out.println();
+        return isUserNew;
     }
-}*/
+    private boolean isLoginSucceeded(User receivedUser) throws IOException, ClassNotFoundException {
+        String username = receivedUser.getUserName();
+        String password = receivedUser.getPassword();
+        //  System.out.println(username + " " + password);
+
+        for (int i = 0; i < usersList.size(); i++) {
+            //  System.out.println("Testing array -  " + usersList.get(i));
+            //   System.out.println("Usernames: " + usersList.get(i).getUserName());
+            //    System.out.println("Passwords: " + usersList.get(i).getPassword());
+            if ((username.equals(usersList.get(i).getUserName())) && (password.equals(usersList.get(i).getPassword()))) {
+                isLoginSucceeded = true;
+            }
+            else {
+                isLoginSucceeded = false;
+            }
+        }
+        return isLoginSucceeded;
+    }
+    private void testEverything() throws IOException, ClassNotFoundException {
+
+        Scanner read = new Scanner(System.in);
+
+        System.out.println("Enter your choice:");
+        String choice = read.nextLine();
+
+        if (choice.equals("login"))
+        {
+            User user = new User("kkaa", "hhaa");
+            boolean login = isLoginSucceeded(user);
+            if (login){
+                System.out.println("Login succeeded: "+user.toString());
+            }
+            else {
+                System.out.println("Username and password failure ");
+            }
+        }
+
+        else if (choice.equals("new user")){
+            User user = new User("user2", "pass2");
+            boolean isUserNew = newUser(user);
+            if (isUserNew)
+            {
+                usersList.add(user);
+                BufferedWriter bw = new BufferedWriter(new FileWriter(fileLocation, true));
+                PrintWriter pw = new PrintWriter(bw);
+                pw.write("\n"+user.toString());
+                pw.flush();
+                System.out.println("The following user is newly added: \n"+user.toString());
+            }
+            else {
+                System.out.println("Användarnamnet är upptaget!");
+            }
+        }
+    }
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        new Test();
+    }
+}
