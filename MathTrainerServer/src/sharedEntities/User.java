@@ -73,7 +73,6 @@ public class User implements Serializable {
     }*/
 
     public String toString() {
-        return userName + "\n" + password;
-
-    //Inner class for User GUI
-}}
+        return userName + "\n" + password + "";
+    }
+}
