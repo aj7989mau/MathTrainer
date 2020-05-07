@@ -31,7 +31,7 @@ public class Eighth {
         String q2 = "What is the correct value of x in the following equation \n" +
                 "2x + 4 = 12?" + n + "(a) x = 8" + n + "(b) x = 4" + n + "(c) x = 2" + n;
 
-        questions = new Questions[]{new Questions(q1, "c"), new Questions(q2, "b")};
+        //questions = new Questions[]{new Questions(q1, "c"), new Questions(q2, "b")};
         //takeTest(questions);
     }
 
