@@ -25,7 +25,7 @@ public class Test {
      */
     public Test() throws IOException, ClassNotFoundException {
         usersList = new ArrayList<User>();
-        this.fileLocation = "C:\\Users\\mutaz\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\inlogningsUppgifter.txt";
+        this.fileLocation = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt";
         readFile(fileLocation);
         testEverything();
     }
@@ -120,7 +120,7 @@ public class Test {
 
         if (choice.equals("login"))
         {
-            User user = new User("user4", "pass4");
+            User user = new User("kkaa", "hhaa");
             boolean login = isLoginSucceeded(user);
             if (login){
                 System.out.println("Login succeeded: "+user.toString());
@@ -131,7 +131,7 @@ public class Test {
         }
 
         else if (choice.equals("new user")){
-            User user = new User("user4", "pass4");
+            User user = new User("u5", "p5");
             boolean isUserNew = newUser(user);
             if (isUserNew)
             {

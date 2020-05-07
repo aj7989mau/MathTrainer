@@ -11,24 +11,32 @@ import java.io.Serializable;
 public class Questions implements Serializable {
     private String question;
     private String answer;
+    private String [] wrongAnswers;
     //private Course course;
     //Constructor
     //addQuestions method
     //removeQuestions method
+
+    public Questions(String question, String answer, String wrongAnswer1, String wrongAnswer2, String wrongAnswer3) {
+        this.question = question;
+        this.answer = answer;
+        wrongAnswers[0] = wrongAnswer1;
+        wrongAnswers[1] = wrongAnswer2;
+        wrongAnswers[2] = wrongAnswer3;
+    }
     //getQuestions method
     //setQuestions method
 
-    public Questions(String question, String answer){
-        this.question = question;
-        this.answer = answer;
-    }
     public Questions(){}
 
     public String getQuestion() {
         return question ;
     }
 
-
+    public String [] getWrongAnswers()
+    {
+        return wrongAnswers;
+    }
     public void setQuestion(String question) {
         this.question = question;
     }
