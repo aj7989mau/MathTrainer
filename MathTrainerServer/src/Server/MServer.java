@@ -14,7 +14,6 @@ import sharedEntities.User;
 
 /**
  * MathTainer Server class, controls logic/communications with the MathTrainer Clients.
- *
  * @author abdulsamisahil
  * @version 1.5
  * @since 2020-03-31
@@ -32,7 +31,6 @@ public class MServer extends Thread {
 
     /**
      * MTServer Constructor
-     *
      * @param port server listening to this port
      */
     public MServer(int port) throws FileNotFoundException {
@@ -151,8 +149,10 @@ public class MServer extends Thread {
                 try {
                     String input = ois.readUTF();
                     if (input.equals("Login")) {
-                        //TODO: Ni får ett User-objekt, kolla så det finns i er array och att lösenordet stämmer
-                        // skicka tillbaka det User-objekt som matchar. Om inget matchar, skicka error meddelande
+                        /**
+                         * Gets a User-objekt, look that it exist in the array and that the password is correct
+                         * sends back the User-objekt that matches. If it does not match an error message is sent
+                         */
                         User user = (User) ois.readObject();
                         boolean login = isLoginSucceeded(user);
                         if (login) {
@@ -161,9 +161,12 @@ public class MServer extends Thread {
                             oos.writeUTF("Felaktigt användarnamn eller lösenord!");
                         }
                     } else if (input.equals("NewUser")) {
-                        //TODO: Ni får ett User-Objekt, kolla om det finns i er array. Om inte, lägg till denna user
-                        // både i temporär array och i filen. Skicka tillbaka samma User, eller Errormeddelande om
-                        // namnet redan är upptaget
+                        /**
+                         * Gets a User-Objekt, check if it exist in array. If not, add this user
+                         * both in a temporary array and in the file. Sends back the same User or errormessage if
+                         * the name is recerved
+                         */
+
                         User user = (User) ois.readObject();
                         boolean isUserNew = newUser(user);
                         if (isUserNew) {
@@ -180,13 +183,10 @@ public class MServer extends Thread {
                             oos.writeUTF("Användarnamnet är upptaget!");
                         }
                     } else if (input.equals("Questions")) {
-                        //oos.writeUTF("Välj årskurs");
                         System.out.println("Checking questions");
-                        //String answer = (String)ois.readObject();
-                        //if (answer.equals("Grade 6")) {
                         course = new Sixth();
 
-                        //oos.writeUTF("Välj typ av fråga");
+
                         String answerTypeOfQuestion = (String) ois.readObject();
                         System.out.println("Recieved: " + answerTypeOfQuestion);
                         if (answerTypeOfQuestion.equals("Geometry")) {
@@ -197,7 +197,6 @@ public class MServer extends Thread {
                             oos.writeObject(course.getStatisticQuestion());
                         }
                     } else if (input.equals("Result")) {
-                        // course = new Seventh();
                     } else if (input.equals("UserStats")) {
                         //TODO: Vi skickar ett user objekt
                         // svara med en String med användarens statistik, ni får välja format själva :D
@@ -211,7 +210,9 @@ public class MServer extends Thread {
             }
         }
 
-        //Lägger till ny användare
+        /**
+         * Adds a new user in a array
+         */
         private boolean newUser(User user) {
             for (int i = 0; i < usersList.size(); i++) {
                 if (user.getUserName().equals(usersList.get(i).getUserName())) {

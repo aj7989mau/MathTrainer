@@ -10,8 +10,7 @@ import java.util.logging.SimpleFormatter;
 
 
 /**
- * ReadUserFile, handles all the users and stores in a arraylist.
- * @author johannadahlborn
+ * ReadUserFile, handles all the users and stores in a arraylist. Only a testfile for education
  * @version 1.5
  * @since 2020-05-03
  */
