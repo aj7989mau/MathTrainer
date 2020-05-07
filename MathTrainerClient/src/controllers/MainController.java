@@ -119,6 +119,7 @@ public void QuizTest(String Quiz){
         if (object instanceof Questions[]) {
             quizController.setQuestion((Questions[]) object);
             setScene(ScenesEnum.Quiz);
+
         } else{
 
             popUpWindow(Alert.AlertType.ERROR, "Error" , (String) object);
