@@ -127,7 +127,6 @@ public class MServer extends Thread {
 
         /**
          * Constructor
-         *
          * @param server connects the client to server
          */
         public ClientHandler(Socket server) throws IOException {
@@ -151,19 +150,15 @@ public class MServer extends Thread {
                 try {
                     String input = ois.readUTF();
                     if (input.equals("Login")) {
-                        //TODO: Ni får ett User-objekt, kolla så det finns i er array och att lösenordet stämmer
-                        // skicka tillbaka det User-objekt som matchar. Om inget matchar, skicka error meddelande
                         User user = (User) ois.readObject();
                         boolean login = isLoginSucceeded(user);
                         if (login) {
                             oos.writeObject(user);
                         } else {
-                            oos.writeUTF("Felaktigt användarnamn eller lösenord!");
+                            oos.writeUTF("Inloggning misslyckad: Felaktigt användarnamn eller lösenord!");
                         }
                     } else if (input.equals("NewUser")) {
-                        //TODO: Ni får ett User-Objekt, kolla om det finns i er array. Om inte, lägg till denna user
-                        // både i temporär array och i filen. Skicka tillbaka samma User, eller Errormeddelande om
-                        // namnet redan är upptaget
+
                         User user = (User) ois.readObject();
                         boolean isUserNew = newUser(user);
                         if (isUserNew) {
@@ -177,16 +172,12 @@ public class MServer extends Thread {
                             oos.writeObject(user);
 
                         } else {
-                            oos.writeUTF("Användarnamnet är upptaget!");
+                            oos.writeUTF("Inloggning misslyckad: Användarnamnet är upptaget");
                         }
                     } else if (input.equals("Questions")) {
-                        //oos.writeUTF("Välj årskurs");
                         System.out.println("Checking questions");
-                        //String answer = (String)ois.readObject();
-                        //if (answer.equals("Grade 6")) {
                         course = new Sixth();
 
-                        //oos.writeUTF("Välj typ av fråga");
                         String answerTypeOfQuestion = (String) ois.readObject();
                         System.out.println("Recieved: " + answerTypeOfQuestion);
                         if (answerTypeOfQuestion.equals("Geometry")) {
@@ -196,8 +187,9 @@ public class MServer extends Thread {
                         } else if (answerTypeOfQuestion.equals("Statistics")) {
                             oos.writeObject(course.getStatisticQuestion());
                         }
+                        //Todo: else sats om något är ogiltigt har valts
                     } else if (input.equals("Result")) {
-                        // course = new Seventh();
+
                     } else if (input.equals("UserStats")) {
                         //TODO: Vi skickar ett user objekt
                         // svara med en String med användarens statistik, ni får välja format själva :D
@@ -211,7 +203,10 @@ public class MServer extends Thread {
             }
         }
 
-        //Lägger till ny användare
+
+        /**
+         * Add a new user
+         */
         private boolean newUser(User user) {
             for (int i = 0; i < usersList.size(); i++) {
                 if (user.getUserName().equals(usersList.get(i).getUserName())) {
@@ -249,7 +244,6 @@ public class MServer extends Thread {
 
         /**
          * As soon as the user starts, this method starts the test
-         *
          * @param questions takes an array of Question class,
          * @throws IOException catches the errors
          */
@@ -273,7 +267,7 @@ public class MServer extends Thread {
             ois = new ObjectInputStream(server.getInputStream());
             oos = new ObjectOutputStream(server.getOutputStream());
 
-            oos.flush(); // skickar allt som användaren vill få fram
+            oos.flush(); // sends everything that the user wants
 
         }
 
@@ -315,7 +309,7 @@ public class MServer extends Thread {
         }
 
         /**
-         * Start quiz
+         * Starts the quiz
          */
        /* private void startQuiz()
         {

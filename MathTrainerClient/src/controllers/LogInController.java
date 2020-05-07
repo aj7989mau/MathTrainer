@@ -16,7 +16,6 @@ import javafx.scene.control.TextField;
 public class LogInController extends SceneControllerParent {
 
 
-
     @FXML
     private TextField usernameField;
 
