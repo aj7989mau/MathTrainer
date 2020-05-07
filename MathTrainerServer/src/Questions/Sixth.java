@@ -11,6 +11,7 @@ import java.util.List;
  * This class is a subclass to the parent Course, this class makes an
  * array of the Question class and returns it back whenever the user
  * selects to be apart of the class. Added new questions
+ *
  * @author JohannaDahlborn
  * @version 1.0
  * @since 2020-04-22
@@ -28,35 +29,36 @@ public class Sixth extends Course {
     public Sixth() {
         QuestionList = new ArrayList<>();
         String n = "\n";
-        String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet." + n + "(a) 3" + n +
-                "(b) 1" + n + "(c) 15" + n;
+        String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet.";
         String q2 = "Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 2 mål per match. " +
-                "Beräkna medelvärdet för alla mål under de senaste tre matcherna." + n +
-                "(a) 2" + n + "(b) 6" + n + "(c) 3" + n;
-        String q3 = "Medelvärdet av tre tal är 5. Två av talen är 4 och 5. Vilket är det tredje talet?" + n + "(a) 3" + n +
-                "(b) 6" + n + "(c) 10" + n;
-        String q4 = "Skriv vad 1/4 är i procent." + n + "(a) 25 " + n + "(b) 30" + n + "(c) 10" + n;
-        statisticQuestion = new Questions[]{new Questions(q1, "a"), new Questions(q2, "c"), new Questions(q3, "b"),
-        new Questions(q4, "b")};
+                "Beräkna medelvärdet för alla mål under de senaste tre matcherna.";
+        String q3 = "Medelvärdet av tre tal är 5. Två av talen är 4 och 5. Vilket är det tredje talet?";
+        String q4 = "Skriv vad 1/4 är i procent.";
+        statisticQuestion = new Questions[]{new Questions(q1, "3", "1", "15", "30")
+                , new Questions(q2, "3", "6", "2", "0"),
+                new Questions(q3, "6", "10", "3", "32"),
+                new Questions(q4, "36", "26", "10", "134")};
         //takeTest(questions);
 
 
         //Geometry questions
-        String q5 = "En triangel har sidlängderna 4 cm, 10 cm och 14 cm. Hur stor omkrets har denna triangel?" + n +
-                "(a) 28" + "(b) 23" + n + "(c) 27" + n;
-        String q6 = "En triangel har sidlängderna 7 cm, 41 mm och 62 mm. Observera enheterna. " +
-                "Hur stor omkrets har denna triangel i centimeter?" + n + "(a) 25 " + n + "(b) 15" + n + "(c) 17,3" + n;
-        geometryQuestions = new Questions[]{new Questions(q5, "a"), new Questions(q6, "c")};
+        String q5 = "En triangel har sidlängderna 4 cm, 10 cm och 14 cm. Hur stor omkrets har denna triangel?";
+        String q6 = "En triangel har sidlängderna 7 cm, 41 mm och 62 mm. Observera enheterna."
+                + n + " Hur stor omkrets har denna triangel i centimeter?";
+        geometryQuestions = new Questions[]{new Questions(q5, "28", "23", "27", "28"),
+                new Questions(q6, "17.3", "25", "15", "2")};
 
 
         //four counting ways
-        String q7 = "Räkna ut 455,77+131,5" + n + "(a) 587,27" + n + "(b) 550" + n + "(c) 432,4" + n;
-        String q8 = "Räkna ut 36,55+94,20 med överslagsräkning, avrunda till närmaste tiotal." + n +
-                "(a) 130" + n + "(b) 140" + n + "(c) 230" + n;
-        String q9 = "Räkna ut 25,5⋅2" + n + "(a) 23" + n + "(b) 51" + n + "(c) 52" + n;
-        String q10 = "Räkna ut 500⋅8" + n + "(a) 4000" + n + "(b) 4500" + n + "(c) 4000" + n;
-        fourCountQuestions = new Questions[]{new Questions(q7, "a"), new Questions(q8, "a"), new Questions(q9, "b"),
-        new Questions(q10, "c")};
+        String q7 = "Räkna ut 455,77+131,5";
+        String q8 = "Räkna ut 36,55+94,20 med överslagsräkning, avrunda till närmaste tiotal.";
+        String q9 = "Räkna ut 25,5*2";
+        String q10 = "Räkna ut 500⋅8";
+        fourCountQuestions = new Questions[]{new Questions(q7, "587.27", "550", "480", "245"),
+                new Questions(q8, "130", "140", "230", "312")
+                , new Questions(q9, "51"
+                , "23", "25.52", "40"),
+                new Questions(q10, "4000", "4500", "4050", "5141")};
 
 
     }
@@ -92,7 +94,8 @@ public class Sixth extends Course {
     }
 
     @Override
-    public Questions[] getGeometryQuestions() { return geometryQuestions;
+    public Questions[] getGeometryQuestions() {
+        return geometryQuestions;
     }
 
     @Override

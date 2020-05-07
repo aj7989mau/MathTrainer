@@ -39,7 +39,7 @@ public class MServer extends Thread {
         this.port = port;
         keepRunning = true;
         usersList = new ArrayList<>();
-        fileLocation = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt";
+        fileLocation = "C:\\Users\\mutaz\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\inlogningsUppgifter.txt";
         readFile(fileLocation);
 
         try {
@@ -199,7 +199,7 @@ public class MServer extends Thread {
                     e.printStackTrace();
                 }
             } catch (Exception e) {
-                System.out.println("Check me exception in server");
+                e.printStackTrace();
             }
         }
 
