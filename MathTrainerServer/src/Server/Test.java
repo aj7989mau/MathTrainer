@@ -19,27 +19,28 @@ public class Test {
     private boolean isUserNew = true;
     private boolean isLoginSucceeded;
 
-
+    /**
+     * Here you need to change the path to your individual file.
+     *
+     */
     public Test() throws IOException, ClassNotFoundException {
         usersList = new ArrayList<User>();
         this.fileLocation = "C:\\Users\\mutaz\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\inlogningsUppgifter.txt";
         readFile(fileLocation);
         testEverything();
     }
-    private void readFile(String fileLocation) throws FileNotFoundException {
 
+    private void readFile(String fileLocation) throws FileNotFoundException {
         String line;
         String username = null;
         String password = null;
         try
         {
             BufferedReader br = new BufferedReader(new FileReader(fileLocation));
-
             while ((line = br.readLine())!= null)
             {
 
                 String[] tokenize = line.split("\n");
-
                 for (int i = 0; i < tokenize.length; i++)
                 {
                     username = tokenize[i];
@@ -74,7 +75,9 @@ public class Test {
             ioe.printStackTrace();
         }
     }
-    //Lägger till ny användare
+    /**
+     * Adds a new user
+     */
     private boolean newUser(User user) {
 
         for (int i = 0; i < usersList.size(); i++) {
@@ -84,6 +87,10 @@ public class Test {
         }
         return isUserNew;
     }
+
+    /**
+     * If the login is succeeded method goes thrue an array and searches for the value of username and password
+     */
     private boolean isLoginSucceeded(User receivedUser) throws IOException, ClassNotFoundException {
         String username = receivedUser.getUserName();
         String password = receivedUser.getPassword();
@@ -102,6 +109,8 @@ public class Test {
         }
         return isLoginSucceeded;
     }
+
+
     private void testEverything() throws IOException, ClassNotFoundException {
 
         Scanner read = new Scanner(System.in);

@@ -2,47 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../MathTrainerServer/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/ExercisesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/ExercisesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/LogInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainController$SceneSetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainController$SceneSetter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NetworkController$InputThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NetworkController$OutputThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NetworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NetworkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/entity/ScenesEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/entity/ScenesEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Exercises.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Exercises.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ExercisesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ExercisesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/NetworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/NetworkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/LogInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MathTrainerServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Eighth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Eighth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Ninth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Ninth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Questions.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/sharedEntities/Questions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Seventh.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Seventh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Sixth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Questions/Sixth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Server/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Server/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Server/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Server/MServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Server/MServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Server/ReadUserFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Server/ReadUserFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/sharedEntities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Server/UserResultat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Server/UserResultat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Eighth.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Eighth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Ninth.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Ninth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Questions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Seventh.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Seventh.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Sixth.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Questions/Sixth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/MServer$ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/MServer$ClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/MServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/MServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/ReadUserFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/ReadUserFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/UserResultat.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/UserResultat.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,19 +117,13 @@
       <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -177,12 +135,6 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
@@ -281,6 +233,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1158" y="269" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587762842191" />
+    <state x="572" y="323" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1588777505753">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state x="572" y="323" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.808@0.23.1440.808" timestamp="1588777505753" />
     <state x="756" y="405" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587686462942">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
