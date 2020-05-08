@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/Server/MServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Test.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +33,18 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.MServer">
     <configuration name="MClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -100,7 +113,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b213deb7-f5d8-4172-b989-29dab99ca870" name="Default Changelist" comment="" />
+      <changelist id="ef85b22e-c69c-456f-a61d-4545bf35ea73" name="Default Changelist" comment="" />
       <created>1588066525714</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -113,12 +126,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="589" y="383" width="486" height="473" key="#Notifications" timestamp="1588604965777">

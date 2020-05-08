@@ -39,7 +39,7 @@ public class MServer extends Thread {
         this.port = port;
         keepRunning = true;
         usersList = new ArrayList<>();
-        fileLocation = "C:\\Users\\mutaz\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\inlogningsUppgifter.txt";
+        fileLocation = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt";
         readFile(fileLocation);
 
         try {
