@@ -33,15 +33,11 @@
                   <RadioButton fx:id="radioButtonTwo" layoutX="676.0" layoutY="246.0" mnemonicParsing="false" styleClass="labelBlack" text="43,43" toggleGroup="$Group1" />
                   <RadioButton fx:id="radioButtonOne" layoutX="676.0" layoutY="212.0" mnemonicParsing="false" styleClass="labelBlack" text="93,45" toggleGroup="$Group1" />
                   <RadioButton fx:id="radioButtonFour" layoutX="676.0" layoutY="322.0" mnemonicParsing="false" styleClass="labelBlack" text="102,56" toggleGroup="$Group1" />
-                  <Label layoutX="203.0" layoutY="43.0" styleClass="labelBlack" text="Addition">
+                  <Label layoutX="203.0" layoutY="43.0" styleClass="labelBlack" text="De fyra räknesätten">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="399.0" layoutY="33.0" prefHeight="70.0" prefWidth="87.0" styleClass="Label" stylesheets="@../../entity/MathTrainerStylesheet.css" text="1 / 7" textFill="WHITE">
-                     <font>
-                        <Font size="10.0" />
-                     </font></Label>
                   <Button fx:id="nextQuestionButton" layoutX="599.0" layoutY="487.0" mnemonicParsing="false" onAction="#nextQuestion" prefHeight="25.0" prefWidth="137.0" styleClass="buttonReal" text="Nästa fråga" />
                   <Label fx:id="questionLabel" layoutX="193.0" layoutY="129.0" prefHeight="214.0" prefWidth="338.0" styleClass="labelBlack" text="Fråga: Vad är 64,93 + 21,42">
                      <font>
