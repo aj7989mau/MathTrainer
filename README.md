@@ -2,27 +2,27 @@
  MathTrainer is an application that helps young studens learn math in a fun and interactive way!
 
 Komma igång:
-MathTrainer är delvis byggt med JavaFX (som finns med i projektet). Så det blir lite extra att pilla med men det ska nog gå bra!
+MathTrainer är delvis byggt med JavaFX (som finns med i projektmappen ni laddar hem). Det blir lite extra att pilla med men det ska nog gå bra!
 
 Den enkla biten:
 1 - Ladda ner zip-filen från repositoryn och extrahera mappen där du vill ha den.
-2 - Öppna MathTrainerServer och MathTrainerClient separat, dvs öppna inte hela MathTrainer-master, utan bara de två projekten inne i denna mapp.
-3 - Lägg till SDK om detta inte sker automatiskt. Detta görs i IntelliJ via File --> Project Structure --> Project. Vi kör båda projekten i Java 13.
+2 - Öppna MathTrainerServer och MathTrainerClient separat, dvs öppna inte hela MathTrainer-master, utan bara de två projekten inne i denna mapp i varsitt IntelliJ-fönster.
+3 - Lägg till SDK i vardera projekt om detta inte sker automatiskt. Detta görs i IntelliJ via File --> Project Structure --> Project. Vi kör båda projekten i Java 13.
 
-När detta är klart bör Servern vara körbar. Denna ska förstås köras först, och startas med klassen Main (övriga klasser med Main-metoder är bara för testning, så ni behöver ej köra dessa).
+När detta är klart bör Servern vara körbar. Denna ska förstås köras först, och startas med klassen Main (övriga klasser med Main-metoder är bara för intern testning, så ni behöver ej köra dessa).
 
-Nu den lite krångligare biten, som bara hör till MathTrainer Client:
-1 - Tryck på Run i IntelliJ (i menyn högst upp, långt till höger om File), sedan på Edit configurations...
-2 - I fältet "VM options", ändra början av filepathen (bara filepathen, inget annat) till en som leder in till projektmappen för MathTrainer.
+Nu den lite krångligare biten, som bara ska göras i MathTrainerClient:
+1 - Tryck på "Run" i IntelliJ (detta hittas i menyn högst upp, långt till höger om File), sedan på "Edit configurations..."
+2 - I fältet "VM options" ändrar ni början av filepathen (bara filepathen, den som står inom "citationstecken"). Ändra bara den bit som kommer före "\Java" till den mapp du extraherade projektet MathTrainer i (själva huvudmappen, inte specifikt klienten).
 
 Exempel: Om ni har extraherat projektet i C:\Program Files så blir pathen "C:\Program Files\MathTrainer-master\Java\javafx-sdk-14\lib"
 Hela VM Options raden skulle då bli:
 --module-path "C:\Program Files\MathTrainer-master\Java\javafx-sdk-14\lib" --add-modules javafx.controls,javafx.fxml
 
-När detta är gjort trycker ni på OK, och klienten bör också vara körbar! Körning starts via Main-klassen.
+När detta är gjort trycker ni på OK, och klienten bör också vara körbar! Körning startas via Main-klassen.
 
 
-Notis: Alla knappar är ej i bruk, och all logik är inte implementerad ännu. Men det märker ni nog!
+Notis: Alla knappar är ej i bruk, och all logik är inte implementerad ännu. Men det märker ni nog! Det är bara "Övningar" som är implementerad någorlunda färdigt.
 
 
 Om MathTrainer:
