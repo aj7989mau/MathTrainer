@@ -31,6 +31,10 @@ public class Questions implements Serializable {
     this.correctAnswer = correctAnswer;
     }
 
+    public boolean getCorrectAnswer(){
+        return correctAnswer;
+    }
+
     //getQuestions method
     //setQuestions method
 

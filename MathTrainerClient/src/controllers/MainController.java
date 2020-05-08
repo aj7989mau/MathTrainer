@@ -24,7 +24,7 @@ public class MainController {
 
     private SceneSetter sceneSetter = new SceneSetter();
     private NetworkController networkController;
-    private QuizController quizController = new QuizController();
+    private QuizController quizController;
 
     /**
      * Starts the network that connects to the server and creates and populates the ScenesHashMap.
@@ -119,6 +119,7 @@ public void QuizTest(String Quiz){
         if (object instanceof Questions[]) {
             quizController.setQuestion((Questions[]) object);
             setScene(ScenesEnum.Quiz);
+           quizController.initializeValues();
 
         } else{
 
@@ -156,7 +157,14 @@ public void QuizTest(String Quiz){
 
             FXMLLoader quizLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Quiz.fxml"));
             Scene quizScene = new Scene(quizLoader.load());
+            quizController = quizLoader.getController();
             sendSelfToControllers(quizLoader);
+
+            FXMLLoader quizCompletedLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/QuizCompleted.fxml"));
+            Scene quizCompletedScene = new Scene(quizCompletedLoader.load());
+            QuizCompletedController quizCompleteController = quizCompletedLoader.getController();
+            quizController.setQuizCompleteController(quizCompleteController);
+            sendSelfToControllers(quizCompletedLoader);
 
             FXMLLoader nationalTestLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/NationalTest.fxml"));
             Scene nationalTestScene = new Scene(nationalTestLoader.load());
@@ -172,6 +180,7 @@ public void QuizTest(String Quiz){
             scenes.put(ScenesEnum.Home, homeScene);
             scenes.put(ScenesEnum.Exercises, exercisesScene);
             scenes.put(ScenesEnum.Quiz, quizScene);
+            scenes.put(ScenesEnum.QuizCompleted, quizCompletedScene);
             scenes.put(ScenesEnum.NationalTest, nationalTestScene);
             scenes.put(ScenesEnum.Settings, settingsScene);
         }

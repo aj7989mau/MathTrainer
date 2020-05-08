@@ -12,6 +12,7 @@ public enum ScenesEnum {
     NewUser,
     Exercises,
     Quiz,
+    QuizCompleted,
     NationalTest,
     Settings
 }

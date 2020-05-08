@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
-public class QuizController extends SceneControllerParent implements Initializable {
+public class QuizController extends SceneControllerParent {
 
     @FXML
     private Button currentQuestion;
@@ -32,11 +32,14 @@ public class QuizController extends SceneControllerParent implements Initializab
     private Button previousQuestionButton;
     @FXML
     private Button nextQuestionButton;
+    @FXML
+    private Button submitResultsButton;
 
     private int questionNumber = -1;
 
-    private static Questions[] questions;
+    private Questions[] questions;
 
+    private QuizCompletedController quizCompleteController;
 
 
     public QuizController(){
@@ -50,6 +53,13 @@ public class QuizController extends SceneControllerParent implements Initializab
 
             previousQuestionButton.setVisible(false);
         }
+
+        if(questionNumber ==  questions.length -2){
+
+            nextQuestionButton.setVisible(true);
+            submitResultsButton.setVisible(false);
+        }
+
 
     }
 
@@ -72,6 +82,7 @@ public class QuizController extends SceneControllerParent implements Initializab
         }
 
         Collections.shuffle(answerArray);
+        System.out.println(answerArray + " " + radioButtonOne);
 
         radioButtonOne.setText(answerArray.removeFirst());
         radioButtonTwo.setText(answerArray.removeFirst());
@@ -85,6 +96,8 @@ public class QuizController extends SceneControllerParent implements Initializab
     public void initializeValues(){
         updateLabels(true);
         questionLabel.setWrapText(true);
+        previousQuestionButton.setVisible(false);
+        radioButtonOne.setSelected(true);
 
     }
 
@@ -106,19 +119,37 @@ public class QuizController extends SceneControllerParent implements Initializab
 
 
         checkAnswer((questionNumber));
+        if(questionNumber ==  questions.length -2){
 
-        if(questionNumber ==  questions.length -1){
-
-        } else {
-            updateLabels(true);
+            nextQuestionButton.setVisible(false);
+            submitResultsButton.setVisible(true);
         }
-
+            updateLabels(true);
     }
+
+    public Questions[] getQuestions() {
+        return questions;
+    }
+
 
     public void setQuestion(Questions[] questions){
             this.questions = questions;
            System.out.println(questions);
+
     }
+
+
+    public void setQuizCompleteController(QuizCompletedController quizCompleteController){
+        this.quizCompleteController = quizCompleteController;
+    }
+
+
+    public void toResults(ActionEvent actionEvent){
+        checkAnswer(questionNumber);
+        quizCompleteController.setResult(questions);
+         mainController.setScene(ScenesEnum.QuizCompleted);
+    }
+
     public void quitQuiz(ActionEvent actionEvent){
 
       boolean answer =  mainController.popUpWindow(Alert.AlertType.CONFIRMATION, "Avsluta?" , "Är du säker på att du vill avsluta, dina svar sparas inte" );
@@ -128,8 +159,5 @@ public class QuizController extends SceneControllerParent implements Initializab
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeValues();
-    }
+
 }
