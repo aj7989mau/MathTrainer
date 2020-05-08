@@ -2,19 +2,14 @@ package controllers;
 
 import entity.ScenesEnum;
 import entity.ScenesHashMap;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import sharedEntities.Questions;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Class MainController is controller of the other controllers. All scene controllers has a reference to this controller
@@ -28,7 +23,8 @@ public class MainController {
     private Stage mainWindow;
 
     private SceneSetter sceneSetter = new SceneSetter();
-   private NetworkController networkController;
+    private NetworkController networkController;
+    private QuizController quizController;
 
     /**
      * Starts the network that connects to the server and creates and populates the ScenesHashMap.
@@ -118,11 +114,18 @@ public void LogIn(String firstName, String Password){
 
 public void QuizTest(String Quiz){
 
-        Object object = networkController.SendRequest(Quiz);
-        setScene(ScenesEnum.ExerciseWindow);
+
+        java.lang.Object object = networkController.SendRequest(Quiz);
+        if (object instanceof Questions[]) {
+            quizController.setQuestion((Questions[]) object);
+            setScene(ScenesEnum.Quiz);
+           quizController.initializeValues();
+
+        } else{
+
+            popUpWindow(Alert.AlertType.ERROR, "Error" , (String) object);
+        }
 }
-
-
 
     /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
@@ -152,9 +155,16 @@ public void QuizTest(String Quiz){
             Scene exercisesScene = new Scene(exercisesLoader.load());
             sendSelfToControllers(exercisesLoader);
 
-            FXMLLoader exerciseAdditionLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/ExercisesWindow.fxml"));
-            Scene exerciseAdditionScene = new Scene(exerciseAdditionLoader.load());
-            sendSelfToControllers(exerciseAdditionLoader);
+            FXMLLoader quizLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Quiz.fxml"));
+            Scene quizScene = new Scene(quizLoader.load());
+            quizController = quizLoader.getController();
+            sendSelfToControllers(quizLoader);
+
+            FXMLLoader quizCompletedLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/QuizCompleted.fxml"));
+            Scene quizCompletedScene = new Scene(quizCompletedLoader.load());
+            QuizCompletedController quizCompleteController = quizCompletedLoader.getController();
+            quizController.setQuizCompleteController(quizCompleteController);
+            sendSelfToControllers(quizCompletedLoader);
 
             FXMLLoader nationalTestLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/NationalTest.fxml"));
             Scene nationalTestScene = new Scene(nationalTestLoader.load());
@@ -169,7 +179,8 @@ public void QuizTest(String Quiz){
             scenes.put(ScenesEnum.NewUser, newUserScene);
             scenes.put(ScenesEnum.Home, homeScene);
             scenes.put(ScenesEnum.Exercises, exercisesScene);
-            scenes.put(ScenesEnum.ExerciseWindow, exerciseAdditionScene);
+            scenes.put(ScenesEnum.Quiz, quizScene);
+            scenes.put(ScenesEnum.QuizCompleted, quizCompletedScene);
             scenes.put(ScenesEnum.NationalTest, nationalTestScene);
             scenes.put(ScenesEnum.Settings, settingsScene);
         }
