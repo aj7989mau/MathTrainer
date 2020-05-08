@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../entity/MathTrainerStylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NationalTestController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="927.0"  stylesheets="@../../entity/MathTrainerStylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NationalTestController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" prefHeight="423.0" prefWidth="600.0">
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="577.0" prefWidth="927.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="175.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="255.0">
                <children>
                   <Button layoutX="56.0" layoutY="359.0" mnemonicParsing="false" onAction="#logOutClicked" text="Logga ut" />
                   <Button layoutX="20.0" layoutY="93.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
