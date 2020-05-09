@@ -2,20 +2,27 @@
  MathTrainer is an application that helps young studens learn math in a fun and interactive way!
 
 Komma igång:
-Än så länge finns det ingen koppling mellan server och klient, då klienten enbart är GUI utan funktionalitet just nu och servern testas med en egen testmetod. Därför behöver enbart klienten laddas ner för att testköra programmet som det kommer att se ut för slutanvändaren, men servern kan vara relevant att ladda ner om man vill granska koden eller köra servertester.
+MathTrainer är delvis byggt med JavaFX (som finns med i projektmappen ni laddar hem). Det blir lite extra att pilla med men det ska nog gå bra!
 
-För att köra klienten så laddar ni först ner MathTrainer. När ni öppnar applikationen i IntelliJ så öppna bara MathTrainerClient, inte hela MathTrainerMappen (som även innehåller servern). Klienten körs med Main.java i main-paketet, men det är inte säkert att allt fungerar direkt.
+Den enkla biten:
+1 - Ladda ner zip-filen från repositoryn och extrahera mappen där du vill ha den.
+2 - Öppna MathTrainerServer och MathTrainerClient separat, dvs öppna inte hela MathTrainer-master, utan bara de två projekten inne i denna mapp i varsitt IntelliJ-fönster.
+3 - Lägg till SDK i vardera projekt om detta inte sker automatiskt. Detta görs i IntelliJ via File --> Project Structure --> Project. Vi kör båda projekten i Java 13.
 
-Denna applikation är skapad med JavaFX, och detta finns med i Java-mappen och projektet. Det ni lär behöva göra är dels att lägga till Java FX. Detta gör ni under File --> Project Structure --> Libraries. Det finns ett + uppe till vänster i vyn som ni kan klicka på. Där navigerar ni in i MathTrainer (mappen för detta projekt) --> Java --> JavaFX och markerar "lib"-mappen. Lägg till denna. Om ni har problem med ogiltig SDK så kan ni även lägga till Java 12 eller senare under Project-fliken här.
+När detta är klart bör Servern vara körbar. Denna ska förstås köras först, och startas med klassen Main (övriga klasser med Main-metoder är bara för intern testning, så ni behöver ej köra dessa).
 
-Efter detta så finns det en sak till som sannolikt behöver fixas. Längst uppe till höger (bredvid "play"-knappen för att köra applikationen) så kan ni trycka på den lilla pilen bredvid Main och välja "Edit configuration...".
-Här inne under "VM options" skriver ni detta:
+Nu den lite krångligare biten, som bara ska göras i MathTrainerClient:
+1 - Tryck på "Run" i IntelliJ (detta hittas i menyn högst upp, långt till höger om File), sedan på "Edit configurations..."
+2 - I fältet "VM options" ändrar ni början av filepathen (bara filepathen, den som står inom "citationstecken"). Ändra bara den bit som kommer före "\Java" till den mapp du extraherade projektet MathTrainer i (själva huvudmappen, inte specifikt klienten).
 
---module-path "D:\Program Files\Java\javafx-sdk-14\lib" --add-modules javafx.controls,javafx.fxml
+Exempel: Om ni har extraherat projektet i C:\Program Files så blir pathen "C:\Program Files\MathTrainer-master\Java\javafx-sdk-14\lib"
+Hela VM Options raden skulle då bli:
+--module-path "C:\Program Files\MathTrainer-master\Java\javafx-sdk-14\lib" --add-modules javafx.controls,javafx.fxml
 
-OBS!!! Allt inom "citationstecknen" behöver bytas till eran egen path. Den ska alltså peka på den tidigare nämnda "lib"-mappen som tillhör JavaFX och ligger i MathTrainer-mappen ni laddad hem från github. 
+När detta är gjort trycker ni på OK, och klienten bör också vara körbar! Körning startas via Main-klassen.
 
-När detta är klart bör det bara vara att köra Main-filen.
+
+Notis: Alla knappar är ej i bruk, och all logik är inte implementerad ännu. Men det märker ni nog! Det är bara "Övningar" som är implementerad någorlunda färdigt.
 
 
 Om MathTrainer:

@@ -45,7 +45,7 @@ public class Sixth extends Course {
         String q5 = "En triangel har sidlängderna 4 cm, 10 cm och 14 cm. Hur stor omkrets har denna triangel?";
         String q6 = "En triangel har sidlängderna 7 cm, 41 mm och 62 mm. Observera enheterna."
                 + n + " Hur stor omkrets har denna triangel i centimeter?";
-        geometryQuestions = new Questions[]{new Questions(q5, "28", "23", "27", "28"),
+        geometryQuestions = new Questions[]{new Questions(q5, "28", "23", "27", "34"),
                 new Questions(q6, "17.3", "25", "15", "2")};
 
 

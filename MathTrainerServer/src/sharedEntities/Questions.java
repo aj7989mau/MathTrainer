@@ -4,16 +4,20 @@ import java.io.Serializable;
 
 /**
  * The Questions class will store all the questions
- *
  * @author abdulsamisahil
  * @version 1.0
  * @since 2020-03-25
  */
 public class Questions implements Serializable {
+    private boolean correctAnswer;
     private String question;
     private String answer;
+
     private String[] wrongAnswers = new String[3];
-    private boolean correctAnswer;
+
+
+
+
 
     //private Course course;
     //Constructor
@@ -26,22 +30,30 @@ public class Questions implements Serializable {
         wrongAnswers[0] = wrongAnswer1;
         wrongAnswers[1] = wrongAnswer2;
         wrongAnswers[2] = wrongAnswer3;
-        //System.out.println(wrongAnswers);
     }
+
+
+    public void correctAnswer(boolean correctAnswer){
+        this.correctAnswer = correctAnswer;
+    }
+
+    public boolean getCorrectAnswer(){
+        return correctAnswer;
+    }
+
     //getQuestions method
     //setQuestions method
 
-    public Questions() {
-    }
+    public Questions(){}
 
     public String getQuestion() {
-        return question;
+        return question ;
     }
 
-    public String[] getWrongAnswers() {
+    public String [] getWrongAnswers()
+    {
         return wrongAnswers;
     }
-
     public void setQuestion(String question) {
         this.question = question;
     }
@@ -53,13 +65,10 @@ public class Questions implements Serializable {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
-
     public String toString() {
         return "Questions: " +
                 question;
     }
-    public void correctAnswer(boolean correctAnswer){
-        this.correctAnswer=correctAnswer;
 
     }
-}
+
