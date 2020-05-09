@@ -13,6 +13,8 @@ public class Questions implements Serializable {
     private String question;
     private String answer;
     private String[] wrongAnswers = new String[3];
+    private boolean correctAnswer;
+
     //private Course course;
     //Constructor
     //addQuestions method
@@ -55,5 +57,9 @@ public class Questions implements Serializable {
     public String toString() {
         return "Questions: " +
                 question;
+    }
+    public void correctAnswer(boolean correctAnswer){
+        this.correctAnswer=correctAnswer;
+
     }
 }
