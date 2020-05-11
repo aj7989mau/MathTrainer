@@ -30,7 +30,7 @@ public class Sixth extends Course {
         QuestionList = new ArrayList<>();
         String n = "\n";
         String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet.";
-        String q2 = "Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 2 mål per match. " +
+        String q2 = "Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 3 mål per match. " +
                 "Beräkna medelvärdet för alla mål under de senaste tre matcherna.";
         String q3 = "Medelvärdet av tre tal är 5. Två av talen är 4 och 5. Vilket är det tredje talet?";
         String q4 = "Skriv vad 1/4 är i procent.";
