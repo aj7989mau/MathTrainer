@@ -37,7 +37,7 @@ public class Sixth extends Course {
         statisticQuestion = new Questions[]{new Questions(q1, "3", "1", "15", "30")
                 , new Questions(q2, "3", "6", "2", "0"),
                 new Questions(q3, "6", "10", "3", "32"),
-                new Questions(q4, "36", "26", "10", "134")};
+                new Questions(q4, "25", "26", "10", "134")};
         //takeTest(questions);
 
 

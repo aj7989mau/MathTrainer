@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e5b6161-e4c8-4741-ae3a-80ccd9ce7ace" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/MathTrainer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MathTrainer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/META-INF/MathTrainerClient.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/ExercisesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/ExercisesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/LogInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/MainController$SceneSetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/MainController$SceneSetter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/MainMenuControllerParent.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/MainMenuControllerParent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NationalTestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NationalTestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController$InputThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController$InputThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController$OutputThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController$OutputThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NetworkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NewUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/NewUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/SceneControllerParent.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/SceneControllerParent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/SettingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/controllers/SettingsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/entity/Buffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/entity/Buffer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/entity/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/entity/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/entity/ScenesEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/entity/ScenesEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/entity/ScenesHashMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/entity/ScenesHashMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerClient/out/production/MathTrainerClient/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathTrainerServer/.idea/MathTrainerServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MathTrainerServer/.idea/MathTrainerServer.iml" afterDir="false" />
-    </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="1e5b6161-e4c8-4741-ae3a-80ccd9ce7ace" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,18 +22,6 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.Test">
     <configuration name="MServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
