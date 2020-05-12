@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 public class Sixth extends Course {
-    //add
+    //adding the various types of questions into an array called Questions
     private Questions[] statisticQuestion;
     private Questions[] geometryQuestions;
     private Questions[] fourCountQuestions;
@@ -88,6 +88,8 @@ public class Sixth extends Course {
             }
         }
         }*/
+
+    //Setter & Getter methods for StaticQuestions, GeometryQuestions & CountQuestions
     @Override
     public Questions[] getStatisticQuestion() {
         return statisticQuestion;

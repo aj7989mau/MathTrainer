@@ -20,14 +20,14 @@ public class ReadUserFile {
     private SimpleFormatter date;
     private Logger logger;
     private User user;
-    private String alltext;
+    private String allText;
 
     private ArrayList<User> recipients;
 
 
-    public ReadUserFile(User user, ArrayList<User> receivers, String alltext) {
+    public ReadUserFile(User user, ArrayList<User> receivers, String allText) {
         this.recipients = recipients;
-        this.alltext = alltext;
+        this.allText = allText;
         try {
             //skapar en ny fil, med ett nytt filnamn
             FHandler = new FileHandler("Users/member.log");
@@ -43,7 +43,7 @@ public class ReadUserFile {
         }
     }
 
-    public void result() { logger.info(alltext); }
+    public void result() { logger.info(allText); }
 
     public ArrayList<User> getRecipients() {
         return recipients;
@@ -58,13 +58,13 @@ public class ReadUserFile {
     }
 
     public void setText(String alltext) {
-        this.alltext = alltext;
+        this.allText = alltext;
     }
 
     public ReadUserFile storedUser(User receiver) {
         ArrayList<User> receivers = new ArrayList<>();
         receivers.add(receiver);
-        return new ReadUserFile(user, receivers, alltext);
+        return new ReadUserFile(user, receivers, allText);
     }
 
 
@@ -72,7 +72,7 @@ public class ReadUserFile {
         return "ReadUserFile{" +
                 "user=" + user +
                 ", recipients=" + recipients +
-                ", alltext='" + alltext + '\'' +
+                ", alltext='" + allText + '\'' +
                 '}';
     }
 

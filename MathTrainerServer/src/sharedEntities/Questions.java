@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * The Questions class will store all the questions
+ *
  * @author abdulsamisahil
  * @version 1.0
  * @since 2020-03-25
@@ -13,10 +14,8 @@ public class Questions implements Serializable {
     private String question;
     private String answer;
 
+    //Creating an array with 3 positions to save the wrong answers in it
     private String[] wrongAnswers = new String[3];
-
-
-
 
 
     //private Course course;
@@ -24,36 +23,40 @@ public class Questions implements Serializable {
     //addQuestions method
     //removeQuestions method
 
+
+    //Creating Questions, Answers and filling the wrong answers into the array wrongAnswer
     public Questions(String question, String answer, String wrongAnswer1, String wrongAnswer2, String wrongAnswer3) {
         this.question = question;
         this.answer = answer;
-        wrongAnswers[0] = wrongAnswer1;
-        wrongAnswers[1] = wrongAnswer2;
-        wrongAnswers[2] = wrongAnswer3;
+        wrongAnswers[0] = wrongAnswer1; // Adding wrongAnswer1 to an array called wrongAnswer at the pos 0
+        wrongAnswers[1] = wrongAnswer2; // Adding wrongAnswer2 to an array called wrongAnswer at the pos 1
+        wrongAnswers[2] = wrongAnswer3; // Adding wrongAnswer3 to an array called wrongAnswer at the pos 2
     }
 
 
-    public void correctAnswer(boolean correctAnswer){
+    public void correctAnswer(boolean correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
 
-    public boolean getCorrectAnswer(){
+    public boolean getCorrectAnswer() {
         return correctAnswer;
     }
 
     //getQuestions method
     //setQuestions method
 
-    public Questions(){}
-
-    public String getQuestion() {
-        return question ;
+    public Questions() {
     }
 
-    public String [] getWrongAnswers()
-    {
+    //Setter & Getter methods for Question,WrongAnswer and Answer
+    public String getQuestion() {
+        return question;
+    }
+
+    public String[] getWrongAnswers() {
         return wrongAnswers;
     }
+
     public void setQuestion(String question) {
         this.question = question;
     }
@@ -65,10 +68,12 @@ public class Questions implements Serializable {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    //Fixing the String format for Questions
     public String toString() {
         return "Questions: " +
                 question;
     }
 
-    }
+}
 
