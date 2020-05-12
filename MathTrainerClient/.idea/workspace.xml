@@ -7,7 +7,6 @@
       <change beforePath="$PROJECT_DIR$/src/controllers/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/LogInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MathTrainerServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/.idea/workspace.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,6 +89,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
@@ -118,19 +118,13 @@
       <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -142,12 +136,6 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
@@ -225,23 +213,22 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588607750272">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589196587693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588607750272" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589196587693" />
     <state x="1158" y="269" key="#com.intellij.ide.util.MemberChooser" timestamp="1587762842191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -254,22 +241,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="405" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1587686462942" />
-    <state width="1417" height="2" key="GridCell.Tab.0.bottom" timestamp="1588865227000">
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom" timestamp="1589198420568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1417" height="2" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588865227000" />
-    <state width="1417" height="2" key="GridCell.Tab.0.center" timestamp="1588865227000">
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589198420568" />
+    <state width="1877" height="191" key="GridCell.Tab.0.center" timestamp="1589198420566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1417" height="2" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588865227000" />
-    <state width="1417" height="2" key="GridCell.Tab.0.left" timestamp="1588865227000">
+    <state width="1877" height="191" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589198420566" />
+    <state width="1877" height="191" key="GridCell.Tab.0.left" timestamp="1589198420566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1417" height="2" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588865227000" />
-    <state width="1417" height="2" key="GridCell.Tab.0.right" timestamp="1588865227000">
+    <state width="1877" height="191" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589198420566" />
+    <state width="1877" height="191" key="GridCell.Tab.0.right" timestamp="1589198420568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1417" height="2" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588865227000" />
+    <state width="1877" height="191" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589198420568" />
     <state width="1440" height="308" key="GridCell.Tab.1.bottom" timestamp="1587604077529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
