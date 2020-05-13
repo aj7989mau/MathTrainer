@@ -5,9 +5,9 @@ import java.io.Serializable;
 /**
  * The Questions class will store all the questions
  *
- * @author abdulsamisahil
- * @version 1.0
- * @since 2020-03-25
+ * @author abdulsamisahil, Motaz Kasem
+ * @version 2.0
+ * @since 2020-04-29
  */
 public class Questions implements Serializable {
     private boolean correctAnswer;
