@@ -12,9 +12,9 @@ import java.util.List;
  * array of the Question class and returns it back whenever the user
  * selects to be apart of the class. Added new questions
  *
- * @author JohannaDahlborn
- * @version 1.0
- * @since 2020-04-22
+ * @author JohannaDahlborn, Motaz Kasem
+ * @version 2.0
+ * @since 2020-05-11
  */
 
 public class Sixth extends Course {
