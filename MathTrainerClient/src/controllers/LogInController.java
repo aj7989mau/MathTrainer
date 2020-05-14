@@ -32,7 +32,7 @@ public class LogInController extends SceneControllerParent {
         }
     }
 
-    private void UserNameInfo(){
+    private void userNameInfo(){
         String firstName = usernameField.getText();
         String password = passwordField.getText();
     }
