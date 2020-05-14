@@ -15,7 +15,7 @@ import sharedEntities.User;
 /**
  * MathTainer Server class, controls logic/communications with the MathTrainer Clients.
  *
- * @author abdulsamisahil
+ * @author abdulsamisahil, Motaz Kasem
  * @version 1.5
  * @since 2020-03-31
  */
@@ -39,7 +39,7 @@ public class MServer extends Thread {
         this.port = port;
         keepRunning = true;
         usersList = new ArrayList<>();
-        fileLocation = "C:\\Users\\mutaz\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\inlogningsUppgifter.txt";
+        fileLocation = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt";
         readFile(fileLocation);
 
         try {
@@ -113,9 +113,9 @@ public class MServer extends Thread {
      * server to handle different of users connected on different network (Multithreading),
      * but I will try to code,  in case we change our mind.
      *
-     * @author abdulsamisahil
-     * @version 2.0
-     * @since 2020.03.31
+     * @author abdulsamisahil, Motaz Kasem, Johanna Dahlborn
+     * @version 3.0
+     * @since 2020.04.29
      */
     class ClientHandler extends Thread {
 

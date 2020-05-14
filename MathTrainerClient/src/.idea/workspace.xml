@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="56297feb-eb8d-4a11-ad38-131ca265780a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bky8gKA309Zz2MfJz2eYORVQNi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="src" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../../javafx-sdk-14/lib --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="56297feb-eb8d-4a11-ad38-131ca265780a" name="Default Changelist" comment="" />
+      <created>1589190227665</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589190227665</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1200" y="-19" key="#Project_Structure" timestamp="1589190468161">
+      <screen x="-1600" y="-123" width="1600" height="877" />
+    </state>
+    <state x="-1200" y="-19" key="#Project_Structure/0.23.1440.808/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1589190468161" />
+    <state x="-1336" y="-60" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589190685778">
+      <screen x="-1600" y="-123" width="1600" height="802" />
+    </state>
+    <state x="-1336" y="-60" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/-1600.-123.1600.802@-1600.-123.1600.802" timestamp="1589190685778" />
+    <state x="-948" y="184" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1589196561060">
+      <screen x="-1600" y="-123" width="1600" height="807" />
+    </state>
+    <state x="-948" y="211" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.808/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1589190460143" />
+    <state x="-948" y="182" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.877/-1600.-123.1600.802@-1600.-123.1600.802" timestamp="1589190896266" />
+    <state x="-948" y="184" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.877/-1600.-123.1600.807@-1600.-123.1600.807" timestamp="1589196561060" />
+    <state x="-1312" y="-123" key="SettingsEditor" timestamp="1589196648403">
+      <screen x="-1600" y="-123" width="1600" height="807" />
+    </state>
+    <state x="-1312" y="-103" key="SettingsEditor/0.23.1440.808/-1600.-123.1600.877@-1600.-123.1600.877" timestamp="1589190402994" />
+    <state x="-1312" y="-123" key="SettingsEditor/0.23.1440.877/-1600.-123.1600.807@-1600.-123.1600.807" timestamp="1589196648403" />
+    <state x="-999" y="63" key="chooseDestDirectoryDialog" timestamp="1589190721522">
+      <screen x="-1600" y="-123" width="1600" height="802" />
+    </state>
+    <state x="-999" y="63" key="chooseDestDirectoryDialog/0.23.1440.877/-1600.-123.1600.802@-1600.-123.1600.802" timestamp="1589190721522" />
+  </component>
+</project>
