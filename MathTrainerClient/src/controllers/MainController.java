@@ -110,9 +110,12 @@ public void LogIn(String firstName, String Password){
 // och vänta svar från mainmenuscene
 
 }
+    /**
+     * Method is used to pass object of questions to network Controller.
+     * @param Quiz The quiz String that is used to send it to the neworkController
+     */
 
-
-public void QuizTest(String Quiz){
+    public void QuizTest(String Quiz){
 
 
         java.lang.Object object = networkController.SendRequest(Quiz);

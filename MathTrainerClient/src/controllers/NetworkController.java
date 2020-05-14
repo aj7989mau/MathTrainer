@@ -79,9 +79,11 @@ public class NetworkController {
                 System.out.println("Sent " + request);
                 objectOutputStream.writeObject(object);
                 System.out.println("Sent " + object);
+                objectOutputStream.flush();
                 returnValue = objectInputStream.readObject();
                 System.out.println(returnValue);
-
+                objectOutputStream.close();
+                objectInputStream.close();
 
 
             } catch (IOException | ClassNotFoundException e) {
