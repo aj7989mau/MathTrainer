@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef85b22e-c69c-456f-a61d-4545bf35ea73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Statistic.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Geometry.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Questions/Sixth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Questions/Sixth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Statistic.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Statistic.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
