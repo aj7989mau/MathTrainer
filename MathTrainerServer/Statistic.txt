@@ -1,4 +1,4 @@
-Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet.
+Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet?
 3
 4
 5
