@@ -12,7 +12,7 @@ import java.util.List;
  * array of the Question class and returns it back whenever the user
  * selects to be apart of the class. Added new questions
  *
- * @author JohannaDahlborn, Motaz Kasem
+ * @author JohannaDahlborn
  * @version 2.0
  * @since 2020-05-11
  */
@@ -45,8 +45,8 @@ public class Sixth extends Course {
         String q11 = "Fem tärningar kastas och de visar sidorna: 4, 2, 3, 3, 3. Beräkna medelvärdet.";
 
 
-        statisticQuestion = new Questions[]{new Questions(q1, "3", "1", "15", "30")
-                , new Questions(q2, "3", "6", "2", "0"),
+        statisticQuestion = new Questions[]{new Questions(q1, "3", "1", "15", "30"),
+                new Questions(q2, "3", "6", "2", "0"),
                 new Questions(q3, "6", "10", "3", "32"),
                 new Questions(q4, "36", "26", "10", "134"),
                 new Questions(q5, "Kolumn", "Titel", "Rad", "Figur"),
@@ -89,9 +89,8 @@ public class Sixth extends Course {
         String q34 = "Räkna ut 500⋅8";
 
         fourCountQuestions = new Questions[]{new Questions(q31, "587.27", "550", "480", "245"),
-                new Questions(q32, "130", "140", "230", "312")
-                , new Questions(q33, "51"
-                , "23", "25.52", "40"),
+                new Questions(q32, "130", "140", "230", "312"),
+                new Questions(q33, "51", "23", "25.52", "40"),
                 new Questions(q34, "4000", "4500", "4050", "5141")};
 
 
