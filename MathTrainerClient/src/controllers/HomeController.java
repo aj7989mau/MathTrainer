@@ -1,12 +1,8 @@
 package controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import sharedEntities.User;
 
 /**
  * Controller for handling button-presses in the scene Home.fxml. Each method represent a possible user action.
@@ -16,21 +12,19 @@ import java.util.ResourceBundle;
  */
 
 
-public class HomeController extends MainMenuControllerParent implements Initializable {
+public class HomeController extends MainMenuControllerParent implements InitializeSceneInterface {
 
     @FXML
-    private Label UserNameLabel;
+    Label welcomeLabel;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void setInitialValues(Object object) {
+        if(object != null) {
+            User user = (User) object;
+            welcomeLabel.setText("Välkommen " + user.getUserName());
+            //ToDo: Kod för statistiken osv
+        } else {
+            welcomeLabel.setText("Välkommen ");
+        }
     }
-
-    void setText(String firstName){
-        this.UserNameLabel.setText(firstName);
-    }
-
-    public void updateButtonPressed(ActionEvent actionEvent) {
-        //ToDo: Kod för att hämta statistik från servern på nytt. Oklart om detta behövs egentligen.
-    }
-
 }

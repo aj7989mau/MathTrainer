@@ -67,12 +67,23 @@ public class User implements Serializable {
         //this.course = course;
     }
 
-
-  /* public void useCourse(CourseType course){
+    /**
+     * Each user should know which
+     * @param course course he/she follows
+     */
+    /*public void useCourse(CourseType course){
         this.course = course;
-    }*/
+    }
 
     public String toString() {
-        return userName + "\n" + password + "";
-    }
+        return "User{" +
+                "name = '" + userName + '\'' +
+                ", age = " + age +
+                ", userType = " + userType +
+                ", id = '" + id + '\'' +
+                ", course = "  + course +
+                '}';
+    }*/
+
+    //Inner class for User GUI
 }

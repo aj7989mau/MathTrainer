@@ -25,7 +25,7 @@ public class Test {
      */
     public Test() throws IOException, ClassNotFoundException {
         usersList = new ArrayList<User>();
-        this.fileLocation = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt";
+        this.fileLocation = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inloggningsUppgifter.txt";
         readFile(fileLocation);
         testEverything();
     }

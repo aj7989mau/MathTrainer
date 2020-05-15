@@ -39,7 +39,8 @@ public class MServer extends Thread {
         this.port = port;
         keepRunning = true;
         usersList = new ArrayList<>();
-        fileLocation = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/inlogningsUppgifter.txt";
+        fileLocation = System.getProperty("user.dir") + "\\inloggningsUppgifter.dat";
+        System.out.println(fileLocation);
         readFile(fileLocation);
 
         try {
@@ -79,26 +80,26 @@ public class MServer extends Thread {
         String username = null;
         String password = null;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(fileLocation));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileLocation));
 
-            while ((line = br.readLine()) != null) {
+            while ((user = (User)ois.readObject()) != null) {
 
-                String[] tokenize = line.split("\n");
+                /*String[] tokenize = line.split("\n");
 
                 for (int i = 0; i < tokenize.length; i++) {
                     username = tokenize[i]; //Saving first
                     password = br.readLine();//saving second line after username to password
                 }
-                user = new User(username, password);
+                user = new User(username, password);*/
 
                 usersList.add(user);
                 System.out.println(user);
             }
-            br.close();
+            ois.close();
             System.out.println("Size of user array: " + usersList.size());
         } catch (FileNotFoundException e) {
             System.out.println("file not found");
-        } catch (IOException ioe) {
+        } catch (IOException | ClassNotFoundException ioe) {
             ioe.printStackTrace();
         }
 
@@ -151,11 +152,13 @@ public class MServer extends Thread {
                     String input = ois.readUTF();
                     if (input.equals("Login")) {
                         User user = (User) ois.readObject();
-                        boolean login = isLoginSucceeded(user);
-                        if (login) {
+                        user = isLoginSucceeded(user);
+                        if (user != null) {
+                            System.out.println("Writing " + user);
                             oos.writeObject(user);
                         } else {
-                            oos.writeUTF("Inloggning misslyckad: Felaktigt användarnamn eller lösenord!");
+                            System.out.println("Login failed");
+                            oos.writeObject("Inloggning misslyckad: Felaktigt användarnamn eller lösenord!");
                         }
                     } else if (input.equals("NewUser")) {
 
@@ -164,15 +167,14 @@ public class MServer extends Thread {
                         if (isUserNew) {
                             usersList.add(user);
                             //Adding new user to the text file as well
-                            BufferedWriter bw = new BufferedWriter(new FileWriter(fileLocation, true));
-                            PrintWriter pw = new PrintWriter(bw);
-                            pw.write("\n" + user.toString());
-                            pw.flush();
+                            ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
+                            fileStream.writeObject(user);
+                            fileStream.flush();
                             //Sending it back to the client
                             oos.writeObject(user);
 
                         } else {
-                            oos.writeUTF("Inloggning misslyckad: Användarnamnet är upptaget");
+                            oos.writeObject("Inloggning misslyckad: Användarnamnet är upptaget");
                         }
                     } else if (input.equals("Questions")) {
                         System.out.println("Checking questions");
@@ -274,22 +276,20 @@ public class MServer extends Thread {
         /**
          * If the user is already registered and wants to login to the system
          */
-        private boolean isLoginSucceeded(User receivedUser) throws IOException, ClassNotFoundException {
+        private User isLoginSucceeded(User receivedUser) throws IOException, ClassNotFoundException {
             String username = receivedUser.getUserName();
             String password = receivedUser.getPassword();
             //  System.out.println(username + " " + password);
-
+            User user = null;
             for (int i = 0; i < usersList.size(); i++) {
-                //  System.out.println("Testing array -  " + usersList.get(i));
-                //   System.out.println("Usernames: " + usersList.get(i).getUserName());
-                //    System.out.println("Passwords: " + usersList.get(i).getPassword());
+                  System.out.println("Testing array -  " + usersList.get(i));
+                   System.out.println("Usernames: " + usersList.get(i).getUserName());
+                    System.out.println("Passwords: " + usersList.get(i).getPassword());
                 if ((username.equals(usersList.get(i).getUserName())) && (password.equals(usersList.get(i).getPassword()))) {
-                    isLoginSucceeded = true;
-                } else {
-                    isLoginSucceeded = false;
+                    user = usersList.get(i);
                 }
             }
-            return isLoginSucceeded;
+            return user;
             /*boolean login = false;
             String username = receivedUser.getUserName();
             String password = receivedUser.getPassword();

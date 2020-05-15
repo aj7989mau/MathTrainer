@@ -16,7 +16,7 @@ import java.awt.*;
 
 
 
-public class QuizCompletedController extends SceneControllerParent {
+public class QuizCompletedController extends SceneControllerParent implements InitializeSceneInterface{
 
 
     @FXML
@@ -47,6 +47,7 @@ public class QuizCompletedController extends SceneControllerParent {
 
     }
 
-
-
+    public void setInitialValues(Object object) {
+        setResult((Questions[]) object);
+    }
 }
