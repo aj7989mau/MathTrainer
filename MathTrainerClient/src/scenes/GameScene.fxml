@@ -60,7 +60,7 @@
             <ChoiceBox layoutX="577.0" layoutY="224.0" prefWidth="150.0" />
             <ChoiceBox layoutX="577.0" layoutY="270.0" prefWidth="150.0" />
             <Button layoutX="26.0" layoutY="354.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="27.0" prefWidth="150.0" styleClass="Avsluta" text="Avsluta" />
-            <Button layoutX="574.0" layoutY="341.0" mnemonicParsing="false" onAction="#submitAnswear" prefHeight="27.0" prefWidth="157.0" text="Färdig" />
+            <Button layoutX="574.0" layoutY="341.0" mnemonicParsing="false" onAction="#submitAnswer" prefHeight="27.0" prefWidth="157.0" text="Färdig" />
          </children>
       </AnchorPane>
    </children>
