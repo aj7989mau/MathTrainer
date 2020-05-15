@@ -14,8 +14,7 @@ import javafx.event.ActionEvent;
 public abstract class MainMenuControllerParent extends SceneControllerParent {
 
     public void logOutClicked(ActionEvent actionEvent){
-        //ToDo: kod för att bli utloggad.
-        mainController.setScene(ScenesEnum.LogIn);
+        mainController.logOut();
     }
 
     public void homeButtonClicked(ActionEvent actionEvent) {
@@ -35,5 +34,8 @@ public abstract class MainMenuControllerParent extends SceneControllerParent {
         mainController.setScene(ScenesEnum.Settings);
     }
 
+    public void exitClicked(ActionEvent actionEvent){
+        mainController.closeProgram();
+    }
 
 }

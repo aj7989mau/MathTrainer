@@ -1,6 +1,5 @@
 package controllers;
 
-import entity.Buffer;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -15,7 +14,7 @@ import java.net.UnknownHostException;
  */
 
 public class NetworkController {
-    Socket socket;
+    private Socket socket;
     private String IP;
     private static final int PORT = 45678;
 
@@ -29,8 +28,7 @@ public class NetworkController {
 
     }
 
-    public Object SendRequest(String Request){
-
+    private void establishConnection(){
         try {
             IP = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
@@ -43,9 +41,20 @@ public class NetworkController {
             System.out.println("Error trying to connect");
             e.printStackTrace();
         }
+    }
 
-        NetworkHandler networkHandler = new NetworkHandler(Request);
-        return networkHandler.SendRequest();
+    public Object sendRequest(String request){
+        establishConnection();
+
+        NetworkHandler networkHandler = new NetworkHandler(request);
+        return networkHandler.sendRequest();
+    }
+
+    public Object sendRequest(String request, Object object){
+        establishConnection();
+
+        NetworkHandler networkHandler = new NetworkHandler(request, object);
+        return networkHandler.sendRequest();
     }
 
     /**
@@ -57,17 +66,18 @@ public class NetworkController {
         private Object object;
 
         public NetworkHandler(String request) {
-
-            if (request.indexOf(' ') != -1) {
-                this.request = request.substring(0, request.indexOf(' '));
-                object = request.substring(request.indexOf(' ') + 1);
-            } else {
-                this.request = request;
-                //TODO object behöver defineras
-            }
+            this.request = request.substring(0,request.indexOf(' '));
+            this.object = request.substring(request.indexOf(' ')+1);
         }
 
-        public Object SendRequest(){
+
+        public NetworkHandler(String request, Object object) {
+            this.request = request;
+            this.object = object;
+        }
+
+
+        public Object sendRequest(){
             ObjectOutputStream objectOutputStream;
             ObjectInputStream objectInputStream;
 
@@ -90,6 +100,7 @@ public class NetworkController {
                 System.out.println("Error in network communcation");
                 e.printStackTrace();
             }
+            System.out.println("Received " + returnValue);
         return returnValue;
 
         }

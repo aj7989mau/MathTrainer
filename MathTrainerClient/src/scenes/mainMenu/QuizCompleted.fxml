@@ -30,7 +30,7 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="scoreLabel" layoutX="524.0" layoutY="222.0" prefHeight="44.0" prefWidth="77.0" styleClass="labelBlack" text="7 / 7">
+                  <Label fx:id="scoreLabel" layoutX="452.0" layoutY="222.0" prefHeight="53.0" prefWidth="149.0" styleClass="labelBlack" text="7 / 7" textAlignment="RIGHT">
                      <font>
                         <Font size="36.0" />
                      </font>

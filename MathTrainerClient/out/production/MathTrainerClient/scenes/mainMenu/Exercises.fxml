@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +13,7 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="255.0">
                <children>
-                  <Button layoutX="82.0" layoutY="466.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
+                  <Button layoutX="125.0" layoutY="498.0" mnemonicParsing="false" onAction="#logOutClicked" prefHeight="25.0" prefWidth="88.0" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
                   <Button disable="true" layoutX="20.0" layoutY="220.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                   <Button layoutX="20.0" layoutY="309.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" styleClass="buttonReal" text="Nationellt prov" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                   <Button layoutX="20.0" layoutY="392.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
@@ -24,18 +23,17 @@
                         <Image url="@../../images/thisisUntitled-1-Recovered.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="72.0" layoutY="535.0" text="Status: " />
-                  <Label layoutX="118.0" layoutY="535.0" style="-fx-text-fill: #00B87E;" text="Connected" />
+                  <Button layoutX="20.0" layoutY="498.0" mnemonicParsing="false" onAction="#exitClicked" prefHeight="25.0" prefWidth="88.0" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Avsluta" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="619.0" prefWidth="751.0" styleClass="buttonNoButton" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
                   <AnchorPane layoutX="-6.0" layoutY="195.0" minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="700.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
                   <Button layoutX="29.0" layoutY="26.0" mnemonicParsing="false" prefHeight="510.0" prefWidth="630.0" styleClass="MenuButton" />
-                  <Button fx:id="StatisticsButton" layoutX="70.0" layoutY="79.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Statistik" />
-                  <Button fx:id="GeometryButton" layoutX="378.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Geometri" />
-                  <Button fx:id="AdditionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="De fyra räknesätten" />
-                  <Button  layoutX="378.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Placeholder" />
+                  <Button fx:id="statisticsButton" layoutX="70.0" layoutY="79.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Statistik" />
+                  <Button fx:id="geometryButton" layoutX="378.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Geometri" />
+                  <Button fx:id="additionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="De fyra räknesätten" />
+                  <Button layoutX="378.0" layoutY="79.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="226.0" styleClass="buttonReal" text="Placeholder" />
 
                </children></AnchorPane>
          </items>

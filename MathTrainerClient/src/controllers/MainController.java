@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import sharedEntities.Questions;
+import sharedEntities.User;
 
 import java.io.IOException;
 
@@ -21,10 +22,11 @@ import java.io.IOException;
 
 public class MainController {
     private Stage mainWindow;
-
+    private User currentUser;
     private SceneSetter sceneSetter = new SceneSetter();
     private NetworkController networkController;
     private QuizController quizController;
+    private Questions[] currentQuiz;
 
     /**
      * Starts the network that connects to the server and creates and populates the ScenesHashMap.
@@ -103,32 +105,79 @@ public class MainController {
         }
     }
 
+    public void newUser(String username, String password){
+        currentUser = new User(username, password);
+        Object returnValue = networkController.sendRequest("NewUser", currentUser);
 
-public void LogIn(String firstName, String Password){
+        if (returnValue instanceof User) {
+            currentUser = (User) returnValue;
+            setScene(ScenesEnum.Home);
+            setInitialValueOfScene(currentUser);
+        } else{
+            String errorString = (String) returnValue;
+            popUpWindow(Alert.AlertType.ERROR, errorString.substring(0, errorString.indexOf(':')), errorString.substring(errorString.indexOf(':')+2));
+        }
+    }
 
-//TODO Skicka till nätverket buffer
-// och vänta svar från mainmenuscene
 
-}
+    public void logIn(String username, String password){
+        currentUser = new User(username, password);
+        if (username.isBlank() || password.isBlank() ){
+            popUpWindow(Alert.AlertType.ERROR, "Felaktiga användaruppgifter", "Du måste fylla i både användarnamn och lösenord");
+        } else {
+            Object returnValue = networkController.sendRequest("Login", currentUser);
+            if (returnValue instanceof User) {
+                currentUser = (User) returnValue;
+                setScene(ScenesEnum.Home);
+                setInitialValueOfScene(currentUser);
+            } else {
+                String errorString = (String) returnValue;
+                popUpWindow(Alert.AlertType.ERROR, errorString.substring(0, errorString.indexOf(':')), errorString.substring(errorString.indexOf(':') + 2));
+            }
+        }
+    }
     /**
      * Method is used to pass object of questions to network Controller.
-     * @param Quiz The quiz String that is used to send it to the neworkController
+     * @param quiz The quiz String that is used to send it to the neworkController
      */
 
-    public void QuizTest(String Quiz){
-
-
-        java.lang.Object object = networkController.SendRequest(Quiz);
-        if (object instanceof Questions[]) {
-            quizController.setQuestion((Questions[]) object);
+    public void quizTest(String quiz){
+        Object returnValue = networkController.sendRequest(quiz);
+        if (returnValue instanceof Questions[]) {
+            currentQuiz = (Questions[]) returnValue;
             setScene(ScenesEnum.Quiz);
-           quizController.initializeValues();
+            setInitialValueOfScene(currentQuiz);
 
         } else{
-
-            popUpWindow(Alert.AlertType.ERROR, "Error" , (String) object);
+            popUpWindow(Alert.AlertType.ERROR, "Error" , (String) returnValue);
         }
-}
+    }
+
+    public void setInitialValueOfScene(Object object){
+        InitializeSceneInterface parent = ((FXMLLoader) mainWindow.getScene().getUserData()).getController();
+        parent.setInitialValues(object);
+    }
+
+    public void quizCompleted(){
+        setScene(ScenesEnum.QuizCompleted);
+        setInitialValueOfScene(currentQuiz);
+    }
+
+    public void logOut() {
+        sceneSetter.setScene(ScenesEnum.LogIn);
+        setInitialValueOfScene(null);
+    }
+
+    public void createNewUser() {
+        sceneSetter.setScene(ScenesEnum.NewUser);
+        setInitialValueOfScene(null);
+    }
+
+    public void skipLogin() {
+        sceneSetter.setScene(ScenesEnum.Home);
+        setInitialValueOfScene(null);
+    }
+
 
     /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
@@ -144,37 +193,42 @@ public void LogIn(String firstName, String Password){
         private void addScenesToHashMap() throws IOException {
             FXMLLoader logInLoader = new FXMLLoader(getClass().getResource("../scenes/LogIn.fxml"));
             Scene logInScene = new Scene(logInLoader.load());
+            logInScene.setUserData(logInLoader);
             sendSelfToControllers(logInLoader);
 
             FXMLLoader newUserLoader = new FXMLLoader(getClass().getResource("../scenes/NewUser.fxml"));
             Scene newUserScene = new Scene(newUserLoader.load());
+            newUserScene.setUserData(newUserLoader);
             sendSelfToControllers(newUserLoader);
 
             FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Home.fxml"));
             Scene homeScene = new Scene(homeLoader.load());
+            homeScene.setUserData(homeLoader);
             sendSelfToControllers(homeLoader);
 
             FXMLLoader exercisesLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Exercises.fxml"));
             Scene exercisesScene = new Scene(exercisesLoader.load());
+            exercisesScene.setUserData(exercisesLoader);
             sendSelfToControllers(exercisesLoader);
 
             FXMLLoader quizLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Quiz.fxml"));
             Scene quizScene = new Scene(quizLoader.load());
-            quizController = quizLoader.getController();
+            quizScene.setUserData(quizLoader);
             sendSelfToControllers(quizLoader);
 
             FXMLLoader quizCompletedLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/QuizCompleted.fxml"));
             Scene quizCompletedScene = new Scene(quizCompletedLoader.load());
-            QuizCompletedController quizCompleteController = quizCompletedLoader.getController();
-            quizController.setQuizCompleteController(quizCompleteController);
+            quizCompletedScene.setUserData(quizCompletedLoader);
             sendSelfToControllers(quizCompletedLoader);
 
             FXMLLoader nationalTestLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/NationalTest.fxml"));
             Scene nationalTestScene = new Scene(nationalTestLoader.load());
+            nationalTestScene.setUserData(nationalTestLoader);
             sendSelfToControllers(nationalTestLoader);
 
             FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Settings.fxml"));
             Scene settingsScene = new Scene(settingsLoader.load());
+            settingsScene.setUserData(settingsLoader);
             sendSelfToControllers(settingsLoader);
 
 

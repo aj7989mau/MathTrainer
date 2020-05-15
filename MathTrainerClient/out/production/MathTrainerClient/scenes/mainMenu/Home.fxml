@@ -16,18 +16,17 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="273.0" styleClass="LeftAnchi" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <Button layoutX="80.0" layoutY="463.0" mnemonicParsing="false" onAction="#logOutClicked" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
                   <Button layoutX="21.0" layoutY="227.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
                   <Button layoutX="21.0" layoutY="305.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" styleClass="buttonReal" text="Nationellt prov" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
                   <Button layoutX="21.0" layoutY="384.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
                   <Button disable="true" layoutX="22.0" layoutY="147.0" mnemonicParsing="false" onAction="#homeButtonClicked" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
-                  <Label layoutX="65.0" layoutY="525.0" prefHeight="29.0" prefWidth="56.0" text="Status:" />
-                  <Label fx:id="Connected" layoutX="107.0" layoutY="511.0" prefHeight="57.0" prefWidth="134.0" text="Connected" />
                   <ImageView id="thisisUntitled-1-Recovered" fitHeight="207.0" fitWidth="199.0" layoutX="14.0" layoutY="-115.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../images/thisisUntitled-1-Recovered.png" />
                      </image>
                   </ImageView>
+                  <Button layoutX="129.0" layoutY="495.0" mnemonicParsing="false" onAction="#logOutClicked" prefHeight="25.0" prefWidth="88.0" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Logga ut" />
+                  <Button layoutX="24.0" layoutY="495.0" mnemonicParsing="false" onAction="#exitClicked" prefHeight="25.0" prefWidth="88.0" styleClass="Avsluta" stylesheets="@../../entity/style.css" text="Avsluta" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="AnchorPane123" minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="524.0" styleClass="Anchi" stylesheets="@../../entity/style.css">
@@ -36,7 +35,7 @@
                      <children>
                         <Button layoutX="32.0" layoutY="17.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="614.0" styleClass="buttonNoButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
                         <Button layoutX="32.0" layoutY="17.0" mnemonicParsing="false" opacity="0.07" prefHeight="120.0" prefWidth="614.0" styleClass="buttonNoButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
-                        <Label layoutX="63.0" layoutY="52.0" prefHeight="46.0" prefWidth="598.0" styleClass="Label" stylesheets="@../../entity/MathTrainerStylesheet.css" text="Välkommen" textFill="WHITE">
+                        <Label fx:id="welcomeLabel" layoutX="63.0" layoutY="52.0" prefHeight="46.0" prefWidth="598.0" styleClass="Label" stylesheets="@../../entity/MathTrainerStylesheet.css" text="Välkommen" textFill="WHITE">
                            <font>
                               <Font size="31.0" />
                            </font>
@@ -50,31 +49,31 @@
                   <ProgressBar layoutX="270.0" layoutY="390.0" prefWidth="200.0" progress="0.78" />
                   <ImageView fitHeight="46.0" fitWidth="145.0" layoutX="558.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/diadi.png" />
+                        <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/trtrtrtrtrphyimages.png" />
+                        <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
                   <ProgressBar layoutX="270.0" layoutY="474.0" prefWidth="200.0" progress="0.52" />
                   <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/trtrtrtrtrphyimages.png" />
+                        <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/trtrtrtrtrphyimages.png" />
+                        <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/trtrtrtrtrphyimages.png" />
+                        <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="81.0" layoutY="174.0" prefHeight="29.0" prefWidth="181.0" styleClass="labelBlack" text="De fyra räknesätten">
+                  <Label layoutX="81.0" layoutY="174.0" prefHeight="29.0" prefWidth="181.0" styleClass="labelBlack" text="4 räknesätt">
                      <font>
                         <Font size="20.0" />
                      </font>

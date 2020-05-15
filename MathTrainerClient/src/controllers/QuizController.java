@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
  */
 
 
-public class QuizController extends SceneControllerParent {
+public class QuizController extends SceneControllerParent implements InitializeSceneInterface {
 
     @FXML
     private Button currentQuestion;
@@ -162,15 +162,6 @@ public class QuizController extends SceneControllerParent {
     }
 
 
-    public void setQuestion(Questions[] questions){
-            this.questions = questions;
-           System.out.println(questions);
-
-    }
-
-    public void setQuizCompleteController(QuizCompletedController quizCompleteController){
-        this.quizCompleteController = quizCompleteController;
-    }
 
     /**
      * This method is used when the results are being sent to quizCompletedController
@@ -178,8 +169,7 @@ public class QuizController extends SceneControllerParent {
      */
     public void toResults(ActionEvent actionEvent){
         checkAnswer(questionNumber);
-        quizCompleteController.setResult(questions);
-         mainController.setScene(ScenesEnum.QuizCompleted);
+        mainController.quizCompleted();
     }
 
     /**
@@ -197,4 +187,8 @@ public class QuizController extends SceneControllerParent {
     }
 
 
+    public void setInitialValues(Object object) {
+        questions = (Questions[]) object;
+        initializeValues();
+    }
 }

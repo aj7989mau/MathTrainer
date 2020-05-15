@@ -4,7 +4,6 @@ import entity.ScenesEnum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 /**
@@ -13,7 +12,7 @@ import javafx.scene.control.TextField;
  * @version 1.0
  */
 
-public class LogInController extends SceneControllerParent {
+public class LogInController extends SceneControllerParent implements InitializeSceneInterface {
 
 
     @FXML
@@ -22,41 +21,43 @@ public class LogInController extends SceneControllerParent {
     @FXML
     private TextField passwordField;
 
+    private String username, password;
+
 
     public void skipLogInClicked(ActionEvent actionEvent) {
         boolean answer = mainController.popUpWindow(Alert.AlertType.CONFIRMATION, "Fortsätt utan att logga in?", "Om du inte loggar in eller skapar en användare kommer ingenting att sparas. " +
                 "Är du säker på att du vill fortsätta utan att logga in?");
         if (answer){
             //ToDo: Kod för att spela som gäst
-            mainController.setScene(ScenesEnum.Home);
+            mainController.skipLogin();
         }
     }
 
-    private void userNameInfo(){
-        String firstName = usernameField.getText();
-        String password = passwordField.getText();
+    private void getUserInfo(){
+        username = usernameField.getText();
+        password = passwordField.getText();
     }
 
     public void logInClicked(ActionEvent actionEvent) {
-        mainController.setScene(ScenesEnum.Home);
-
-            //ToDo: Kod för att logga in med befintlig användare
-
-
-
-// String användarman = textfield.gettext
-// användarnamn i metod i maincontroller som tar emot parameter och lösenord , och skicka till buffern
-
+        getUserInfo();
+        mainController.logIn(username, password);
+        //ToDo: Kod för att logga in med befintlig användare
     }
 
 
 
     public void newUserClicked(ActionEvent actionEvent) {
         //ToDO: Kod för att skapa ny användare
-        mainController.setScene(ScenesEnum.NewUser);
+        mainController.createNewUser();
     }
 
     public void exitClicked(ActionEvent actionEvent) {
         mainController.closeProgram();
+    }
+
+    @Override
+    public void setInitialValues(Object object) {
+        usernameField.setText("");
+        passwordField.setText("");
     }
 }
