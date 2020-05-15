@@ -14,5 +14,6 @@ public enum ScenesEnum {
     Quiz,
     QuizCompleted,
     NationalTest,
-    Settings
+    Settings,
+    Game
 }

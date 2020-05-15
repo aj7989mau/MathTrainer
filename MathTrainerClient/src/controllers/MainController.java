@@ -231,6 +231,11 @@ public class MainController {
             settingsScene.setUserData(settingsLoader);
             sendSelfToControllers(settingsLoader);
 
+            FXMLLoader gameLoader = new FXMLLoader(getClass().getResource("../scenes/GameScene.fxml"));
+            Scene gameScene = new Scene(gameLoader.load());
+            settingsScene.setUserData(gameScene);
+            sendSelfToControllers(gameLoader);
+
 
             scenes.put(ScenesEnum.LogIn, logInScene);
             scenes.put(ScenesEnum.NewUser, newUserScene);
@@ -240,6 +245,7 @@ public class MainController {
             scenes.put(ScenesEnum.QuizCompleted, quizCompletedScene);
             scenes.put(ScenesEnum.NationalTest, nationalTestScene);
             scenes.put(ScenesEnum.Settings, settingsScene);
+            scenes.put(ScenesEnum.Game, gameScene);
         }
 
         /**

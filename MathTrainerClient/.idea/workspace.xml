@@ -2,60 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/InitializeSceneInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/META-INF/MathTrainerClient.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/META-INF/MathTrainerClient.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/ExercisesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/ExercisesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/LogInController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainController$SceneSetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainController$SceneSetter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainMenuControllerParent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/MainMenuControllerParent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NationalTestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NationalTestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NetworkController$NetworkHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NetworkController$NetworkHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NetworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NetworkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NewUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/NewUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/QuizCompletedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/QuizCompletedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/QuizController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/QuizController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/SceneControllerParent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/SceneControllerParent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/SettingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/controllers/SettingsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/LogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/NewUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/NewUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/entity/ScenesEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/entity/ScenesEnum.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Exercises.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Exercises.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Quiz.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Quiz.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/QuizCompleted.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/QuizCompleted.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathTrainerClient/scenes/mainMenu/Settings.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/ExercisesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ExercisesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/LogInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/MainMenuControllerParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MainMenuControllerParent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/NetworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/NetworkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/NewUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/NewUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/QuizCompletedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/QuizCompletedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/QuizController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/SceneControllerParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SceneControllerParent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/NewUser.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/ScenesEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/ScenesEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/mainMenu/Exercises.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/mainMenu/Exercises.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/mainMenu/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/mainMenu/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/mainMenu/Quiz.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/mainMenu/Quiz.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/mainMenu/QuizCompleted.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/mainMenu/QuizCompleted.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/mainMenu/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/mainMenu/Settings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/inlogningsUppgifter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/inloggningsUppgifter.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Server/MServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Server/MServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/Server/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/Server/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MathTrainerServer/src/sharedEntities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathTrainerServer/src/sharedEntities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/MServer$ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/MServer$ClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/MServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/MServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/Server/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/Server/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/sharedEntities/Questions.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/sharedEntities/Questions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../production/MathTrainerServer/sharedEntities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../production/MathTrainerServer/sharedEntities/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,8 +65,8 @@
         <option value="Enum" />
         <option value="XSLT Stylesheet" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

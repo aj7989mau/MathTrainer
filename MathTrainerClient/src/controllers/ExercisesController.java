@@ -1,6 +1,7 @@
 package controllers;
 
 
+import entity.ScenesEnum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,6 +19,8 @@ public class ExercisesController extends MainMenuControllerParent {
     private Button geometryButton;
     @FXML
     private Button statisticsButton;
+    @FXML
+    private Button placeholderButton;
 
 
     /**
@@ -38,5 +41,9 @@ public class ExercisesController extends MainMenuControllerParent {
             questions += "Statistics";
         }
         mainController.quizTest(questions);
+    }
+
+    public void startGame(ActionEvent actionEvent){
+        mainController.setScene(ScenesEnum.Game);
     }
 }
