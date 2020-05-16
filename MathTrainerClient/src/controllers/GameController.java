@@ -15,7 +15,6 @@ import javafx.scene.control.Label;
  */
 public class GameController extends SceneControllerParent implements InitializeSceneInterface  {
 
-
     public ChoiceBox answer1;
     public ChoiceBox answer2;
     public ChoiceBox answer3;
