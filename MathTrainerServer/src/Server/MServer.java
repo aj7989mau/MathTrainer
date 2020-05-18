@@ -99,6 +99,8 @@ public class MServer extends Thread {
             System.out.println("Size of user array: " + usersList.size());
         } catch (FileNotFoundException e) {
             System.out.println("file not found");
+        } catch (EOFException e){
+
         } catch (IOException | ClassNotFoundException ioe) {
             ioe.printStackTrace();
         }

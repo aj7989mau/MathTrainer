@@ -3,7 +3,7 @@ Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet?
 4
 5
 6
-Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 3 mål per match. Beräkna medelvärdet för alla mål under de senaste tre matcherna.
+Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 3 mål per match. Beräkna medelvärdet för alla mål under de senaste tre matcherna?
 3
 6
 2
@@ -13,22 +13,22 @@ Medelvärdet av tre tal är 5. Två av talen är 4 och 5. Vilket är det tredje 
 10
 3
 32
-Skriv vad 1/4 är i procent.
+Skriv vad 1/4 är i procent?
 25
 10
 33
 26
-Välj rätt namn till vad som förklaras i tabeller. Information från topp till botten
+Välj rätt namn till vad som förklaras i tabeller. Information från topp till botten?
 Kolumn
 Titel
 Rad
 Figur
-Välj rätt namn till vad som förklaras i tabeller. Information från vänster till höger
+Välj rätt namn till vad som förklaras i tabeller. Information från vänster till höger?
 Rad
 Kolumn
 Figur
 Titel
-Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 2 mål per match. Beräkna summan för alla mål under de senaste tre matcherna
+Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 2 mål per match. Beräkna summan för alla mål under de senaste tre matcherna?
 6
 8
 9
@@ -38,7 +38,7 @@ Medelvärdet av tre tal är 10. Två av talen är 8 och 10. Vilket är det tredj
 11
 13
 10
-Fem tärningar kastas och de visar sidorna: 6, 0, 4, 3, 2. Beräkna medelvärdet.
+Fem tärningar kastas och de visar sidorna: 6, 0, 4, 3, 2. Beräkna medelvärdet?
 3
 5
 4
@@ -48,7 +48,7 @@ Medelvärdet av tre tal är 5. Två av talen är 2 och 5. Vilket är det tredje 
 6
 9
 7
-Fem tärningar kastas och de visar sidorna: 4, 2, 3, 3, 3. Beräkna medelvärdet.
+Fem tärningar kastas och de visar sidorna: 4, 2, 3, 3, 3. Beräkna medelvärdet?
 3
 4
 7,5
@@ -83,7 +83,7 @@ Vad är bråktalet 1/1 i procent? Glöm inte procenttecknet!
 10 %
 50 %
 80 %
-Vad är 3/4 i procent. Glöm inte procenttecknet!
+Vad är 3/4 i procent? Glöm inte procenttecknet!
 75 %
 50 %
 80 %
