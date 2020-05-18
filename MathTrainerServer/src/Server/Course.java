@@ -17,6 +17,9 @@ import sharedEntities.Questions;
  *
  */
 public abstract class Course {
+    public abstract void setStatisticQuestions();
+    public abstract void setGeometryQuestions();
+    public abstract void setFourCountQuestions();
 
     public abstract Questions[] getStatisticQuestion();
     public abstract  Questions[] getGeometryQuestions();

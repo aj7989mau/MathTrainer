@@ -4,6 +4,10 @@ import Server.Course;
 import sharedEntities.User;
 import sharedEntities.Questions;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,14 +27,29 @@ public class Sixth extends Course {
     private Questions[] geometryQuestions;
     private Questions[] fourCountQuestions;
 
-    private List<User> QuestionList;
+    private List <String> statisticList;
+
+    private String statisticLoc, geoLoc, FouCountLoc;
+
+    private int statQuesLength;
+    private String question, correct, wrong1, wrong2, wrong3;
+
 
 
     public Sixth() {
-        QuestionList = new ArrayList<>();
+
         String n = "\n";
+        statisticLoc = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/QuestionsPackage/Statistic.txt";
+        geoLoc = "";
+        FouCountLoc = "";
+        readStatQue();
+        statQuesLength = statisticList.size() / 5;
+        statisticQuestion = new Questions[statQuesLength];
+        setStatisticQuestions();
+        // createStatQueArray();
+        // System.out.println(statQuesLength);
         //statistic questions
-        String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet.";
+       /* String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet.";
         String q2 = "Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 3 mål per match. " +
                 "Beräkna medelvärdet för alla mål under de senaste tre matcherna.";
         String q3 = "Medelvärdet av tre tal är 5. Två av talen är 4 och 5. Vilket är det tredje talet?";
@@ -55,7 +74,7 @@ public class Sixth extends Course {
                 new Questions(q8, "12", "11", "13", "10"),
                 new Questions(q9, "3", "15", "4", "2"),
                 new Questions(q10, "8", "6", "9", "7"),
-                new Questions(q11, "3", "4", "7,5", "8")};
+                new Questions(q11, "3", "4", "7,5", "8")};*/
 
 
         //takeTest(questions);
@@ -92,8 +111,35 @@ public class Sixth extends Course {
                 new Questions(q32, "130", "140", "230", "312"),
                 new Questions(q33, "51", "23", "25.52", "40"),
                 new Questions(q34, "4000", "4500", "4050", "5141")};
-
-
+    }
+    private void readStatQue()
+    {
+        String line;
+        statisticList = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(statisticLoc));
+            while ((line = reader.readLine()) != null)
+            {
+                statisticList.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //Another way to declare questions
+    private void initQA(){
+        int questionIndex = 0;
+        for (int i = 0; i < statisticList.size(); i++)
+        {
+            if (statisticList.get(i).contains("?"))
+            {
+                question = statisticList.get(i);
+                questionIndex = Integer.valueOf(i);
+                System.out.println("Question index: " + questionIndex);
+            }
+        }
     }
 
     /*public void takeTest(Questions [] questions){
@@ -122,6 +168,57 @@ public class Sixth extends Course {
         }
         }*/
 
+    @Override
+    public void setStatisticQuestions() {
+        //  String question = null, correct = null, wrong1 = null, wrong2 = null, wrong3 = null;
+
+        for (int j = 0; j < statisticQuestion.length; j++) {
+
+            //  System.out.println(statisticQuestion.toString());
+            for (int i = 0; i < statisticList.size(); i++) {
+                question = statisticList.get(i);
+                i++;
+                correct = statisticList.get(i);
+                i++;
+                wrong1 = statisticList.get(i);
+                i++;
+                wrong2 = statisticList.get(i);
+                i++;
+                wrong3 = statisticList.get(i);
+                //  statisticQuestion = new Questions[]{new Questions(question, correct, wrong1, wrong2, wrong3)};
+                //  statisticQuestion[i] = new Questions()
+            }
+            System.out.println(question + "\n" + correct + "\n" + wrong1 + "\n" + wrong2 + "\n" + wrong3);
+            statisticQuestion[j] = new Questions(question, correct, wrong1, wrong2, wrong3);
+        }
+
+       /*     statisticQuestion = new Questions[19];
+        statisticQuestion[0] = new Questions(question, correct, wrong1, wrong2, wrong3);
+        statisticQuestion[1] = new Questions(question, correct, wrong1, wrong2, wrong3);
+        statisticQuestion[2] = new Questions(question, correct, wrong1, wrong2, wrong3);
+        statisticQuestion[3] = new Questions(question, correct, wrong1, wrong2, wrong3);
+        statisticQuestion[4] = new Questions(question, correct, wrong1, wrong2, wrong3);*/
+
+    }
+    private void createStatQueArray(){
+        for (int i = 0; i < statisticQuestion.length; i++)
+        {
+            statisticQuestion[i] = new Questions(statisticList.get(i), statisticList.get(i), statisticList.get(i), statisticList.get(i), statisticList.get(i));
+
+            //  System.out.println(statisticQuestion.toString());
+        }
+    }
+
+    @Override
+    public void setGeometryQuestions() {
+
+    }
+
+    @Override
+    public void setFourCountQuestions() {
+
+    }
+
     //Getter methods for StaticQuestions, GeometryQuestions & CountQuestions
     @Override
     public Questions[] getStatisticQuestion() {
@@ -144,15 +241,8 @@ public class Sixth extends Course {
     }
 
 
-    public void printQuestions() {
-        for (Questions q : statisticQuestion) {
-            System.out.println(q);
-        }
-    }
 
-    public void printUsersList() {
-        for (User u : QuestionList) {
-            System.out.println(u);
-        }
+    public static void main(String[] args) {
+        new Sixth().initQA();
     }
 }
