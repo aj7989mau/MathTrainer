@@ -32,7 +32,7 @@
                   <Label layoutX="68.0" layoutY="367.0" text="Connected" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="413.0" stylesheets="@../../entity/MathTrainerStylesheet.css">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="619.0" prefWidth="751.0" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
                   <Label layoutX="57.0" layoutY="47.0" text="Massa">
                      <font>
