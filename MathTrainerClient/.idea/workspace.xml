@@ -106,29 +106,35 @@
     <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\images" />
-      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src" />
-      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="sharedEntities" />
-      <recent name="Questions" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\images" />
       <recent name="D:\Git Repository\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
       <recent name="D:\Program Files\Projects\MathTrainerClient\src\scenes" />
       <recent name="D:\Program Files\Projects\MathTrainerClient\src\controllers" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sharedEntities" />
+      <recent name="Questions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\images" />
+      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src" />
+      <recent name="C:\Users\Bajra\Documents\GitHub\MathTrainer\MathTrainerClient\src\scenes\mainMenu" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -140,6 +146,12 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
