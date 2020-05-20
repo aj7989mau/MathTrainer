@@ -39,7 +39,7 @@ public class MServer extends Thread {
         this.port = port;
         keepRunning = true;
         usersList = new ArrayList<>();
-        fileLocation = System.getProperty("user.dir") + "\\inloggningsUppgifter.dat";
+        fileLocation = System.getProperty("user.dir") + "/inloggningsUppgifter.dat";
         System.out.println(fileLocation);
         readFile(fileLocation);
 
