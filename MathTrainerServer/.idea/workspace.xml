@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef85b22e-c69c-456f-a61d-4545bf35ea73" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Geometry.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Geometry.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Statistic.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Statistic.txt" afterDir="false" />
-    </list>
+    <list default="true" id="ef85b22e-c69c-456f-a61d-4545bf35ea73" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,18 +24,6 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.MServer">
     <configuration name="MClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
