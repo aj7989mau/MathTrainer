@@ -7,27 +7,41 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
+MathTrainerClient/.idea/**/workspace.xml
+MathTrainerClient/.idea/**/tasks.xml
+MathTrainerClient/.idea/**/usage.statistics.xml
+MathTrainerClient/.idea/**/dictionaries
+MathTrainerClient/.idea/**/shelf
+MathTrainerServer/.idea/**/workspace.xml
+MathTrainerServer/.idea/**/tasks.xml
+MathTrainerServer/.idea/**/usage.statistics.xml
+MathTrainerServer/.idea/**/dictionaries
+MathTrainerServer/.idea/**/shelf
 
 # Generated files
-.idea/**/contentModel.xml
+MathTrainerClient/.idea/**/contentModel.xml
 
 # Sensitive or high-churn files
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
+MathTrainerClient/.idea/**/dataSources/
+MathTrainerClient/.idea/**/dataSources.ids
+MathTrainerClient/.idea/**/dataSources.local.xml
+MathTrainerClient/.idea/**/sqlDataSources.xml
+MathTrainerClient/.idea/**/dynamic.xml
+MathTrainerClient/.idea/**/uiDesigner.xml
+MathTrainerClient/.idea/**/dbnavigator.xml
+MathTrainerServer/.idea/**/dataSources/
+MathTrainerServer/.idea/**/dataSources.ids
+MathTrainerServer/.idea/**/dataSources.local.xml
+MathTrainerServer/.idea/**/sqlDataSources.xml
+MathTrainerServer/.idea/**/dynamic.xml
+MathTrainerServer/.idea/**/uiDesigner.xml
+MathTrainerServer/.idea/**/dbnavigator.xml
 
 # Gradle
-.idea/**/gradle.xml
-.idea/**/libraries
+MathTrainerClient/.idea/**/gradle.xml
+MathTrainerClient/.idea/**/libraries
+MathTrainerServer/.idea/**/gradle.xml
+MathTrainerServer/.idea/**/libraries
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
@@ -172,3 +186,5 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/java,macos,windows,intellij
 MathTrainerClient/out
 MathTrainerClient/docs
+MathTrainerServer/out
+MathTrainerServer/docs
