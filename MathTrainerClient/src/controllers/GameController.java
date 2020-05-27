@@ -135,21 +135,6 @@ public class GameController extends SceneControllerParent implements InitializeS
 
     private void countdown() {
 
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
-            public void run() {
-                if (seconds >= 0) {
-                    System.out.println(seconds);
-                    seconds--;
-                }
-                if (seconds == -1) {
-
-                    timer.stop();
-                }
-            }
-        };
-
-        timer.start();
     }
 
 }
