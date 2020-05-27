@@ -1,18 +1,22 @@
 package controllers;
 
 import entity.ScenesEnum;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
-
-import javax.management.timer.Timer;
-import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Random;
-import java.util.TimerTask;
+import java.util.Timer;
+
+
 //Denna är kopplad till GameScene
 
 /**
@@ -24,7 +28,7 @@ import java.util.TimerTask;
 public class GameController extends SceneControllerParent implements InitializeSceneInterface {
     public Label matematicLbl;
     public Label timeremaininglbl;
-    public Label label;
+    public Label countdownLabel = new Label();
     public Button quitGame;
 
     public Label plusLeftLabel;
@@ -40,9 +44,9 @@ public class GameController extends SceneControllerParent implements InitializeS
     public Label minusLbl;
     public Label addLbl;
     public Label dividedLbl;
-    public Spinner<Integer> sumPlus;
+    public Spinner sumPlus;
     public Spinner sumMinus;
-    public Button startQuiz;
+    public Button startQuiz = new Button();
     public Spinner sumAdd;
     public Spinner sumDivided;
 
@@ -59,9 +63,10 @@ public class GameController extends SceneControllerParent implements InitializeS
     private int numb7;
     private int numb8;
 
-    private int count;
-    private Timer timer;
-    int seconds = 3;
+    // private class constant and some variables
+    private static final Integer STARTTIME = 60;
+    private Timeline timeline;
+    private Integer timeSeconds = STARTTIME;
 
 
     public GameController() {
@@ -94,9 +99,6 @@ public class GameController extends SceneControllerParent implements InitializeS
         plusLeftLabel.setText(String.valueOf(numb1));
         plusRightLabel.setText(String.valueOf(numb2));
 
-        // 'sumplus' is the name of the spinner control.
-        // This step makes sure its value is zero before adding any values to it.
-
         numb3 = random.nextInt(49);
         numb4 = random.nextInt(49);
 
@@ -115,6 +117,8 @@ public class GameController extends SceneControllerParent implements InitializeS
         devidedLeftLabel.setText(String.valueOf(numb7));
         devidedRightLabel.setText(String.valueOf(numb8));
 
+        // 'sumplus' is the name of the spinner control.
+        // This step makes sure its value is zero before adding any values to it. And you can choose from 0-1000
         SpinnerValueFactory<Integer> sumValue = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
         this.sumPlus.setValueFactory(sumValue);
 
@@ -128,15 +132,38 @@ public class GameController extends SceneControllerParent implements InitializeS
         this.sumDivided.setValueFactory(sumDivided);
 
         startQuiz.setDisable(true);
-        countdown();
 
 
+        // Configure the Label
+        countdownLabel.setText(timeSeconds.toString());
+        //timerLabel.setTextFill(Color.RED);
+        //timerLabel.setStyle("-fx-font-size: 4em;");
+        if (timeline != null) {
+            timeline.stop();
+        }
+        timeSeconds = STARTTIME;
+
+        // update timerLabel
+        countdownLabel.setText(timeSeconds.toString());
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(1),
+                        new EventHandler() {
+
+                            @Override
+                            public void handle(Event event) {
+                                timeSeconds--;
+                                // update timerLabel
+                                countdownLabel.setText(
+                                        timeSeconds.toString());
+                                if (timeSeconds <= 0) {
+                                    timeline.stop();
+                                }
+                            }
+                        }));
+        timeline.playFromStart();
     }
-
-    private void countdown() {
-
-    }
-
 }
 
 
