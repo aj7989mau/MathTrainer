@@ -202,6 +202,8 @@ public class MainController {
                     String errorString = (String) returnValue;
                     popUpWindow(Alert.AlertType.ERROR, errorString.substring(0, errorString.indexOf(':')), errorString.substring(errorString.indexOf(':') + 2));
                 }
+            } else {
+                setScene(ScenesEnum.Home);
             }
         }
     }
