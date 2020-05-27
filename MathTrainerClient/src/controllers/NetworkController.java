@@ -16,7 +16,7 @@ import java.net.UnknownHostException;
 public class NetworkController {
     private Socket socket;
     private String IP;
-    private static final int PORT = 45679;
+    private static final int PORT = 4560;
 
     /**
      * Creates the socket that connects to the server, gets buffers (from MainController) and starts the threads for
@@ -105,8 +105,8 @@ public class NetworkController {
 
             Object returnValue = null;
             try {
-               objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-               objectInputStream = new ObjectInputStream(socket.getInputStream());
+                objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                objectInputStream = new ObjectInputStream(socket.getInputStream());
                 objectOutputStream.writeUTF(request);
                 System.out.println("Sent " + request);
                 objectOutputStream.writeObject(object);

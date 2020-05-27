@@ -38,6 +38,7 @@ public class MServer extends Thread {
         this.port = port;
         keepRunning = true;
         usersList = new ArrayList<>();
+        usersList.add(new User("admin", "admin"));
         fileLocation = System.getProperty("user.dir") + "/inloggningsUppgifter.dat";
         System.out.println(fileLocation);
         try {
@@ -254,12 +255,16 @@ public class MServer extends Thread {
         {
             User user = null;
             String username = receivedUser.getUserName();
+            System.out.println(usersList.toString());
             for (User u: usersList)
             {
+                System.out.println(usersList.toString());
                 if (username.equals(u.getUserName())){
-                    user = u;
+                    user = receivedUser;
+                    usersList.set(usersList.indexOf(u), user);
                 }
             }
+            System.out.println(usersList.toString());
             return user;
         }
         /**
