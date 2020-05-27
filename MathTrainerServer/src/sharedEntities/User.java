@@ -5,8 +5,8 @@ import java.io.Serializable;
 /**
  * The user class that is responsible for each new user
  * @author abdulsamisahil
- * @version 1.0
- * @since  2020-03-23
+ * @version 1.5
+ * @since  2020-05-27
  *
  */
 public class User implements Serializable {
@@ -17,6 +17,7 @@ public class User implements Serializable {
     private String school;
     private String town;
     private int[] results = new int[]{0,0,0,0};
+    private String id;
 
 
     public User(){
@@ -58,37 +59,17 @@ public class User implements Serializable {
 
     public String getPassword() { return password; }
 
-    //private UserType userType;
-    private String id;
-    //private CourseType course;
-    //Variables needed for a client to connect to the server will be added later on
-
 
     public User(String userName, int age, String id) {
         this.userName = userName;
         this.age = age;
-        //  this.userType = type;
         this.id = id;
-        //this.course = course;
-    }
-
-    /**
-     * Each user should know which
-     * @param course course he/she follows
-     */
-    /*public void useCourse(CourseType course){
-        this.course = course;
     }
 
     public String toString() {
-        return "User{" +
+        return "Accessing User {" +
                 "name = '" + userName + '\'' +
-                ", age = " + age +
-                ", userType = " + userType +
-                ", id = '" + id + '\'' +
-                ", course = "  + course +
+                ", password = " + password +
                 '}';
-    }*/
-
-    //Inner class for User GUI
+    }
 }

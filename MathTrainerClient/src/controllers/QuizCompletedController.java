@@ -24,6 +24,7 @@ public class QuizCompletedController extends SceneControllerParent implements In
     private Label feedbackLabel;
 
     private Questions[] questions;
+    private int score;
 
     /**
      * This method is used when the user wants to continue to the home screen from the quizCompleted scene.
@@ -31,15 +32,14 @@ public class QuizCompletedController extends SceneControllerParent implements In
      */
 
     public void continueMenu(ActionEvent actionEvent){
-
-        mainController.setScene(ScenesEnum.Home);
+        mainController.reportResult(score);
     }
     /**
      * This method is used to set the results in the final scene and to get the results from the questions array.
      */
 
     public void setResult(){
-        int score = 0;
+        score = 0;
         for (int i = 0; i < questions.length; i++){
             if (questions[i].getCorrectAnswer()){
                 score++;
@@ -47,7 +47,6 @@ public class QuizCompletedController extends SceneControllerParent implements In
         }
         scoreLabel.setText(score + "/" + questions.length);
         showFeedback(score);
-        mainController.reportResult(score);
     }
 
     public void showFeedback(int score){

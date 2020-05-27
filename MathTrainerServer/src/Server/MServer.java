@@ -15,9 +15,9 @@ import sharedEntities.User;
 /**
  * MathTainer Server class, controls logic/communications with the MathTrainer Clients.
  *
- * @author abdulsamisahil, Motaz Kasem
+ * @author abdulsamisahil
  * @version 1.5
- * @since 2020-03-31
+ * @since 2020-05-27
  */
 public class MServer extends Thread {
 
@@ -31,28 +31,26 @@ public class MServer extends Thread {
     private boolean isLoginSucceeded;
 
     /**
-     * MTServer Constructor
-     *
-     * @param port server listening to this port
+     * Constructs MServer
+     * @param port that the server will be listening on
      */
     public MServer(int port) throws FileNotFoundException {
         this.port = port;
         keepRunning = true;
         usersList = new ArrayList<>();
+        usersList.add(new User("admin", "admin"));
         fileLocation = System.getProperty("user.dir") + "/inloggningsUppgifter.dat";
         System.out.println(fileLocation);
-        readFile(fileLocation);
-
         try {
             startServer();
-
+            readFile(fileLocation);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * This method is connecting the MTServer
+     * This method is activating the MServer, Server accepts any client that wants to communicate
      */
     private void startServer() throws IOException {
 
@@ -74,24 +72,18 @@ public class MServer extends Thread {
         }
     }
 
-    private void readFile(String fileLocation) throws FileNotFoundException {
+    /**
+     * As soon as the MServer gets connected, this method goes through a text file which includes
+     * the existing users of the system and puts them to a collection called userList,
+     * @param fileLocation the text file location
+     */
+    private void readFile(String fileLocation) {
 
-        String line;
-        String username = null;
-        String password = null;
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileLocation));
 
-            while ((user = (User)ois.readObject()) != null) {
-
-                /*String[] tokenize = line.split("\n");
-
-                for (int i = 0; i < tokenize.length; i++) {
-                    username = tokenize[i]; //Saving first
-                    password = br.readLine();//saving second line after username to password
-                }
-                user = new User(username, password);*/
-
+            while ((user = (User)ois.readObject()) != null)
+            {
                 usersList.add(user);
                 System.out.println(user);
             }
@@ -106,7 +98,7 @@ public class MServer extends Thread {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        new MServer(45679);
+        new MServer(4560);
     }
 
     /**
@@ -114,8 +106,8 @@ public class MServer extends Thread {
      * server to handle different of users connected on different network (Multithreading),
      * but I will try to code,  in case we change our mind.
      *
-     * @author abdulsamisahil, Motaz Kasem, Johanna Dahlborn
-     * @version 3.0
+     * @author abdulsamisahil
+     * @version 1.5
      * @since 2020.04.29
      */
     class ClientHandler extends Thread {
@@ -141,8 +133,7 @@ public class MServer extends Thread {
         }
 
         /**
-         * This run method starts the thread that connects the server and users
-         * The server listens to users as long as the ServerSocket is opened.
+         * Through this method a client starts operating/communicating with the server, the start method of the thread.
          */
         public void run() {
             try {
@@ -191,6 +182,21 @@ public class MServer extends Thread {
                         }
                         //Todo: else sats om något är ogiltigt har valts
                     } else if (input.equals("Result")) {
+                        //TODO: Klienten skickar ett User-objekt
+                        // Kolla i user-array tills du hittar den med samma användarnamn
+                        // Ersätt den med det objekt klienten skickade
+                        // Skicka tillbaka samma User-objekt till klienten
+                        // Om ingen användaren hittas skicka en vanlig string
+                        User user =(User) ois.readObject();
+                        user = result(user);
+                        if (user != null)
+                        {
+                            System.out.println("Writing user's results " + user);
+                            oos.writeObject(user);
+                        }
+                        else {
+                            oos.writeUTF("Dessvärre hittar inte användaren");
+                        }
 
                     } else if (input.equals("UserStats")) {
                         //TODO: Vi skickar ett user objekt
@@ -207,7 +213,9 @@ public class MServer extends Thread {
 
 
         /**
-         * Add a new user
+         * This method is taking the user object as an argument and checking it if it is not
+         * already there in the list of users, so this method returns true, otherwise false
+         * @author parprogramming sami, johanna and Motaz
          */
         private boolean newUser(User user) {
             for (int i = 0; i < usersList.size(); i++) {
@@ -217,33 +225,48 @@ public class MServer extends Thread {
             }
             return isUserNew;
         }
-       /* private void addUser() throws IOException {
-            outputStream.writeUTF("Enter your username");
-            String username = inputStream.readUTF();
-            outputStream.writeUTF("Enter your age");
-            int userAge = inputStream.readInt(); //
-            outputStream.writeUTF("Enter your id");
-            String id = inputStream.readUTF();
-            outputStream.writeUTF("Enter your email address");
-            String userEmail = inputStream.readUTF();
-            outputStream.writeUTF("Choose a password");
-            String userPassword = inputStream.readUTF();
-            outputStream.writeUTF("Enter your school name");
-            String userSchool = inputStream.readUTF();
-            outputStream.writeUTF("Enter your city");
-            String userCity = inputStream.readUTF();
-            //outputStream.writeUTF("Registration successful");
+        /**
+         * This method is taking the user as an argument and checking it
+         * if the user is already registered in the system, will be returned
+         * @author parprogramming sami, johanna and Motaz
+         */
+        private User isLoginSucceeded(User receivedUser) {
+            String username = receivedUser.getUserName();
+            String password = receivedUser.getPassword();
+            User user = null;
+            for (int i = 0; i < usersList.size(); i++) {
+                System.out.println("Testing array -  " + usersList.get(i));
+                System.out.println("Usernames: " + usersList.get(i).getUserName());
+                System.out.println("Passwords: " + usersList.get(i).getPassword());
+                if ((username.equals(usersList.get(i).getUserName())) && (password.equals(usersList.get(i).getPassword()))) {
+                    user = usersList.get(i);
+                }
+            }
+            return user;
+        }
 
-            //  outputStream.writeUTF("");
-            //  outputStream.writeUTF("Mr " + username + ", you are admitted to the course, press enter!");
-            //  outputStream.writeUTF("\nPress enter and enjoy your test!\n");
-            //  outputStream.flush();
-
-            User user = new User(username, userAge, userEmail, userPassword, userSchool, userCity, id);
-            userList.add(user);
-            System.out.println("User Mr " + username + " is added to the course");
-        }*/
-
+        /**
+         * Checking if the user is in the collection
+         * @author Abdul Sami Sahil
+         * @param receivedUser if receivedUser is there in the collection, it will be initiated to the one in the list.
+         * @return sends back the initiated user to the client.
+         */
+        private User result (User receivedUser)
+        {
+            User user = null;
+            String username = receivedUser.getUserName();
+            System.out.println(usersList.toString());
+            for (User u: usersList)
+            {
+                System.out.println(usersList.toString());
+                if (username.equals(u.getUserName())){
+                    user = receivedUser;
+                    usersList.set(usersList.indexOf(u), user);
+                }
+            }
+            System.out.println(usersList.toString());
+            return user;
+        }
         /**
          * As soon as the user starts, this method starts the test
          * @param questions takes an array of Question class,
@@ -271,41 +294,6 @@ public class MServer extends Thread {
 
             oos.flush(); // sends everything that the user wants
 
-        }
-
-        /**
-         * If the user is already registered and wants to login to the system
-         */
-        private User isLoginSucceeded(User receivedUser) throws IOException, ClassNotFoundException {
-            String username = receivedUser.getUserName();
-            String password = receivedUser.getPassword();
-            //  System.out.println(username + " " + password);
-            User user = null;
-            for (int i = 0; i < usersList.size(); i++) {
-                  System.out.println("Testing array -  " + usersList.get(i));
-                   System.out.println("Usernames: " + usersList.get(i).getUserName());
-                    System.out.println("Passwords: " + usersList.get(i).getPassword());
-                if ((username.equals(usersList.get(i).getUserName())) && (password.equals(usersList.get(i).getPassword()))) {
-                    user = usersList.get(i);
-                }
-            }
-            return user;
-            /*boolean login = false;
-            String username = receivedUser.getUserName();
-            String password = receivedUser.getPassword();
-
-            for (int i = 0; i < usersList.size(); i++) {
-                if (username.equals(usersList.get(i).getUserName())) {
-                    if (password.equals(usersList.get(i).getPassword())) {
-                        login = true;
-
-                    }
-
-                } else {
-                    login = false;
-                }
-            }
-            return login;*/
         }
 
         /**
