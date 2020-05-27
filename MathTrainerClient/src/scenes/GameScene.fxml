@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -12,7 +12,7 @@
       <AnchorPane prefHeight="180.0" prefWidth="927.0" styleClass="Anchor">
          <children>
             <Button layoutX="189.0" layoutY="33.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="622.0" styleClass="MenuButton" />
-            <Label fx:id="matemstikLbl" layoutX="212.0" layoutY="43.0" prefHeight="64.0" prefWidth="258.0" text="Matematikspel">
+            <Label fx:id="matematicLbl" layoutX="212.0" layoutY="43.0" prefHeight="64.0" prefWidth="258.0" text="Matematikspel">
                <font>
                   <Font size="41.0" />
                </font>
@@ -26,38 +26,78 @@
       </AnchorPane>
       <AnchorPane prefHeight="443.0" prefWidth="927.0">
          <children>
-            <Label fx:id="timelbl" layoutX="391.0" layoutY="70.0" prefHeight="39.0" prefWidth="89.0" styleClass="Anchi" text="Tid kvar">
+            <Label fx:id="timeremaininglbl" layoutX="432.0" layoutY="52.0" prefHeight="41.0" prefWidth="92.0" styleClass="Anchi" text="Tid kvar:" AnchorPane.bottomAnchor="513.0" AnchorPane.leftAnchor="432.0" AnchorPane.rightAnchor="403.0" AnchorPane.topAnchor="52.0">
                <font>
-                  <Font size="21.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="timeUpdate" layoutX="507.0" layoutY="73.0" mnemonicParsing="false" onAction="#gameTime" prefHeight="32.0" prefWidth="106.0" text="60:00" />
-            <Label fx:id="question1" layoutX="287.0" layoutY="135.0" prefHeight="32.0" prefWidth="247.0" text="35         +        27          =">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <Label fx:id="question2" layoutX="287.0" layoutY="177.0" prefHeight="23.0" prefWidth="265.0" text="58         -         51          = ">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <Label fx:id="question3" layoutX="287.0" layoutY="218.0" prefHeight="39.0" prefWidth="296.0" text="3            x         10          =">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <Label fx:id="question4" layoutX="280.0" layoutY="257.0" prefHeight="53.0" prefWidth="280.0" text=" 40          /           8          =">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="answer1" layoutX="577.0" layoutY="137.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="answer2" layoutX="577.0" layoutY="179.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="answer3" layoutX="577.0" layoutY="224.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="answer4" layoutX="577.0" layoutY="270.0" prefWidth="150.0" />
             <Button fx:id="quitGame" layoutX="26.0" layoutY="354.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="27.0" prefWidth="150.0" styleClass="Avsluta" text="Avsluta" />
-            <Button fx:id="submitAnswer" cache="true" layoutX="572.0" layoutY="348.0" mnemonicParsing="false" onAction="#submitAnswer" prefHeight="27.0" prefWidth="161.0" styleClass="ConfirmButton" text="Rätta" />
+            <Button fx:id="startQuiz" cache="true" layoutX="572.0" layoutY="348.0" mnemonicParsing="false" onAction="#startQuiz" prefHeight="27.0" prefWidth="161.0" styleClass="ConfirmButton" text="Starta" />
+            <Label fx:id="plusLeftLabel" layoutX="344.0" layoutY="134.0" prefHeight="48.0" prefWidth="44.0" text="?" textAlignment="CENTER" AnchorPane.bottomAnchor="444.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="539.0" AnchorPane.topAnchor="134.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="minusLeftLabel" layoutX="344.0" layoutY="176.0" prefHeight="34.0" prefWidth="44.0" text="?" textAlignment="CENTER" AnchorPane.bottomAnchor="401.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="539.0" AnchorPane.topAnchor="176.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="additionLeftLabel" layoutX="344.0" layoutY="221.0" prefHeight="34.0" prefWidth="44.0" text="?" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="devidedLeftLabel" layoutX="344.0" layoutY="267.0" prefHeight="34.0" prefWidth="44.0" text="?" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="plusRightLabel" layoutX="482.0" layoutY="134.0" prefHeight="34.0" prefWidth="44.0" text="?" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="minusRightLabel" layoutX="482.0" layoutY="176.0" prefHeight="34.0" prefWidth="44.0" text="?" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="additionRightLabel" layoutX="482.0" layoutY="221.0" prefHeight="34.0" prefWidth="44.0" text="?" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="devidedRightLabel" layoutX="482.0" layoutY="267.0" prefHeight="34.0" prefWidth="44.0" text="?" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="plusLbl" layoutX="410.0" layoutY="134.0" prefHeight="34.0" prefWidth="44.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="443.0" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="134.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="minusLbl" layoutX="410.0" layoutY="176.0" prefHeight="34.0" prefWidth="44.0" text="-" textAlignment="CENTER" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="473.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="addLbl" layoutX="410.0" layoutY="221.0" prefHeight="34.0" prefWidth="44.0" text="×" textAlignment="CENTER" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="473.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="dividedLbl" layoutX="410.0" layoutY="267.0" prefHeight="34.0" prefWidth="44.0" text="÷" textAlignment="CENTER" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="473.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="sumPlus" editable="true" layoutX="572.0" layoutY="138.0" />
+            <Spinner fx:id="sumMinus" editable="true" layoutX="572.0" layoutY="180.0" />
+            <Spinner fx:id="sumAdd" editable="true" layoutX="572.0" layoutY="225.0" />
+            <Spinner fx:id="sumDivided" editable="true" layoutX="572.0" layoutY="271.0" />
+            <Label fx:id="label" layoutX="575.0" layoutY="57.0" prefHeight="34.0" prefWidth="150.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </children>
