@@ -23,17 +23,28 @@ public class NewUserController extends SceneControllerParent implements Initiali
     @FXML
     ChoiceBox year;
 
+    /**
+     * Returns to the login scene if the user backs out of creating a new user.
+     * @param actionEvent
+     */
     public void backClicked(ActionEvent actionEvent){
         mainController.setScene(ScenesEnum.LogIn);
     }
 
+    /**
+     * Checks that the values for username and password are reasonable and if so, sends them to the MainController.
+     * @param actionEvent
+     */
     public void createUserClicked(ActionEvent actionEvent) {
-        if (password.getText().equals(passwordRepeat.getText())) {
-            mainController.newUser(username.getText(), password.getText());
-        } else {
+        if (!password.getText().equals(passwordRepeat.getText())) {
             mainController.popUpWindow(Alert.AlertType.ERROR, "Felaktigt lösenord", "Lösenorden du angav stämmer ej överens med varandra");
+        } else if (username.getText().length() < 5) {
+            mainController.popUpWindow(Alert.AlertType.ERROR, "Användarnamnet är för kort", "Användarnamnet måste vara minst 5 tecken långt");
+        } else if (password.getText().length() < 6){
+            mainController.popUpWindow(Alert.AlertType.ERROR, "Lösenordet är för kort", "Lösenordet måste vara minst 6 tecken långt");
+        } else {
+            mainController.newUser(username.getText(), password.getText());
         }
-
     }
 
     @Override

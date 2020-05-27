@@ -16,6 +16,7 @@ public class User implements Serializable {
     private String password;
     private String school;
     private String town;
+    private int[] results = new int[]{0,0,0,0};
 
 
     public User(){
@@ -50,6 +51,10 @@ public class User implements Serializable {
     public String getUserName() {
         return userName;
     }
+
+    public void setResults(int[] results){ this.results = results; }
+
+    public int[] getResults(){ return results;}
 
     public String getPassword() { return password; }
 

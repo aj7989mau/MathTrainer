@@ -13,27 +13,50 @@ import javafx.event.ActionEvent;
 
 public abstract class MainMenuControllerParent extends SceneControllerParent {
 
+    /**
+     * Handles the event where the user clicks the LogOut-button.
+     * @param actionEvent
+     */
     public void logOutClicked(ActionEvent actionEvent){
         mainController.logOut();
     }
 
+    /**
+     * Changes to the home scene when the user clicks Home.
+     * @param actionEvent
+     */
     public void homeButtonClicked(ActionEvent actionEvent) {
-        //ToDo: kod för hemvyn, t ex ladda hem statistik från servern.
         mainController.setScene(ScenesEnum.Home);
     }
 
+    /**
+     * Changes to the scene for choice of exercise categories when the user clicks Exercises.
+     * @param actionEvent
+     */
     public void exercisesButtonClicked(ActionEvent actionEvent) {
         mainController.setScene(ScenesEnum.Exercises);
     }
 
+    /**
+     * Changes to the scene for national tests.
+     * @param actionEvent
+     */
     public void nationalTestButtonClicked(ActionEvent actionEvent) {
         mainController.setScene(ScenesEnum.NationalTest);
     }
 
+    /**
+     * Changes to the settings scene.
+     * @param actionEvent
+     */
     public void settingsButtonClicked(ActionEvent actionEvent) {
         mainController.setScene(ScenesEnum.Settings);
     }
 
+    /**
+     * Handles the exit event if user clicks "Exit". The MainController handles this event manually.
+     * @param actionEvent
+     */
     public void exitClicked(ActionEvent actionEvent){
         mainController.closeProgram();
     }

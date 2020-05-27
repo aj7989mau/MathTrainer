@@ -17,13 +17,15 @@ public class LogInController extends SceneControllerParent implements Initialize
 
     @FXML
     private TextField usernameField;
-
     @FXML
     private TextField passwordField;
 
     private String username, password;
 
-
+    /**
+     * Called when the user skips the log in. Confirms with the user if they are sure, and if so skips the login phase.
+     * @param actionEvent
+     */
     public void skipLogInClicked(ActionEvent actionEvent) {
         boolean answer = mainController.popUpWindow(Alert.AlertType.CONFIRMATION, "Fortsätt utan att logga in?", "Om du inte loggar in eller skapar en användare kommer ingenting att sparas. " +
                 "Är du säker på att du vill fortsätta utan att logga in?");
@@ -33,24 +35,28 @@ public class LogInController extends SceneControllerParent implements Initialize
         }
     }
 
-    private void getUserInfo(){
+    /**
+     * Called when the user clicks log in. Gets the user information and sends it to the main controller.
+     * @param actionEvent
+     */
+    public void logInClicked(ActionEvent actionEvent) {
         username = usernameField.getText();
         password = passwordField.getText();
-    }
-
-    public void logInClicked(ActionEvent actionEvent) {
-        getUserInfo();
         mainController.logIn(username, password);
-        //ToDo: Kod för att logga in med befintlig användare
     }
 
-
-
+    /**
+     * Called when the user chooses to create a new user.
+     * @param actionEvent
+     */
     public void newUserClicked(ActionEvent actionEvent) {
-        //ToDO: Kod för att skapa ny användare
         mainController.createNewUser();
     }
 
+    /**
+     * Called if the user wants to exit the program. MainController handles this call manually.
+     * @param actionEvent
+     */
     public void exitClicked(ActionEvent actionEvent) {
         mainController.closeProgram();
     }

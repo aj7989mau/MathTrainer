@@ -75,7 +75,6 @@ public class QuizController extends SceneControllerParent implements InitializeS
      * This method is used when the label at the top right of the screen needs to be updated when the user moves on to the next question and/or previous question
      * @param nextQuestion Boolean that is true if the ueser is in the next question so that the label can be updated.
      */
-
     public void updateLabels(boolean nextQuestion){
 
 
@@ -107,29 +106,10 @@ public class QuizController extends SceneControllerParent implements InitializeS
     }
 
     /**
-     * This method initializes the values of the buttons and labels when the scene first opens.
-     */
-
-
-    public void initializeValues(){
-        submitResultsButton.setVisible(false);
-        previousQuestionButton.setVisible(false);
-        nextQuestionButton.setVisible(true);
-        questionNumber = -1;
-        updateLabels(true);
-        questionLabel.setWrapText(true);
-        previousQuestionButton.setVisible(false);
-        radioButtonOne.setSelected(true);
-    }
-
-    /**
      * This method is used to check if the answer from the user is correct and gets sent to questions array so it can be used in QuizCompletedController to send the final score to the final scene.
      * @param questionNumber the number that is shown at the top right section of the screen (where the user is in the quiz).
      */
-
-
     public void checkAnswer(int questionNumber){
-
       RadioButton selectedButton = (RadioButton) Group1.getSelectedToggle();
         System.out.println(questions);
         if (selectedButton.getText().equals(questions[questionNumber].getAnswer())){
@@ -139,12 +119,10 @@ public class QuizController extends SceneControllerParent implements InitializeS
     }
 
     /**
-     * This method is used both when the user hits the button to move to next  question while in the quiz.
+     * This method is used when the user hits the button to move to next question while in the quiz.
      * @param actionEvent The button action
      */
-
     public void nextQuestion(ActionEvent actionEvent){
-
         previousQuestionButton.setVisible(true);
 
 
@@ -164,7 +142,7 @@ public class QuizController extends SceneControllerParent implements InitializeS
 
 
     /**
-     * This method is used when the results are being sent to quizCompletedController
+     * This method is used when the results quiz is completed
      * @param actionEvent The button action
      */
     public void toResults(ActionEvent actionEvent){
@@ -173,22 +151,26 @@ public class QuizController extends SceneControllerParent implements InitializeS
     }
 
     /**
-     * This method is used when the user hits the button to exit the quiz
+     * This method is used when the user hits the button to exit the quiz prematurely
      * @param actionEvent The button action
      */
-
     public void quitQuiz(ActionEvent actionEvent){
 
       boolean answer =  mainController.popUpWindow(Alert.AlertType.CONFIRMATION, "Avsluta?" , "Är du säker på att du vill avsluta, dina svar sparas inte" );
       if (answer){
           mainController.setScene(ScenesEnum.Home);
       }
-
     }
-
 
     public void setInitialValues(Object object) {
         questions = (Questions[]) object;
-        initializeValues();
+        submitResultsButton.setVisible(false);
+        previousQuestionButton.setVisible(false);
+        nextQuestionButton.setVisible(true);
+        questionNumber = -1;
+        updateLabels(true);
+        questionLabel.setWrapText(true);
+        previousQuestionButton.setVisible(false);
+        radioButtonOne.setSelected(true);
     }
 }

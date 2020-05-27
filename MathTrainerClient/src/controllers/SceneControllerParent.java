@@ -9,6 +9,10 @@ package controllers;
 public abstract class SceneControllerParent {
     protected MainController mainController;
 
+    /**
+     * Sets the MainController to make it available to all scene controllers.
+     * @param mainController
+     */
     public void setMainController(MainController mainController){
            this.mainController = mainController;
     }

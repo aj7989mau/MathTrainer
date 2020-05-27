@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 /** Controller ExercisesController handles the Exercises scene where the user can select which quiz they want to enter,
- *  the method is an action event from userinput, this controller extends MainMenuControllerParent
+ *  the method reads the user input and starts the relevant quiz, this controller extends MainMenuControllerParent
  * @author Bajram Gerbeshi
  * @version 1.0
  */
@@ -24,10 +24,9 @@ public class ExercisesController extends MainMenuControllerParent {
 
 
     /**
-     * This method is used both when the user hits the button to select which quiz they want to enter.
+     * This method is used when the user hits the button to select which quiz they want to enter.
      * @param actionEvent The button action
      */
-
     public void buttonClicked(ActionEvent actionEvent){
         String questions = "Questions ";
 
@@ -40,7 +39,7 @@ public class ExercisesController extends MainMenuControllerParent {
         else if ( actionEvent.getSource() ==  statisticsButton){
             questions += "Statistics";
         }
-        mainController.quizTest(questions);
+        mainController.takeQuiz(questions);
     }
 
     public void startGame(ActionEvent actionEvent){

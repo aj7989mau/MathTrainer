@@ -37,8 +37,7 @@
             <ChoiceBox fx:id="year" layoutX="604.0" layoutY="285.0" value="7">
                <items>
                   <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="7" />
-                     <String fx:value="8" />
+                     <String fx:value="6" />
                      <String fx:value="9" />
                   </FXCollections>
                </items>

@@ -16,8 +16,8 @@ import java.io.IOException;
  * Class MainController is controller of the other controllers. All scene controllers has a reference to this controller
  * to communicate with it. NetworkController communicates with it through the buffers. In this class, only the general
  * and recurring logic is handled, such as setting scenes (inner class), pop-up windows and closing the program.
- * @author Niklas Hultin
- * @version 1.0
+ * @author Niklas Hultin, Bajram Gerbeshi
+ * @version 1.5
  */
 
 public class MainController {
@@ -25,13 +25,14 @@ public class MainController {
     private User currentUser;
     private SceneSetter sceneSetter = new SceneSetter();
     private NetworkController networkController;
-    private QuizController quizController;
     private Questions[] currentQuiz;
+    private String currentCategory;
 
     /**
      * Starts the network that connects to the server and creates and populates the ScenesHashMap.
      * It also sets up the window with the correct information for the start screen.
      * @param mainWindow The main window where the scenes are displayed (received from Main)
+     * @author Niklas Hultin
      */
     public MainController(Stage mainWindow) {
         this.mainWindow = mainWindow;
@@ -59,6 +60,7 @@ public class MainController {
      * Uses the interface SceneControllerParent (used by all Scene-controllers) to send itself to the scene-controller for
      * the FXML-file loaded in to the FXMLLoader. This gives the Scene-controllers a reference to this MainController.
      * @param loader The loader for a specific FXML-file. This gives access to that files specified controller.
+     * @author Niklas Hultin
      */
     public void sendSelfToControllers(FXMLLoader loader) {
         ((SceneControllerParent) loader.getController()).setMainController(this);
@@ -67,6 +69,7 @@ public class MainController {
     /**
      * Changes the current scene that is being displayed on the Stage.
      * @param sceneToShow The ScenesEnum-name of the Scene that should be displayed.
+     * @author Niklas Hultin
      */
     public void setScene(ScenesEnum sceneToShow){
         sceneSetter.setScene(sceneToShow);
@@ -80,6 +83,7 @@ public class MainController {
      * @param message The message shown in the pop-up window.
      * @return Returns true if the user pressed the OK button, otherwise returns false. The return value is not always
      * useful (the Error Pop-Up only has one option, for example) and it is up to the developer to handle it correctly.
+     * @author Niklas Hultin
      */
     public boolean popUpWindow (Alert.AlertType alertType, String title, String message){
         boolean choice = false;
@@ -97,6 +101,7 @@ public class MainController {
     /**
      * This method is used both when the user hits the button to close to program, and if the user tries to shut down
      * the program using the standard close option in the OS (for example: X in the top right corner of the window).
+     * @author Niklas Hultin
      */
     public void closeProgram(){
         boolean answer = popUpWindow(Alert.AlertType.CONFIRMATION, "Avsluta?", "Är du säker på att du vill avsluta MathTrainer?");
@@ -105,6 +110,13 @@ public class MainController {
         }
     }
 
+    /**
+     * Method is used when creating a new user. It is sent to the server and depending on the result, the new user is
+     * either logged in or an error message is shown.
+     * @param username
+     * @param password
+     * @author Niklas Hultin
+     */
     public void newUser(String username, String password){
         currentUser = new User(username, password);
         Object returnValue = networkController.sendRequest("NewUser", currentUser);
@@ -119,7 +131,12 @@ public class MainController {
         }
     }
 
-
+    /**
+     * Log-in credentials are sent to the server. The user is either logged in, or an error message is shown.
+     * @param username
+     * @param password
+     * @author Niklas Hultin
+     */
     public void logIn(String username, String password){
         currentUser = new User(username, password);
         if (username.isBlank() || password.isBlank() ){
@@ -136,52 +153,113 @@ public class MainController {
             }
         }
     }
-    /**
-     * Method is used to pass object of questions to network Controller.
-     * @param quiz The quiz String that is used to send it to the neworkController
-     */
 
-    public void quizTest(String quiz){
+    /**
+     * Method is used to pass object of questions to network Controller and handle the return value.
+     * @param quiz The quiz String that is used to send it to the neworkController
+     * @author Bajram Gerbeshi
+     */
+    public void takeQuiz(String quiz){
         Object returnValue = networkController.sendRequest(quiz);
         if (returnValue instanceof Questions[]) {
             currentQuiz = (Questions[]) returnValue;
+            currentCategory = quiz.substring(quiz.indexOf(' ') + 1);
             setScene(ScenesEnum.Quiz);
             setInitialValueOfScene(currentQuiz);
 
-        } else{
+        } else {
             popUpWindow(Alert.AlertType.ERROR, "Error" , (String) returnValue);
         }
     }
 
+    /**
+     * Used to update the results, if needed, stored in the user object and send that information to the server.
+     * @param score
+     * @author Niklas Hultin
+     */
+    public void reportResult(int score) {
+        if (currentUser != null) {
+            int[] updatedResults = currentUser.getResults();
+            int indexToChange = 4;
+            if (currentCategory.equals("Counting")) {
+                indexToChange = 0;
+            } else if (currentCategory.equals("Geometry")) {
+                indexToChange = 3;
+            } else if (currentCategory.equals("Statistics")) {
+                indexToChange = 1;
+            }
+
+            if (score > updatedResults[indexToChange]) {
+                updatedResults[indexToChange] = score;
+                currentUser.setResults(updatedResults);
+                Object returnValue = networkController.sendRequest("Result", currentUser);
+
+                if (returnValue instanceof User) {
+                    currentUser = (User) returnValue;
+                    setScene(ScenesEnum.Home);
+                    setInitialValueOfScene(currentUser);
+                } else {
+                    String errorString = (String) returnValue;
+                    popUpWindow(Alert.AlertType.ERROR, errorString.substring(0, errorString.indexOf(':')), errorString.substring(errorString.indexOf(':') + 2));
+                }
+            }
+        }
+    }
+
+    /**
+     * Generic way of setting the initial values of a scene when it is being shown. Each Scene's controller knows how
+     * to handle the type of object that they will recieve.
+     * @param object
+     * @author Niklas Hultin
+     */
     public void setInitialValueOfScene(Object object){
         InitializeSceneInterface parent = ((FXMLLoader) mainWindow.getScene().getUserData()).getController();
         parent.setInitialValues(object);
     }
 
+    /**
+     * Changes the scene to show the result of the quiz that was just finished.
+     * @author Bajram Gerbeshi
+     */
     public void quizCompleted(){
         setScene(ScenesEnum.QuizCompleted);
         setInitialValueOfScene(currentQuiz);
     }
 
+    /**
+     * Logs the user out (as no constant connection is held with the server, the server is not informed). The change of
+     * scene and currentUser ensures that the same user cannot make any changes without logging in again.
+     * @author Niklas Hultin
+     */
     public void logOut() {
         sceneSetter.setScene(ScenesEnum.LogIn);
         setInitialValueOfScene(null);
+        currentUser = null;
     }
 
+    /**
+     * Changes to the scene for creating a new user
+     * @author Niklas Hultin
+     */
     public void createNewUser() {
         sceneSetter.setScene(ScenesEnum.NewUser);
         setInitialValueOfScene(null);
     }
 
+    /**
+     * Changes to the home scene without logging in. This means no user information is being stored.
+     * @author Niklas Hultin
+     */
     public void skipLogin() {
         sceneSetter.setScene(ScenesEnum.Home);
         setInitialValueOfScene(null);
     }
 
-
     /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
      * for communication, and handles communication with the ScenesHashmap. It also sets up the current scene.
+     * @author Niklas Hultin
+     * @version 1.0
      */
     private class SceneSetter {
         private ScenesHashMap scenes = new ScenesHashMap();

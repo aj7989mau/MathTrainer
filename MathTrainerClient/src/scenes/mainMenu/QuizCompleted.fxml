@@ -40,9 +40,9 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="feedbackLabel" layoutX="362.0" layoutY="407.0" prefHeight="44.0" prefWidth="215.0" styleClass="labelBlack" text="Bra jobbat!">
+                  <Label fx:id="feedbackLabel" layoutX="251.0" layoutY="302.0" prefHeight="148.0" prefWidth="433.0" styleClass="labelBlack" text="Bra jobbat!" textAlignment="CENTER">
                      <font>
-                        <Font size="36.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
                     </children></AnchorPane>
