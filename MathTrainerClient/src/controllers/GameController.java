@@ -115,8 +115,8 @@ public class GameController extends SceneControllerParent implements InitializeS
 
     }
     public void doTime(){
-        TimeLine time = new Timeline();
-        time.setCycleCount(Timeline);
+       
+        }
     }
 }
 
