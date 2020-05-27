@@ -3,6 +3,7 @@ package controllers;
 import entity.ScenesEnum;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -12,7 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
+import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.sql.Time;
 import java.util.Random;
 import java.util.Timer;
 
@@ -159,10 +162,23 @@ public class GameController extends SceneControllerParent implements InitializeS
                                         timeSeconds.toString());
                                 if (timeSeconds <= 0) {
                                     timeline.stop();
+                                    showAlert();
+
+                                    //System.out.println("Tiden är ute");
                                 }
                             }
                         }));
         timeline.playFromStart();
+    }
+    public void showAlert() {
+        Platform.runLater(new Runnable() {
+            public void run() {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Gameover");
+                alert.setHeaderText("Tiden är ute, men försök en gång till!");
+                alert.showAndWait();
+            }
+        });
     }
 }
 
