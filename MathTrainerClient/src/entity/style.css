@@ -10,6 +10,105 @@
 
 
 
+.YellowOWLD{
+-fx-background-color: linear-gradient(from 0% 2% to 125% 115%, #FFFF5F  0%,  #FFB200  100%);
+    -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+}
+
+
+
+.YellowOWLD:hover{
+
+-fx-background-color:#FFFFFF;
+    -fx-text-fill:linear-gradient(from 0% 2% to 125% 115%, #FFFF5F  0%,  #FFB200  100%); /*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+    -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+    -fx-border-radius: 10;
+    -fx-border-width: 3;
+}
+
+.RedOWL{
+-fx-background-color: linear-gradient(from 0% 2% to 125% 115%, #FF5F5F  0%,  #EF4136  100%);
+    -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+}
+
+
+
+.RedOWL:hover{
+
+-fx-background-color:#FFFFFF;
+    -fx-text-fill:linear-gradient(from 0% 2% to 125% 115%, #FF5F5F  0%,  #EF4136  100%);/*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+    -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+    -fx-border-radius: 10;
+    -fx-border-width: 3;
+}
+
+.BlueOWL{
+-fx-background-color: linear-gradient(from 0% 2% to 125% 115%, #5F90FF  0%,  #2D65C6  100%);
+    -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+}
+
+
+
+.BlueOWL:hover{
+
+-fx-background-color:#FFFFFF;
+    -fx-text-fill:linear-gradient(from 0% 2% to 125% 115%, #5F90FF  0%,  #2D65C6  100%);/*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+    -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+    -fx-border-radius: 10;
+    -fx-border-width: 3;
+}
+
+.GreenOWL{
+-fx-background-color: linear-gradient(from 0% 2% to 125% 115%,  #76F7C8  0%, #2B9F84 100%);
+    -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+}
+
+
+
+.GreenOWL:hover{
+
+-fx-background-color:#FFFFFF;
+    -fx-text-fill:linear-gradient(from 0% 2% to 125% 115%,  #76F7C8  0%, #2B9F84 100%); /*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+    -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
+    -fx-border-radius: 10;
+    -fx-border-width: 3;
+}
 
 
 #Anchor{

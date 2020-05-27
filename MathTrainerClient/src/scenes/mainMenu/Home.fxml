@@ -44,9 +44,9 @@
                   </AnchorPane>
                   <Button layoutX="63.0" layoutY="143.0" mnemonicParsing="false" prefHeight="379.0" prefWidth="553.0" styleClass="MenuButton" />
                   <ProgressBar fx:id="pbCounting" layoutX="270.0" layoutY="180.0" prefWidth="200.0" progress="1.0" />
-                  <ProgressBar fx:id="pbStatistics" layoutX="270.0" layoutY="254.0" prefWidth="200.0" progress="0.59" />
-                  <ProgressBar fx:id="pbPlaceholder" layoutX="270.0" layoutY="322.0" prefWidth="200.0" progress="0.39" />
-                  <ProgressBar fx:id="pbGeometry" layoutX="270.0" layoutY="390.0" prefWidth="200.0" progress="0.78" />
+                  <ProgressBar fx:id="pbStatistics" layoutX="270.0" layoutY="254.0" prefWidth="200.0" progress="0.59" styleClass="green-bar" />
+                  <ProgressBar fx:id="pbPlaceholder" layoutX="270.0" layoutY="322.0" prefWidth="200.0" progress="0.39" styleClass="orange-bar" />
+                  <ProgressBar fx:id="pbGeometry" layoutX="270.0" layoutY="390.0" prefWidth="200.0" progress="0.78" styleClass="red-bar" />
                   <ImageView fitHeight="46.0" fitWidth="145.0" layoutX="558.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
@@ -57,7 +57,7 @@
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <ProgressBar fx:id="pbAllCategories" layoutX="270.0" layoutY="474.0" prefWidth="200.0" progress="0.52" />
+                  <ProgressBar fx:id="pbAllCategories" layoutX="270.0" layoutY="474.0" prefWidth="200.0" progress="0.52" styleClass="yellow-bar" />
                   <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />

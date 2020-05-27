@@ -22,16 +22,12 @@ googla bara på typ CSS colors så får man fram färgkoder. T ex #000000 är sv
      -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
 }
 
+.progress-bar { -fx-box-border: goldenrod; }
 
-.buttonBackground{
--fx-background-color: linear-gradient(from 0% 2% to 125% 115%, #515ada  0%, #efd5ff 100%);
-    -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
-    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
-    -fx-font-size: 12px;
-    -fx-font-family: "Roboto";
-    -fx-font-weight: Bold;
-     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
-}
+.green-bar  { -fx-accent: green;  }
+.yellow-bar { -fx-accent: yellow; }
+.orange-bar { -fx-accent: orange; }
+.red-bar    { -fx-accent: red;    }
 
 
 .buttonReal:hover{
@@ -45,6 +41,16 @@ googla bara på typ CSS colors så får man fram färgkoder. T ex #000000 är sv
     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
     -fx-border-radius: 10;
     -fx-border-width: 3;
+}
+
+.buttonBackground{
+-fx-background-color: linear-gradient(from 0% 2% to 125% 115%, #515ada  0%, #efd5ff 100%);
+    -fx-text-fill: #FFFFFF; /*Textfärg på alla knappar */
+    -fx-background-radius: 12; /*Rundhet på hörnen på alla knappar */
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: Bold;
+     -fx-effect: dropshadow( gaussian ,rgba(0,0,1,.25), 10px, 0.1 ,0, 3 );
 }
 
 .Avsluta{
