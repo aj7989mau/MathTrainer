@@ -97,7 +97,10 @@
             <Spinner fx:id="sumMinus" editable="true" layoutX="572.0" layoutY="180.0" />
             <Spinner fx:id="sumAdd" editable="true" layoutX="572.0" layoutY="225.0" />
             <Spinner fx:id="sumDivided" editable="true" layoutX="572.0" layoutY="271.0" />
-            <Label fx:id="label" layoutX="575.0" layoutY="57.0" prefHeight="34.0" prefWidth="150.0" textAlignment="CENTER" />
+            <Label fx:id="label" layoutX="605.0" layoutY="54.0" prefHeight="34.0" prefWidth="150.0" text="60:00" textAlignment="CENTER">
+               <font>
+                  <Font size="31.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </children>

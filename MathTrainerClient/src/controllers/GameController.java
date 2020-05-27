@@ -1,25 +1,12 @@
 package controllers;
 
 import entity.ScenesEnum;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.ReadOnlyDoubleWrapper;
-import javafx.beans.property.ReadOnlyIntegerProperty;
-import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.util.Duration;
-import org.w3c.dom.ls.LSOutput;
 
 import javax.swing.*;
 import java.awt.*;
@@ -58,7 +45,7 @@ public class GameController extends SceneControllerParent implements InitializeS
     public Label minusLbl;
     public Label addLbl;
     public Label dividedLbl;
-    public Spinner sumPlus;
+    public Spinner<Integer> sumPlus;
     public Spinner sumMinus;
     public Button startQuiz;
     public Spinner sumAdd;
@@ -113,10 +100,23 @@ public class GameController extends SceneControllerParent implements InitializeS
         sumPlus.setPromptText("0");
         startQuiz.setDisable(true);
 
+        SpinnerValueFactory <Integer> sumValue = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
+        this.sumPlus.setValueFactory(sumValue);
+
+        SpinnerValueFactory <Integer> sumMinus = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
+        this.sumMinus.setValueFactory(sumMinus);
+
+        SpinnerValueFactory <Integer> sumAdd = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
+        this.sumAdd.setValueFactory(sumAdd);
+
+        SpinnerValueFactory <Integer> sumDivided = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
+        this.sumDivided.setValueFactory(sumDivided);
+
+
+
     }
     public void doTime(){
-       
-        }
+
     }
 }
 
