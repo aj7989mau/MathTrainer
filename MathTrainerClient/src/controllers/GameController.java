@@ -8,7 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 
+import javax.management.timer.Timer;
+import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.Random;
+import java.util.TimerTask;
 //Denna är kopplad till GameScene
 
 /**
@@ -20,7 +24,7 @@ import java.util.Random;
 public class GameController extends SceneControllerParent implements InitializeSceneInterface {
     public Label matematicLbl;
     public Label timeremaininglbl;
-    public HBox timeHbx;
+    public Label label;
     public Button quitGame;
 
     public Label plusLeftLabel;
@@ -54,6 +58,10 @@ public class GameController extends SceneControllerParent implements InitializeS
     private int numb6;
     private int numb7;
     private int numb8;
+
+    private int count;
+    private Timer timer;
+    int seconds = 3;
 
 
     public GameController() {
@@ -120,9 +128,30 @@ public class GameController extends SceneControllerParent implements InitializeS
         this.sumDivided.setValueFactory(sumDivided);
 
         startQuiz.setDisable(true);
+        countdown();
 
 
     }
+
+    private void countdown() {
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            public void run() {
+                if (seconds >= 0) {
+                    System.out.println(seconds);
+                    seconds--;
+                }
+                if (seconds == -1) {
+
+                    timer.stop();
+                }
+            }
+        };
+
+        timer.start();
+    }
+
 }
 
 
