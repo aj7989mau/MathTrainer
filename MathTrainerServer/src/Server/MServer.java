@@ -156,11 +156,16 @@ public class MServer extends Thread {
                         User user = (User) ois.readObject();
                         boolean isUserNew = newUser(user);
                         if (isUserNew) {
-                            usersList.add(user);
-                            //Adding new user to the text file as well
-                            ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
-                            fileStream.writeObject(user);
-                            fileStream.flush();
+                            //Thread safety, if more clients wants to access this shared array userList, only one client
+                            //at a time will be added to added.
+                            Object lock = new Object();
+                            synchronized (lock){
+                                usersList.add(user);
+                                //Adding new user to the text file as well
+                                ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
+                                fileStream.writeObject(user);
+                                fileStream.flush();
+                            }
                             //Sending it back to the client
                             oos.writeObject(user);
 

@@ -1,7 +1,6 @@
 package Questions;
 
 import Server.Course;
-import sharedEntities.User;
 import sharedEntities.Questions;
 
 import java.io.BufferedReader;
@@ -33,23 +32,59 @@ public class Sixth extends Course {
 
     private int statQuesLength;
     private String question, correct, wrong1, wrong2, wrong3;
+    private String n = "\n";
 
-
-
+    /**
+     * Constructs the class
+     * @since 2020-05-28
+     */
     public Sixth() {
 
-        String n = "\n";
-        statisticLoc = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/Statistic.txt";
+        //statistic questions
+        initStatisticQuestions();
+
+        //Geometry questions
+        initGeometryQuestions();
+
+        //four counting ways
+        initFourCountQuestions();
+
+        //Down commented code are some experiments for creating and reading questions from a text file
+
+        /* statisticLoc = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/Statistic.txt";
         geoLoc = "";
         FouCountLoc = "";
         readStatQue();
         statQuesLength = statisticList.size() / 5;
         statisticQuestion = new Questions[statQuesLength];
         setStatisticQuestions();
-        // createStatQueArray();
-        // System.out.println(statQuesLength);
-        //statistic questions
-       /* String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet.";
+        createStatQueArray();
+        System.out.println(statQuesLength);*/
+    }
+
+    /**
+     * This method takes a question array as an arg and randomise the elements in it and returns back the array
+     * @author abdul sami sahil
+     * @since 2020-05-28
+     * @param array arg that is taken
+     * @return returns back the array randomly
+     */
+    public Questions[] shuffleArrayRandomly(Questions [] array)
+    {
+        int nbrOfQuestions = array.length;
+
+        for (int i = 0; i < nbrOfQuestions; i++)
+        {
+            int rand = (int) (Math.random() * (nbrOfQuestions));
+            Questions question = array[i];
+            array[i] = array[rand];
+            array[rand] = question;
+        }
+        return array;
+    }
+    // creating statistic questions
+    private void initStatisticQuestions(){
+        String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet.";
         String q2 = "Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 3 mål per match. " +
                 "Beräkna medelvärdet för alla mål under de senaste tre matcherna.";
         String q3 = "Medelvärdet av tre tal är 5. Två av talen är 4 och 5. Vilket är det tredje talet?";
@@ -74,13 +109,10 @@ public class Sixth extends Course {
                 new Questions(q8, "12", "11", "13", "10"),
                 new Questions(q9, "3", "15", "4", "2"),
                 new Questions(q10, "8", "6", "9", "7"),
-                new Questions(q11, "3", "4", "7,5", "8")};*/
-
-
-        //takeTest(questions);
-
-
-        //Geometry questions
+                new Questions(q11, "3", "4", "7,5", "8")};
+    }
+    // creating geometry questions
+    private void initGeometryQuestions() {
         String q21 = "En triangel har sidlängderna 4 cm, 10 cm och 14 cm. Hur stor omkrets har denna triangel?";
         String q22 = "En triangel har sidlängderna 7 cm, 41 mm och 62 mm. Observera enheterna."
                 + n + " Hur stor omkrets har denna triangel i centimeter?";
@@ -99,9 +131,9 @@ public class Sixth extends Course {
                 new Questions(q26, "Läskburk", "Fotboll", "Dator", "Bil"),
                 new Questions(q27, "Pappersark", "Tärning", "Kartong", "Tåg"),
                 new Questions(q28, "CD-skiva", "Datorskärm", "CD-fodral", "Kruka")};
-
-
-        //four counting ways
+    }
+    // creating four count questions
+    private void initFourCountQuestions() {
         String q31 = "Räkna ut 455,77+131,5";
         String q32 = "Räkna ut 36,55+94,20 med överslagsräkning, avrunda till närmaste tiotal.";
         String q33 = "Räkna ut 25,5*2";
@@ -111,6 +143,51 @@ public class Sixth extends Course {
                 new Questions(q32, "130", "140", "230", "312"),
                 new Questions(q33, "51", "23", "25.52", "40"),
                 new Questions(q34, "4000", "4500", "4050", "5141")};
+    }
+
+    //Getter methods for StaticQuestions, GeometryQuestions & CountQuestions
+    @Override
+    public Questions[] getStatisticQuestion() {
+        Questions [] array = shuffleArrayRandomly(statisticQuestion);
+        return array;
+    }
+
+    @Override
+    public Questions[] getGeometryQuestions() {
+        Questions [] array = shuffleArrayRandomly(geometryQuestions);
+        return array;
+    }
+
+    @Override
+    public Questions[] getFourCountQuestions() {
+        Questions [] array = shuffleArrayRandomly(fourCountQuestions);
+        return array;
+    }
+
+    @Override
+    public Questions[] getQuestions() {
+        return new Questions[0];
+    }
+
+    /**
+     *
+     * @author abdul sami sahil
+     * @since 2020-05-28
+     * @param args to have an executable code,
+     */
+    public static void main(String[] args) {
+        Sixth sixth = new Sixth();
+
+        Questions [] array = new Questions[]{new Questions("What is your name?", "A", "B", "C", "D"),
+                new Questions("What is your job?", "A", "B", "C", "D"),
+                new Questions("Where do you live?", "A", "B", "C", "D")};
+
+       Questions q [] = sixth.shuffleArrayRandomly(array);
+       //printing the array randomly test
+        for (Questions qe: q )
+        {
+            System.out.println(qe + " ");
+        }
     }
     private void readStatQue()
     {
@@ -141,6 +218,7 @@ public class Sixth extends Course {
             }
         }
     }
+
 
     /*public void takeTest(Questions [] questions){
         int score = 0;
@@ -207,41 +285,5 @@ public class Sixth extends Course {
 
             //  System.out.println(statisticQuestion.toString());
         }
-    }
-
-
-    public void setGeometryQuestions() {
-
-    }
-
-    public void setFourCountQuestions() {
-
-    }
-
-    //Getter methods for StaticQuestions, GeometryQuestions & CountQuestions
-    @Override
-    public Questions[] getStatisticQuestion() {
-        return statisticQuestion;
-    }
-
-    @Override
-    public Questions[] getGeometryQuestions() {
-        return geometryQuestions;
-    }
-
-    @Override
-    public Questions[] getFourCountQuestions() {
-        return fourCountQuestions;
-    }
-
-    @Override
-    public Questions[] getQuestions() {
-        return new Questions[0];
-    }
-
-
-
-    public static void main(String[] args) {
-        new Sixth().initQA();
     }
 }
