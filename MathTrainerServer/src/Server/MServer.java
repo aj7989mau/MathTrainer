@@ -145,7 +145,7 @@ public class MServer extends Thread {
         /**
          * Through this method a client starts operating/communicating with the server, the start method of the thread.
          */
-        public synchronized void run() {
+        public void run() {
             try {
                 Server.Course course = null;
                 Questions[] questions = null;
@@ -168,11 +168,15 @@ public class MServer extends Thread {
                         if (isUserNew) {
                             //Thread safety, if more clients wants to access this shared array userList, only one client
                             //at a time will be added to added.
-                            usersList.add(user);
-                            //Adding new user to the text file as well
-                            ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
-                            fileStream.writeObject(user);
-                            fileStream.flush();
+                            Object lock = new Object();
+                            synchronized (lock){
+                                usersList.add(user);
+                                //Adding new user to the text file as well
+                                ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
+                                fileStream.writeObject(user);
+                                fileStream.flush();
+                            }
+
                             //Sending it back to the client
                             oos.writeObject(user);
 
