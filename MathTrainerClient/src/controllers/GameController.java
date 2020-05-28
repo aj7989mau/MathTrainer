@@ -146,6 +146,8 @@ public class GameController extends SceneControllerParent implements InitializeS
         }
         timeSeconds = STARTTIME;
 
+        countdownLabel.setTextFill(Color.RED);
+
         // update timerLabel
         countdownLabel.setText(timeSeconds.toString());
         timeline = new Timeline();
@@ -158,8 +160,7 @@ public class GameController extends SceneControllerParent implements InitializeS
                             public void handle(Event event) {
                                 timeSeconds--;
                                 // update timerLabel
-                                countdownLabel.setText(
-                                        timeSeconds.toString());
+                                countdownLabel.setText(timeSeconds.toString());
                                 if (timeSeconds <= 0) {
                                     timeline.stop();
                                     showAlert();
