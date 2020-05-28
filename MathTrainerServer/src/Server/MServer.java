@@ -7,6 +7,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import Questions.Sixth;
 import sharedEntities.User;
@@ -57,14 +60,21 @@ public class MServer extends Thread {
         // Starting server
         serverSocket = new ServerSocket(port);
         System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
+        //creating a thread pool that generates threads for clients demand
+       // ExecutorService executor = Executors.newCachedThreadPool();
         while (keepRunning) {
 
             try {
 
                 Socket connect = serverSocket.accept();
                 System.out.println("Connection successful");
+               // executor.execute(new ClientHandler(connect));
                 Thread t = new ClientHandler(connect);
                 t.start();
+               /* if (!keepRunning)
+                {
+                    executor.shutdown();
+                }*/
             } catch (Exception e) {
                 serverSocket.close();
                 e.printStackTrace();
@@ -135,7 +145,7 @@ public class MServer extends Thread {
         /**
          * Through this method a client starts operating/communicating with the server, the start method of the thread.
          */
-        public void run() {
+        public synchronized void run() {
             try {
                 Server.Course course = null;
                 Questions[] questions = null;
@@ -158,14 +168,11 @@ public class MServer extends Thread {
                         if (isUserNew) {
                             //Thread safety, if more clients wants to access this shared array userList, only one client
                             //at a time will be added to added.
-                            Object lock = new Object();
-                            synchronized (lock){
-                                usersList.add(user);
-                                //Adding new user to the text file as well
-                                ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
-                                fileStream.writeObject(user);
-                                fileStream.flush();
-                            }
+                            usersList.add(user);
+                            //Adding new user to the text file as well
+                            ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
+                            fileStream.writeObject(user);
+                            fileStream.flush();
                             //Sending it back to the client
                             oos.writeObject(user);
 
