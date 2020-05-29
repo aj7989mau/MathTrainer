@@ -205,6 +205,8 @@ public class MainController {
             } else {
                 setScene(ScenesEnum.Home);
             }
+        } else {
+            setScene(ScenesEnum.Home);
         }
     }
 
