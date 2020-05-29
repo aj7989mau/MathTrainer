@@ -55,6 +55,11 @@ public class GameController extends SceneControllerParent implements InitializeS
 
     public Label additionRightLabel;
     public Label additionLeftLabel;
+    public Button answerBtn;
+    public Label equals;
+    public Label equals1;
+    public Label equals2;
+    public Label equals3;
 
     private Random random = new Random();
     private int numb1;
@@ -83,6 +88,7 @@ public class GameController extends SceneControllerParent implements InitializeS
             mainController.setScene(ScenesEnum.Exercises);
 
             startQuiz.setDisable(false);
+            timeline.stop();
         }
     }
 
@@ -122,17 +128,6 @@ public class GameController extends SceneControllerParent implements InitializeS
 
         // 'sumplus' is the name of the spinner control.
         // This step makes sure its value is zero before adding any values to it. And you can choose from 0-1000
-        SpinnerValueFactory<Integer> sumValue = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
-        this.sumPlus.setValueFactory(sumValue);
-
-        SpinnerValueFactory<Integer> sumMinus = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
-        this.sumMinus.setValueFactory(sumMinus);
-
-        SpinnerValueFactory<Integer> sumAdd = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
-        this.sumAdd.setValueFactory(sumAdd);
-
-        SpinnerValueFactory<Integer> sumDivided = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
-        this.sumDivided.setValueFactory(sumDivided);
 
         startQuiz.setDisable(true);
 
@@ -180,6 +175,10 @@ public class GameController extends SceneControllerParent implements InitializeS
                 alert.showAndWait();
             }
         });
+    }
+
+    public void CheckAnswer(ActionEvent actionEvent) {
+
     }
 }
 
