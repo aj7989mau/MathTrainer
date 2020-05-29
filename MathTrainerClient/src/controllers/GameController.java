@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -60,6 +61,8 @@ public class GameController extends SceneControllerParent implements InitializeS
     public Label equals1;
     public Label equals2;
     public Label equals3;
+    public AnchorPane panelBtn;
+
 
     private Random random = new Random();
     private int numb1;
@@ -73,7 +76,7 @@ public class GameController extends SceneControllerParent implements InitializeS
 
     // private class constant and some variables
     private static final Integer STARTTIME = 60;
-    private Timeline timeline;
+    private Timeline timeline = new Timeline();
     private Integer timeSeconds = STARTTIME;
 
 
@@ -98,41 +101,47 @@ public class GameController extends SceneControllerParent implements InitializeS
     }
 
     public void startQuiz() {
-        // Fill in the addition problem.
-        // Store the values in the variables 'num1' and 'num2'.
         numb1 = random.nextInt(49);
         numb2 = random.nextInt(49);
-
-        // Convert the two randomly generated numbers into strings so that they can be displayed
-        // in the label controls.
         plusLeftLabel.setText(String.valueOf(numb1));
         plusRightLabel.setText(String.valueOf(numb2));
 
         numb3 = random.nextInt(49);
         numb4 = random.nextInt(49);
-
         minusLeftLabel.setText(String.valueOf(numb3));
         minusRightLabel.setText(String.valueOf(numb4));
 
         numb5 = random.nextInt(49);
         numb6 = random.nextInt(49);
-
         additionLeftLabel.setText(String.valueOf(numb5));
         additionRightLabel.setText(String.valueOf(numb6));
 
         numb7 = random.nextInt(49);
         numb8 = random.nextInt(49);
-
         devidedLeftLabel.setText(String.valueOf(numb7));
         devidedRightLabel.setText(String.valueOf(numb8));
 
-        // 'sumplus' is the name of the spinner control.
+
         // This step makes sure its value is zero before adding any values to it. And you can choose from 0-1000
+        SpinnerValueFactory<Integer> sumValue = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
+        this.sumPlus.setValueFactory(sumValue);
+
+        SpinnerValueFactory<Integer> sumMinus = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
+        this.sumMinus.setValueFactory(sumMinus);
+
+        SpinnerValueFactory<Integer> sumAdd = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
+        this.sumAdd.setValueFactory(sumAdd);
+
+        SpinnerValueFactory<Integer> sumDivided = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
+        this.sumDivided.setValueFactory(sumDivided);
 
         startQuiz.setDisable(true);
+        timer();
 
 
-        // Configure the Label
+    }
+
+    public void timer() {
         countdownLabel.setText(timeSeconds.toString());
         //timerLabel.setTextFill(Color.RED);
         //timerLabel.setStyle("-fx-font-size: 4em;");
@@ -154,18 +163,17 @@ public class GameController extends SceneControllerParent implements InitializeS
                             @Override
                             public void handle(Event event) {
                                 timeSeconds--;
-                                // update timerLabel
                                 countdownLabel.setText(timeSeconds.toString());
                                 if (timeSeconds <= 0) {
                                     timeline.stop();
                                     showAlert();
 
-                                    //System.out.println("Tiden är ute");
                                 }
                             }
                         }));
         timeline.playFromStart();
     }
+
     public void showAlert() {
         Platform.runLater(new Runnable() {
             public void run() {
