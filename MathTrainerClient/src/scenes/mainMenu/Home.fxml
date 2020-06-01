@@ -47,33 +47,33 @@
                   <ProgressBar fx:id="pbStatistics" layoutX="270.0" layoutY="254.0" prefWidth="200.0" progress="0.59" styleClass="green-bar" />
                   <ProgressBar fx:id="pbPlaceholder" layoutX="270.0" layoutY="322.0" prefWidth="200.0" progress="0.39" styleClass="orange-bar" />
                   <ProgressBar fx:id="pbGeometry" layoutX="270.0" layoutY="390.0" prefWidth="200.0" progress="0.78" styleClass="red-bar" />
-                  <ImageView fitHeight="46.0" fitWidth="145.0" layoutX="558.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="totalTrophy" fitHeight="46.0" fitWidth="145.0" layoutX="558.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="countingTrophy" fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
                   <ProgressBar fx:id="pbAllCategories" layoutX="270.0" layoutY="474.0" prefWidth="200.0" progress="0.52" styleClass="yellow-bar" />
-                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="statisticsTrophy" fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="placeholderTrophy" fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="geometryTrophy" fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="81.0" layoutY="174.0" prefHeight="29.0" prefWidth="181.0" styleClass="labelBlack" text="4 räknesätt">
+                  <Label layoutX="81.0" layoutY="174.0" prefHeight="29.0" prefWidth="181.0" styleClass="labelBlack" text="Räknesätten">
                      <font>
                         <Font size="20.0" />
                      </font>
