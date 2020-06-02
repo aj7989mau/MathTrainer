@@ -26,7 +26,7 @@ public class Sixth extends Course {
     private Questions[] geometryQuestions;
     private Questions[] fourCountQuestions;
 
-    private List <String> statisticList;
+    private List<String> statisticList;
 
     private String statisticLoc, geoLoc, FouCountLoc;
 
@@ -96,10 +96,11 @@ public class Sixth extends Course {
         String q8 = "Medelvärdet av tre tal är 10. Två av talen är 8 och 10. Vilket är det tredje talet?";
         String q9 = "Fem tärningar kastas och de visar sidorna: 6, 0, 4, 3, 2. Beräkna medelvärdet.";
         String q10 = "Medelvärdet av tre tal är 5. Två av talen är 2 och 5. Vilket är det tredje talet?";
-        String q11 = "Fem tärningar kastas och de visar sidorna: 4, 2, 3, 3, 3. Beräkna medelvärdet.";
 
 
-        statisticQuestion = new Questions[]{new Questions(q1, "3", "1", "15", "30"),
+
+        statisticQuestion = new Questions[]{
+                new Questions(q1, "3", "1", "15", "30"),
                 new Questions(q2, "3", "6", "2", "0"),
                 new Questions(q3, "6", "10", "3", "32"),
                 new Questions(q4, "36", "26", "10", "134"),
@@ -108,41 +109,56 @@ public class Sixth extends Course {
                 new Questions(q7, "6", "8", "9", "4"),
                 new Questions(q8, "12", "11", "13", "10"),
                 new Questions(q9, "3", "15", "4", "2"),
-                new Questions(q10, "8", "6", "9", "7"),
-                new Questions(q11, "3", "4", "7,5", "8")};
+                new Questions(q10, "8", "6", "9", "7")};
     }
     // creating geometry questions
     private void initGeometryQuestions() {
-        String q21 = "En triangel har sidlängderna 4 cm, 10 cm och 14 cm. Hur stor omkrets har denna triangel?";
-        String q22 = "En triangel har sidlängderna 7 cm, 41 mm och 62 mm. Observera enheterna."
+        String q1 = "Fem tärningar kastas och de visar sidorna: 4, 2, 3, 3, 3. Beräkna medelvärdet.";
+        String q2 = "En triangel har sidlängderna 4 cm, 10 cm och 14 cm. Hur stor omkrets har denna triangel?";
+        String q3 = "En triangel har sidlängderna 7 cm, 41 mm och 62 mm. Observera enheterna."
                 + n + " Hur stor omkrets har denna triangel i centimeter?";
-        String q23 = " Hur många hörn har en kub?";
-        String q24 = "Hur många hörn har ett Parallellogram";
-        String q25 = "Hur många hörn har en cirkel";
-        String q26 = "Den geometrisk figuren cylinder, vad liknar den i verkligheten?";
-        String q27 = "Den geometrisk figuren rektangel, vad liknar den i verkligheten?";
-        String q28 = "Den geometrisk figuren cirkel, vad liknar den i verkligheten?";
-
-        geometryQuestions = new Questions[]{new Questions(q21, "28", "23", "27", "34"),
-                new Questions(q22, "17.3", "25", "15", "2"),
-                new Questions(q23, "8", "6", "4", "6"),
-                new Questions(q24, "4", "5", "8", "7"),
-                new Questions(q25, "0", "4", "5", "2"),
-                new Questions(q26, "Läskburk", "Fotboll", "Dator", "Bil"),
-                new Questions(q27, "Pappersark", "Tärning", "Kartong", "Tåg"),
-                new Questions(q28, "CD-skiva", "Datorskärm", "CD-fodral", "Kruka")};
+        String q4 = " Hur många hörn har en kub?";
+        String q5 = "Hur många hörn har ett Parallellogram";
+        String q6 = "Hur många hörn har en cirkel";
+        String q7 = "Den geometrisk figuren cylinder, vad liknar den i verkligheten?";
+        String q8 = "Den geometrisk figuren rektangel, vad liknar den i verkligheten?";
+        String q9 = "Den geometrisk figuren cirkel, vad liknar den i verkligheten?";
+        String q10 = "Den punkt linjerna möts i, där vi mäter vinkeln, kallas...";
+        geometryQuestions = new Questions[]{
+                new Questions(q2, "28", "23", "27", "34"),
+                new Questions(q3, "17.3", "25", "15", "2"),
+                new Questions(q4, "8", "6", "4", "6"),
+                new Questions(q5, "4", "5", "8", "7"),
+                new Questions(q6, "0", "4", "5", "2"),
+                new Questions(q7, "Läskburk", "Fotboll", "Dator", "Bil"),
+                new Questions(q8, "Pappersark", "Tärning", "Kartong", "Tåg"),
+                new Questions(q9, "CD-skiva", "Datorskärm", "CD-fodral", "Kruka"),
+                new Questions(q1, "3", "4", "7,5", "8"),
+                new Questions(q10, "Vinkelspets", "Mötesplats", "Vikelhake", "Vinkelpunkt")};
     }
     // creating four count questions
     private void initFourCountQuestions() {
-        String q31 = "Räkna ut 455,77+131,5";
-        String q32 = "Räkna ut 36,55+94,20 med överslagsräkning, avrunda till närmaste tiotal.";
-        String q33 = "Räkna ut 25,5*2";
-        String q34 = "Räkna ut 500⋅8";
-
-        fourCountQuestions = new Questions[]{new Questions(q31, "587.27", "550", "480", "245"),
-                new Questions(q32, "130", "140", "230", "312"),
-                new Questions(q33, "51", "23", "25.52", "40"),
-                new Questions(q34, "4000", "4500", "4050", "5141")};
+        String q1 = "Räkna ut 455,77+131,5";
+        String q2 = "Räkna ut 36,55+94,20 med överslagsräkning, avrunda till närmaste tiotal.";
+        String q3 = "Räkna ut 25,5*2";
+        String q4 = "Räkna ut 500⋅8";
+        String q5 = "Räkna ut 24 - 36";
+        String q6 = "Räkna ut divisionen där talet 35 är täljaren, talet 7 är nämnaren";
+        String q7 = "Räkna ut divisionen där talet 7 är täljaren, talet 35 är nämnaren";
+        String q8 = "Mikaels favorittröja brukade kosta 150 kr. På rea blev den 20% billigare, då köpte han den. Hur mycket kostade den då?";
+        String q9 = "Räkna ut  20 % av 150 kr";
+        String q10 = "Vad blir 4 . 5 . 3?";
+        fourCountQuestions = new Questions[]{new Questions(q1, "587.27", "550", "480", "245"),
+                new Questions(q2, "130", "140", "230", "312"),
+                new Questions(q3, "51", "23", "25.52", "40"),
+                new Questions(q4, "4000", "4500", "4050", "5141"),
+                new Questions(q5, "-12", "12", "8", "10"),
+                new Questions(q6, "5", "6", "3", "7.5"),
+                new Questions(q7, "0.2", "0.5", "0.6", "0.7"),
+                new Questions(q8, "120kr", "140kr", "100kr", "80kr"),
+                new Questions(q9, "30kr", "50kr", "40kr", "35kr"),
+                new Questions(q10, "60", "40", "70", "43"),
+        };
     }
 
     //Getter methods for StaticQuestions, GeometryQuestions & CountQuestions
@@ -151,19 +167,16 @@ public class Sixth extends Course {
         Questions [] array = shuffleArrayRandomly(statisticQuestion);
         return array;
     }
-
     @Override
     public Questions[] getGeometryQuestions() {
         Questions [] array = shuffleArrayRandomly(geometryQuestions);
         return array;
     }
-
     @Override
     public Questions[] getFourCountQuestions() {
         Questions [] array = shuffleArrayRandomly(fourCountQuestions);
         return array;
     }
-
     @Override
     public Questions[] getQuestions() {
         return new Questions[0];
@@ -182,8 +195,8 @@ public class Sixth extends Course {
                 new Questions("What is your job?", "A", "B", "C", "D"),
                 new Questions("Where do you live?", "A", "B", "C", "D")};
 
-       Questions q [] = sixth.shuffleArrayRandomly(array);
-       //printing the array randomly test
+        Questions q [] = sixth.shuffleArrayRandomly(array);
+        //printing the array randomly test
         for (Questions qe: q )
         {
             System.out.println(qe + " ");
