@@ -25,6 +25,7 @@ public class Sixth extends Course {
     private Questions[] statisticQuestion;
     private Questions[] geometryQuestions;
     private Questions[] fourCountQuestions;
+    private Questions[] randomlyQuestions;
 
     private List<String> statisticList;
 
@@ -48,6 +49,9 @@ public class Sixth extends Course {
 
         //four counting ways
         initFourCountQuestions();
+
+        //slumpade frågor
+        initRandomlyQuestion();
 
         //Down commented code are some experiments for creating and reading questions from a text file
 
@@ -160,6 +164,36 @@ public class Sixth extends Course {
                 new Questions(q10, "60", "40", "70", "43"),
         };
     }
+    // creating randomly questions from all three categories
+    private void initRandomlyQuestion(){
+        String q1 = "Fem tärningar kastas och de visar sidorna: 5, 1, 1, 3, 5. Vad är medelvärdet.";
+        String q2 = "Erika spelar fotboll. Under de senaste tre matcherna har hon gjort i genomsnitt 3 mål per match. " +
+                "Beräkna medelvärdet för alla mål under de senaste tre matcherna.";
+        String q3 = "Medelvärdet av tre tal är 5. Två av talen är 4 och 5. Vilket är det tredje talet?";
+        String q4 = "Fem tärningar kastas och de visar sidorna: 4, 2, 3, 3, 3. Beräkna medelvärdet.";
+        String q5 = "En triangel har sidlängderna 4 cm, 10 cm och 14 cm. Hur stor omkrets har denna triangel?";
+        String q6 = "En triangel har sidlängderna 7 cm, 41 mm och 62 mm. Observera enheterna."
+                + n + " Hur stor omkrets har denna triangel i centimeter?";
+        String q7 = "Räkna ut divisionen där talet 35 är täljaren, talet 7 är nämnaren";
+        String q8 = "Räkna ut divisionen där talet 7 är täljaren, talet 35 är nämnaren";
+        String q9 = "Mikaels favorittröja brukade kosta 150 kr. På rea blev den 20% billigare, då köpte han den. Hur mycket kostade den då?";
+        String q10 = "Räkna ut  20 % av 150 kr";
+
+
+
+
+       randomlyQuestions = new Questions[]{
+                new Questions(q1, "3", "1", "15", "30"),
+                new Questions(q2, "3", "6", "2", "0"),
+                new Questions(q3, "6", "10", "3", "32"),
+               new Questions(q5, "28", "23", "27", "34"),
+               new Questions(q6, "17.3", "25", "15", "2"),
+               new Questions(q4, "3", "4", "7,5", "8"),
+               new Questions(q7, "5", "6", "3", "7.5"),
+               new Questions(q8, "0.2", "0.5", "0.6", "0.7"),
+               new Questions(q9, "120kr", "140kr", "100kr", "80kr"),
+               new Questions(q10, "30kr", "50kr", "40kr", "35kr")};
+    }
 
     //Getter methods for StaticQuestions, GeometryQuestions & CountQuestions
     @Override
@@ -177,6 +211,13 @@ public class Sixth extends Course {
         Questions [] array = shuffleArrayRandomly(fourCountQuestions);
         return array;
     }
+
+    @Override
+    public Questions[] getRandomiseQuestions() {
+        Questions [] array = shuffleArrayRandomly(randomlyQuestions);
+        return array;
+    }
+
     @Override
     public Questions[] getQuestions() {
         return new Questions[0];

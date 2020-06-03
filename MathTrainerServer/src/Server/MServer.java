@@ -108,7 +108,7 @@ public class MServer extends Thread {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        new MServer(4560);
+        new MServer(7890);
     }
 
     /**
@@ -195,7 +195,10 @@ public class MServer extends Thread {
                             oos.writeObject(course.getFourCountQuestions());
                         } else if (answerTypeOfQuestion.equals("Statistics")) {
                             oos.writeObject(course.getStatisticQuestion());
+                        } else if (answerTypeOfQuestion.equals("Random")) {
+                            oos.writeObject(course.getRandomiseQuestions());
                         }
+
                         //Todo: else sats om något är ogiltigt har valts
                     } else if (input.equals("Result")) {
                         //TODO: Klienten skickar ett User-objekt
