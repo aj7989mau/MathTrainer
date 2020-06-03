@@ -21,6 +21,7 @@ public abstract class Course {
     public abstract Questions[] getStatisticQuestion();
     public abstract  Questions[] getGeometryQuestions();
     public abstract  Questions[] getFourCountQuestions();
+    public abstract Questions [] getRandomiseQuestions();
 
     public abstract Questions[] getQuestions();
 }
