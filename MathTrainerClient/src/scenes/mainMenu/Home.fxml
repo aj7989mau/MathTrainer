@@ -103,7 +103,7 @@
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="userInfoLabel" layoutX="411.0" layoutY="145.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="51.0" prefWidth="197.0" styleClass="labelBlack" text="Example" />
+                  <Label fx:id="userInfoLabel" layoutX="411.0" layoutY="145.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="65.0" prefWidth="197.0" styleClass="labelBlack" text="Example" />
                   <Label fx:id="statisticsPercent" layoutX="476.0" layoutY="227.0" prefHeight="30.0" prefWidth="77.0" styleClass="labelBlack" text="0%">
                      <font>
                         <Font size="20.0" />

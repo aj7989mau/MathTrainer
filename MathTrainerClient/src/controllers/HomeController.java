@@ -58,11 +58,12 @@ public class HomeController extends MainMenuControllerParent implements Initiali
             user = (User) object;
             welcomeLabel.setText("Välkommen " + user.getUserName());
             results = user.getResults();
-            userInfoLabel.setText(user.getUserName() + "\n" + "Årskurs 6" + "\n" + "Exempelskola");
+            userInfoLabel.setText(user.getUserName() + "\n" + "Årskurs " + user.getYear() + "\n" + user.getSchool() + "\n" + user.getTown());
 
             setProgress();
         } else {
             welcomeLabel.setText("Välkommen ");
+            userInfoLabel.setText("");
             resetProgress();
         }
     }
@@ -78,6 +79,13 @@ public class HomeController extends MainMenuControllerParent implements Initiali
         statisticsTrophy.setVisible(false);
         placeholderTrophy.setVisible(false);
         geometryTrophy.setVisible(false);
+        totalTrophy.setVisible(false);
+
+        countingPercent.setText(0 + "%");
+        statisticsPercent.setText(0 + "%");
+        placeholderPercent.setText(0 + "%");
+        geometryPercent.setText(0 + "%");
+        totalPercent.setText(0 + "%");
     }
 
     public void setProgress(){

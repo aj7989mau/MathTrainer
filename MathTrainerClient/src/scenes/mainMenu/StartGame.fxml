@@ -48,7 +48,7 @@
                      </font>
                   </Label>
                   <Button layoutX="273.0" layoutY="333.0" mnemonicParsing="false" onAction="#startGameClicked" prefHeight="51.0" prefWidth="132.0" styleClass="ConfirmButton" text="Starta spel!" />
-                  <Label fx:id="gameInformationLabel" layoutX="94.0" layoutY="418.0" prefHeight="80.0" prefWidth="492.0" styleClass="labelBlack" text="Ett räknespel på tid där du kan öva på att bemästra huvudräkning. Du får fyra frågor, ett för varje räknesätt, och har en minut på dig att besvara dem alla. Lycka till!">
+                  <Label fx:id="gameInformationLabel" layoutX="94.0" layoutY="418.0" prefHeight="80.0" prefWidth="492.0" styleClass="labelBlack" text="Ett räknespel på tid där du kan öva på att bemästra huvudräkning. Du får fyra frågor, en för varje räknesätt, och har en minut på dig att besvara dem alla. Lycka till!">
                      <font>
                         <Font size="14.0" />
                      </font>

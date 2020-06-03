@@ -33,7 +33,7 @@
                   <Button fx:id="statisticsButton" layoutX="70.0" layoutY="79.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="BlueOWL" stylesheets="@../../entity/style.css" text="Statistik" />
                   <Button fx:id="geometryButton" layoutX="378.0" layoutY="79.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="YellowOWLD" stylesheets="@../../entity/style.css" text="Geometri" />
                   <Button fx:id="additionButton" layoutX="70.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="GreenOWL" stylesheets="@../../entity/style.css" text="Räknesätten" />
-                  <Button fx:id="placeholderButton" layoutX="378.0" layoutY="289.0" mnemonicParsing="false" onAction="#startGame" prefHeight="173.0" prefWidth="226.0" styleClass="RedOWL" stylesheets="@../../entity/style.css" text="Slumpade frågor" />
+                  <Button fx:id="placeholderButton" layoutX="378.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="173.0" prefWidth="226.0" styleClass="RedOWL" stylesheets="@../../entity/style.css" text="Slumpade frågor" />
                   <ImageView fitHeight="82.0" fitWidth="67.0" layoutX="378.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/REDredOWLCapture.png" />
