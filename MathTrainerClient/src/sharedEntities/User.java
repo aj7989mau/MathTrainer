@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
     private String userName;
-    private int age;
+    private int year;
     private String email;
     private String password;
     private String school;
@@ -32,14 +32,14 @@ public class User implements Serializable {
     /**
      * Constructor
      * @param userName name of the user
-     * @param age age of the user
+     * @param year age of the user
      * @param id unique id of the user
      * //@param type is the user a student or a teacher
      */
-    public User(String userName, int age, String email, String password, String school, String town, String id)
+    public User(String userName, int year, String email, String password, String school, String town, String id)
     {
         this.userName = userName;
-        this.age = age;
+        this.year = year;
         this.email = email;
         this.password = password;
         this.school = school;
@@ -47,6 +47,13 @@ public class User implements Serializable {
         this.id = id;
     }
 
+    public User(String username, String password, String city, String school, Object year) {
+        this.userName = username;
+        this.password = password;
+        this.town = city;
+        this.school = school;
+        this.year = Integer.parseInt(year.toString());
+    }
 
 
     public String getUserName() {
@@ -60,10 +67,22 @@ public class User implements Serializable {
     public String getPassword() { return password; }
 
 
-    public User(String userName, int age, String id) {
+    public User(String userName, int year, String id) {
         this.userName = userName;
-        this.age = age;
+        this.year = year;
         this.id = id;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public String getTown() {
+        return town;
     }
 
     public String toString() {
@@ -72,4 +91,5 @@ public class User implements Serializable {
                 ", password = " + password +
                 '}';
     }
+
 }

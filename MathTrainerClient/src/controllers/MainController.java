@@ -117,8 +117,8 @@ public class MainController {
      * @param password
      * @author Niklas Hultin
      */
-    public void newUser(String username, String password){
-        currentUser = new User(username, password);
+    public void newUser(String username, String password, String city, String school, Object year){
+        currentUser = new User(username, password, city, school, year);
         Object returnValue = networkController.sendRequest("NewUser", currentUser);
 
         if (returnValue instanceof User) {
@@ -187,6 +187,8 @@ public class MainController {
                 indexToChange = 3;
             } else if (currentCategory.equals("Statistics")) {
                 indexToChange = 1;
+            } else if (currentCategory.equals("Random")) {
+                indexToChange = 2;
             }
 
             if (score > updatedResults[indexToChange]) {
