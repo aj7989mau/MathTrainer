@@ -51,7 +51,7 @@ public class NewUserController extends SceneControllerParent implements Initiali
         } else if (password.getText().length() < 6){
             mainController.popUpWindow(Alert.AlertType.ERROR, "Lösenordet är för kort", "Lösenordet måste vara minst 6 tecken långt");
         } else {
-            mainController.newUser(username.getText(), password.getText());
+            mainController.newUser(username.getText(), password.getText(), city.getText(), school.getText(), year.getValue());
         }
     }
 
