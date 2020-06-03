@@ -41,8 +41,8 @@ public abstract class MainMenuControllerParent extends SceneControllerParent {
      * Changes to the scene for national tests.
      * @param actionEvent
      */
-    public void nationalTestButtonClicked(ActionEvent actionEvent) {
-        mainController.setScene(ScenesEnum.NationalTest);
+    public void gameButtonClicked(ActionEvent actionEvent) {
+        mainController.startGameSceneSetup();
     }
 
     /**

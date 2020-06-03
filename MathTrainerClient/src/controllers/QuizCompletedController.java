@@ -4,6 +4,7 @@ import entity.ScenesEnum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import sharedEntities.Questions;
 
 import java.awt.*;
@@ -22,6 +23,8 @@ public class QuizCompletedController extends SceneControllerParent implements In
     private Label scoreLabel;
     @FXML
     private Label feedbackLabel;
+    @FXML
+    private ImageView imageTrophy;
 
     private Questions[] questions;
     private int score;
@@ -51,7 +54,8 @@ public class QuizCompletedController extends SceneControllerParent implements In
 
     public void showFeedback(int score){
         if (score == questions.length){
-            feedbackLabel.setText("Wow! Full pott!! #SwagLife #YoloSwaggins");
+            feedbackLabel.setText("Wow! Full pott!!");
+            imageTrophy.setVisible(true);
         } else if (score >= questions.length*0.75){
             feedbackLabel.setText("Bra jobbat! Du kanske till och med kan få alla rätt nästa gång?");
         } else if (score >= (questions.length*0.5)){
@@ -66,6 +70,7 @@ public class QuizCompletedController extends SceneControllerParent implements In
     public void setInitialValues(Object object) {
         questions = (Questions[]) object;
         feedbackLabel.setWrapText(true);
+        imageTrophy.setVisible(false);
         setResult();
     }
 }

@@ -36,6 +36,18 @@ public class HomeController extends MainMenuControllerParent implements Initiali
     ImageView geometryTrophy;
     @FXML
     ImageView totalTrophy;
+    @FXML
+    Label userInfoLabel;
+    @FXML
+    Label statisticsPercent;
+    @FXML
+    Label countingPercent;
+    @FXML
+    Label geometryPercent;
+    @FXML
+    Label placeholderPercent;
+    @FXML
+    Label totalPercent;
 
     private User user;
     private int[] results;
@@ -46,12 +58,26 @@ public class HomeController extends MainMenuControllerParent implements Initiali
             user = (User) object;
             welcomeLabel.setText("Välkommen " + user.getUserName());
             results = user.getResults();
+            userInfoLabel.setText(user.getUserName() + "\n" + "Årskurs 6" + "\n" + "Exempelskola");
 
             setProgress();
-
         } else {
             welcomeLabel.setText("Välkommen ");
+            resetProgress();
         }
+    }
+
+    private void resetProgress() {
+        pbCounting.setProgress((double) 0/10);
+        pbStatistics.setProgress((double) 0/10);
+        pbPlaceholder.setProgress((double) 0/10);
+        pbGeometry.setProgress((double) 0/10);
+        pbAllCategories.setProgress((double) 0/40);
+
+        countingTrophy.setVisible(false);
+        statisticsTrophy.setVisible(false);
+        placeholderTrophy.setVisible(false);
+        geometryTrophy.setVisible(false);
     }
 
     public void setProgress(){
@@ -64,6 +90,12 @@ public class HomeController extends MainMenuControllerParent implements Initiali
         pbPlaceholder.setProgress((double) results[2]/10);
         pbGeometry.setProgress((double) results[3]/10);
         pbAllCategories.setProgress((double) total/40);
+
+        countingPercent.setText(results[0]*10 + "%");
+        statisticsPercent.setText(results[1]*10 + "%");
+        placeholderPercent.setText(results[2]*10 + "%");
+        geometryPercent.setText(results[3]*10 + "%");
+        totalPercent.setText(total*2.5 + "%");
 
         if (results[0] == 10){
             countingTrophy.setVisible(true);
@@ -88,7 +120,6 @@ public class HomeController extends MainMenuControllerParent implements Initiali
         } else {
             geometryTrophy.setVisible(false);
         }
-
 
         if (total == 40){
             totalTrophy.setVisible(true);
