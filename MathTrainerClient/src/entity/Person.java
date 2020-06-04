@@ -16,6 +16,7 @@ private StringProperty firstName = new SimpleStringProperty(this, "firstName", "
     }
 
 
+    
     public void setFirstName(String firstName) {
         this.firstName.set(firstName);
     }
