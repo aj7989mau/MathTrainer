@@ -280,6 +280,7 @@ public class MainController {
         setInitialValueOfScene(currentQuiz);
     }
 
+
     /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
      * for communication, and handles communication with the ScenesHashmap. It also sets up the current scene.
