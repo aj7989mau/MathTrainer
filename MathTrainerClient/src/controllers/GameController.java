@@ -1,18 +1,24 @@
 package controllers;
 
 import entity.ScenesEnum;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.util.Duration;
 
-
-import javax.management.timer.Timer;
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.util.Random;
-import java.util.TimerTask;
+import java.util.Scanner;
+
+
 //Denna är kopplad till GameScene
 
 /**
@@ -24,120 +30,189 @@ import java.util.TimerTask;
 public class GameController extends SceneControllerParent implements InitializeSceneInterface {
     public Label matematicLbl;
     public Label timeremaininglbl;
-    public Label label;
+    public Label countdownLabel = new Label();
     public Button quitGame;
 
     public Label plusLeftLabel;
     public Label plusRightLabel;
-
     public Label minusLeftLabel;
     public Label minusRightLabel;
-
     public Label devidedLeftLabel;
     public Label devidedRightLabel;
-
     public Label plusLbl;
     public Label minusLbl;
     public Label addLbl;
     public Label dividedLbl;
-    public Spinner<Integer> sumPlus;
-    public Spinner sumMinus;
-    public Button startQuiz;
-    public Spinner sumAdd;
-    public Spinner sumDivided;
+    public Button startQuiz = new Button();
 
     public Label additionRightLabel;
     public Label additionLeftLabel;
+    public Button answerBtn;
+    public Label equals;
+    public Label equals1;
+    public Label equals2;
+    public Label equals3;
+    public AnchorPane panelBtn;
+    public TextField sumPlus;
+    public TextField sumMinus;
+    public TextField sumMulti;
+    public TextField sumDiv;
 
-    private Random random = new Random();
-    private int numb1;
-    private int numb2;
-    private int numb3;
-    private int numb4;
-    private int numb5;
-    private int numb6;
-    private int numb7;
-    private int numb8;
+    private int numb1 = (int) (40 * Math.random()) + 1;
+    private int numb2 = (int) (40 * Math.random()) + 1;
+    private int numb3 = (int) (40 * Math.random()) + 1;
+    private int numb4 = (int) (40 * Math.random()) + 1;
+    private int numb5 = (int) (10 * Math.random()) + 1;
+    private int numb6 = (int) (10 * Math.random()) + 1;
 
-    private int count;
-    private Timer timer;
-    int seconds = 3;
+    private int numb8 = (int) (10 * Math.random()) + 1;
+    private int numb7 = (int) (numb8 * Math.random()) + 1;
+    private int sum, sum1, sum2, sum3;
 
+    private static final Integer STARTTIME = 60;
+    private Timeline timeline = new Timeline();
+    private Integer timeSeconds = STARTTIME;
+    
 
     public GameController() {
 
     }
 
-
+    /**
+     * This method is if you want to quit the game. Ends the quiz and ends the clock.
+     */
     public void quitGame(ActionEvent actionEvent) {
         boolean answer = mainController.popUpWindow(Alert.AlertType.CONFIRMATION, "Avsluta?", "Är du säker på att du vill avsluta, dina svar sparas inte");
         if (answer) {
             mainController.setScene(ScenesEnum.Exercises);
-
             startQuiz.setDisable(false);
+            timeline.stop();
         }
     }
 
-    @java.lang.Override
+    @Override
     public void setInitialValues(Object object) {
 
     }
 
+    /**
+     * This method starts the game, and adds all the random values and starts the timer.
+     */
     public void startQuiz() {
-        // Fill in the addition problem.
-        // Store the values in the variables 'num1' and 'num2'.
-        numb1 = random.nextInt(49);
-        numb2 = random.nextInt(49);
-
-        // Convert the two randomly generated numbers into strings so that they can be displayed
-        // in the label controls.
         plusLeftLabel.setText(String.valueOf(numb1));
         plusRightLabel.setText(String.valueOf(numb2));
-
-        // 'sumplus' is the name of the spinner control.
-        // This step makes sure its value is zero before adding any values to it.
-
-        numb3 = random.nextInt(49);
-        numb4 = random.nextInt(49);
-
         minusLeftLabel.setText(String.valueOf(numb3));
         minusRightLabel.setText(String.valueOf(numb4));
-
-        numb5 = random.nextInt(49);
-        numb6 = random.nextInt(49);
-
         additionLeftLabel.setText(String.valueOf(numb5));
         additionRightLabel.setText(String.valueOf(numb6));
-
-        numb7 = random.nextInt(49);
-        numb8 = random.nextInt(49);
-
         devidedLeftLabel.setText(String.valueOf(numb7));
         devidedRightLabel.setText(String.valueOf(numb8));
 
-        SpinnerValueFactory<Integer> sumValue = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
-        this.sumPlus.setValueFactory(sumValue);
-
-        SpinnerValueFactory<Integer> sumMinus = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
-        this.sumMinus.setValueFactory(sumMinus);
-
-        SpinnerValueFactory<Integer> sumAdd = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
-        this.sumAdd.setValueFactory(sumAdd);
-
-        SpinnerValueFactory<Integer> sumDivided = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
-        this.sumDivided.setValueFactory(sumDivided);
-
         startQuiz.setDisable(true);
-        countdown();
+        timer();
 
 
     }
 
-    private void countdown() {
+    /**
+     * Method that adds a timer to the game
+     */
+    public void timer() {
+        countdownLabel.setText(timeSeconds.toString());
+        if (timeline != null) {
+            timeline.stop();
+        }
+        timeSeconds = STARTTIME;
+        countdownLabel.setTextFill(Color.RED);
+        countdownLabel.setText(timeSeconds.toString());
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(1),
+                        new EventHandler() {
 
+                            @Override
+                            public void handle(Event event) {
+                                timeSeconds--;
+                                countdownLabel.setText(timeSeconds.toString());
+                                if (timeSeconds <= 0) {
+                                    timeline.stop();
+                                    CheckAnswer();
+
+                                }
+                            }
+                        }));
+        timeline.playFromStart();
     }
 
+    /**
+     * If time is up, game ends
+     */
+    public void showAlert() {
+        Platform.runLater(new Runnable() {
+            public void run() {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Gameover");
+                alert.setHeaderText("Tiden är ute, men försök en gång till!");
+                alert.showAndWait();
+            }
+        });
+    }
+
+    /**
+     *check if answer is correct
+     */
+
+    public void CheckAnswer() {
+        sum = numb1 + numb2;
+        sum1 = numb3 - numb4;
+        sum2 = numb5 * numb6;
+        sum3 = numb7 / numb8;
+        int answer = Integer.parseInt(sumPlus.getText());
+        int answer1 = Integer.parseInt(sumMinus.getText());
+        int answer2 = Integer.parseInt(sumMulti.getText());
+        int answer3 = Integer.parseInt(sumDiv.getText());
+        int correctAnswer = 0;
+        if (answer == sum) {
+            correctAnswer++;
+            //sumPlus.setStyle("-fx-control-inner-background: #b2ff59");
+
+            sumPlus.setStyle("-fx-control-inner-background: #");
+
+        }
+        else {
+
+
+        }
+        if (answer1 == sum1){
+            correctAnswer++;
+
+
+        }
+        else{
+
+        }
+        if (answer2 == sum2){
+            correctAnswer++;
+
+        }
+        else{
+
+        }
+        if (answer3 == sum3){
+            correctAnswer++;
+
+        }
+        else{
+
+        }
+        timeline.stop();
+        answerBtn.setDisable(true);
+        startQuiz.setDisable(false);
+        System.out.println("Rätt" + correctAnswer);
+    }
 }
+
 
 
 

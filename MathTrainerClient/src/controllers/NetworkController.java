@@ -16,7 +16,7 @@ import java.net.UnknownHostException;
 public class NetworkController {
     private Socket socket;
     private String IP;
-    private static final int PORT = 4560;
+    private static final int PORT = 7890;
 
     /**
      * Creates the socket that connects to the server, gets buffers (from MainController) and starts the threads for
@@ -25,7 +25,7 @@ public class NetworkController {
      */
     private void establishConnection(){
         try {
-            IP = InetAddress.getLocalHost().getHostAddress();
+            IP = InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }

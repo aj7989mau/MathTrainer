@@ -25,24 +25,22 @@ public class ExercisesController extends MainMenuControllerParent {
 
     /**
      * This method is used when the user hits the button to select which quiz they want to enter.
+     *
      * @param actionEvent The button action
      */
-    public void buttonClicked(ActionEvent actionEvent){
+    public void buttonClicked(ActionEvent actionEvent) {
         String questions = "Questions ";
 
         if (actionEvent.getSource() == additionButton) {
 
             questions += "Counting";
-        } else if ( actionEvent.getSource() == geometryButton){
+        } else if (actionEvent.getSource() == geometryButton) {
             questions += "Geometry";
-        }
-        else if ( actionEvent.getSource() ==  statisticsButton){
+        } else if (actionEvent.getSource() == statisticsButton) {
             questions += "Statistics";
+        } else if (actionEvent.getSource() == placeholderButton) {
+            questions += "Random";
         }
         mainController.takeQuiz(questions);
-    }
-
-    public void startGame(ActionEvent actionEvent){
-        mainController.setScene(ScenesEnum.Game);
     }
 }

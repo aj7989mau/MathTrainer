@@ -7,6 +7,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import Questions.Sixth;
 import sharedEntities.User;
@@ -57,14 +60,21 @@ public class MServer extends Thread {
         // Starting server
         serverSocket = new ServerSocket(port);
         System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
+        //creating a thread pool that generates threads for clients demand
+       // ExecutorService executor = Executors.newCachedThreadPool();
         while (keepRunning) {
 
             try {
 
                 Socket connect = serverSocket.accept();
                 System.out.println("Connection successful");
+               // executor.execute(new ClientHandler(connect));
                 Thread t = new ClientHandler(connect);
                 t.start();
+               /* if (!keepRunning)
+                {
+                    executor.shutdown();
+                }*/
             } catch (Exception e) {
                 serverSocket.close();
                 e.printStackTrace();
@@ -98,7 +108,7 @@ public class MServer extends Thread {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        new MServer(4560);
+        new MServer(7890);
     }
 
     /**
@@ -137,7 +147,7 @@ public class MServer extends Thread {
          */
         public void run() {
             try {
-                Server.Course course = null;
+                Course course = null;
                 Questions[] questions = null;
                 try {
                     String input = ois.readUTF();
@@ -156,11 +166,17 @@ public class MServer extends Thread {
                         User user = (User) ois.readObject();
                         boolean isUserNew = newUser(user);
                         if (isUserNew) {
-                            usersList.add(user);
-                            //Adding new user to the text file as well
-                            ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
-                            fileStream.writeObject(user);
-                            fileStream.flush();
+                            //Thread safety, if more clients wants to access this shared array userList, only one client
+                            //at a time will be added to added.
+                            Object lock = new Object();
+                            synchronized (lock){
+                                usersList.add(user);
+                                //Adding new user to the text file as well
+                                ObjectOutputStream fileStream = new ObjectOutputStream(new FileOutputStream(fileLocation));
+                                fileStream.writeObject(user);
+                                fileStream.flush();
+                            }
+
                             //Sending it back to the client
                             oos.writeObject(user);
 
@@ -179,7 +195,10 @@ public class MServer extends Thread {
                             oos.writeObject(course.getFourCountQuestions());
                         } else if (answerTypeOfQuestion.equals("Statistics")) {
                             oos.writeObject(course.getStatisticQuestion());
+                        } else if (answerTypeOfQuestion.equals("Random")) {
+                            oos.writeObject(course.getRandomiseQuestions());
                         }
+
                         //Todo: else sats om något är ogiltigt har valts
                     } else if (input.equals("Result")) {
                         //TODO: Klienten skickar ett User-objekt
