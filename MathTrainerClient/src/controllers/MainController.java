@@ -270,6 +270,11 @@ public class MainController {
         setInitialValueOfScene(currentUser);
     }
 
+    public void startSettingsScene() {
+        sceneSetter.setScene(ScenesEnum.Settings);
+        setInitialValueOfScene(currentUser);
+    }
+
     /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
      * for communication, and handles communication with the ScenesHashmap. It also sets up the current scene.
@@ -326,7 +331,7 @@ public class MainController {
 
             FXMLLoader gameLoader = new FXMLLoader(getClass().getResource("../scenes/GameScene.fxml"));
             Scene gameScene = new Scene(gameLoader.load());
-            settingsScene.setUserData(gameScene);
+            gameScene.setUserData(gameScene);
             sendSelfToControllers(gameLoader);
 
 

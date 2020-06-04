@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
 import java.util.Random;
@@ -61,11 +62,12 @@ public class GameController extends SceneControllerParent implements InitializeS
     private int numb2 = (int) (40 * Math.random()) + 1;
     private int numb3 = (int) (40 * Math.random()) + 1;
     private int numb4 = (int) (40 * Math.random()) + 1;
-    private int numb5 = (int) (40 * Math.random()) + 1;
-    private int numb6 = (int) (40 * Math.random()) + 1;
-    private int numb7 = (int) (40 * Math.random()) + 1;
-    private int numb8 = (int) (40 * Math.random()) + 1;
-    private int sum;
+    private int numb5 = (int) (10 * Math.random()) + 1;
+    private int numb6 = (int) (10 * Math.random()) + 1;
+
+    private int numb8 = (int) (10 * Math.random()) + 1;
+    private int numb7 = (int) (numb8 * Math.random()) + 1;
+    private int sum, sum1, sum2, sum3;
 
     private static final Integer STARTTIME = 60;
     private Timeline timeline = new Timeline();
@@ -117,8 +119,6 @@ public class GameController extends SceneControllerParent implements InitializeS
      */
     public void timer() {
         countdownLabel.setText(timeSeconds.toString());
-        //timerLabel.setTextFill(Color.RED);
-        //timerLabel.setStyle("-fx-font-size: 4em;");
         if (timeline != null) {
             timeline.stop();
         }
@@ -137,7 +137,7 @@ public class GameController extends SceneControllerParent implements InitializeS
                                 countdownLabel.setText(timeSeconds.toString());
                                 if (timeSeconds <= 0) {
                                     timeline.stop();
-                                    showAlert();
+                                    CheckAnswer();
 
                                 }
                             }
@@ -160,28 +160,56 @@ public class GameController extends SceneControllerParent implements InitializeS
     }
 
     /**
-     *
-     * @param actionEvent check if answer is correct
+     *check if answer is correct
      */
 
-    public void CheckAnswer(ActionEvent actionEvent) {
+    public void CheckAnswer() {
         sum = numb1 + numb2;
-        Scanner keyboard = new Scanner(System.in);
-        String sInput = keyboard.nextLine();
-        int answer1 = Integer.parseInt(sInput);
-        if (answer1 == sum) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Alla rätt");
-            alert.setHeaderText("Alla svar är rätt");
-            alert.showAndWait();
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Fel svar");
-            alert.setHeaderText("Fel svar, men försök gärna igen!");
-            alert.showAndWait();
+        sum1 = numb3 - numb4;
+        sum2 = numb5 * numb6;
+        sum3 = numb7 / numb8;
+        int answer = Integer.parseInt(sumPlus.getText());
+        int answer1 = Integer.parseInt(sumMinus.getText());
+        int answer2 = Integer.parseInt(sumMulti.getText());
+        int answer3 = Integer.parseInt(sumDiv.getText());
+        int correctAnswer = 0;
+        if (answer == sum) {
+            correctAnswer++;
+            //sumPlus.setStyle("-fx-control-inner-background: #b2ff59");
+
+            sumPlus.setStyle("-fx-control-inner-background: #");
 
         }
+        else {
+
+
+        }
+        if (answer1 == sum1){
+            correctAnswer++;
+
+
+        }
+        else{
+
+        }
+        if (answer2 == sum2){
+            correctAnswer++;
+
+        }
+        else{
+
+        }
+        if (answer3 == sum3){
+            correctAnswer++;
+
+        }
+        else{
+
+        }
+        timeline.stop();
+        answerBtn.setDisable(true);
+        startQuiz.setDisable(false);
+        System.out.println("Rätt" + correctAnswer);
     }
 }
 

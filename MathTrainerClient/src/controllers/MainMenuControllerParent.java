@@ -45,12 +45,13 @@ public abstract class MainMenuControllerParent extends SceneControllerParent {
         mainController.startGameSceneSetup();
     }
 
+
     /**
      * Changes to the settings scene.
      * @param actionEvent
      */
     public void settingsButtonClicked(ActionEvent actionEvent) {
-        mainController.setScene(ScenesEnum.Settings);
+        mainController.startSettingsScene();
     }
 
     /**
