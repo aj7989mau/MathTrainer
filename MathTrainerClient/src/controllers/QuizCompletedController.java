@@ -51,7 +51,7 @@ public class QuizCompletedController extends SceneControllerParent implements In
 
     public void showFeedback(int score){
         if (score == questions.length){
-            feedbackLabel.setText("Wow! Full pott!! #SwagLife #YoloSwaggins");
+            feedbackLabel.setText("Wow! Full pott!!");
         } else if (score >= questions.length*0.75){
             feedbackLabel.setText("Bra jobbat! Du kanske till och med kan få alla rätt nästa gång?");
         } else if (score >= (questions.length*0.5)){

@@ -39,7 +39,7 @@ public class Sixth extends Course {
     public Sixth() {
 
         String n = "\n";
-        statisticLoc = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/Statistic.txt";
+        statisticLoc = "C:\\Users\\Bajra\\Documents\\GitHub\\MathTrainer\\MathTrainerServer\\Statistic.txt";
         geoLoc = "";
         FouCountLoc = "";
         readStatQue();
@@ -118,6 +118,8 @@ public class Sixth extends Course {
         statisticList = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(statisticLoc));
+
+
             while ((line = reader.readLine()) != null)
             {
                 statisticList.add(line);
