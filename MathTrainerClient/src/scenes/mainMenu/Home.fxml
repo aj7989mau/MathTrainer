@@ -16,38 +16,10 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="273.0" styleClass="LeftAnchi" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <Button layoutX="21.0" layoutY="227.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="34.0" onMouseClicked="#homeButtonClicked" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/exerrcisebr.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Button layoutX="21.0" layoutY="305.0" mnemonicParsing="false" onAction="#nationalTestButtonClicked" styleClass="buttonReal" text="Nationellt prov" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="34.0" onMouseClicked="#homeButtonClicked" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/whitelistwhitelist.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Button layoutX="21.0" layoutY="384.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="34.0" onMouseClicked="#homeButtonClicked" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/cog.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Button disable="true" layoutX="22.0" layoutY="147.0" mnemonicParsing="false" onAction="#homeButtonClicked" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0">
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="17.0" onMouseClicked="#homeButtonClicked" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/whitehome.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
+                  <Button layoutX="21.0" layoutY="227.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+                  <Button layoutX="21.0" layoutY="305.0" mnemonicParsing="false" onAction="#gameButtonClicked" styleClass="buttonReal" text="Spel" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+                  <Button layoutX="21.0" layoutY="384.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+                  <Button disable="true" layoutX="22.0" layoutY="147.0" mnemonicParsing="false" onAction="#homeButtonClicked" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
                   <ImageView id="thisisUntitled-1-Recovered" fitHeight="207.0" fitWidth="199.0" layoutX="14.0" layoutY="-115.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../images/thisisUntitled-1-Recovered.png" />
@@ -71,57 +43,88 @@
                      </children>
                   </AnchorPane>
                   <Button layoutX="63.0" layoutY="143.0" mnemonicParsing="false" prefHeight="379.0" prefWidth="553.0" styleClass="MenuButton" />
-                  <ProgressBar fx:id="pbCounting" layoutX="270.0" layoutY="180.0" prefWidth="200.0" progress="1.0" />
-                  <ProgressBar fx:id="pbStatistics" layoutX="270.0" layoutY="254.0" prefWidth="200.0" progress="0.59" styleClass="green-bar" />
-                  <ProgressBar fx:id="pbPlaceholder" layoutX="270.0" layoutY="322.0" prefWidth="200.0" progress="0.39" styleClass="orange-bar" />
-                  <ProgressBar fx:id="pbGeometry" layoutX="270.0" layoutY="390.0" prefWidth="200.0" progress="0.78" styleClass="red-bar" />
-                  <ImageView fitHeight="46.0" fitWidth="145.0" layoutX="558.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+                  <ProgressBar fx:id="pbStatistics" layoutX="268.0" layoutY="234.0" prefWidth="200.0" progress="0.0" />
+                  <ProgressBar fx:id="pbCounting" layoutX="268.0" layoutY="286.0" prefWidth="200.0" progress="0.0" styleClass="green-bar" />
+                  <ProgressBar fx:id="pbAllCategories" layoutX="270.0" layoutY="477.0" prefWidth="200.0" progress="0.0" styleClass="orange-bar" />
+                  <ProgressBar fx:id="pbPlaceholder" layoutX="270.0" layoutY="390.0" prefWidth="200.0" progress="0.0" styleClass="red-bar" />
+                  <ImageView fx:id="totalTrophy" fitHeight="46.0" fitWidth="145.0" layoutX="558.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="statisticsTrophy" fitHeight="46.0" fitWidth="41.0" layoutX="554.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <ProgressBar fx:id="pbAllCategories" layoutX="270.0" layoutY="474.0" prefWidth="200.0" progress="0.52" styleClass="yellow-bar" />
-                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+                  <ProgressBar fx:id="pbGeometry" layoutX="270.0" layoutY="339.0" prefWidth="200.0" progress="0.0" styleClass="yellow-bar" />
+                  <ImageView fx:id="countingTrophy" fitHeight="46.0" fitWidth="41.0" layoutX="555.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="geometryTrophy" fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="placeholderTrophy" fitHeight="46.0" fitWidth="41.0" layoutX="556.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/diamondtrophy-cartoon-award-drawing-prize-animation-medal-cdr-blue-png-clipart.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="81.0" layoutY="174.0" prefHeight="29.0" prefWidth="181.0" styleClass="labelBlack" text="4 räknesätt">
+                  <Label layoutX="81.0" layoutY="280.0" prefHeight="29.0" prefWidth="181.0" styleClass="labelBlack" text="Räknesätten">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="81.0" layoutY="251.0" styleClass="labelBlack" text="Statistik">
+                  <Label layoutX="79.0" layoutY="228.0" styleClass="labelBlack" text="Statistik">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="84.0" layoutY="321.0" styleClass="labelBlack" text="Placeholder">
+                  <Label layoutX="81.0" layoutY="384.0" styleClass="labelBlack" text="Slumpade frågor">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="84.0" layoutY="387.0" styleClass="labelBlack" text="Geometri">
+                  <Label layoutX="81.0" layoutY="333.0" styleClass="labelBlack" text="Geometri">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                   <Label layoutX="84.0" layoutY="471.0" styleClass="labelBlack" text="Alla övningar">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="76.0" layoutY="160.0" styleClass="labelBlack" text="Dina bästa resultat">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="userInfoLabel" layoutX="411.0" layoutY="145.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="65.0" prefWidth="197.0" styleClass="labelBlack" text="Example" />
+                  <Label fx:id="statisticsPercent" layoutX="476.0" layoutY="227.0" prefHeight="30.0" prefWidth="77.0" styleClass="labelBlack" text="0%">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="countingPercent" layoutX="476.0" layoutY="280.0" prefHeight="30.0" prefWidth="77.0" styleClass="labelBlack" text="0%">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="geometryPercent" layoutX="476.0" layoutY="333.0" prefHeight="30.0" prefWidth="77.0" styleClass="labelBlack" text="0%">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="placeholderPercent" layoutX="476.0" layoutY="384.0" prefHeight="30.0" prefWidth="77.0" styleClass="labelBlack" text="0%">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalPercent" layoutX="476.0" layoutY="471.0" prefHeight="30.0" prefWidth="77.0" styleClass="labelBlack" text="0%">
                      <font>
                         <Font size="20.0" />
                      </font>
