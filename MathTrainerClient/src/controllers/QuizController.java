@@ -113,8 +113,8 @@ public class QuizController extends SceneControllerParent implements InitializeS
       RadioButton selectedButton = (RadioButton) Group1.getSelectedToggle();
         System.out.println(questions);
         if (selectedButton.getText().equals(questions[questionNumber].getAnswer())){
-            questions[questionNumber].correctAnswer(true);
-        } else {questions[questionNumber].correctAnswer(false);
+            questions[questionNumber].correctAnswer(true, selectedButton.getText());
+        } else {questions[questionNumber].correctAnswer(false, selectedButton.getText());
         }
     }
 

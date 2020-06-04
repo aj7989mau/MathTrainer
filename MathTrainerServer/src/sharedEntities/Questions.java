@@ -16,7 +16,7 @@ public class Questions implements Serializable {
 
     //Creating an array with 3 positions to save the wrong answers in it
     private String[] wrongAnswers = new String[3];
-
+    private String userAnswer;
 
     //private Course course;
     //Constructor
@@ -34,10 +34,14 @@ public class Questions implements Serializable {
     }
 
 
-    public void correctAnswer(boolean correctAnswer) {
+    public void correctAnswer(boolean correctAnswer, String userAnswer){
         this.correctAnswer = correctAnswer;
+        this.userAnswer = userAnswer;
     }
 
+    public String getUserAnswer() {
+        return userAnswer;
+    }
     public boolean getCorrectAnswer() {
         return correctAnswer;
     }

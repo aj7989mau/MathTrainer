@@ -73,4 +73,8 @@ public class QuizCompletedController extends SceneControllerParent implements In
         imageTrophy.setVisible(false);
         setResult();
     }
+
+    public void showAnswers(ActionEvent actionEvent) {
+        mainController.showDetailedResults();
+    }
 }

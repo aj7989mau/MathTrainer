@@ -275,6 +275,11 @@ public class MainController {
         setInitialValueOfScene(currentUser);
     }
 
+    public void showDetailedResults() {
+        sceneSetter.setScene(ScenesEnum.Results);
+        setInitialValueOfScene(currentQuiz);
+    }
+
     /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
      * for communication, and handles communication with the ScenesHashmap. It also sets up the current scene.
@@ -331,8 +336,13 @@ public class MainController {
 
             FXMLLoader gameLoader = new FXMLLoader(getClass().getResource("../scenes/GameScene.fxml"));
             Scene gameScene = new Scene(gameLoader.load());
-            gameScene.setUserData(gameScene);
+            gameScene.setUserData(gameLoader);
             sendSelfToControllers(gameLoader);
+
+            FXMLLoader resultsLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Results.fxml"));
+            Scene resultsScene = new Scene(resultsLoader.load());
+            resultsScene.setUserData(resultsLoader);
+            sendSelfToControllers(resultsLoader);
 
 
             scenes.put(ScenesEnum.LogIn, logInScene);
@@ -344,6 +354,7 @@ public class MainController {
             scenes.put(ScenesEnum.StartGame, startGameScene);
             scenes.put(ScenesEnum.Settings, settingsScene);
             scenes.put(ScenesEnum.Game, gameScene);
+            scenes.put(ScenesEnum.Results, resultsScene);
         }
 
         /**

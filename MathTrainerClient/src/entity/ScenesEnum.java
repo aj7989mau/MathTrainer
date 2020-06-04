@@ -15,5 +15,6 @@ public enum ScenesEnum {
     QuizCompleted,
     StartGame,
     Settings,
+    Results,
     Game
 }
