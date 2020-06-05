@@ -67,6 +67,7 @@ public class Questions implements Serializable {
     }
     public String toString() {
         return "Questions: " +
-                question;
+                question + "\n" + "Correct answer: " + answer + "\nWrong answer " + wrongAnswers[0] + " " + wrongAnswers[1] + " " + wrongAnswers[2];
+
     }
 }
