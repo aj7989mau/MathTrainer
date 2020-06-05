@@ -117,8 +117,8 @@ public class MainController {
      * @param password
      * @author Niklas Hultin
      */
-    public void newUser(String username, String password){
-        currentUser = new User(username, password);
+    public void newUser(String username, String password, String city, String school, Object year){
+        currentUser = new User(username, password, city, school, year);
         Object returnValue = networkController.sendRequest("NewUser", currentUser);
 
         if (returnValue instanceof User) {
@@ -187,6 +187,8 @@ public class MainController {
                 indexToChange = 3;
             } else if (currentCategory.equals("Statistics")) {
                 indexToChange = 1;
+            } else if (currentCategory.equals("Random")) {
+                indexToChange = 2;
             }
 
             if (score > updatedResults[indexToChange]) {
@@ -205,6 +207,8 @@ public class MainController {
             } else {
                 setScene(ScenesEnum.Home);
             }
+        } else {
+            setScene(ScenesEnum.Home);
         }
     }
 
@@ -258,6 +262,25 @@ public class MainController {
     }
 
     /**
+     * Changes to the game start-up scene. The initial values of the scene varies depend if currentUser is null or not.
+     * @author Niklas Hultin
+     */
+    public void startGameSceneSetup() {
+        sceneSetter.setScene(ScenesEnum.StartGame);
+        setInitialValueOfScene(currentUser);
+    }
+
+    public void startSettingsScene() {
+        sceneSetter.setScene(ScenesEnum.Settings);
+        setInitialValueOfScene(currentUser);
+    }
+
+    public void showDetailedResults() {
+        sceneSetter.setScene(ScenesEnum.Results);
+        setInitialValueOfScene(currentQuiz);
+    }
+
+    /**
      * Inner class SceneSetter handles the Scenes. It loads them, hands over the controllers to the MainController
      * for communication, and handles communication with the ScenesHashmap. It also sets up the current scene.
      * @author Niklas Hultin
@@ -301,10 +324,10 @@ public class MainController {
             quizCompletedScene.setUserData(quizCompletedLoader);
             sendSelfToControllers(quizCompletedLoader);
 
-            FXMLLoader nationalTestLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/NationalTest.fxml"));
-            Scene nationalTestScene = new Scene(nationalTestLoader.load());
-            nationalTestScene.setUserData(nationalTestLoader);
-            sendSelfToControllers(nationalTestLoader);
+            FXMLLoader startGameLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/StartGame.fxml"));
+            Scene startGameScene = new Scene(startGameLoader.load());
+            startGameScene.setUserData(startGameLoader);
+            sendSelfToControllers(startGameLoader);
 
             FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Settings.fxml"));
             Scene settingsScene = new Scene(settingsLoader.load());
@@ -313,8 +336,13 @@ public class MainController {
 
             FXMLLoader gameLoader = new FXMLLoader(getClass().getResource("../scenes/GameScene.fxml"));
             Scene gameScene = new Scene(gameLoader.load());
-            settingsScene.setUserData(gameScene);
+            gameScene.setUserData(gameLoader);
             sendSelfToControllers(gameLoader);
+
+            FXMLLoader resultsLoader = new FXMLLoader(getClass().getResource("../scenes/mainMenu/Results.fxml"));
+            Scene resultsScene = new Scene(resultsLoader.load());
+            resultsScene.setUserData(resultsLoader);
+            sendSelfToControllers(resultsLoader);
 
 
             scenes.put(ScenesEnum.LogIn, logInScene);
@@ -323,9 +351,10 @@ public class MainController {
             scenes.put(ScenesEnum.Exercises, exercisesScene);
             scenes.put(ScenesEnum.Quiz, quizScene);
             scenes.put(ScenesEnum.QuizCompleted, quizCompletedScene);
-            scenes.put(ScenesEnum.NationalTest, nationalTestScene);
+            scenes.put(ScenesEnum.StartGame, startGameScene);
             scenes.put(ScenesEnum.Settings, settingsScene);
             scenes.put(ScenesEnum.Game, gameScene);
+            scenes.put(ScenesEnum.Results, resultsScene);
         }
 
         /**
