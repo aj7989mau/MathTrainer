@@ -15,10 +15,38 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="273.0" styleClass="LeftAnchi" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <Button layoutX="21.0" layoutY="227.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
-                  <Button disable="true" layoutX="21.0" layoutY="305.0" mnemonicParsing="false" onAction="#gameButtonClicked" styleClass="buttonReal" text="Spel" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
-                  <Button layoutX="21.0" layoutY="384.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" />
-                  <Button layoutX="22.0" layoutY="147.0" mnemonicParsing="false" onAction="#homeButtonClicked" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
+                  <Button layoutX="21.0" layoutY="227.0" mnemonicParsing="false" onAction="#exercisesButtonClicked" styleClass="buttonReal" text="Övningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/cogUntitled-1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button disable="true" layoutX="21.0" layoutY="305.0" mnemonicParsing="false" onAction="#gameButtonClicked" styleClass="buttonReal" text="Spel" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/Ctonrolla.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="21.0" layoutY="384.0" mnemonicParsing="false" onAction="#settingsButtonClicked" styleClass="buttonReal" text="Inställningar" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/SettingCOG.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="22.0" layoutY="147.0" mnemonicParsing="false" onAction="#homeButtonClicked" styleClass="buttonReal" text="Hem" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/whitehoooome.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <ImageView id="thisisUntitled-1-Recovered" fitHeight="207.0" fitWidth="199.0" layoutX="14.0" layoutY="-115.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../images/thisisUntitled-1-Recovered.png" />
