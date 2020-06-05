@@ -50,7 +50,6 @@ public class Sixth extends Course {
         //four counting ways
         initFourCountQuestions();
 
-
         //slumpade frågor
         initRandomlyQuestion();
 
