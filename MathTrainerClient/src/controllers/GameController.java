@@ -72,7 +72,7 @@ public class GameController extends SceneControllerParent implements InitializeS
     private static final Integer STARTTIME = 60;
     private Timeline timeline = new Timeline();
     private Integer timeSeconds = STARTTIME;
-    
+
 
     public GameController() {
 
