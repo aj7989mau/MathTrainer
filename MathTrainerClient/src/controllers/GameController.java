@@ -176,35 +176,35 @@ public class GameController extends SceneControllerParent implements InitializeS
         if (answer == sum) {
             correctAnswer++;
             //sumPlus.setStyle("-fx-control-inner-background: #b2ff59");
-
-            sumPlus.setStyle("-fx-control-inner-background: #");
-
-        }
-        else {
-
+            sumPlus.setStyle("-fx-background-color: LIGHTGREEN;");
+        } else {
+            sumPlus.setStyle("-fx-background-color: PALEVIOLETRED;");
 
         }
         if (answer1 == sum1){
+            sumMinus.setStyle("-fx-background-color: LIGHTGREEN;");
             correctAnswer++;
-
-
         }
         else{
+            sumMinus.setStyle("-fx-background-color: PALEVIOLETRED;");
 
         }
         if (answer2 == sum2){
+            sumMulti.setStyle("-fx-background-color: LIGHTGREEN;");
             correctAnswer++;
 
         }
         else{
+            sumMulti.setStyle("-fx-background-color: PALEVIOLETRED;");
 
         }
         if (answer3 == sum3){
+            sumDiv.setStyle("-fx-background-color: LIGHTGREEN;");
             correctAnswer++;
 
         }
         else{
-
+            sumDiv.setStyle("-fx-background-color: PALEVIOLETRED;");
         }
         timeline.stop();
         answerBtn.setDisable(true);
