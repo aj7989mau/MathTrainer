@@ -18,8 +18,17 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="473.0" prefWidth="646.0" styleClass="Anchor" stylesheets="@../../entity/MathTrainerStylesheet.css">
                <children>
-                  <AnchorPane layoutY="201.0" prefHeight="360.0" prefWidth="927.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
-                  <Button layoutX="140.0" layoutY="24.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="664.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
+                  <AnchorPane layoutY="201.0" prefHeight="360.0" prefWidth="927.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css">
+                     <children>
+                        <TableView fx:id="tableView" layoutX="128.0" layoutY="-77.0" prefHeight="353.0" prefWidth="650.0">
+                          <columns>
+                            <TableColumn fx:id="numberColumn" prefWidth="105.0" text="Frågenummer:" />
+                            <TableColumn fx:id="questionColumn" prefWidth="459.0" text="Fråga" />
+                              <TableColumn prefWidth="85.0" text="Svar" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+                  <Button layoutX="125.0" layoutY="24.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="650.0" styleClass="MenuButton" stylesheets="@../../entity/MathTrainerStylesheet.css" />
                   <Label layoutX="398.0" layoutY="24.0" prefHeight="89.0" prefWidth="130.0" styleClass="labelBlack" text="Svar">
                      <font>
                         <Font size="61.0" />
@@ -33,12 +42,6 @@
                      </image>
                   </ImageView>
                   <Button layoutX="251.0" layoutY="492.0" mnemonicParsing="false" onAction="#backToScore" prefHeight="25.0" prefWidth="182.0" styleClass="buttonReal" text="Tillbaka" />
-                  <TableView fx:id="tableView" layoutX="180.0" layoutY="138.0" onSort="#answerView" prefHeight="336.0" prefWidth="585.0">
-                    <columns>
-                      <TableColumn prefWidth="463.0" text="Frågor" />
-                      <TableColumn minWidth="0.0" prefWidth="121.0" text="Svar" />
-                    </columns>
-                  </TableView>
                </children>
             </AnchorPane>
          </items>
