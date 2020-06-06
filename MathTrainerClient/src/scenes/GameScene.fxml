@@ -11,7 +11,7 @@
    <children>
       <AnchorPane prefHeight="180.0" prefWidth="927.0" styleClass="Anchor">
          <children>
-            <Button layoutX="189.0" layoutY="33.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="622.0" styleClass="Anchi" />
+            <Button layoutX="189.0" layoutY="33.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="622.0" style="-fx-background-color: lightblue;" styleClass="Anchi" />
             <Label fx:id="matematicLbl" layoutX="212.0" layoutY="43.0" prefHeight="64.0" prefWidth="258.0" text="MathGame">
                <font>
                   <Font size="41.0" />
@@ -24,7 +24,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="415.0" prefWidth="928.0" style="-fx-background-color: lightblue;">
+      <AnchorPane prefHeight="415.0" prefWidth="928.0">
          <children>
             <Label fx:id="timeremaininglbl" layoutX="322.0" layoutY="49.0" prefHeight="53.0" prefWidth="133.0" text="Tid kvar:" textAlignment="CENTER" AnchorPane.bottomAnchor="516.0" AnchorPane.leftAnchor="322.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="49.0">
                <font>
@@ -122,10 +122,10 @@
                   <Button fx:id="quitGame" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="27.0" prefWidth="150.0" styleClass="Avsluta" text="Avsluta" />
                </children>
             </AnchorPane>
-            <TextField fx:id="sumPlus" layoutX="493.0" layoutY="138.0" prefHeight="33.0" prefWidth="170.0" />
-            <TextField fx:id="sumMinus" layoutX="493.0" layoutY="184.0" prefHeight="33.0" prefWidth="170.0" />
-            <TextField fx:id="sumMulti" layoutX="493.0" layoutY="230.0" prefHeight="33.0" prefWidth="170.0" />
-            <TextField fx:id="sumDiv" layoutX="493.0" layoutY="275.0" prefHeight="33.0" prefWidth="170.0" />
+            <TextField fx:id="sumPlus" layoutX="493.0" layoutY="138.0" prefHeight="33.0" prefWidth="170.0" styleClass="MenuButton" />
+            <TextField fx:id="sumMinus" layoutX="493.0" layoutY="184.0" prefHeight="33.0" prefWidth="170.0" styleClass="MenuButton" />
+            <TextField fx:id="sumMulti" layoutX="493.0" layoutY="230.0" prefHeight="33.0" prefWidth="170.0" styleClass="MenuButton" />
+            <TextField fx:id="sumDiv" layoutX="493.0" layoutY="275.0" prefHeight="33.0" prefWidth="170.0" styleClass="MenuButton" />
          </children>
       </AnchorPane>
    </children>
