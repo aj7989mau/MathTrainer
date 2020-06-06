@@ -28,31 +28,17 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class GameController extends SceneControllerParent implements InitializeSceneInterface {
-    public Label matematicLbl;
-    public Label timeremaininglbl;
     public Label countdownLabel = new Label();
-    public Button quitGame;
-
     public Label plusLeftLabel;
     public Label plusRightLabel;
     public Label minusLeftLabel;
     public Label minusRightLabel;
     public Label devidedLeftLabel;
     public Label devidedRightLabel;
-    public Label plusLbl;
-    public Label minusLbl;
-    public Label addLbl;
-    public Label dividedLbl;
     public Button startQuiz = new Button();
-
     public Label additionRightLabel;
     public Label additionLeftLabel;
     public Button answerBtn;
-    public Label equals;
-    public Label equals1;
-    public Label equals2;
-    public Label equals3;
-    public AnchorPane panelBtn;
     public TextField sumPlus;
     public TextField sumMinus;
     public TextField sumMulti;
@@ -64,7 +50,6 @@ public class GameController extends SceneControllerParent implements InitializeS
     private int numb4 = (int) (40 * Math.random()) + 1;
     private int numb5 = (int) (10 * Math.random()) + 1;
     private int numb6 = (int) (10 * Math.random()) + 1;
-
     private int numb8 = (int) (10 * Math.random()) + 1;
     private int numb7 = (int) (numb8 * Math.random()) + 1;
     private int sum, sum1, sum2, sum3;
@@ -209,7 +194,6 @@ public class GameController extends SceneControllerParent implements InitializeS
         timeline.stop();
         answerBtn.setDisable(true);
         startQuiz.setDisable(false);
-        System.out.println("Rätt" + correctAnswer);
     }
 }
 
