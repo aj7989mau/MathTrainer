@@ -22,9 +22,9 @@
                      <children>
                         <TableView fx:id="tableView" layoutX="128.0" layoutY="-77.0" prefHeight="353.0" prefWidth="650.0">
                           <columns>
-                            <TableColumn fx:id="numberColumn" prefWidth="105.0" text="Frågenummer:" />
-                            <TableColumn fx:id="questionColumn" prefWidth="459.0" text="Fråga" />
-                              <TableColumn prefWidth="85.0" text="Svar" />
+                            <TableColumn fx:id="questionColumn" prefWidth="449.0" text="Fråga" />
+                             <TableColumn fx:id="answerColumn" prefWidth="90.0" text="Rätt svar" />
+                             <TableColumn fx:id="yourAnswerColumn" prefWidth="90.0" text="Ditt svar" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>

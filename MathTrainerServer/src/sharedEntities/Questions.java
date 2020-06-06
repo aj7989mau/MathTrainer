@@ -33,7 +33,12 @@ public class Questions implements Serializable {
         wrongAnswers[2] = wrongAnswer3; // Adding wrongAnswer3 to an array called wrongAnswer at the pos 2
     }
 
-
+    public Questions(String question, String answer, String wrongAnswer1)
+    {
+        this.question = question;
+        this.answer = answer;
+        this.userAnswer = wrongAnswer1;
+    }
     public void correctAnswer(boolean correctAnswer, String userAnswer){
         this.correctAnswer = correctAnswer;
         this.userAnswer = userAnswer;

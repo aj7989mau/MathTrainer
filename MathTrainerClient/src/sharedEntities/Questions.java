@@ -27,10 +27,15 @@ public class Questions implements Serializable {
         wrongAnswers[2] = wrongAnswer3;
     }
 
-
     public void correctAnswer(boolean correctAnswer, String userAnswer){
         this.correctAnswer = correctAnswer;
         this.userAnswer = userAnswer;
+    }
+    public Questions(String question, String answer, String wrongAnswer1)
+    {
+        this.question = question;
+        this.answer = answer;
+        this.userAnswer = wrongAnswer1;
     }
 
     public String getUserAnswer() {

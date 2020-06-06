@@ -30,17 +30,22 @@ public class ExercisesController extends MainMenuControllerParent {
      */
     public void buttonClicked(ActionEvent actionEvent) {
         String questions = "Questions ";
+        Button button = new Button();
 
         if (actionEvent.getSource() == additionButton) {
-
             questions += "Counting";
+            button = additionButton;
         } else if (actionEvent.getSource() == geometryButton) {
             questions += "Geometry";
+            button = geometryButton;
         } else if (actionEvent.getSource() == statisticsButton) {
             questions += "Statistics";
+            button = statisticsButton;
         } else if (actionEvent.getSource() == placeholderButton) {
             questions += "Random";
+            button = placeholderButton;
         }
         mainController.takeQuiz(questions);
+        //return button;
     }
 }
