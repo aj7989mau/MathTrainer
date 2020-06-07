@@ -1,7 +1,6 @@
 package controllers;
 
 import entity.ScenesEnum;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,7 +11,7 @@ import sharedEntities.Questions;
 
 public class ShowResultsController extends SceneControllerParent implements InitializeSceneInterface{
     @FXML
-    private TableView<Questions> tableView = new TableView<Questions>();
+    private TableView<Questions> tableView = new TableView<>();
 
     @FXML
     private TableColumn<Questions, String> questionColumn;
@@ -35,14 +34,16 @@ public class ShowResultsController extends SceneControllerParent implements Init
         yourAnswerColumn.setCellValueFactory(new PropertyValueFactory<>("userAnswer"));
 
         tableView.setItems(getQuestions());
-
-        for(int i = 0; i < questions.length; i++){
-
-        }
     }
 
     public void goToHome(ActionEvent actionEvent) {
-        mainController.setScene(ScenesEnum.Home);
+        int score = 0;
+        for (Questions question : questions){
+            if (question.getAnswer().equals(question.getUserAnswer())){
+                score++;
+            }
+        }
+        mainController.reportResult(score);
     }
 
     public void backToScore(ActionEvent actionEvent) {
@@ -54,31 +55,22 @@ public class ShowResultsController extends SceneControllerParent implements Init
      */
     public ObservableList<Questions> getQuestions()
     {
-        ObservableList<Questions> questions = FXCollections.observableArrayList();
-     /*   Button buttonClicked = new ExercisesController().buttonClicked(new ActionEvent());
-        String button = buttonClicked.getText();
-        if (button == "Statistik")
-        {
-            questions.add(new Questions("Statistik questions?", "Sami", "Johanna", "Bajram", "Motaz"));
+        ObservableList<Questions> values = FXCollections.observableArrayList();
+        for (Questions question : questions) {
+            values.add(new Questions(question.getQuestion(), question.getAnswer(), question.getUserAnswer()));
         }
-        else if (button == "Geometri")
-        {
-            questions.add(new Questions("Geometri questions?", "Sami", "Johanna", "Bajram", "Motaz"));
-        }
-        else if (button == "Räknesätten")
-        {
-            questions.add(new Questions("Räknesätten questions?", "Sami", "Johanna", "Bajram", "Motaz"));
+        return values;
+    }
 
-        }
-        else if (button == "Slumpade frågor")
-        {
-            questions.add(new Questions("Slumpade questions?", "Sami", "Johanna", "Bajram", "Motaz"));
+    private class Values{
+        String question;
+        String answer;
+        String userAnswer;
 
-        }*/
-        questions.add(new Questions("Vad heter du?", "Sami", "Johanna"));
-        questions.add(new Questions("Vad heter du?", "Sami", "Johanna,"));
-        questions.add(new Questions("Vad heter du?", "Sami", "Johanna"));
-        questions.add(new Questions("Vad heter du?", "Sami", "Johanna,"));
-        return questions;
+        public Values(String question, String answer, String userAnswer){
+            this.question = question;
+            this.answer = answer;
+            this.userAnswer = userAnswer;
+        }
     }
 }

@@ -25,7 +25,7 @@ public class StartGameController extends MainMenuControllerParent implements Ini
             User user = (User) object;
             //TODO: Nån metod för att hämta ett score från user (som bör lagras vid avklarat spel).
             // Detta skrivs sen till bestScoreLabel.
-            bestScoreLabel.setText("Fett bra resultat");
+            bestScoreLabel.setText("Inget resultat registrerat");
         } else {
             bestScoreLabel.setText("Logga in för att se ditt resultat!");
             bestScoreLabel.setTextFill(Color.web("#ff0000", 0.8));
