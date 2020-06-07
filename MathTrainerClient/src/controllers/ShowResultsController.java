@@ -27,7 +27,6 @@ public class ShowResultsController extends SceneControllerParent implements Init
 
     @Override
     public void setInitialValues(Object object) {
-        //TODO: Objektet är en array av typ Question[]. Varje Questions fråga, användarsvar och korrekt svar bör visas.
         questions = (Questions[]) object;
         questionColumn.setCellValueFactory(new PropertyValueFactory<>("question"));
         answerColumn.setCellValueFactory(new PropertyValueFactory<>("answer"));
@@ -60,17 +59,5 @@ public class ShowResultsController extends SceneControllerParent implements Init
             values.add(new Questions(question.getQuestion(), question.getAnswer(), question.getUserAnswer()));
         }
         return values;
-    }
-
-    private class Values{
-        String question;
-        String answer;
-        String userAnswer;
-
-        public Values(String question, String answer, String userAnswer){
-            this.question = question;
-            this.answer = answer;
-            this.userAnswer = userAnswer;
-        }
     }
 }
