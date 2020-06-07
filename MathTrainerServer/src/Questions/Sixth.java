@@ -1,13 +1,7 @@
 package Questions;
 
-import Server.Course;
 import sharedEntities.Questions;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,22 +10,18 @@ import java.util.List;
  * selects to be apart of the class. Added new questions
  *
  * @author JohannaDahlborn
- * @version 2.0
+ * @version 1.05
  * @since 2020-05-11
  */
 
 public class Sixth extends Course {
     //adding the various types of questions into an array called Questions
-    private Questions[] statisticQuestion;
+    private Questions[] statisticQuestions;
     private Questions[] geometryQuestions;
     private Questions[] fourCountQuestions;
     private Questions[] randomlyQuestions;
 
     private List<String> statisticList;
-
-    private String statisticLoc, geoLoc, FouCountLoc;
-
-    private int statQuesLength;
     private String question, correct, wrong1, wrong2, wrong3;
     private String n = "\n";
 
@@ -52,23 +42,11 @@ public class Sixth extends Course {
 
         //slumpade frågor
         initRandomlyQuestion();
-
-        //Down commented code are some experiments for creating and reading questions from a text file
-
-        /* statisticLoc = "/Users/abdulsamisahil/Documents/GitHub/MathTrainer/MathTrainerServer/Statistic.txt";
-        geoLoc = "";
-        FouCountLoc = "";
-        readStatQue();
-        statQuesLength = statisticList.size() / 5;
-        statisticQuestion = new Questions[statQuesLength];
-        setStatisticQuestions();
-        createStatQueArray();
-        System.out.println(statQuesLength);*/
     }
 
     /**
      * This method takes a question array as an arg and randomise the elements in it and returns back the array
-     * @author abdul sami sahil
+     * @author Abdul Sami Sahil
      * @since 2020-05-28
      * @param array arg that is taken
      * @return returns back the array randomly
@@ -101,9 +79,7 @@ public class Sixth extends Course {
         String q9 = "Fem tärningar kastas och de visar sidorna: 6, 0, 4, 3, 2. Beräkna medelvärdet.";
         String q10 = "Medelvärdet av tre tal är 5. Två av talen är 2 och 5. Vilket är det tredje talet?";
 
-
-
-        statisticQuestion = new Questions[]{
+        statisticQuestions = new Questions[]{
                 new Questions(q1, "3", "1", "15", "30"),
                 new Questions(q2, "3", "6", "2", "0"),
                 new Questions(q3, "6", "10", "3", "32"),
@@ -179,9 +155,6 @@ public class Sixth extends Course {
         String q9 = "Mikaels favorittröja brukade kosta 150 kr. På rea blev den 20% billigare, då köpte han den. Hur mycket kostade den då?";
         String q10 = "Räkna ut  20 % av 150 kr";
 
-
-
-
        randomlyQuestions = new Questions[]{
                 new Questions(q1, "3", "1", "15", "30"),
                 new Questions(q2, "3", "6", "2", "0"),
@@ -197,8 +170,8 @@ public class Sixth extends Course {
 
     //Getter methods for StaticQuestions, GeometryQuestions & CountQuestions
     @Override
-    public Questions[] getStatisticQuestion() {
-        Questions [] array = shuffleArrayRandomly(statisticQuestion);
+    public Questions[] getStatisticQuestions() {
+        Questions [] array = shuffleArrayRandomly(statisticQuestions);
         return array;
     }
     @Override
@@ -217,17 +190,11 @@ public class Sixth extends Course {
         Questions [] array = shuffleArrayRandomly(randomlyQuestions);
         return array;
     }
-
-    @Override
-    public Questions[] getQuestions() {
-        return new Questions[0];
-    }
-
     /**
      *
      * @author abdul sami sahil
      * @since 2020-05-28
-     * @param args to have an executable code,
+     * @param args to have an executable code, and check that shuffleArraysRandomly method works
      */
     public static void main(String[] args) {
         Sixth sixth = new Sixth();
@@ -241,103 +208,6 @@ public class Sixth extends Course {
         for (Questions qe: q )
         {
             System.out.println(qe + " ");
-        }
-    }
-    private void readStatQue()
-    {
-        String line;
-        statisticList = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(statisticLoc));
-            while ((line = reader.readLine()) != null)
-            {
-                statisticList.add(line);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    //Another way to declare questions
-    private void initQA(){
-        int questionIndex = 0;
-        for (int i = 0; i < statisticList.size(); i++)
-        {
-            if (statisticList.get(i).contains("?"))
-            {
-                question = statisticList.get(i);
-                questionIndex = Integer.valueOf(i);
-                System.out.println("Question index: " + questionIndex);
-            }
-        }
-    }
-
-
-    /*public void takeTest(Questions [] questions){
-        int score = 0;
-        Scanner userInput = new Scanner(System.in);
-
-        /*System.out.println("Please enter your username");
-        String username = userInput.nextLine();
-        System.out.println("Please enter your age");
-        int userAge = userInput.nextInt();
-        System.out.println("Please enter your id");
-        String id = userInput.nextLine();
-        userInput .nextLine();
-
-        User user = new User(username, userAge, id);
-        usersList.add(user);
-        System.out.println("Mr " + username + ", you are admitted to the 7th course");
-
-
-        for (int i = 0; i < questions.length; i++){
-            System.out.println(questions[i]);
-            String answer = userInput.nextLine();
-            if (answer.equals(questions[i].getAnswer())){
-                score++;
-            }
-        }
-        }*/
-
-
-    public void setStatisticQuestions() {
-        //  String question = null, correct = null, wrong1 = null, wrong2 = null, wrong3 = null;
-
-        for (int j = 0; j < statisticQuestion.length; j++) {
-
-            //  System.out.println(statisticQuestion.toString());
-            for (int i = 0; i < statisticList.size(); i++) {
-                question = statisticList.get(i);
-                i++;
-                correct = statisticList.get(i);
-                i++;
-                wrong1 = statisticList.get(i);
-                i++;
-                wrong2 = statisticList.get(i);
-                i++;
-                wrong3 = statisticList.get(i);
-                //  statisticQuestion = new Questions[]{new Questions(question, correct, wrong1, wrong2, wrong3)};
-                //  statisticQuestion[i] = new Questions()
-            }
-            System.out.println(question + "\n" + correct + "\n" + wrong1 + "\n" + wrong2 + "\n" + wrong3);
-            statisticQuestion[j] = new Questions(question, correct, wrong1, wrong2, wrong3);
-        }
-
-       /*     statisticQuestion = new Questions[19];
-        statisticQuestion[0] = new Questions(question, correct, wrong1, wrong2, wrong3);
-        statisticQuestion[1] = new Questions(question, correct, wrong1, wrong2, wrong3);
-        statisticQuestion[2] = new Questions(question, correct, wrong1, wrong2, wrong3);
-        statisticQuestion[3] = new Questions(question, correct, wrong1, wrong2, wrong3);
-        statisticQuestion[4] = new Questions(question, correct, wrong1, wrong2, wrong3);*/
-
-    }
-    private void createStatQueArray(){
-        for (int i = 0; i < statisticQuestion.length; i++)
-        {
-            statisticQuestion[i] = new Questions(statisticList.get(i), statisticList.get(i), statisticList.get(i), statisticList.get(i), statisticList.get(i));
-
-            //  System.out.println(statisticQuestion.toString());
         }
     }
 }

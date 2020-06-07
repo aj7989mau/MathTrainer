@@ -1,65 +1,37 @@
 package Questions;
 
-import sharedEntities.User;
 import sharedEntities.Questions;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class is a subclass to the parent Course, this class makes an
  * array of the Question class and returns it back whenever the user
  * selects to be apart of the class.
  * @author abdulsamisahil
- * @version 1.0
+ * @version 1.5
  * @since 2020-03-31
+ *
+ *
+ * Obs: Class is usable right now, keeping it for future implementation same as class Sixth
  */
-public class Ninth {
-    private Questions[] questions;
-    private List<User> usersList;
+public class Ninth extends Course {
 
-    public Ninth(){
-        usersList = new ArrayList<>();
-        String n = "\n";
-        String q1 = "What is 12 multiply by 12?" + n + "(a) 144" + n + "(b) 148" + n + "(c) 240" + n;
-        String q2 = "What is the square value of 169?" + n + "(a) 12" + n + "(b) 34" + n + "(c) 13" + n;
-        //questions = new Questions[]{new Questions(q1, "a"), new Questions(q2, "c")};
-        //takeTest(questions);
+    @Override
+    public Questions[] getStatisticQuestions() {
+        return new Questions[0];
     }
-    /*public void takeTest(Questions [] questions){
-        int score = 0;
-        Scanner userInput = new Scanner(System.in);
 
-        /*System.out.println("Please enter your username");
-        String username = userInput.nextLine();
-        System.out.println("Please enter your age");
-        int userAge = userInput.nextInt();
-        System.out.println("Please enter your id");
-        String id = userInput.nextLine();
-        userInput .nextLine();
-
-        User user = new User(username, userAge, id);
-        usersList.add(user);
-        System.out.println("Mr " + username + ", you are admitted to the 7th course");
-
-
-        for (int i = 0; i < questions.length; i++){
-            System.out.println(questions[i]);
-            String answer = userInput.nextLine();
-            if (answer.equals(questions[i].getAnswer())){
-                score++;
-            }
-        }
-        }*/
-
-    public void printQuestions(){
-        for (Questions q: questions){
-            System.out.println(q);
-        }
+    @Override
+    public Questions[] getGeometryQuestions() {
+        return new Questions[0];
     }
-    public void printUsersList(){
-        for (User u: usersList){
-            System.out.println(u);
-        }
+
+    @Override
+    public Questions[] getFourCountQuestions() {
+        return new Questions[0];
+    }
+
+    @Override
+    public Questions[] getRandomiseQuestions() {
+        return new Questions[0];
     }
 }

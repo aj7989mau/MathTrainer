@@ -55,6 +55,7 @@ public class User implements Serializable {
         this.year = Integer.parseInt(year.toString());
     }
 
+
     public String getUserName() {
         return userName;
     }
@@ -90,4 +91,5 @@ public class User implements Serializable {
                 ", password = " + password +
                 '}';
     }
+
 }

@@ -1,28 +1,23 @@
 package Server;
 
-import sharedEntities.Questions;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
+import Questions.Course;
 import Questions.Sixth;
 import sharedEntities.User;
 
 
 /**
- * MathTainer Server class, controls logic/communications with the MathTrainer Clients.
+ * MathTrainer Server class, controls logic/communications with the MathTrainerClient.
  *
  * @author abdulsamisahil
  * @version 1.5
  * @since 2020-05-27
  */
-public class MServer extends Thread {
+public class MServer {
 
     private ServerSocket serverSocket;
     private boolean keepRunning;
@@ -31,7 +26,6 @@ public class MServer extends Thread {
     private ArrayList<User> usersList;
     private User user;
     private boolean isUserNew = true;
-    private boolean isLoginSucceeded;
 
     /**
      * Constructs MServer
@@ -60,21 +54,13 @@ public class MServer extends Thread {
         // Starting server
         serverSocket = new ServerSocket(port);
         System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
-        //creating a thread pool that generates threads for clients demand
-       // ExecutorService executor = Executors.newCachedThreadPool();
+
         while (keepRunning) {
-
             try {
-
                 Socket connect = serverSocket.accept();
                 System.out.println("Connection successful");
-               // executor.execute(new ClientHandler(connect));
                 Thread t = new ClientHandler(connect);
                 t.start();
-               /* if (!keepRunning)
-                {
-                    executor.shutdown();
-                }*/
             } catch (Exception e) {
                 serverSocket.close();
                 e.printStackTrace();
@@ -123,18 +109,14 @@ public class MServer extends Thread {
     class ClientHandler extends Thread {
 
         private Socket server;
-
         private ObjectInputStream ois;
         private ObjectOutputStream oos;
-
-
         /**
          * Constructor
-         * @param server connects the client to server
+         * @param server connects the client to server and initiates the object streams
          */
         public ClientHandler(Socket server) throws IOException {
             this.server = server;
-
             try {
                 setupStreams();
             } catch (IOException e) {
@@ -143,12 +125,12 @@ public class MServer extends Thread {
         }
 
         /**
-         * Through this method a client starts operating/communicating with the server, the start method of the thread.
+         * Through this method a client starts operating/communicating with the server,
+         * the start method of the thread.
          */
         public void run() {
             try {
                 Course course = null;
-                Questions[] questions = null;
                 try {
                     String input = ois.readUTF();
                     if (input.equals("Login")) {
@@ -166,8 +148,7 @@ public class MServer extends Thread {
                         User user = (User) ois.readObject();
                         boolean isUserNew = newUser(user);
                         if (isUserNew) {
-                            //Thread safety, if more clients wants to access this shared array userList, only one client
-                            //at a time will be added to added.
+                            //Implementing thread safety in case of concurrent programming
                             Object lock = new Object();
                             synchronized (lock){
                                 usersList.add(user);
@@ -176,17 +157,14 @@ public class MServer extends Thread {
                                 fileStream.writeObject(user);
                                 fileStream.flush();
                             }
-
-                            //Sending it back to the client
+                            //Sending the user back to the client
                             oos.writeObject(user);
-
                         } else {
                             oos.writeObject("Inloggning misslyckad: Användarnamnet är upptaget");
                         }
                     } else if (input.equals("Questions")) {
                         System.out.println("Checking questions");
                         course = new Sixth();
-
                         String answerTypeOfQuestion = (String) ois.readObject();
                         System.out.println("Recieved: " + answerTypeOfQuestion);
                         if (answerTypeOfQuestion.equals("Geometry")) {
@@ -194,18 +172,11 @@ public class MServer extends Thread {
                         } else if (answerTypeOfQuestion.equals("Counting")) {
                             oos.writeObject(course.getFourCountQuestions());
                         } else if (answerTypeOfQuestion.equals("Statistics")) {
-                            oos.writeObject(course.getStatisticQuestion());
+                            oos.writeObject(course.getStatisticQuestions());
                         } else if (answerTypeOfQuestion.equals("Random")) {
                             oos.writeObject(course.getRandomiseQuestions());
                         }
-
-                        //Todo: else sats om något är ogiltigt har valts
                     } else if (input.equals("Result")) {
-                        //TODO: Klienten skickar ett User-objekt
-                        // Kolla i user-array tills du hittar den med samma användarnamn
-                        // Ersätt den med det objekt klienten skickade
-                        // Skicka tillbaka samma User-objekt till klienten
-                        // Om ingen användaren hittas skicka en vanlig string
                         User user =(User) ois.readObject();
                         user = result(user);
                         if (user != null)
@@ -216,12 +187,7 @@ public class MServer extends Thread {
                         else {
                             oos.writeUTF("Dessvärre hittar inte användaren");
                         }
-
-                    } else if (input.equals("UserStats")) {
-                        //TODO: Vi skickar ett user objekt
-                        // svara med en String med användarens statistik, ni får välja format själva :D
                     }
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -230,11 +196,10 @@ public class MServer extends Thread {
             }
         }
 
-
         /**
          * This method is taking the user object as an argument and checking it if it is not
          * already there in the list of users, so this method returns true, otherwise false
-         * @author parprogramming sami, johanna and Motaz
+         * @author parprogramming Abdul Sami Sahil, johanna and Motaz
          */
         private boolean newUser(User user) {
             for (int i = 0; i < usersList.size(); i++) {
@@ -247,7 +212,7 @@ public class MServer extends Thread {
         /**
          * This method is taking the user as an argument and checking it
          * if the user is already registered in the system, will be returned
-         * @author parprogramming sami, johanna and Motaz
+         * @author parprogramming Abdul Sami Sahil, johanna and Motaz
          */
         private User isLoginSucceeded(User receivedUser) {
             String username = receivedUser.getUserName();
@@ -263,7 +228,6 @@ public class MServer extends Thread {
             }
             return user;
         }
-
         /**
          * Checking if the user is in the collection
          * @author Abdul Sami Sahil
@@ -287,96 +251,12 @@ public class MServer extends Thread {
             return user;
         }
         /**
-         * As soon as the user starts, this method starts the test
-         * @param questions takes an array of Question class,
-         * @throws IOException catches the errors
-         */
-        private void takeTest(Questions[] questions) throws IOException {
-            int score = 0;
-            for (int i = 0; i < questions.length; i++) {
-                oos.writeUTF(questions[i].getQuestion());
-                String answer = ois.readUTF();
-                if (answer.equals(questions[i].getAnswer())) {
-                    score++;
-                }
-            }
-            String str = "Resultat ";
-            oos.writeUTF(str + ", you got " + score + "/" + questions.length);
-        }
-
-        /**
          * This method initializes and setups the streams that holds/read/writes the data input from the users
          */
         private void setupStreams() throws IOException {
             ois = new ObjectInputStream(server.getInputStream());
             oos = new ObjectOutputStream(server.getOutputStream());
-
             oos.flush(); // sends everything that the user wants
-
         }
-
-        /**
-         * Starts the quiz
-         */
-       /* private void startQuiz()
-        {
-            Course course;
-            try {
-                outputStream.writeUTF("Which level do you want to start with?\n(d) Seventh\n(e) Eigth\n(f) Ninth\n(g) leave now\n(h) Close Server\n");
-                String level = inputStream.readUTF();
-                if (level.equals("d")) {
-                    course = new Seventh();
-                    //   addUser();
-                    Questions[] questions = course.getQuestions();
-                    takeTest(questions);
-                } else if (level.equals("e")) {
-                    //course = new Eighth();
-                    //    addUser();
-                    Questions[] questions = course.getQuestions();
-                    takeTest(questions);
-                } else if (level.equals("f")) {
-                    //course = new Ninth();
-                    //    addUser();
-                    Questions[] questions = course.getQuestions();
-                    takeTest(questions);
-                }
-                //QUIT CLIENT
-                else if (level.equals("g"))
-                {
-                    closeClient();
-                }
-                //KILL SERVER
-                else if (level.equals("h")) {
-                    try {
-                        System.out.println("Closing server...");
-                        this.server.close();
-                        this.inputStream.close();
-                        this.outputStream.close();
-                        System.exit(0);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    outputStream.writeUTF("Invalid Option");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-        /**
-         * Quit User
-         */
-        /*private void closeClient() {
-            try {
-                System.out.println("Connection to " + this.server + " closed.");
-                this.server.close();
-                this.inputStream.close();
-                this.outputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
     }
 }
